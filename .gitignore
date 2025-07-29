@@ -1,0 +1,23 @@
+*venv
+__pycache__/
+
+
+ml-env/
+*venv/
+.venv/
+venv/
+
+**/nltk_data/
+
+data/
+
+# files.csv
+/spotify_dataset.csv
+
+# tf-idf's
+X_tfidf_6_columns.csv
+X_tfidf.csv
+X_tfidf_las_df.csv 
+
+*.csv
+#Sin / para ignorar en cualquier carpeta

@@ -1,0 +1,11 @@
+# API Requirements - FastAPI para Explicit Lyrics Classifier
+fastapi>=0.68.0
+uvicorn>=0.15.0
+pydantic>=1.8.0
+requests>=2.25.0
+
+# Dependencias del modelo ML (ya incluidas en requirements.txt)
+numpy>=1.21.0
+pandas>=1.3.0
+nltk>=3.6
+scikit-learn>=1.0.0
