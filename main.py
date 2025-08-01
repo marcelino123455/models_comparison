@@ -395,11 +395,11 @@ def main():
     print("="*50)
 
     # Load and preprocess data
-    csv_path = "./spotify_dataset_sin_duplicados_4.csv"
+    csv_path = "./data/spotify_dataset_sin_duplicados_4.csv"
 
     # Use a sample for faster development (remove sample_size for full dataset)
     classifier = ExplicitLyricsClassifier()
-    npy_path = "./lb_npy.npy" 
+    npy_path = "./data/lb_npy.npy" 
     X, y = classifier.load_precomputed_data(csv_path, npy_path, sample_size=None, balance_data=True)
 
     # Split data
