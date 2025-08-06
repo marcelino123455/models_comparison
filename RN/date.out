@@ -1,0 +1,4 @@
+Input Notebook:  rn.ipynb
+Output Notebook: ejecutado_rn_20250803_164603.ipynb
+Executing:   0%|          | 0/10 [00:00<?, ?cell/s]Executing notebook with kernel: python3
+Executing:  10%|█         | 1/10 [00:05<00:47,  5.30s/cell]Executing:  30%|███       | 3/10 [00:09<00:19,  2.75s/cell]Executing:  70%|███████   | 7/10 [52:15<26:35, 531.76s/cell]Executing:  80%|████████  | 8/10 [52:16<14:15, 427.99s/cell]Executing: 100%|██████████| 10/10 [52:16<00:00, 274.80s/cell]Executing: 100%|██████████| 10/10 [52:17<00:00, 313.71s/cell]

@@ -50,8 +50,7 @@ class ExplicitLyricsClassifier:
         self.random_state = random_state
         self.preprocessor = TextPreprocessor()
         self.vectorizer = TFIDFVectorizer(
-            # max_features=5000,  # Mantener 5000 características
-            max_features = 1000, 
+            max_features=5000,  # Mantener 5000 características
             min_df=3,  # Reducir min_df para más vocabulario
             max_df=0.92,  # Ajustar max_df
             ngram_range=(1, 2)  # Mantener bigramas
@@ -211,9 +210,11 @@ class ExplicitLyricsClassifier:
         first_elem = X.iloc[0]
         print("Input already vectorized (Precomputed Embeddings)")
         if isinstance(first_elem, np.ndarray):
+            # print("Input already vectorized (TF-IDF precomputed)")
             X_vec = np.stack(X.to_numpy())
         else:
             X_vec = self.vectorizer.fit_transform(X.tolist())
+        
 
         # Vectorize text
         # print("Vectorizing text...")
@@ -411,7 +412,7 @@ def main():
 
     if TESTING:
         print("You are executing with a short example of the dataset")
-        _SAMPLE_SIZE = 500
+        _SAMPLE_SIZE = 1000
         # _EMBEDDINGS = _EMBEDDINGS[:1000]
     else:
         print("You are executing with all dataset")
@@ -422,9 +423,16 @@ def main():
     csv_path = "./data/spotify_dataset_sin_duplicados_4.csv"
 
 
+    
+    
+
+
+
     ### LB AND TF-IDF
 
-    for embedding_type in ['tfidf', 'lyrics_bert']:
+    # for embedding_type in ['tfidf', 'lyrics_bert']:
+    for embedding_type in ['tfidf']:
+    # for embedding_type in ['lyrics_bert', 'tfidf']:
         print(f"\n{'#' * 50}")
         print(f"Running experiment with {embedding_type.upper()} embeddings")
         print(f"{'#' * 50}")
@@ -434,7 +442,9 @@ def main():
             # Use a sample for faster development (remove sample_size for full dataset)
             classifier = ExplicitLyricsClassifier()
             npy_path = "./data/lb_npy.npy" 
-            X, y = classifier.load_precomputed_data(csv_path, npy_path, sample_size=_SAMPLE_SIZE)
+            X_array, y = classifier.load_precomputed_data(csv_path, npy_path, sample_size=_SAMPLE_SIZE)
+            
+            X = np.stack(X_array.to_numpy())  
         else: 
             print("TF-IDF Embbedings will be used")
 
@@ -442,12 +452,37 @@ def main():
             # nltk.download('punkt_tab')
             classifier = ExplicitLyricsClassifier()
             # X, y = classifier.load_precomputed_data(csv_path, npy_path, sample_size=_SAMPLE_SIZE)
-            X, y = classifier.load_and_preprocess_data(
+            _, y = classifier.load_and_preprocess_data(
                 csv_path,
                 sample_size=_SAMPLE_SIZE,
                 balance_data=False
             )
-    
+            # X = classifier.vectorizer.fit_transform(Xx.tolist())
+
+            X = pd.read_csv("./data/X_tfidf_las_df.csv").values
+            # X = X[:1000] 
+        
+        # Adding the rest of columns
+        # csv_path = "./data/spotify_dataset_sin_duplicados_4.csv"
+        df = pd.read_csv(csv_path, nrows=_SAMPLE_SIZE)
+        df['Loudness (db)'] = df['Loudness (db)'].astype(str).str.replace('db', '', regex=False)
+        df['Loudness (db)'] = pd.to_numeric(df['Loudness (db)'], errors='coerce')
+        # Asegurarse que tenga data
+        df[['Danceability', 'Loudness (db)']] = df[['Danceability', 'Loudness (db)']].fillna(0)
+        
+        from sklearn.preprocessing import StandardScaler
+        scaler = StandardScaler()
+        X_num = scaler.fit_transform(df[['Danceability', 'Loudness (db)']])
+
+        # X = pd.read_csv("./data/X_tfidf_las_df.csv").values
+        X = np.concatenate([X, X_num], axis=1)
+        # X_array = np.stack(X.to_numpy())  
+        # print("Shape de X_array (embeddings):", X_array.shape)
+        print(f"Nueva forma de X con embedding '{embedding_type}': {X.shape}")
+
+        # Convertir nuevamente a unidimensional X
+        X = pd.Series([row for row in X])
+
         # Split data
         print("\nSplitting data...")
         X_train, X_test, y_train, y_test = train_test_split(
@@ -465,7 +500,7 @@ def main():
         print(f"Test set size: {len(X_test)}")
 
         # Output directories
-        _output_dir = f"outputs/conf_matrices_{embedding_type}"
+        _output_dir = f"outputs_models_VS_DT/conf_matrices_{embedding_type}"
         os.makedirs(_output_dir, exist_ok=True)
 
         # Compare models
@@ -490,10 +525,9 @@ def main():
         final_classifier.fit(X_train_bal, y_train_bal)
 
         # Save model
-        os.makedirs('saved_models', exist_ok=True)
-        save_path = f'saved_models/explicit_lyrics_classifier_{embedding_type}.pkl'
+        os.makedirs('saved_models_vs_DT', exist_ok=True)
+        save_path = f'saved_models_vs_DT/explicit_lyrics_classifier_{embedding_type}.pkl'
         final_classifier.save_model(save_path)
-        
 
 if __name__ == "__main__":
     main()
