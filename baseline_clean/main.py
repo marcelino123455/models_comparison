@@ -243,7 +243,7 @@ def main():
             X_train = scaler.fit_transform(X_train)
             X_test = scaler.transform(X_test)
         
-        output_dir = f"outputs_{embedding_type}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}"
+        output_dir = f"outputs/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}/{embedding_type}"
         train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_=output_dir)
 
 
