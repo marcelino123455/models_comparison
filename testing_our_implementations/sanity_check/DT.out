@@ -1,0 +1,252 @@
+Input Notebook:  checking_LB_embb.ipynb
+Output Notebook: ejecutado_DT_20250809_223547.ipynb
+Executing:   0%|          | 0/21 [00:00<?, ?cell/s]Executing notebook with kernel: python3
+Executing:   5%|▍         | 1/21 [00:01<00:37,  1.87s/cell]Executing:  19%|█▉        | 4/21 [00:18<01:22,  4.85s/cell]Executing:  19%|█▉        | 4/21 [00:20<01:25,  5.06s/cell]
+Traceback (most recent call last):
+  File "/home/marcelino.maita/.venv/bin/papermill", line 7, in <module>
+    sys.exit(papermill())
+             ~~~~~~~~~^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/cli.py", line 235, in papermill
+    execute_notebook(
+    ~~~~~~~~~~~~~~~~^
+        input_path=input_path,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<15 lines>...
+        execution_timeout=execution_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/execute.py", line 131, in execute_notebook
+    raise_for_execution_errors(nb, output_path)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+    raise error
+papermill.exceptions.PapermillExecutionError: 
+---------------------------------------------------------------------------
+Exception encountered at "In [3]":
+---------------------------------------------------------------------------
+gaierror                                  Traceback (most recent call last)
+File ~/.venv/lib/python3.13/site-packages/urllib3/connection.py:198, in HTTPConnection._new_conn(self)
+    197 try:
+--> 198     sock = connection.create_connection(
+    199         (self._dns_host, self.port),
+    200         self.timeout,
+    201         source_address=self.source_address,
+    202         socket_options=self.socket_options,
+    203     )
+    204 except socket.gaierror as e:
+
+File ~/.venv/lib/python3.13/site-packages/urllib3/util/connection.py:60, in create_connection(address, timeout, source_address, socket_options)
+     58     raise LocationParseError(f"'{host}', label empty or too long") from None
+---> 60 for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+     61     af, socktype, proto, canonname, sa = res
+
+File /opt/ohpc/pub/libs/gnu12/python3/3.13.2/lib/python3.13/socket.py:977, in getaddrinfo(host, port, family, type, proto, flags)
+    976 addrlist = []
+--> 977 for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+    978     af, socktype, proto, canonname, sa = res
+
+gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+NameResolutionError                       Traceback (most recent call last)
+File ~/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:787, in HTTPConnectionPool.urlopen(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)
+    786 # Make the request on the HTTPConnection object
+--> 787 response = self._make_request(
+    788     conn,
+    789     method,
+    790     url,
+    791     timeout=timeout_obj,
+    792     body=body,
+    793     headers=headers,
+    794     chunked=chunked,
+    795     retries=retries,
+    796     response_conn=response_conn,
+    797     preload_content=preload_content,
+    798     decode_content=decode_content,
+    799     **response_kw,
+    800 )
+    802 # Everything went great!
+
+File ~/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:488, in HTTPConnectionPool._make_request(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)
+    487         new_e = _wrap_proxy_error(new_e, conn.proxy.scheme)
+--> 488     raise new_e
+    490 # conn.request() calls http.client.*.request, not the method in
+    491 # urllib3.request. It also calls makefile (recv) on the socket.
+
+File ~/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:464, in HTTPConnectionPool._make_request(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)
+    463 try:
+--> 464     self._validate_conn(conn)
+    465 except (SocketTimeout, BaseSSLError) as e:
+
+File ~/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:1093, in HTTPSConnectionPool._validate_conn(self, conn)
+   1092 if conn.is_closed:
+-> 1093     conn.connect()
+   1095 # TODO revise this, see https://github.com/urllib3/urllib3/issues/2791
+
+File ~/.venv/lib/python3.13/site-packages/urllib3/connection.py:753, in HTTPSConnection.connect(self)
+    752 sock: socket.socket | ssl.SSLSocket
+--> 753 self.sock = sock = self._new_conn()
+    754 server_hostname: str = self.host
+
+File ~/.venv/lib/python3.13/site-packages/urllib3/connection.py:205, in HTTPConnection._new_conn(self)
+    204 except socket.gaierror as e:
+--> 205     raise NameResolutionError(self.host, self, e) from e
+    206 except SocketTimeout as e:
+
+NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f6b2de37610>: Failed to resolve 'huggingface.co' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+MaxRetryError                             Traceback (most recent call last)
+File ~/.venv/lib/python3.13/site-packages/requests/adapters.py:667, in HTTPAdapter.send(self, request, stream, timeout, verify, cert, proxies)
+    666 try:
+--> 667     resp = conn.urlopen(
+    668         method=request.method,
+    669         url=url,
+    670         body=request.body,
+    671         headers=request.headers,
+    672         redirect=False,
+    673         assert_same_host=False,
+    674         preload_content=False,
+    675         decode_content=False,
+    676         retries=self.max_retries,
+    677         timeout=timeout,
+    678         chunked=chunked,
+    679     )
+    681 except (ProtocolError, OSError) as err:
+
+File ~/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py:841, in HTTPConnectionPool.urlopen(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)
+    839     new_e = ProtocolError("Connection aborted.", new_e)
+--> 841 retries = retries.increment(
+    842     method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    843 )
+    844 retries.sleep()
+
+File ~/.venv/lib/python3.13/site-packages/urllib3/util/retry.py:519, in Retry.increment(self, method, url, response, error, _pool, _stacktrace)
+    518     reason = error or ResponseError(cause)
+--> 519     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    521 log.debug("Incremented Retry for (url='%s'): %r", url, new_retry)
+
+MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /api/models/brunokreiner/lyrics-bert/tree/main/additional_chat_templates?recursive=False&expand=False (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6b2de37610>: Failed to resolve 'huggingface.co' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+ConnectionError                           Traceback (most recent call last)
+Cell In[3], line 17
+     15 MODEL_NAME = 'brunokreiner/lyrics-bert'
+     16 # Load model from HuggingFace Hub
+---> 17 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+     18 model = AutoModel.from_pretrained(MODEL_NAME)
+     20 # Tokenize sentences
+
+File ~/.venv/lib/python3.13/site-packages/transformers/models/auto/tokenization_auto.py:1114, in AutoTokenizer.from_pretrained(cls, pretrained_model_name_or_path, *inputs, **kwargs)
+   1110     if tokenizer_class is None:
+   1111         raise ValueError(
+   1112             f"Tokenizer class {tokenizer_class_candidate} does not exist or is not currently imported."
+   1113         )
+-> 1114     return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+   1116 # Otherwise we have to be creative.
+   1117 # if model is an encoder decoder, the encoder tokenizer class is used by default
+   1118 if isinstance(config, EncoderDecoderConfig):
+
+File ~/.venv/lib/python3.13/site-packages/transformers/tokenization_utils_base.py:1956, in PreTrainedTokenizerBase.from_pretrained(cls, pretrained_model_name_or_path, cache_dir, force_download, local_files_only, token, revision, trust_remote_code, *init_inputs, **kwargs)
+   1952                         vocab_files[f"chat_template_{template_name}"] = (
+   1953                             f"{CHAT_TEMPLATE_DIR}/{template_file.name}"
+   1954                         )
+   1955             else:
+-> 1956                 for template in list_repo_templates(
+   1957                     pretrained_model_name_or_path,
+   1958                     local_files_only=local_files_only,
+   1959                     revision=revision,
+   1960                     cache_dir=cache_dir,
+   1961                 ):
+   1962                     vocab_files[f"chat_template_{template}"] = f"{CHAT_TEMPLATE_DIR}/{template}.jinja"
+   1964 # Get files from url, cache, or disk depending on the case
+
+File ~/.venv/lib/python3.13/site-packages/transformers/utils/hub.py:169, in list_repo_templates(repo_id, local_files_only, revision, cache_dir)
+    165 if not local_files_only:
+    166     try:
+    167         return [
+    168             entry.path.removeprefix(f"{CHAT_TEMPLATE_DIR}/")
+--> 169             for entry in list_repo_tree(
+    170                 repo_id=repo_id, revision=revision, path_in_repo=CHAT_TEMPLATE_DIR, recursive=False
+    171             )
+    172             if entry.path.endswith(".jinja")
+    173         ]
+    174     except (GatedRepoError, RepositoryNotFoundError, RevisionNotFoundError):
+    175         raise  # valid errors => do not catch
+
+File ~/.venv/lib/python3.13/site-packages/huggingface_hub/hf_api.py:3171, in HfApi.list_repo_tree(self, repo_id, path_in_repo, recursive, expand, revision, repo_type, token)
+   3169 encoded_path_in_repo = "/" + quote(path_in_repo, safe="") if path_in_repo else ""
+   3170 tree_url = f"{self.endpoint}/api/{repo_type}s/{repo_id}/tree/{revision}{encoded_path_in_repo}"
+-> 3171 for path_info in paginate(path=tree_url, headers=headers, params={"recursive": recursive, "expand": expand}):
+   3172     yield (RepoFile(**path_info) if path_info["type"] == "file" else RepoFolder(**path_info))
+
+File ~/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_pagination.py:36, in paginate(path, params, headers)
+     28 """Fetch a list of models/datasets/spaces and paginate through results.
+     29 
+     30 This is using the same "Link" header format as GitHub.
+   (...)     33 - https://docs.github.com/en/rest/guides/traversing-with-pagination#link-header
+     34 """
+     35 session = get_session()
+---> 36 r = session.get(path, params=params, headers=headers)
+     37 hf_raise_for_status(r)
+     38 yield from r.json()
+
+File ~/.venv/lib/python3.13/site-packages/requests/sessions.py:602, in Session.get(self, url, **kwargs)
+    594 r"""Sends a GET request. Returns :class:`Response` object.
+    595 
+    596 :param url: URL for the new :class:`Request` object.
+    597 :param \*\*kwargs: Optional arguments that ``request`` takes.
+    598 :rtype: requests.Response
+    599 """
+    601 kwargs.setdefault("allow_redirects", True)
+--> 602 return self.request("GET", url, **kwargs)
+
+File ~/.venv/lib/python3.13/site-packages/requests/sessions.py:589, in Session.request(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)
+    584 send_kwargs = {
+    585     "timeout": timeout,
+    586     "allow_redirects": allow_redirects,
+    587 }
+    588 send_kwargs.update(settings)
+--> 589 resp = self.send(prep, **send_kwargs)
+    591 return resp
+
+File ~/.venv/lib/python3.13/site-packages/requests/sessions.py:703, in Session.send(self, request, **kwargs)
+    700 start = preferred_clock()
+    702 # Send the request
+--> 703 r = adapter.send(request, **kwargs)
+    705 # Total elapsed time of the request (approximately)
+    706 elapsed = preferred_clock() - start
+
+File ~/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py:96, in UniqueRequestIdAdapter.send(self, request, *args, **kwargs)
+     94     logger.debug(f"Send: {_curlify(request)}")
+     95 try:
+---> 96     return super().send(request, *args, **kwargs)
+     97 except requests.RequestException as e:
+     98     request_id = request.headers.get(X_AMZN_TRACE_ID)
+
+File ~/.venv/lib/python3.13/site-packages/requests/adapters.py:700, in HTTPAdapter.send(self, request, stream, timeout, verify, cert, proxies)
+    696     if isinstance(e.reason, _SSLError):
+    697         # This branch is for urllib3 v1.22 and later.
+    698         raise SSLError(e, request=request)
+--> 700     raise ConnectionError(e, request=request)
+    702 except ClosedPoolError as e:
+    703     raise ConnectionError(e, request=request)
+
+ConnectionError: (MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /api/models/brunokreiner/lyrics-bert/tree/main/additional_chat_templates?recursive=False&expand=False (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6b2de37610>: Failed to resolve \'huggingface.co\' ([Errno -2] Name or service not known)"))'), '(Request ID: 3dacd4c7-40ce-4c74-8921-cf373d5ff9de)')
+

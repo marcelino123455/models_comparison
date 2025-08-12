@@ -1,0 +1,133 @@
+/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/main.py:211: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+You are executing with [EXAMPLE] of 1000 songs
+
+##################################################
+Running experiment with TFIDF embeddings
+Label distribution: {0: 763, 1: 237}
+X shape: (1000, 5000)
+y shape: (1000,)
+
+Splitting data...
+==================================================
+Apliying UNDERSAMPLE
+Label distribution: {0.0: 154, 1.0: 154}
+X shape: (308, 5000)
+y shape: (308,)
+
+==============================
+Model: Logistic Regression
+Accuracy:  0.5500
+Precision: 0.2828
+Recall:    0.5957
+F1-score:  0.3836
+              precision    recall  f1-score   support
+
+           0       0.81      0.54      0.65       153
+           1       0.28      0.60      0.38        47
+
+    accuracy                           0.55       200
+   macro avg       0.55      0.57      0.51       200
+weighted avg       0.69      0.55      0.58       200
+
+[[82 71]
+ [19 28]]
+Hiperparámetros: {'C': 1.0, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 100, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': None, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs_tes_/undersample_True_scaled_True_steaming_False_5000tfidf/tfidf/conf_matrix_logistic_regression.png
+Modelo guardado como: outputs_tes_/undersample_True_scaled_True_steaming_False_5000tfidf/tfidf/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+Accuracy:  0.7050
+Precision: 0.1250
+Recall:    0.0426
+F1-score:  0.0635
+              precision    recall  f1-score   support
+
+           0       0.76      0.91      0.82       153
+           1       0.12      0.04      0.06        47
+
+    accuracy                           0.70       200
+   macro avg       0.44      0.48      0.44       200
+weighted avg       0.61      0.70      0.65       200
+
+[[139  14]
+ [ 45   2]]
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': -1, 'probability': False, 'random_state': None, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+Confusion matrix saved as: outputs_tes_/undersample_True_scaled_True_steaming_False_5000tfidf/tfidf/conf_matrix_svm.png
+Modelo guardado como: outputs_tes_/undersample_True_scaled_True_steaming_False_5000tfidf/tfidf/svm_model.pkl
+
+==============================
+Model: Naive Bayes
+Accuracy:  0.5300
+Precision: 0.2626
+Recall:    0.5532
+F1-score:  0.3562
+              precision    recall  f1-score   support
+
+           0       0.79      0.52      0.63       153
+           1       0.26      0.55      0.36        47
+
+    accuracy                           0.53       200
+   macro avg       0.53      0.54      0.49       200
+weighted avg       0.67      0.53      0.57       200
+
+[[80 73]
+ [21 26]]
+Hiperparámetros: {'priors': None, 'var_smoothing': 1e-09}
+Confusion matrix saved as: outputs_tes_/undersample_True_scaled_True_steaming_False_5000tfidf/tfidf/conf_matrix_naive_bayes.png
+Modelo guardado como: outputs_tes_/undersample_True_scaled_True_steaming_False_5000tfidf/tfidf/naive_bayes_model.pkl
+
+==============================
+Model: Decision Tree
+Accuracy:  0.5050
+Precision: 0.2347
+Recall:    0.4894
+F1-score:  0.3172
+              precision    recall  f1-score   support
+
+           0       0.76      0.51      0.61       153
+           1       0.23      0.49      0.32        47
+
+    accuracy                           0.51       200
+   macro avg       0.50      0.50      0.46       200
+weighted avg       0.64      0.51      0.54       200
+
+[[78 75]
+ [24 23]]
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': None, 'splitter': 'best'}
+Confusion matrix saved as: outputs_tes_/undersample_True_scaled_True_steaming_False_5000tfidf/tfidf/conf_matrix_decision_tree.png
+Modelo guardado como: outputs_tes_/undersample_True_scaled_True_steaming_False_5000tfidf/tfidf/decision_tree_model.pkl
+
+##################################################
+Running experiment with LYRICS_BERT embeddings
+Loading Lb vectors from:  ../data/spotify_dataset_sin_duplicados_4.csv
+Label distribution: {0: 763, 1: 237}
+X shape: (108138, 300)
+y shape: (1000,)
+
+Splitting data...
+Traceback (most recent call last):
+  File "/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/main.py", line 432, in <module>
+    main()
+    ~~~~^^
+  File "/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/main.py", line 404, in main
+    X_train, X_test, y_train, y_test = train_test_split(
+                                       ~~~~~~~~~~~~~~~~^
+        X, y, test_size=0.2, random_state=RANDOM_STATE, stratify=y
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/utils/_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/model_selection/_split.py", line 2916, in train_test_split
+    arrays = indexable(*arrays)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/utils/validation.py", line 530, in indexable
+    check_consistent_length(*result)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/utils/validation.py", line 473, in check_consistent_length
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Found input variables with inconsistent numbers of samples: [108138, 1000]
+srun: error: g001: task 0: Exited with exit code 1

@@ -50,8 +50,8 @@ class ExplicitLyricsClassifier:
         self.random_state = random_state
         self.preprocessor = TextPreprocessor()
         self.vectorizer = TFIDFVectorizer(
-            # max_features=5000,  # Mantener 5000 características
-            max_features = 1000, 
+            max_features=5000,  # Mantener 5000 características
+            # max_features = 1000, 
             min_df=3,  # Reducir min_df para más vocabulario
             max_df=0.92,  # Ajustar max_df
             ngram_range=(1, 2)  # Mantener bigramas

@@ -7,6 +7,8 @@ ml-env/
 .venv/
 venv/
 
+**/bert-sklearn/
+
 **/nltk_data/
 
 data/
@@ -20,4 +22,5 @@ X_tfidf.csv
 X_tfidf_las_df.csv 
 
 *.csv
+*.pkl
 #Sin / para ignorar en cualquier carpeta

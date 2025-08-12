@@ -1,4 +1,4 @@
-Input Notebook:  rn.ipynb
-Output Notebook: ejecutado_rn_20250803_164603.ipynb
-Executing:   0%|          | 0/10 [00:00<?, ?cell/s]Executing notebook with kernel: python3
-Executing:  10%|█         | 1/10 [00:05<00:47,  5.30s/cell]Executing:  30%|███       | 3/10 [00:09<00:19,  2.75s/cell]Executing:  70%|███████   | 7/10 [52:15<26:35, 531.76s/cell]Executing:  80%|████████  | 8/10 [52:16<14:15, 427.99s/cell]Executing: 100%|██████████| 10/10 [52:16<00:00, 274.80s/cell]Executing: 100%|██████████| 10/10 [52:17<00:00, 313.71s/cell]
+Input Notebook:  rn_limit.ipynb
+Output Notebook: ejecutado_rn_limit_20250811_122245.ipynb
+Executing:   0%|          | 0/12 [00:00<?, ?cell/s]Executing notebook with kernel: python3
+Executing:   8%|▊         | 1/12 [00:09<01:47,  9.75s/cell]Executing:  25%|██▌       | 3/12 [03:06<10:11, 67.93s/cell]Executing:  58%|█████▊    | 7/12 [37:19<30:52, 370.46s/cell]Executing:  67%|██████▋   | 8/12 [37:20<19:52, 298.18s/cell]Executing:  83%|████████▎ | 10/12 [37:20<06:22, 191.46s/cell]Executing: 100%|██████████| 12/12 [37:21<00:00, 126.95s/cell]Executing: 100%|██████████| 12/12 [37:23<00:00, 186.96s/cell]

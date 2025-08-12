@@ -1,0 +1,221 @@
+/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/main.py:217: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/main.py:217: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+You are executing with [ALL] dataset
+
+##################################################
+Running experiment with TFIDF embeddings
+Label distribution: {0: 82336, 1: 25802}
+X shape: (108138, 5000)
+y shape: (108138,)
+
+Splitting data...
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65868, 1: 20642}
+Label distribution en TEST: {0: 16468, 1: 5160}
+==================================================
+Data antes del undersampling ...
+X: (86510, 5000)
+y: (86510,)
+Apliying UNDERSAMPLE
+20642
+Label distribution: {0: 20642, 1: 20642}
+X shape: (41284, 5000)
+y shape: (41284,)
+
+==============================
+Model: Logistic Regression
+Accuracy:  0.7950
+Precision: 0.5511
+Recall:    0.7585
+F1-score:  0.6384
+              precision    recall  f1-score   support
+
+           0       0.91      0.81      0.86     16468
+           1       0.55      0.76      0.64      5160
+
+    accuracy                           0.79     21628
+   macro avg       0.73      0.78      0.75     21628
+weighted avg       0.83      0.79      0.80     21628
+
+[[13280  3188]
+ [ 1246  3914]]
+Hiperparámetros: {'C': 100.0, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 42, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/tfidf/conf_matrix_logistic_regression.png
+Modelo guardado como: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/tfidf/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+Accuracy:  0.6187
+Precision: 0.3505
+Recall:    0.7014
+F1-score:  0.4674
+              precision    recall  f1-score   support
+
+           0       0.86      0.59      0.70     16468
+           1       0.35      0.70      0.47      5160
+
+    accuracy                           0.62     21628
+   macro avg       0.61      0.65      0.59     21628
+weighted avg       0.74      0.62      0.65     21628
+
+[[9762 6706]
+ [1541 3619]]
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 42, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+Confusion matrix saved as: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/tfidf/conf_matrix_svm.png
+Modelo guardado como: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/tfidf/svm_model.pkl
+
+==============================
+Model: Decision Tree
+Accuracy:  0.8603
+Precision: 0.6739
+Recall:    0.8027
+F1-score:  0.7327
+              precision    recall  f1-score   support
+
+           0       0.93      0.88      0.91     16468
+           1       0.67      0.80      0.73      5160
+
+    accuracy                           0.86     21628
+   macro avg       0.80      0.84      0.82     21628
+weighted avg       0.87      0.86      0.86     21628
+
+[[14464  2004]
+ [ 1018  4142]]
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': None, 'splitter': 'best'}
+Confusion matrix saved as: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/tfidf/conf_matrix_decision_tree.png
+Modelo guardado como: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/tfidf/decision_tree_model.pkl
+
+==============================
+Model: Naive Bayes
+Accuracy:  0.8230
+Precision: 0.6124
+Recall:    0.7033
+F1-score:  0.6547
+              precision    recall  f1-score   support
+
+           0       0.90      0.86      0.88     16468
+           1       0.61      0.70      0.65      5160
+
+    accuracy                           0.82     21628
+   macro avg       0.76      0.78      0.77     21628
+weighted avg       0.83      0.82      0.83     21628
+
+[[14171  2297]
+ [ 1531  3629]]
+Hiperparámetros: {'alpha': 1.0, 'class_prior': None, 'fit_prior': True, 'force_alpha': True}
+Confusion matrix saved as: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/tfidf/conf_matrix_naive_bayes.png
+Modelo guardado como: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/tfidf/naive_bayes_model.pkl
+
+##################################################
+Running experiment with LYRICS_BERT embeddings
+Loading Lb vectors from:  ../data/spotify_dataset_sin_duplicados_4.csv
+Label distribution: {0: 82336, 1: 25802}
+X shape: (108138, 300)
+y shape: (108138,)
+
+Splitting data...
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65868, 1: 20642}
+Label distribution en TEST: {0: 16468, 1: 5160}
+==================================================
+Data antes del undersampling ...
+X: (86510, 300)
+y: (86510,)
+Apliying UNDERSAMPLE
+20642
+Label distribution: {0: 20642, 1: 20642}
+X shape: (41284, 300)
+y shape: (41284,)
+
+==============================
+Model: Logistic Regression
+Accuracy:  0.8006
+Precision: 0.5601
+Recall:    0.7651
+F1-score:  0.6467
+              precision    recall  f1-score   support
+
+           0       0.92      0.81      0.86     16468
+           1       0.56      0.77      0.65      5160
+
+    accuracy                           0.80     21628
+   macro avg       0.74      0.79      0.75     21628
+weighted avg       0.83      0.80      0.81     21628
+
+[[13367  3101]
+ [ 1212  3948]]
+Hiperparámetros: {'C': 100.0, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 42, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/lyrics_bert/conf_matrix_logistic_regression.png
+Modelo guardado como: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/lyrics_bert/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+Accuracy:  0.3190
+Precision: 0.2539
+Recall:    0.9562
+F1-score:  0.4012
+              precision    recall  f1-score   support
+
+           0       0.90      0.12      0.21     16468
+           1       0.25      0.96      0.40      5160
+
+    accuracy                           0.32     21628
+   macro avg       0.58      0.54      0.31     21628
+weighted avg       0.74      0.32      0.26     21628
+
+[[ 1966 14502]
+ [  226  4934]]
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 42, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+Confusion matrix saved as: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/lyrics_bert/conf_matrix_svm.png
+Modelo guardado como: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/lyrics_bert/svm_model.pkl
+
+==============================
+Model: Decision Tree
+Accuracy:  0.6257
+Precision: 0.3593
+Recall:    0.7264
+F1-score:  0.4808
+              precision    recall  f1-score   support
+
+           0       0.87      0.59      0.71     16468
+           1       0.36      0.73      0.48      5160
+
+    accuracy                           0.63     21628
+   macro avg       0.62      0.66      0.59     21628
+weighted avg       0.75      0.63      0.65     21628
+
+[[9784 6684]
+ [1412 3748]]
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': None, 'splitter': 'best'}
+Confusion matrix saved as: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/lyrics_bert/conf_matrix_decision_tree.png
+Modelo guardado como: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/lyrics_bert/decision_tree_model.pkl
+
+==============================
+Model: Naive Bayes
+Accuracy:  0.6431
+Precision: 0.3779
+Recall:    0.7678
+F1-score:  0.5065
+              precision    recall  f1-score   support
+
+           0       0.89      0.60      0.72     16468
+           1       0.38      0.77      0.51      5160
+
+    accuracy                           0.64     21628
+   macro avg       0.64      0.69      0.61     21628
+weighted avg       0.77      0.64      0.67     21628
+
+[[9946 6522]
+ [1198 3962]]
+Hiperparámetros: {'priors': None, 'var_smoothing': 1e-09}
+Confusion matrix saved as: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/lyrics_bert/conf_matrix_naive_bayes.png
+Modelo guardado como: outputs/undersample_True_scaled_False_steaming_False_5000tfidf/lyrics_bert/naive_bayes_model.pkl
+You are executing with this configuration: undersample_True_scaled_False_steaming_False_5000tfidf
