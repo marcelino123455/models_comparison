@@ -162,7 +162,7 @@ def load_TFIDF_embbedings(csv_path, sample_size=None, columns_tf_idfizable = ['t
     # Read dataset in csv
     df = pd.read_csv(csv_path)
 
-    print(df.columns)
+    # print(df.columns)
 
     if sample_size and sample_size < len(df):
         sampled_idx = df.sample(n=sample_size, random_state=RANDOM_STATE).index
@@ -234,7 +234,7 @@ def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_ty
     models = {
         "Logistic Regression": LogisticRegression(
             penalty='l2',               # Regularización L2
-            C=1/0.01,                   # Inverso de lambda_reg → C = 1 / λ
+            C=1,                   # Inverso de lambda_reg → C = 1 / λ
             max_iter=1000,              # Iteraciones máximas
             solver='lbfgs',             # Recomendado para L2 + datasets grandes
             random_state=RANDOM_STATE
@@ -246,10 +246,12 @@ def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_ty
             random_state=RANDOM_STATE 
         ),
         "Decision Tree": DecisionTreeClassifier(
-            criterion='gini',         
+            criterion='entropy',         
             max_depth=10,
             min_samples_split=2,
-            min_samples_leaf=1
+            min_samples_leaf=1,
+            random_state=RANDOM_STATE
+
         )
     }
 
@@ -410,7 +412,7 @@ def train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_ = "outpu
 
 def main():
     ### CONFIGURATIONS ###
-    TESTING = True
+    TESTING = False
     UNDERSAMPLING = True
     SCALED = True
     STEAMING = True
@@ -418,10 +420,25 @@ def main():
     NUMERICCOlS = True
     MAX_FEATURES = 5000
 
+    
+    # CONFIGURATIONS For text Columns
     A = ['text', 'song', 'Artist(s)', 'Album', 'Similar Artist 1', 'Genre']
-    COL_TF_IDF = A
+    B = ['Artist(s)', 'song', 'emotion', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
 
-    str_msg = ", ".join(COL_TF_IDF)
+
+    COL_TF_IDF = B
+    print("For TF-IDF embbedings you are selecteing this columns:" )
+    print("-->", COL_TF_IDF)
+
+    
+    # CONFIGURATIONS for numeric Columns
+    N_A =['Danceability', 'Loudness (db)']
+    N_B = ['Tempo', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+
+    N_cols = N_B
+    print("For both embbedings your are adding this columns: ")
+    print("-->", N_cols)
+
     if TESTING:
         _SAMPLE_SIZE = 1000
         print(f"You are executing with [EXAMPLE] of {_SAMPLE_SIZE} songs")
@@ -430,13 +447,25 @@ def main():
         print("You are executing with [ALL] dataset")
         _SAMPLE_SIZE = None
         
+    if COL_TF_IDF == B:
+        # npy_path = "../../data/embbedings_khipu/lb_khipu_B.npy" 
+        npy_path = "../../data/embbedings_khipu/LB_fuss/lb_khipu_B.npy" 
 
+        cols_type = "B"
+    elif COL_TF_IDF == A:
+        cols_type = "A"
+        # npy_path = "../../data/embbedings_khipu/lb_khipu_A.npy" 
+        npy_path = "../../data/embbedings_khipu/LB_fuss/lb_khipu_A.npy" 
+
+    print("--> PaTH: ",npy_path )
+        
     csv_path = "../../data/spotify_dataset_sin_duplicados_4.csv"
-    npy_path = "../../data/embbedings_khipu/lb_khipu_A.npy" 
+
+
 
     # A) Embeddings types
-    # embb_types = ['tfidf', 'lyrics_bert']
-    embb_types = ['tfidf']
+    embb_types = ['tfidf', 'lyrics_bert']
+
 
     for embedding_type in embb_types:
 
@@ -452,12 +481,13 @@ def main():
             X, y = load_TFIDF_embbedings(csv_path, sample_size=_SAMPLE_SIZE, columns_tf_idfizable = COL_TF_IDF,  max_features = MAX_FEATURES, steaming= STEAMING, remove_stopwords = REMOVESTW)    
         
         
-        if NUMERICCOlS and TESTING==False:
+        if NUMERICCOlS: # !Numeric cols only works ok with all dataset since yes skdjsk
+
             df = pd.read_csv(csv_path, nrows=_SAMPLE_SIZE)
             df['Loudness (db)'] = df['Loudness (db)'].astype(str).str.replace('db', '', regex=False)
             df['Loudness (db)'] = pd.to_numeric(df['Loudness (db)'], errors='coerce')
-            df[['Danceability', 'Loudness (db)']] = df[['Danceability', 'Loudness (db)']].fillna(0)
-            X = np.concatenate([X, df[['Danceability', 'Loudness (db)']].to_numpy()], axis=1)
+            df[N_cols] = df[N_cols].fillna(0)
+            X = np.concatenate([X, df[N_cols].to_numpy()], axis=1)
 
 
         # Split data
@@ -470,7 +500,7 @@ def main():
         print(f"Label distribution en TEST: {y_test.value_counts().to_dict()}")
         
 
-        
+        # Apliying Undersampling
         if UNDERSAMPLING:
             X_train, y_train = undersample(X_train, y_train)
 
@@ -483,12 +513,13 @@ def main():
             out = "NT_test"
         else:
             out=""
-        output_dir = f"outputs{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_{MAX_FEATURES}_tfidf_A/{embedding_type}"
+
+        output_dir = f"outputs{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
 
     
-        # train_models(X_train, X_test, y_train, y_test, dir_=output_dir, embedding_type=embedding_type)
+        train_models(X_train, X_test, y_train, y_test, dir_=output_dir, embedding_type=embedding_type)
         # train_models_with_gridsearch
-        train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_=output_dir, embedding_type=embedding_type)
+        # train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_=output_dir, embedding_type=embedding_type)
 
     
     CONF = f"undersample_{UNDERSAMPLING}_scaled_{SCALED}_removestw_{REMOVESTW}_5000tfidf"
