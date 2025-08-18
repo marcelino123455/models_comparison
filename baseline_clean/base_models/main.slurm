@@ -6,7 +6,7 @@
 
 # Cantidad de CPUs cores a usar:
 #SBATCH -c 1
-#SBATCH --output=./outputs/undersample_True_scaled_True_steaming_True_removestw_True_numeric_True_15000_tfidf_C/consola.out
+#SBATCH --output=./outputs/undersample_True_scaled_True_steaming_True_removestw_True_numeric_False_5000_tfidf_T/consola.out
 # Tamaño de memoria del job:
 #SBATCH --mem-per-cpu=2000mb
 #SBATCH --mail-type=END,FAIL

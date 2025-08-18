@@ -1,4 +1,57 @@
-Input Notebook:  rn_limit.ipynb
-Output Notebook: ejecutado_rn_limit_20250811_122245.ipynb
-Executing:   0%|          | 0/12 [00:00<?, ?cell/s]Executing notebook with kernel: python3
-Executing:   8%|▊         | 1/12 [00:09<01:47,  9.75s/cell]Executing:  25%|██▌       | 3/12 [03:06<10:11, 67.93s/cell]Executing:  58%|█████▊    | 7/12 [37:19<30:52, 370.46s/cell]Executing:  67%|██████▋   | 8/12 [37:20<19:52, 298.18s/cell]Executing:  83%|████████▎ | 10/12 [37:20<06:22, 191.46s/cell]Executing: 100%|██████████| 12/12 [37:21<00:00, 126.95s/cell]Executing: 100%|██████████| 12/12 [37:23<00:00, 186.96s/cell]
+/var/spool/slurmd/job11197/slurm_script: line 16: cd: /home/marcelino.maita/musica_ia_workshop/models_comparison/RN: No such file or directory
+Input Notebook:  rn.ipynb
+Output Notebook: ejecutado_rn_20250812_232030.ipynb
+Executing:   0%|          | 0/10 [00:00<?, ?cell/s]Executing notebook with kernel: python3
+Executing:  10%|█         | 1/10 [00:09<01:26,  9.65s/cell]Executing:  30%|███       | 3/10 [00:09<00:18,  2.61s/cell]Executing:  30%|███       | 3/10 [00:11<00:26,  3.72s/cell]
+Traceback (most recent call last):
+  File "/home/marcelino.maita/.venv/bin/papermill", line 7, in <module>
+    sys.exit(papermill())
+             ~~~~~~~~~^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/cli.py", line 235, in papermill
+    execute_notebook(
+    ~~~~~~~~~~~~~~~~^
+        input_path=input_path,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<15 lines>...
+        execution_timeout=execution_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/execute.py", line 131, in execute_notebook
+    raise_for_execution_errors(nb, output_path)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+    raise error
+papermill.exceptions.PapermillExecutionError: 
+---------------------------------------------------------------------------
+Exception encountered at "In [3]":
+---------------------------------------------------------------------------
+FileNotFoundError                         Traceback (most recent call last)
+Cell In[3], line 7
+      5 # Para hacer pruebitas y luego mandarlo como sbatch
+      6 TESTING = True
+----> 7 _EMBEDDINGS = np.load(path_lb_embb)
+      9 if TESTING:
+     10     _NROWS = 1000
+
+File ~/.venv/lib/python3.13/site-packages/numpy/lib/_npyio_impl.py:451, in load(file, mmap_mode, allow_pickle, fix_imports, encoding, max_header_size)
+    449     own_fid = False
+    450 else:
+--> 451     fid = stack.enter_context(open(os.fspath(file), "rb"))
+    452     own_fid = True
+    454 # Code to distinguish from NumPy binary files and pickles.
+
+FileNotFoundError: [Errno 2] No such file or directory: '../data/embbedings_khipu/lb_khipu_A.npy'
+

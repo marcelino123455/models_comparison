@@ -417,8 +417,8 @@ def main():
     SCALED = True
     STEAMING = True
     REMOVESTW = True
-    NUMERICCOlS = True
-    MAX_FEATURES = 15000
+    NUMERICCOlS = False
+    MAX_FEATURES = 5000
 
     
     # CONFIGURATIONS For text Columns
@@ -426,8 +426,9 @@ def main():
     B = ['Artist(s)', 'song', 'emotion', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
     C = ['text', 'Artist(s)', 'song', 'emotion', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
 
+    T = ['text']
 
-    COL_TF_IDF = C
+    COL_TF_IDF = T
     print("For TF-IDF embbedings you are selecteing this columns:" )
     print("-->", COL_TF_IDF)
 
@@ -461,6 +462,10 @@ def main():
         cols_type = "C"
         # npy_path = "../../data/embbedings_khipu/lb_khipu_A.npy" 
         npy_path = "../../data/embbedings_khipu/LB_fuss/lb_khipu_C.npy" 
+    elif COL_TF_IDF == T:
+        cols_type = "T"
+        # npy_path = "../../data/embbedings_khipu/lb_khipu_A.npy" 
+        npy_path = "../../data/lb_npy.npy" 
 
     print("--> PaTH: ",npy_path )
         
