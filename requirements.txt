@@ -16,3 +16,7 @@ papermill>=2.6.0
 # Dimensionality reduction
 umap-learn>=0.5.0
 
+#For recomendador de canciones
+
+gensim>=4.3.0
+spotipy>=2.23.0
