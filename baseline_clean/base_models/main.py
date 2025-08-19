@@ -28,6 +28,7 @@ import re
 from tqdm import tqdm
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.preprocessing import MinMaxScaler
+from imblearn.over_sampling import SMOTE
 
 RANDOM_STATE = 42
 
@@ -412,8 +413,11 @@ def train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_ = "outpu
 
 def main():
     ### CONFIGURATIONS ###
-    TESTING = False
-    UNDERSAMPLING = True
+    TESTING = True
+    # Data 
+    UNDERSAMPLING = False
+    USE_SMOTE = True
+
     SCALED = True
     STEAMING = True
     REMOVESTW = True
@@ -442,7 +446,7 @@ def main():
     print("-->", N_cols)
 
     if TESTING:
-        _SAMPLE_SIZE = 1000
+        _SAMPLE_SIZE = 100
         print(f"You are executing with [EXAMPLE] of {_SAMPLE_SIZE} songs")
         # _EMBEDDINGS = _EMBEDDINGS[:1000]
     else:
@@ -513,6 +517,16 @@ def main():
         # Apliying Undersampling
         if UNDERSAMPLING:
             X_train, y_train = undersample(X_train, y_train)
+
+
+        if USE_SMOTE: 
+            print("Aplicando SMOTE oversampling...")
+            smote = SMOTE(random_state=RANDOM_STATE)
+            X_train, y_train = smote.fit_resample(X_train, y_train)
+            print(f"Nueva distribución de clases: {y_train.value_counts().to_dict()}")
+
+        if USE_SMOTE and UNDERSAMPLING:
+            print("Xddddd INCORRECT EXPERIMENTATION")
 
         if SCALED:
             scaler = MinMaxScaler(feature_range=(0, 1))
