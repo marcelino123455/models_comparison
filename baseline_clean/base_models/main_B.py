@@ -31,6 +31,9 @@ from sklearn.preprocessing import MinMaxScaler
 from imblearn.over_sampling import SMOTE
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
+from matplotlib.colors import ListedColormap
+
+import umap
 
 
 RANDOM_STATE = 42
@@ -233,52 +236,70 @@ def undersample(X, y, random_state= RANDOM_STATE):
     print(f"y shape: {y.shape}")
 
     return X, y
+
+
+def plot_decision_boundary_umap(model, X, y, title="Decision Boundary (UMAP)", save_path=None):
+
+
+    # Crear malla de puntos
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx, yy = np.meshgrid(np.linspace(x_min, x_max, 300),
+                         np.linspace(y_min, y_max, 300))
+
+    # Entrenar el modelo en el espacio reducido
+    model.fit(X, y)
+
+    # Predecir sobre la malla
+    Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = Z.reshape(xx.shape)
+
+    # Colores
+    cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA'])
+    cmap_bold = ListedColormap(['#FF0000', '#00FF00'])
+
+    plt.figure(figsize=(8, 6))
+    plt.contourf(xx, yy, Z, alpha=0.3, cmap=cmap_light)
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_bold, edgecolor='k', s=40)
+    plt.title(title)
+    plt.xlabel("UMAP 1")
+    plt.ylabel("UMAP 2")
+
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+        print(f"Gráfico guardado en {save_path}")
+
+    plt.show()
+
 # ['tfidf', 'lyrics_bert']
+
+
+
 def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_type="tfidf"):
     models = {
         "Logistic Regression": LogisticRegression(
-            penalty='l2',               # Regularización L2
-            C=1,                   # Inverso de lambda_reg → C = 1 / λ
-            max_iter=1000,              # Iteraciones máximas
-            solver='lbfgs',             # Recomendado para L2 + datasets grandes
-            random_state=RANDOM_STATE
+            penalty='l2',
+            C=1,
+            solver='lbfgs',
+            max_iter=1000,
+            random_state=42
         ),
-        "SVM": SVC(
-            C=1.0,                  
-            kernel='rbf',           
-            max_iter=1000,          
-            random_state=RANDOM_STATE 
-        ),
+        
         "Decision Tree": DecisionTreeClassifier(
-            criterion='entropy',         
+            criterion='entropy',
             max_depth=10,
             min_samples_split=2,
             min_samples_leaf=1,
-            random_state=RANDOM_STATE
-
-        ), 
-        "Random Forest": RandomForestClassifier(
-            n_estimators=200,
-            max_depth=15,
-            random_state=RANDOM_STATE,
-            n_jobs=-1
-        ),
-        "XGBoost": XGBClassifier(
-            n_estimators=200,
-            learning_rate=0.1,
-            max_depth=8,
-            subsample=0.8,
-            colsample_bytree=0.8,
-            random_state=RANDOM_STATE,
-            use_label_encoder=False,
-            eval_metric="logloss"
+            random_state=42
         )
+
     }
 
-    if embedding_type == "tfidf":
-        models["Naive Bayes"] = MultinomialNB(alpha=1.0)
-    else:
-        models["Naive Bayes"] = GaussianNB()
+    # if embedding_type == "tfidf":
+    #     models["Naive Bayes"] = MultinomialNB(alpha=1.0)
+    # else:
+    #     models["Naive Bayes"] = GaussianNB()
 
     resumen_metricas = {}
     for name, model in models.items():
@@ -333,10 +354,16 @@ def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_ty
         model_filename = os.path.join(dir_, f"{name.replace(' ', '_').lower()}_model.pkl")
         joblib.dump(model, model_filename)
         print(f"Modelo guardado como: {model_filename}")
+
+        # Save limit decision
+        limit_filename = os.path.join(dir_, f"decision_boundary_{name.replace(' ', '_').lower()}.png") 
+        plot_decision_boundary_umap(model, X_train, y_train,
+                                    title=f"Decision Boundary - {name}",
+                                    save_path=limit_filename)
+        
     print("\n\nResumen de métricas:")
     for modelo, metricas in sorted(resumen_metricas.items(), key=lambda x: x[1]["f1_score"], reverse=True):
         print(f"{modelo}: {metricas}")
-
 
 def train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_ = "output", embedding_type="tfidf"):
     param_grids = {
@@ -441,6 +468,8 @@ def main():
     STEAMING = True
     REMOVESTW = True
     NUMERICCOlS = True
+    LIMIT = True
+
     MAX_FEATURES = 5000
     if USE_SMOTE and UNDERSAMPLING:
         print("FAIL: You are using smote and undersampling please check")
@@ -453,7 +482,7 @@ def main():
 
     T = ['text']
 
-    COL_TF_IDF = T
+    COL_TF_IDF = B
     print("For TF-IDF embbedings you are selecteing this columns:" )
     print("-->", COL_TF_IDF)
 
@@ -528,7 +557,9 @@ def main():
             df[N_cols] = df[N_cols].fillna(0)
             X = np.concatenate([X, df[N_cols].to_numpy()], axis=1)
 
-
+        if LIMIT:
+            reducer = umap.UMAP(n_components=2, random_state=RANDOM_STATE)
+            X = reducer.fit_transform(X)
         # Split data
         print("\nSplitting data...")
         X_train, X_test, y_train, y_test = train_test_split(
@@ -563,7 +594,7 @@ def main():
         else:
             out=""
 
-        output_dir = f"outputs{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_useSmote_{USE_SMOTE}_+_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
+        output_dir = f"outputs_limi{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_useSmote_{USE_SMOTE}_+_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
 
     
         train_models(X_train, X_test, y_train, y_test, dir_=output_dir, embedding_type=embedding_type)

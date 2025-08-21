@@ -462,7 +462,15 @@ def main():
     A = ['text', 'song', 'Artist(s)', 'Album', 'Similar Artist 1', 'Genre']
     COL_TF_IDF = A
 
-    str_msg = ", ".join(COL_TF_IDF)
+
+
+
+    # CONFIGURATIONS for numeric Columns
+    N_A =['Danceability', 'Loudness (db)']
+    N_B = ['Tempo', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+
+    N_cols = N_B
+
     if TESTING:
         _SAMPLE_SIZE = 1000
         print(f"You are executing with [EXAMPLE] of {_SAMPLE_SIZE} songs")
@@ -492,11 +500,16 @@ def main():
         
         
         if NUMERICCOlS and TESTING==False:
+            # df = pd.read_csv(csv_path, nrows=_SAMPLE_SIZE)
+            # df['Loudness (db)'] = df['Loudness (db)'].astype(str).str.replace('db', '', regex=False)
+            # df['Loudness (db)'] = pd.to_numeric(df['Loudness (db)'], errors='coerce')
+            # df[['Danceability', 'Loudness (db)']] = df[['Danceability', 'Loudness (db)']].fillna(0)
+            # X = np.concatenate([X, df[['Danceability', 'Loudness (db)']].to_numpy()], axis=1)
             df = pd.read_csv(csv_path, nrows=_SAMPLE_SIZE)
             df['Loudness (db)'] = df['Loudness (db)'].astype(str).str.replace('db', '', regex=False)
             df['Loudness (db)'] = pd.to_numeric(df['Loudness (db)'], errors='coerce')
-            df[['Danceability', 'Loudness (db)']] = df[['Danceability', 'Loudness (db)']].fillna(0)
-            X = np.concatenate([X, df[['Danceability', 'Loudness (db)']].to_numpy()], axis=1)
+            df[N_cols] = df[N_cols].fillna(0)
+            X = np.concatenate([X, df[N_cols].to_numpy()], axis=1)
 
         # For limit grafic
 

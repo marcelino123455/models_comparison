@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Nombre del job:
-#SBATCH --job-name=nvsnn
+#SBATCH --job-name=models
 #SBATCH --partition=gpu
 
 # Cantidad de CPUs cores a usar:
 #SBATCH -c 1
-#SBATCH --output=./outputs/undersample_False_scaled_True_steaming_True_removestw_True_numeric_True_useSmote_True_+_5000_tfidf_T/consola.out
+#SBATCH --output=./outputs_limi/undersample_False_scaled_True_steaming_True_removestw_True_numeric_True_useSmote_True_+_5000_tfidf_B/consola.out 
 # Tamaño de memoria del job:
 #SBATCH --mem-per-cpu=2000mb
 #SBATCH --mail-type=END,FAIL
@@ -16,4 +16,4 @@
 cd /home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/base_models
 source /home/marcelino.maita/.venv/bin/activate
 
-srun python3 main.py
+srun python3 main_B.py

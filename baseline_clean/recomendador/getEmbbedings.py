@@ -10,9 +10,10 @@ import nltk
 import random
 import numpy as np
 
-nltk.download('punkt')
-nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('stopwords')
 
+nltk.data.path.append("/home/marcelino.maita/nltk_data")
 # CONFIGURACIONES 
 
 TESTING = True
@@ -66,10 +67,11 @@ SEED = 42
 random.seed(SEED)
 np.random.seed(SEED)
 
-from gensim.models.word2vec import Word2Vec
+# from gensim.models.word2vec import Word2Vec
+# from gensim.models import Word2Vec
+
 Word2Vec.seed = SEED
 
-from gensim.models import Word2Vec
 
 modelo_w2v = Word2Vec(sentences=corpus, vector_size=100, window=5, min_count=2, workers=4, seed=SEED)
 
@@ -84,8 +86,15 @@ vectores_canciones = np.array([vector_promedio(tokens, modelo_w2v) for tokens in
 
 
 # Guardar en formato word2vec compatible con Gensim
-with open("canciones_embeddings_spanish.txt", "w", encoding="utf-8") as f:
+with open("../../data/canciones_embeddings_spanish.txt", "w", encoding="utf-8") as f:
     f.write(f"{len(vectores_canciones)} {modelo_w2v.vector_size}\n")
     for idx, vec in enumerate(vectores_canciones):
         vector_str = ' '.join(map(str, vec))
         f.write(f"cancion_{idx} {vector_str}\n")
+
+# Guardar en formato word2vec compatible
+# with open("canciones_embeddings_spanish.txt", "w", encoding="utf-8") as f:
+#     f.write(f"{len(vectores_canciones)} {vectores_canciones.shape[1]}\n")  # filas, dimensión
+#     for idx, vec in enumerate(vectores_canciones):
+#         vector_str = ' '.join(map(str, vec))
+#         f.write(f"cancion_{idx} {vector_str}\n")

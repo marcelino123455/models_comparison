@@ -24,3 +24,5 @@ X_tfidf_las_df.csv
 *.csv
 *.pkl
 #Sin / para ignorar en cualquier carpeta
+
+see.ipynb
