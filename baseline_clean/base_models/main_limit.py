@@ -459,10 +459,17 @@ def main():
 
     MAX_FEATURES = 5000
 
+    
+
+
+    # CONFIGURATIONS For text Columns
     A = ['text', 'song', 'Artist(s)', 'Album', 'Similar Artist 1', 'Genre']
-    COL_TF_IDF = A
+    B = ['Artist(s)', 'song', 'emotion', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+    C = ['text', 'Artist(s)', 'song', 'emotion', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
 
+    T = ['text']
 
+    COL_TF_IDF = C
 
 
     # CONFIGURATIONS for numeric Columns
