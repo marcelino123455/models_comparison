@@ -26,3 +26,5 @@ X_tfidf_las_df.csv
 #Sin / para ignorar en cualquier carpeta
 
 see.ipynb
+
+.env
