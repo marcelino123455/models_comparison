@@ -411,7 +411,7 @@ def train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_ = "outpu
         print(f"{modelo}: {metricas}")
 
 def main():
-    ### CONFIGURATIONS ###
+    ### CONFIGURATIONS ###    
     TESTING = False
     UNDERSAMPLING = True
     SCALED = True
@@ -489,6 +489,14 @@ def main():
             df[N_cols] = df[N_cols].fillna(0)
             X = np.concatenate([X, df[N_cols].to_numpy()], axis=1)
 
+            # Save TF-IDF embbedings of type B 
+                        # Save TF-IDF embbedings of type B
+            if embedding_type == 'tfidf' and COL_TF_IDF == B:
+                save_path = "../../data/embbedings_khipu/tfidf_numeric_B.npy"
+                print(X.shape)
+                np.save(save_path, X)
+                print(f"TF-IDF + numeric embeddings of type B saved to: {save_path}")
+
 
         # Split data
         print("\nSplitting data...")
@@ -514,7 +522,7 @@ def main():
         else:
             out=""
 
-        output_dir = f"outputs{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
+        output_dir = f"outputs_b{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
 
     
         train_models(X_train, X_test, y_train, y_test, dir_=output_dir, embedding_type=embedding_type)
