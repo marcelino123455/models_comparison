@@ -12,6 +12,7 @@ venv/
 **/nltk_data/
 
 data/
+batch_files/
 
 # files.csv
 /spotify_dataset.csv
