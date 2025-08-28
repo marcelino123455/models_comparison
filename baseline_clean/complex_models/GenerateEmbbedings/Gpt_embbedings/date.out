@@ -1,0 +1,49 @@
+Input Notebook:  generate_gptEmbb.ipynb
+Output Notebook: ejecutado_rn_20250827_034106.ipynb
+Executing:   0%|          | 0/18 [00:00<?, ?cell/s]Executing notebook with kernel: python3
+Executing:   6%|▌         | 1/18 [00:02<00:47,  2.78s/cell]Executing:  33%|███▎      | 6/18 [00:03<00:06,  1.81cell/s]Executing:  39%|███▉      | 7/18 [00:07<00:12,  1.15s/cell]Executing:  78%|███████▊  | 14/18 [00:07<00:01,  2.55cell/s]Executing:  78%|███████▊  | 14/18 [00:19<00:01,  2.55cell/s]Executing:  83%|████████▎ | 15/18 [1:36:54<34:48, 696.15s/cell]Executing:  89%|████████▉ | 16/18 [1:36:56<19:49, 594.69s/cell]Executing:  89%|████████▉ | 16/18 [1:36:56<12:07, 363.54s/cell]
+Traceback (most recent call last):
+  File "/home/marcelino.maita/.venv/bin/papermill", line 7, in <module>
+    sys.exit(papermill())
+             ~~~~~~~~~^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/cli.py", line 235, in papermill
+    execute_notebook(
+    ~~~~~~~~~~~~~~~~^
+        input_path=input_path,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<15 lines>...
+        execution_timeout=execution_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/execute.py", line 131, in execute_notebook
+    raise_for_execution_errors(nb, output_path)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+    raise error
+papermill.exceptions.PapermillExecutionError: 
+---------------------------------------------------------------------------
+Exception encountered at "In [9]":
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+Cell In[9], line 3
+      1 status = check_openai_batch("batch_68aea8e4452481909a37f98cefa35431", API_KEY)
+      2 print(status.status)
+----> 3 print("Output file ID:", output_file_id)
+      5 if status.status == "completed":
+      6     print("Completed")
+
+NameError: name 'output_file_id' is not defined
+
