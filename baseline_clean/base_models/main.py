@@ -160,6 +160,30 @@ def load_LB_embbedings(csv_path, npy_path, sample_size=None):
 
 
 
+def load_gpt_embbedings(csv_path, npy_path, sample_size=None):
+    print("Loading Lb vectors from: ",csv_path)
+    
+    X_vec = np.load(npy_path)
+    df = pd.read_csv(csv_path)
+    df['Explicit_binary'] = (df['Explicit'].str.lower() == 'yes').astype(int)
+
+    if sample_size and sample_size < len(df):
+        sampled_idx = df.sample(n=sample_size, random_state=RANDOM_STATE).index
+        df = df.loc[sampled_idx].reset_index(drop=True)
+        X = X_vec[sampled_idx]
+    
+    else:
+        X = X_vec
+    y = df['Explicit_binary']
+    print(f"Label distribution: {df['Explicit_binary'].value_counts().to_dict()}")
+    print(f"X shape: {X.shape}")
+    print(f"y shape: {y.shape}")
+    return X, y
+
+
+
+
+
 
 def load_TFIDF_embbedings(csv_path, sample_size=None, columns_tf_idfizable = ['text'], max_features = 5000, steaming= False, remove_stopwords = True):
     
@@ -503,7 +527,8 @@ def main():
 
 
     # A) Embeddings types
-    embb_types = ['tfidf', 'lyrics_bert']
+    embb_types = ['tfidf', 'lyrics_bert', 'gpt']
+    embb_types = ['gpt']
 
 
     for embedding_type in embb_types:
@@ -512,7 +537,11 @@ def main():
             print(f"\n{'#' * 50}")
             print(f"Running experiment with {embedding_type.upper()} embeddings")
             X, y = load_LB_embbedings(csv_path, npy_path, sample_size=_SAMPLE_SIZE)
+        elif embedding_type == 'gpt':
+            print(f"Running experiment with {embedding_type.upper()} embeddings")
+
         
+            print(f"\n{'#' * 50}")
         else: 
             print(f"\n{'#' * 50}")
             print(f"Running experiment with {embedding_type.upper()} embeddings")
