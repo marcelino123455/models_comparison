@@ -499,7 +499,7 @@ def main():
     ### CONFIGURATIONS ###
     TESTING = False
     # Data 
-    UNDERSAMPLING = True
+    UNDERSAMPLING = False
     USE_SMOTE = True
 
     SCALED = True
@@ -625,6 +625,7 @@ def main():
             print("Aplicando SMOTE oversampling...")
             smote = SMOTE(random_state=RANDOM_STATE)
             X_train, y_train = smote.fit_resample(X_train, y_train)
+            
             print(f"Nueva distribución de clases: {y_train.value_counts().to_dict()}")
 
 
