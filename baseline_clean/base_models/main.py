@@ -1,36 +1,65 @@
+import os
+import re
+import time
+import psutil
+import joblib
+
 import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import (
-    classification_report, accuracy_score, precision_score, recall_score, f1_score,
-    confusion_matrix
-)
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import classification_report
-from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import Pipeline
-import os
-import joblib
+
+from tqdm import tqdm
+
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
-import re
-from tqdm import tqdm
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.preprocessing import MinMaxScaler
-from imblearn.over_sampling import SMOTE
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+
+from sklearn import datasets
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.metrics import (
+    classification_report, accuracy_score, precision_score, recall_score,
+    f1_score, confusion_matrix, roc_auc_score
+)
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB, MultinomialNB
+from sklearn.svm import SVC
+from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
+
+from imblearn.over_sampling import SMOTE
 from xgboost import XGBClassifier
+import papermill
+import umap
+
+
+# from torchvision import datasets, transforms
+
+from torch.utils.data import DataLoader, TensorDataset
+
+from sklearn.model_selection import train_test_split
+import psutil
+import matplotlib.pyplot as plt
+
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import papermill
+import umap
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import (
+    classification_report, accuracy_score, precision_score, recall_score, f1_score,
+    confusion_matrix, roc_auc_score
+)
+import pandas as pd
 
 
 RANDOM_STATE = 42
@@ -257,6 +286,160 @@ def undersample(X, y, random_state= RANDOM_STATE):
     print(f"y shape: {y.shape}")
 
     return X, y
+
+######### Start MLP #########
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+class MLP(nn.Module):
+    def __init__(self, capas):
+        super(MLP, self).__init__()
+        layers = []
+        # Capas 
+        for i in range(len(capas)-2):
+            layers.append(nn.Linear(capas[i], capas[i+1]))
+            layers.append(nn.ReLU(inplace=True))
+        layers.append(nn.Linear(capas[-2], capas[-1]))
+        self.net = nn.Sequential(*layers)
+
+    def forward(self, x):
+        return self.net(x)
+        
+def data_to_tensor(
+    data_path="../../../../data",
+    emb_file="embbedings_khipu/tfidf_numeric_B.npy",
+    dataset_file="spotify_dataset_sin_duplicados_4.csv",
+    n_rows=None,
+    scaled=True,
+    batch_size=64,
+    test_size=0.2,
+    random_state=RANDOM_STATE
+):
+    # Paths
+    path_lb_embb = os.path.join(data_path, emb_file)
+    path_dataset = os.path.join(data_path, dataset_file)
+    # Load embeddings
+    embeddings = np.load(path_lb_embb, mmap_mode="r")
+
+    if scaled:
+        scaler = MinMaxScaler(feature_range=(0, 1))
+        embeddings = scaler.fit_transform(embeddings)
+    else:
+        scaler = None
+
+    # Load dataset
+    df = pd.read_csv(path_dataset, nrows=n_rows)
+    df['Explicit_binary'] = df['Explicit'].map({'Yes': 1, 'No': 0})
+
+    X = embeddings
+    y = df['Explicit_binary']
+        # Split
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, random_state=random_state
+    )
+
+    
+    # Convertir a tensores
+    X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
+    y_train_tensor = torch.tensor(y_train.values, dtype=torch.long)
+    X_test_tensor  = torch.tensor(X_test, dtype=torch.float32)
+    y_test_tensor  = torch.tensor(y_test.values, dtype=torch.long)
+
+    # Crear datasets
+    trainDataset = TensorDataset(X_train_tensor, y_train_tensor)
+    testDataset  = TensorDataset(X_test_tensor,  y_test_tensor)
+
+    # Crear dataloaders
+    trainLoader = DataLoader(trainDataset, batch_size=batch_size, shuffle=True)
+    testLoader  = DataLoader(testDataset,  batch_size=batch_size, shuffle=False)
+    return {
+        trainLoader,
+        testLoader,
+        trainDataset,
+        testDataset,
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        scaler
+    }
+
+def train_deep_rn(net, trainLoader, testLoader, criterion, optimizer, device, n_epoch=20, target_f1=0.95, print_every=126):
+    train_losses = []
+    test_losses = []
+    best_f1_score = 0.0
+    best_pred = None
+    best_ephoc = None
+    best_labels = None
+    AUC_according_best_f1 = 0.0
+
+    for epoch in range(n_epoch):
+        # Training
+        net.train()
+        total_train_loss = 0
+        for embbedings, labels in trainLoader:
+            embbedings, labels = embbedings.to(device), labels.to(device).float()
+            outputs = net(embbedings).squeeze(1)
+            loss = criterion(outputs, labels)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            total_train_loss += loss.item()
+
+        avg_train_loss = total_train_loss / len(trainLoader)
+        train_losses.append(avg_train_loss)
+
+        # Evaluation
+        net.eval()
+        total_test_loss = 0
+        all_preds, all_labels, all_probs = [], [], []
+        with torch.no_grad():
+            for embbedings, labels in testLoader:
+                embbedings, labels = embbedings.to(device), labels.to(device).float()
+                outputs = net(embbedings).squeeze(1)
+                loss = criterion(outputs, labels)
+                total_test_loss += loss.item()
+                probs = torch.sigmoid(outputs)
+                preds = (probs >= 0.5).int()
+                all_preds.extend(preds.cpu().numpy())
+                all_labels.extend(labels.cpu().numpy())
+                all_probs.extend(probs.cpu().numpy())
+
+        avg_test_loss = total_test_loss / len(testLoader)
+        test_losses.append(avg_test_loss)
+
+        # Metrics
+        acc = accuracy_score(all_labels, all_preds)
+        prec = precision_score(all_labels, all_preds)
+        rec = recall_score(all_labels, all_preds)
+        f1 = f1_score(all_labels, all_preds)
+        auc = roc_auc_score(all_labels, all_probs) 
+        if f1 > best_f1_score:
+            best_f1_score = f1
+            best_pred = all_preds
+            best_ephoc = epoch
+            best_labels = all_labels.copy()
+            AUC_according_best_f1 = auc
+            epocas= epoch
+        if f1 >= target_f1:
+            print(f"Target F1-score {target_f1} alcanzado en la época {epoch}. Deteniendo entrenamiento.")
+            break
+        if epoch % print_every == 0:
+            print(f"Epoch [{epoch}/{n_epoch}] "
+                  f"Train Loss: {avg_train_loss:.4f}, Test Loss: {avg_test_loss:.4f}, "
+                  f"F1: {f1:.4f}, AUC: {auc:.4f}")
+
+    print("Mejores resultados en la época: ", best_ephoc)
+    print("f1-score", best_f1_score)
+    print("AUC según el mejor F1-score", AUC_according_best_f1)
+    return train_losses,test_losses, best_f1_score, best_pred, best_ephoc, best_labels, AUC_according_best_f1
+
+
+
+######### End  MLP #########
+
+
+
+
 # ['tfidf', 'lyrics_bert']
 def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_type="tfidf"):
     models = {
@@ -357,9 +540,20 @@ def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_ty
         model_filename = os.path.join(dir_, f"{name.replace(' ', '_').lower()}_model.pkl")
         joblib.dump(model, model_filename)
         print(f"Modelo guardado como: {model_filename}")
+    
+    # -------------------------
+    # Modelo profundo con MLP
+    # -------------------------
+    
+    print(f"\n{'='*30}")
+    print("Entrenando red neuronal profunda (MLP)...")
+
+
     print("\n\nResumen de métricas:")
     for modelo, metricas in sorted(resumen_metricas.items(), key=lambda x: x[1]["f1_score"], reverse=True):
         print(f"{modelo}: {metricas}")
+
+    
 
 
 def train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_ = "output", embedding_type="tfidf"):

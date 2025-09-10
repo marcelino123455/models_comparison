@@ -1,0 +1,4 @@
+Input Notebook:  deep_rn.ipynb
+Output Notebook: ejecutado_deep_rn20250831_191643.ipynb
+Executing:   0%|          | 0/11 [00:00<?, ?cell/s]Executing notebook with kernel: python3
+Executing:   9%|▉         | 1/11 [00:09<01:38,  9.90s/cell]Executing:  36%|███▋      | 4/11 [00:18<00:29,  4.20s/cell]Executing:  55%|█████▍    | 6/11 [00:20<00:14,  2.91s/cell]Executing:  73%|███████▎  | 8/11 [1:01:01<35:00, 700.22s/cell]Executing:  82%|████████▏ | 9/11 [1:01:02<18:19, 549.64s/cell]Executing:  91%|█████████ | 10/11 [1:01:02<07:00, 420.51s/cell]Executing: 100%|██████████| 11/11 [1:01:04<00:00, 333.12s/cell]

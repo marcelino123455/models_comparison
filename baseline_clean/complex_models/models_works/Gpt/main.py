@@ -1,37 +1,48 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import (
-    classification_report, accuracy_score, precision_score, recall_score, f1_score,
-    confusion_matrix
-)
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import classification_report
-from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import Pipeline
 import os
+import re
+import time
+import json
 import joblib
+import psutil
+import umap
+import papermill
 import nltk
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import matplotlib.pyplot as plt
+
+from tqdm import tqdm
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
-import re
-from tqdm import tqdm
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.preprocessing import MinMaxScaler
-from imblearn.over_sampling import SMOTE
+
+from torch.utils.data import DataLoader, TensorDataset
+
+from sklearn import datasets
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.metrics import (
+    classification_report, accuracy_score, precision_score,
+    recall_score, f1_score, confusion_matrix, roc_auc_score
+)
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB, MultinomialNB
+from sklearn.svm import SVC
+from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
+
+from imblearn.over_sampling import SMOTE
 from xgboost import XGBClassifier
-import json
+
+# from torchvision import datasets, transforms
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 RANDOM_STATE = 42
 
@@ -273,8 +284,217 @@ def undersample(X, y, random_state= RANDOM_STATE):
     print(f"y shape: {y.shape}")
 
     return X, y
+####### MLP ###########
+class MLP(nn.Module):
+    def __init__(self, capas):
+        super(MLP, self).__init__()
+        layers = []
+        # Capas 
+        for i in range(len(capas)-2):
+            layers.append(nn.Linear(capas[i], capas[i+1]))
+            layers.append(nn.ReLU(inplace=True))
+        layers.append(nn.Linear(capas[-2], capas[-1]))
+        self.net = nn.Sequential(*layers)
+
+    def forward(self, x):
+        return self.net(x)
+        
+def data_to_tensor(
+    data_path="../../../../data",
+    emb_file="embbedings_khipu/tfidf_numeric_B.npy",
+    dataset_file="spotify_dataset_sin_duplicados_4.csv",
+    n_rows=False,
+    scaled=True,
+    batch_size=64,
+    test_size=0.2,
+    random_state=42
+):
+    # Paths
+    path_lb_embb = os.path.join(data_path, emb_file)
+    path_dataset = os.path.join(data_path, dataset_file)
+
+    # Load embeddings
+    embeddings = np.load(path_lb_embb, mmap_mode="r")
+
+    if n_rows:
+        nrows = n_rows
+        embeddings = embeddings[:nrows]
+        epochs = 30
+    else:
+        nrows = None
+        epochs = 30
+
+    # Scale embeddings
+    if scaled:
+        scaler = MinMaxScaler(feature_range=(0, 1))
+        embeddings = scaler.fit_transform(embeddings)
+    else:
+        scaler = None
+
+    # Load dataset
+    df = pd.read_csv(path_dataset, nrows=nrows)
+    df['Explicit_binary'] = df['Explicit'].map({'Yes': 1, 'No': 0})
+
+    X = embeddings
+    y = df['Explicit_binary']
+
+    # Split
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, random_state=random_state
+    )
+
+    # Convertir a tensores
+    X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
+    y_train_tensor = torch.tensor(y_train.values, dtype=torch.long)
+    X_test_tensor  = torch.tensor(X_test, dtype=torch.float32)
+    y_test_tensor  = torch.tensor(y_test.values, dtype=torch.long)
+
+    # Crear datasets
+    trainDataset = TensorDataset(X_train_tensor, y_train_tensor)
+    testDataset  = TensorDataset(X_test_tensor,  y_test_tensor)
+
+    # Crear dataloaders
+    trainLoader = DataLoader(trainDataset, batch_size=batch_size, shuffle=True)
+    testLoader  = DataLoader(testDataset,  batch_size=batch_size, shuffle=False)
+
+    return (
+        trainLoader,
+        testLoader,
+        trainDataset,
+        testDataset,
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        epochs,
+        scaler
+    )
+
+def train_deep_rn(net, trainLoader, testLoader, criterion, optimizer, device, n_epoch=20, target_f1=0.95, print_every=126):
+    train_losses = []
+    test_losses = []
+    best_f1_score = 0.0
+    best_pred = None
+    best_ephoc = None
+    best_labels = None
+    AUC_according_best_f1 = 0.0
+
+    for epoch in range(n_epoch):
+        # Training
+        net.train()
+        total_train_loss = 0
+        for embbedings, labels in trainLoader:
+            embbedings, labels = embbedings.to(device), labels.to(device).float()
+            outputs = net(embbedings).squeeze(1)
+            loss = criterion(outputs, labels)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            total_train_loss += loss.item()
+
+        avg_train_loss = total_train_loss / len(trainLoader)
+        train_losses.append(avg_train_loss)
+
+        # Evaluation
+        net.eval()
+        total_test_loss = 0
+        all_preds, all_labels, all_probs = [], [], []
+        with torch.no_grad():
+            for embbedings, labels in testLoader:
+                embbedings, labels = embbedings.to(device), labels.to(device).float()
+                outputs = net(embbedings).squeeze(1)
+                loss = criterion(outputs, labels)
+                total_test_loss += loss.item()
+                probs = torch.sigmoid(outputs)
+                preds = (probs >= 0.5).int()
+                all_preds.extend(preds.cpu().numpy())
+                all_labels.extend(labels.cpu().numpy())
+                all_probs.extend(probs.cpu().numpy())
+
+        avg_test_loss = total_test_loss / len(testLoader)
+        test_losses.append(avg_test_loss)
+
+        # Metrics
+        acc = accuracy_score(all_labels, all_preds)
+        prec = precision_score(all_labels, all_preds)
+        rec = recall_score(all_labels, all_preds)
+        f1 = f1_score(all_labels, all_preds)
+        auc = roc_auc_score(all_labels, all_probs) 
+        if f1 > best_f1_score:
+            best_f1_score = f1
+            best_pred = all_preds
+            best_ephoc = epoch
+            best_labels = all_labels.copy()
+            AUC_according_best_f1 = auc
+            epocas= epoch
+        if f1 >= target_f1:
+            print(f"Target F1-score {target_f1} alcanzado en la época {epoch}. Deteniendo entrenamiento.")
+            break
+        if epoch % print_every == 0:
+            print(f"Epoch [{epoch}/{n_epoch}] "
+                  f"Train Loss: {avg_train_loss:.4f}, Test Loss: {avg_test_loss:.4f}, "
+                  f"F1: {f1:.4f}, AUC: {auc:.4f}")
+
+    print("Mejores resultados en la época: ", best_ephoc)
+    print("f1-score", best_f1_score)
+    print("AUC según el mejor F1-score", AUC_according_best_f1)
+    return train_losses,test_losses, best_f1_score, best_pred, best_ephoc, best_labels, AUC_according_best_f1
+
+def evaluar_modelo(y_true, y_pred, params=None, labels=('Not Explicit', 'Explicit'),
+                save_dir="resultados"):
+    # Matriz de confusión
+    cm = confusion_matrix(y_true, y_pred)
+    print("Confusion Matrix:\n", cm)
+
+    plt.figure(figsize=(6,5))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                xticklabels=labels, yticklabels=labels)
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
+    title = "Confusion Matrix"
+    if params is not None:
+        title += f" (Epoch = {params})"
+    plt.title(title)
+
+    # Guardar o mostrar
+    # if save:
+    os.makedirs(save_dir, exist_ok=True)
+    filename = f"confusion_matrix_param_{params if params is not None else 'final'}.png"
+    filepath = os.path.join(save_dir, filename)
+    plt.savefig(filepath, dpi=300, bbox_inches="tight")
+    print(f"Matriz de confusión guardada en: {filepath}")
+    plt.close()
+    # else:
+    # plt.show()
+
+    # Métricas
+    acc = accuracy_score(y_true, y_pred)
+    prec = precision_score(y_true, y_pred)
+    rec = recall_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+
+    print(f"Accuracy:   {acc:.4f}")
+    print(f"Precision:  {prec:.4f}")
+    print(f"Recall:     {rec:.4f}")
+    print(f"F1-score:   {f1:.4f}")
+
+    return {
+        "accuracy": acc,
+        "precision": prec,
+        "recall": rec,
+        "f1_score": f1,
+    }
+# evaluar_modelo(best_labels, best_pred, 20, labels=('Not Explicit', 'Explicit'), save_dir="resulta3dos")
+ 
+
+
+####### END MLP ###########
+
+
+
+
 # ['tfidf', 'lyrics_bert']
-def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_type="tfidf"):
+def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_type="tfidf", nets = None):
     models = {
         "Logistic Regression": LogisticRegression(
             penalty='l2',               # Regularización L2
@@ -373,6 +593,8 @@ def train_models(X_train, X_test, y_train, y_test, dir_ = "output", embedding_ty
         model_filename = os.path.join(dir_, f"{name.replace(' ', '_').lower()}_model.pkl")
         joblib.dump(model, model_filename)
         print(f"Modelo guardado como: {model_filename}")
+
+
     print("\n\nResumen de métricas:")
     for modelo, metricas in sorted(resumen_metricas.items(), key=lambda x: x[1]["f1_score"], reverse=True):
         print(f"{modelo}: {metricas}")
@@ -499,14 +721,22 @@ def main():
     ### CONFIGURATIONS ###
     TESTING = False
     # Data 
-    UNDERSAMPLING = False
-    USE_SMOTE = True
+    UNDERSAMPLING = True
+    USE_SMOTE = False
 
     SCALED = True
     STEAMING = True
     REMOVESTW = True
     NUMERICCOlS = False
     MAX_FEATURES = 5000
+
+    MLP_ = True
+
+    _EPHOCS = 30
+
+
+
+
 
     path_DATA = "../../../../data"
     if USE_SMOTE and UNDERSAMPLING:
@@ -539,7 +769,7 @@ def main():
 
 
     if TESTING:
-        _SAMPLE_SIZE = 100
+        _SAMPLE_SIZE = 1000
         print(f"\nYou are executing with [EXAMPLE] of {_SAMPLE_SIZE} songs")
         # _EMBEDDINGS = _EMBEDDINGS[:1000]
     else:
@@ -572,6 +802,7 @@ def main():
 
     # A) Embeddings types
     embb_types = ['tfidf', 'lyrics_bert', 'gpt']
+    # embb_types = [ 'lyrics_bert', 'gpt']
 
 
     for embedding_type in embb_types:
@@ -627,31 +858,113 @@ def main():
             X_train, y_train = smote.fit_resample(X_train, y_train)
             
             print(f"Nueva distribución de clases: {y_train.value_counts().to_dict()}")
-
-
-
-        if SCALED:
-            scaler = MinMaxScaler(feature_range=(0, 1))
-            X_train = scaler.fit_transform(X_train)
-            X_test = scaler.transform(X_test)
+        
         
         if TESTING:
             out = "test"
         else:
             out=""
 
-        output_dir = f"outputs{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_useSmote_{USE_SMOTE}_+_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
+        
+        output_dir = f"outputs{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_useSmote_{USE_SMOTE}_MLP_{MLP_}_+_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
+        
+
+        if MLP_: 
+            nets = {
+                # Pequeña y rápida
+                "1": [X_train.shape[1], 32, 1],  
+                
+                # Mediana
+                "2": [X_train.shape[1], 64, 32, 1],  
+                
+                # Más profunda
+                "3": [X_train.shape[1], 128, 64, 32, 1],  
+                
+                # Red grande
+                "4": [X_train.shape[1], 256, 128, 64, 32, 1],  
+                
+                # Variante con capas decrecientes más suaves
+                "5": [X_train.shape[1], 512, 256, 128, 64, 1],
+                "6": [X_train.shape[1], 1024, 512, 256, 128, 64, 32, 1],
+            }
+
+            print("Resultados con MLP")
+            ## Usaremos su porip escalador
+            # Convertir data a tensores
+            # Convertir a tensores
+            X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
+            # y_train_tensor = torch.tensor(y_train, dtype=torch.long)  # labels como enteros
+            y_train_tensor = torch.tensor(np.array(y_train), dtype=torch.long)
+            y_test_tensor  = torch.tensor(np.array(y_test), dtype=torch.long)
+
+            X_test_tensor  = torch.tensor(X_test, dtype=torch.float32)
+            # y_test_tensor  = torch.tensor(y_test, dtype=torch.long)
+
+            # Crear datasets
+            trainDataset = TensorDataset(X_train_tensor, y_train_tensor)
+            testDataset  = TensorDataset(X_test_tensor,  y_test_tensor)
+
+            trainLoader = DataLoader(trainDataset, batch_size=64, shuffle= True)
+            testLoader  = DataLoader( testDataset, batch_size=64, shuffle=False)
+            
+            veces = 4
+            n_params = []
+            f1_scores = []
+            for name, capas in nets.items():
+                print(f"\nEntrenando red {name} con capas {capas}")
+                net_ = MLP(capas)
+
+                trainable_params = sum(p.numel() for p in net_.parameters() if p.requires_grad)
+                n_params.append(trainable_params)
+
+                
+                start_time = time.time()  
+
+                f1_score_result = 0.0
+                for i in range(veces):
+                    print(f"\n--- Iteración {i+1} de {veces} para la red {name} ---")
+
+                    net = MLP(capas).to(device)
+                    criterion = nn.BCEWithLogitsLoss()
+                    optimizer = optim.AdamW(net.parameters(), lr=0.001)
+
+                    train_losses,test_losses, best_f1_score, best_pred, best_ephoc, best_labels, AUC_according_best_f1 = train_deep_rn(
+                        net, trainLoader, testLoader, criterion, optimizer, device, 
+                        n_epoch=_EPHOCS, target_f1=0.95, print_every=10
+                    )
+                    f1_score_result+=best_f1_score
+
+                    os.makedirs(output_dir, exist_ok=True)
+                    resumencito = evaluar_modelo(best_labels, best_pred, trainable_params, labels=('Not Explicit', 'Explicit'), save_dir=output_dir)
+
+
+                f1_scores.append(f1_score_result/veces)
+                # resultados_globales[str(trainable_params)] = resumencito
+                resultados_globales.setdefault(embedding_type, {})
+                resultados_globales[embedding_type][f"MLP_{trainable_params}"] = resumencito
+
+                end_time = time.time() 
+                elapsed_time = end_time - start_time
+                print(f"Tiempo total para red {name}: {elapsed_time:.2f} segundos")
+        if SCALED:
+            scaler = MinMaxScaler(feature_range=(0, 1))
+            X_train = scaler.fit_transform(X_train)
+            X_test = scaler.transform(X_test)
+        
+
 
         print("Saved on:", output_dir)
         resumen = train_models(X_train, X_test, y_train, y_test, dir_=output_dir, embedding_type=embedding_type)
-        resultados_globales[embedding_type] = resumen
+        # resultados_globales[embedding_type] = resumen
+        resultados_globales.setdefault(embedding_type, {})
+        resultados_globales[embedding_type].update(resumen)
 
 
         # train_models_with_gridsearch
         # train_models_with_gridsearch(X_train, X_test, y_train, y_test, dir_=output_dir, embedding_type=embedding_type)
     i = 0
     print("\n\nResumen GLOBAL de métricas:")
-    print("\n\nResumen GLOBAL de métricas:")
+    
     for emb_type, models_dict in resultados_globales.items():
         print(f"\n\nEMBEDDINGS TYPE: {emb_type.upper()}")
         for modelo, metricas in sorted(models_dict.items(), key=lambda x: x[1]["f1_score"], reverse=True):
