@@ -1,0 +1,138 @@
+{
+    "tfidf": {
+        "MLP_897": {
+            "f1_cv_mean": 0.4421,
+            "f1_cv_std": 0.2434,
+            "params": 897,
+            "f1_score_test": 0.3806
+        },
+        "Logistic Regression": {
+            "accuracy_cv": 0.5605,
+            "precision_cv": 0.5755,
+            "recall_cv": 0.4737,
+            "f1_score_cv": 0.5118,
+            "accuracy_test": 0.605,
+            "precision_test": 0.2576,
+            "recall_test": 0.3617,
+            "f1_score_test": 0.3009
+        },
+        "SVM": {
+            "accuracy_cv": 0.5895,
+            "precision_cv": 0.6087,
+            "recall_cv": 0.5,
+            "f1_score_cv": 0.5393,
+            "accuracy_test": 0.64,
+            "precision_test": 0.3288,
+            "recall_test": 0.5106,
+            "f1_score_test": 0.4
+        },
+        "Decision Tree": {
+            "accuracy_cv": 0.5447,
+            "precision_cv": 0.5501,
+            "recall_cv": 0.5053,
+            "f1_score_cv": 0.5245,
+            "accuracy_test": 0.57,
+            "precision_test": 0.2809,
+            "recall_test": 0.5319,
+            "f1_score_test": 0.3676
+        },
+        "Random Forest": {
+            "accuracy_cv": 0.5579,
+            "precision_cv": 0.5625,
+            "recall_cv": 0.5,
+            "f1_score_cv": 0.5273,
+            "accuracy_test": 0.53,
+            "precision_test": 0.2626,
+            "recall_test": 0.5532,
+            "f1_score_test": 0.3562
+        },
+        "XGBoost": {
+            "accuracy_cv": 0.5579,
+            "precision_cv": 0.5671,
+            "recall_cv": 0.4947,
+            "f1_score_cv": 0.5263,
+            "accuracy_test": 0.51,
+            "precision_test": 0.2571,
+            "recall_test": 0.5745,
+            "f1_score_test": 0.3553
+        },
+        "Naive Bayes": {
+            "accuracy_cv": 0.5816,
+            "precision_cv": 0.6255,
+            "recall_cv": 0.4368,
+            "f1_score_cv": 0.5067,
+            "accuracy_test": 0.675,
+            "precision_test": 0.3333,
+            "recall_test": 0.383,
+            "f1_score_test": 0.3564
+        }
+    },
+    "lyrics_bert": {
+        "MLP_10305": {
+            "f1_cv_mean": 0.4526,
+            "f1_cv_std": 0.1541,
+            "params": 10305,
+            "f1_score_test": 0.3502
+        },
+        "Logistic Regression": {
+            "accuracy_cv": 0.6921,
+            "precision_cv": 0.7001,
+            "recall_cv": 0.6737,
+            "f1_score_cv": 0.686,
+            "accuracy_test": 0.725,
+            "precision_test": 0.4487,
+            "recall_test": 0.7447,
+            "f1_score_test": 0.56
+        },
+        "SVM": {
+            "accuracy_cv": 0.7211,
+            "precision_cv": 0.7429,
+            "recall_cv": 0.6947,
+            "f1_score_cv": 0.7143,
+            "accuracy_test": 0.765,
+            "precision_test": 0.5,
+            "recall_test": 0.7234,
+            "f1_score_test": 0.5913
+        },
+        "Decision Tree": {
+            "accuracy_cv": 0.5737,
+            "precision_cv": 0.5802,
+            "recall_cv": 0.5579,
+            "f1_score_cv": 0.5681,
+            "accuracy_test": 0.585,
+            "precision_test": 0.3085,
+            "recall_test": 0.617,
+            "f1_score_test": 0.4113
+        },
+        "Random Forest": {
+            "accuracy_cv": 0.7263,
+            "precision_cv": 0.7527,
+            "recall_cv": 0.6895,
+            "f1_score_cv": 0.7178,
+            "accuracy_test": 0.72,
+            "precision_test": 0.443,
+            "recall_test": 0.7447,
+            "f1_score_test": 0.5556
+        },
+        "XGBoost": {
+            "accuracy_cv": 0.7026,
+            "precision_cv": 0.7177,
+            "recall_cv": 0.6895,
+            "f1_score_cv": 0.6998,
+            "accuracy_test": 0.72,
+            "precision_test": 0.4444,
+            "recall_test": 0.766,
+            "f1_score_test": 0.5625
+        },
+        "Naive Bayes": {
+            "accuracy_cv": 0.6526,
+            "precision_cv": 0.7649,
+            "recall_cv": 0.4474,
+            "f1_score_cv": 0.5528,
+            "accuracy_test": 0.785,
+            "precision_test": 0.5588,
+            "recall_test": 0.4043,
+            "f1_score_test": 0.4691
+        }
+    }
+}
