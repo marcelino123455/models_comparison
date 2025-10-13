@@ -1,0 +1,968 @@
+2025-09-19 10:57:44.310588: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-09-19 10:57:44.375629: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-19 10:57:47.678887: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/No_text/main_complete_without_artist_7.py:288: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+For TF-IDF embbedings you are selecteing this columns:
+--> ['emotion', 'Time signature', 'Artist(s)', 'song', 'Genre', 'Album', 'Release Date', 'Key', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+For both embbedings your are adding this columns: 
+--> ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+You are executing with [ALL] dataset
+After removing some columns that doesn't love me, for TF-IDF embbedings you are selecteing this columns:
+--> ['emotion', 'Time signature', 'song', 'Genre', 'Album', 'Release Date', 'Key', 'Similar Song 1', 'Similar Song 2', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+After removing some columns that doesn't love me, for numeric cols you are selecteing this columns:
+--> ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+--> PaTH:  ../../data/embbedings_khipu/LB_fuss/lb_khipu_B.npy
+
+##################################################
+Running experiment with TFIDF embeddings
+Preprocessing text...
+Label distribution: {0: 82336, 1: 25802}
+X shape: (108138, 5000)
+y shape: (108138,)
+Se eliminarán los siguientes indices [9681, 13382, 27808, 38450, 46753, 53015, 53018, 53102, 53137, 57281, 70666, 75102, 98849]
+El valor de y[0] es 108138
+Shape original X: (108138, 5000), y: (108138,)
+Shape filtrado  X: (108125, 5000), y: (108125,)
+
+Splitting data...
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65861, 1: 20639}
+Label distribution en TEST: {0: 16465, 1: 5160}
+
+
+==================================================
+Data antes del undersampling ...
+X: (86500, 5020)
+y: (86500,)
+Apliying UNDERSAMPLE
+20639
+Label distribution: {0: 20639, 1: 20639}
+X shape: (41278, 5020)
+y shape: (41278,)
+Comenzando trainning de MLP...
+
+========================================
+Entrenando red 1 con capas [5020, 32, 1]
+
+--- Fold 1/5 ---
+Epoch [0/30] Train Loss: 0.4650, Test Loss: 0.4066, F1: 0.7987, AUC: 0.9000
+Epoch [10/30] Train Loss: 0.2195, Test Loss: 0.2700, F1: 0.8856, AUC: 0.9563
+Epoch [20/30] Train Loss: 0.1770, Test Loss: 0.2887, F1: 0.8838, AUC: 0.9579
+Mejores resultados en la época:  18
+f1-score 0.8887023266970496
+AUC según el mejor F1-score 0.9576498393463434
+
+--- Fold 2/5 ---
+Epoch [0/30] Train Loss: 0.4855, Test Loss: 0.4281, F1: 0.7922, AUC: 0.8868
+Epoch [10/30] Train Loss: 0.2318, Test Loss: 0.3187, F1: 0.8570, AUC: 0.9521
+Epoch [20/30] Train Loss: 0.1823, Test Loss: 0.2871, F1: 0.8815, AUC: 0.9548
+Mejores resultados en la época:  28
+f1-score 0.8841252828391092
+AUC según el mejor F1-score 0.9555843929338681
+
+--- Fold 3/5 ---
+Epoch [0/30] Train Loss: 0.4610, Test Loss: 0.4031, F1: 0.8095, AUC: 0.8993
+Epoch [10/30] Train Loss: 0.2223, Test Loss: 0.2795, F1: 0.8853, AUC: 0.9565
+Epoch [20/30] Train Loss: 0.1846, Test Loss: 0.2763, F1: 0.8881, AUC: 0.9576
+Mejores resultados en la época:  29
+f1-score 0.8924157984007753
+AUC según el mejor F1-score 0.9592845442919596
+
+--- Fold 4/5 ---
+Epoch [0/30] Train Loss: 0.4699, Test Loss: 0.4153, F1: 0.8256, AUC: 0.8967
+Epoch [10/30] Train Loss: 0.2247, Test Loss: 0.3104, F1: 0.8577, AUC: 0.9559
+Epoch [20/30] Train Loss: 0.1799, Test Loss: 0.2722, F1: 0.8852, AUC: 0.9574
+Mejores resultados en la época:  27
+f1-score 0.891566265060241
+AUC según el mejor F1-score 0.959663555184895
+
+--- Fold 5/5 ---
+Epoch [0/30] Train Loss: 0.4613, Test Loss: 0.4449, F1: 0.8245, AUC: 0.8983
+Epoch [10/30] Train Loss: 0.2309, Test Loss: 0.3105, F1: 0.8567, AUC: 0.9553
+Epoch [20/30] Train Loss: 0.1765, Test Loss: 0.2825, F1: 0.8819, AUC: 0.9566
+Mejores resultados en la época:  29
+f1-score 0.8931991756576555
+AUC según el mejor F1-score 0.960306507486152
+Epoch [0/30] Train Loss: 0.4450, Test Loss: 0.3476, F1: 0.7345, AUC: 0.9106
+Epoch [10/30] Train Loss: 0.2150, Test Loss: 0.2626, F1: 0.7950, AUC: 0.9564
+Epoch [20/30] Train Loss: 0.1760, Test Loss: 0.2482, F1: 0.8070, AUC: 0.9576
+Mejores resultados en la época:  18
+f1-score 0.8184549772220607
+AUC según el mejor F1-score 0.9580855443894377
+Confusion matrix Test saved: outputs_without_artist/7/tfidf/cm_mlp_1.png
+
+========================================
+Entrenando red 6 con capas [5020, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Fold 1/5 ---
+Epoch [0/30] Train Loss: 0.4609, Test Loss: 0.3871, F1: 0.8354, AUC: 0.9145
+Epoch [10/30] Train Loss: 0.2098, Test Loss: 0.2637, F1: 0.8854, AUC: 0.9584
+Epoch [20/30] Train Loss: 0.1335, Test Loss: 0.3013, F1: 0.8976, AUC: 0.9646
+Mejores resultados en la época:  28
+f1-score 0.9046472429568986
+AUC según el mejor F1-score 0.9664757848179947
+
+--- Fold 2/5 ---
+Epoch [0/30] Train Loss: 0.4544, Test Loss: 0.3799, F1: 0.8396, AUC: 0.9167
+Epoch [10/30] Train Loss: 0.2013, Test Loss: 0.2918, F1: 0.8807, AUC: 0.9571
+Epoch [20/30] Train Loss: 0.1244, Test Loss: 0.3786, F1: 0.8888, AUC: 0.9592
+Mejores resultados en la época:  24
+f1-score 0.8950356323227443
+AUC según el mejor F1-score 0.961335231647362
+
+--- Fold 3/5 ---
+Epoch [0/30] Train Loss: 0.4568, Test Loss: 0.4056, F1: 0.7886, AUC: 0.9077
+Epoch [10/30] Train Loss: 0.2025, Test Loss: 0.3012, F1: 0.8854, AUC: 0.9581
+Epoch [20/30] Train Loss: 0.1406, Test Loss: 0.2916, F1: 0.8960, AUC: 0.9636
+Mejores resultados en la época:  22
+f1-score 0.8981249253553087
+AUC según el mejor F1-score 0.964360310190193
+
+--- Fold 4/5 ---
+Epoch [0/30] Train Loss: 0.4726, Test Loss: 0.3870, F1: 0.8158, AUC: 0.9089
+Epoch [10/30] Train Loss: 0.2083, Test Loss: 0.2960, F1: 0.8664, AUC: 0.9597
+Epoch [20/30] Train Loss: 0.1337, Test Loss: 0.2841, F1: 0.8917, AUC: 0.9610
+Mejores resultados en la época:  25
+f1-score 0.9046810574824157
+AUC según el mejor F1-score 0.9653057279721553
+
+--- Fold 5/5 ---
+Epoch [0/30] Train Loss: 0.4629, Test Loss: 0.3991, F1: 0.8253, AUC: 0.9073
+Epoch [10/30] Train Loss: 0.2050, Test Loss: 0.3111, F1: 0.8748, AUC: 0.9558
+Epoch [20/30] Train Loss: 0.1377, Test Loss: 0.3166, F1: 0.8928, AUC: 0.9621
+Mejores resultados en la época:  28
+f1-score 0.8971143309387556
+AUC según el mejor F1-score 0.9643454524280454
+Epoch [0/30] Train Loss: 0.4420, Test Loss: 0.4134, F1: 0.7292, AUC: 0.9255
+Epoch [10/30] Train Loss: 0.2044, Test Loss: 0.3314, F1: 0.7452, AUC: 0.9601
+Epoch [20/30] Train Loss: 0.1348, Test Loss: 0.3659, F1: 0.7566, AUC: 0.9639
+Mejores resultados en la época:  24
+f1-score 0.8337372758119244
+AUC según el mejor F1-score 0.963647718792741
+Confusion matrix Test saved: outputs_without_artist/7/tfidf/cm_mlp_6.png
+
+
+resultados_globales con DL {'tfidf': {'MLP_160705': {'accuracy_cv_mean': 0.8895, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8864, 'precision_cv_std': 0.0101, 'recall_cv_mean': 0.8938, 'recall_cv_std': 0.0042, 'f1_cv_mean': 0.89, 'f1_cv_std': 0.0033, 'params': 160705, 'accuracy_test': 0.9134, 'precision_test': 0.8187, 'recall_test': 0.8182, 'f1_score_test': 0.8185}, 'MLP_5840897': {'accuracy_cv_mean': 0.8996, 'accuracy_cv_std': 0.0041, 'precision_cv_mean': 0.897, 'precision_cv_std': 0.007, 'recall_cv_mean': 0.903, 'recall_cv_std': 0.0071, 'f1_cv_mean': 0.8999, 'f1_cv_std': 0.004, 'params': 5840897, 'accuracy_test': 0.9207, 'precision_test': 0.8341, 'recall_test': 0.8333, 'f1_score_test': 0.8337}}}
+Saved on: outputs_without_artist/7/tfidf
+
+==============================
+Model: Logistic Regression
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8802, 'accuracy_cv_std': 0.0043, 'precision_cv_mean': 0.8936, 'precision_cv_std': 0.0058, 'recall_cv_mean': 0.8633, 'recall_cv_std': 0.0034, 'f1_cv_mean': 0.8782, 'f1_cv_std': 0.0042}
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [11:42:10] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [11:44:57] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [11:47:43] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [11:50:29] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [11:53:14] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [11:56:05] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+Hiperparámetros: {'C': 1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 49, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.96      0.89      0.92     16465
+           1       0.72      0.87      0.79      5160
+
+    accuracy                           0.89     21625
+   macro avg       0.84      0.88      0.86     21625
+weighted avg       0.90      0.89      0.89     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/tfidf/conf_matrix_test_logistic_regression.png
+Modelo guardado como: outputs_without_artist/7/tfidf/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.7357, 'accuracy_cv_std': 0.0125, 'precision_cv_mean': 0.7014, 'precision_cv_std': 0.0215, 'recall_cv_mean': 0.8249, 'recall_cv_std': 0.0346, 'f1_cv_mean': 0.7573, 'f1_cv_std': 0.0097}
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 49, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.93      0.71      0.81     16465
+           1       0.48      0.83      0.60      5160
+
+    accuracy                           0.74     21625
+   macro avg       0.70      0.77      0.71     21625
+weighted avg       0.82      0.74      0.76     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/tfidf/conf_matrix_test_svm.png
+Modelo guardado como: outputs_without_artist/7/tfidf/svm_model.pkl
+
+==============================
+Model: Decision Tree
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8263, 'accuracy_cv_std': 0.0063, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0108, 'recall_cv_mean': 0.7481, 'recall_cv_std': 0.0138, 'f1_cv_mean': 0.8115, 'f1_cv_std': 0.0078}
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 49, 'splitter': 'best'}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.92      0.91      0.91     16465
+           1       0.72      0.74      0.73      5160
+
+    accuracy                           0.87     21625
+   macro avg       0.82      0.82      0.82     21625
+weighted avg       0.87      0.87      0.87     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/tfidf/conf_matrix_test_decision_tree.png
+Modelo guardado como: outputs_without_artist/7/tfidf/decision_tree_model.pkl
+
+==============================
+Model: Random Forest
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8188, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.854, 'precision_cv_std': 0.0051, 'recall_cv_mean': 0.7692, 'recall_cv_std': 0.0041, 'f1_cv_mean': 0.8094, 'f1_cv_std': 0.0032}
+Hiperparámetros: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 15, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': -1, 'oob_score': False, 'random_state': 49, 'verbose': 0, 'warm_start': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.92      0.86      0.89     16465
+           1       0.64      0.77      0.70      5160
+
+    accuracy                           0.84     21625
+   macro avg       0.78      0.82      0.80     21625
+weighted avg       0.85      0.84      0.85     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/tfidf/conf_matrix_test_random_forest.png
+Modelo guardado como: outputs_without_artist/7/tfidf/random_forest_model.pkl
+
+==============================
+Model: XGBoost
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8801, 'accuracy_cv_std': 0.0033, 'precision_cv_mean': 0.9046, 'precision_cv_std': 0.0049, 'recall_cv_mean': 0.8498, 'recall_cv_std': 0.0043, 'f1_cv_mean': 0.8763, 'f1_cv_std': 0.0034}
+Hiperparámetros: {'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': 0.8, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 8, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 200, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 49, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': 0.8, 'tree_method': None, 'validate_parameters': None, 'verbosity': None, 'use_label_encoder': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.95      0.91      0.93     16465
+           1       0.74      0.85      0.79      5160
+
+    accuracy                           0.89     21625
+   macro avg       0.85      0.88      0.86     21625
+weighted avg       0.90      0.89      0.90     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/tfidf/conf_matrix_test_xgboost.png
+Modelo guardado como: outputs_without_artist/7/tfidf/xgboost_model.pkl
+
+==============================
+Model: Naive Bayes
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8455, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8693, 'precision_cv_std': 0.0057, 'recall_cv_mean': 0.8133, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8404, 'f1_cv_std': 0.0042}
+Hiperparámetros: {'alpha': 1.0, 'class_prior': None, 'fit_prior': True, 'force_alpha': True}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.94      0.88      0.91     16465
+           1       0.68      0.81      0.74      5160
+
+    accuracy                           0.86     21625
+   macro avg       0.81      0.84      0.82     21625
+weighted avg       0.87      0.86      0.87     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/tfidf/conf_matrix_test_naive_bayes.png
+Modelo guardado como: outputs_without_artist/7/tfidf/naive_bayes_model.pkl
+
+
+Resumen Final:
+XGBoost: {'accuracy_cv_mean': 0.8801, 'accuracy_cv_std': 0.0033, 'precision_cv_mean': 0.9046, 'precision_cv_std': 0.0049, 'recall_cv_mean': 0.8498, 'recall_cv_std': 0.0043, 'f1_cv_mean': 0.8763, 'f1_cv_std': 0.0034, 'accuracy_test': 0.8942, 'precision_test': 0.7436, 'recall_test': 0.8498, 'f1_score_test': 0.7932}
+Logistic Regression: {'accuracy_cv_mean': 0.8802, 'accuracy_cv_std': 0.0043, 'precision_cv_mean': 0.8936, 'precision_cv_std': 0.0058, 'recall_cv_mean': 0.8633, 'recall_cv_std': 0.0034, 'f1_cv_mean': 0.8782, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8875, 'precision_test': 0.7191, 'recall_test': 0.8676, 'f1_score_test': 0.7864}
+Naive Bayes: {'accuracy_cv_mean': 0.8455, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8693, 'precision_cv_std': 0.0057, 'recall_cv_mean': 0.8133, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8404, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8618, 'precision_test': 0.6753, 'recall_test': 0.8107, 'f1_score_test': 0.7368}
+Decision Tree: {'accuracy_cv_mean': 0.8263, 'accuracy_cv_std': 0.0063, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0108, 'recall_cv_mean': 0.7481, 'recall_cv_std': 0.0138, 'f1_cv_mean': 0.8115, 'f1_cv_std': 0.0078, 'accuracy_test': 0.87, 'precision_test': 0.7235, 'recall_test': 0.7368, 'f1_score_test': 0.7301}
+/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/No_text/main_complete_without_artist_7.py:288: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+Random Forest: {'accuracy_cv_mean': 0.8188, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.854, 'precision_cv_std': 0.0051, 'recall_cv_mean': 0.7692, 'recall_cv_std': 0.0041, 'f1_cv_mean': 0.8094, 'f1_cv_std': 0.0032, 'accuracy_test': 0.8414, 'precision_test': 0.6398, 'recall_test': 0.7674, 'f1_score_test': 0.6979}
+SVM: {'accuracy_cv_mean': 0.7357, 'accuracy_cv_std': 0.0125, 'precision_cv_mean': 0.7014, 'precision_cv_std': 0.0215, 'recall_cv_mean': 0.8249, 'recall_cv_std': 0.0346, 'f1_cv_mean': 0.7573, 'f1_cv_std': 0.0097, 'accuracy_test': 0.7409, 'precision_test': 0.4754, 'recall_test': 0.8295, 'f1_score_test': 0.6044}
+resultados_globales con ML {'tfidf': {'MLP_160705': {'accuracy_cv_mean': 0.8895, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8864, 'precision_cv_std': 0.0101, 'recall_cv_mean': 0.8938, 'recall_cv_std': 0.0042, 'f1_cv_mean': 0.89, 'f1_cv_std': 0.0033, 'params': 160705, 'accuracy_test': 0.9134, 'precision_test': 0.8187, 'recall_test': 0.8182, 'f1_score_test': 0.8185}, 'MLP_5840897': {'accuracy_cv_mean': 0.8996, 'accuracy_cv_std': 0.0041, 'precision_cv_mean': 0.897, 'precision_cv_std': 0.007, 'recall_cv_mean': 0.903, 'recall_cv_std': 0.0071, 'f1_cv_mean': 0.8999, 'f1_cv_std': 0.004, 'params': 5840897, 'accuracy_test': 0.9207, 'precision_test': 0.8341, 'recall_test': 0.8333, 'f1_score_test': 0.8337}, 'Logistic Regression': {'accuracy_cv_mean': 0.8802, 'accuracy_cv_std': 0.0043, 'precision_cv_mean': 0.8936, 'precision_cv_std': 0.0058, 'recall_cv_mean': 0.8633, 'recall_cv_std': 0.0034, 'f1_cv_mean': 0.8782, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8875, 'precision_test': 0.7191, 'recall_test': 0.8676, 'f1_score_test': 0.7864}, 'SVM': {'accuracy_cv_mean': 0.7357, 'accuracy_cv_std': 0.0125, 'precision_cv_mean': 0.7014, 'precision_cv_std': 0.0215, 'recall_cv_mean': 0.8249, 'recall_cv_std': 0.0346, 'f1_cv_mean': 0.7573, 'f1_cv_std': 0.0097, 'accuracy_test': 0.7409, 'precision_test': 0.4754, 'recall_test': 0.8295, 'f1_score_test': 0.6044}, 'Decision Tree': {'accuracy_cv_mean': 0.8263, 'accuracy_cv_std': 0.0063, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0108, 'recall_cv_mean': 0.7481, 'recall_cv_std': 0.0138, 'f1_cv_mean': 0.8115, 'f1_cv_std': 0.0078, 'accuracy_test': 0.87, 'precision_test': 0.7235, 'recall_test': 0.7368, 'f1_score_test': 0.7301}, 'Random Forest': {'accuracy_cv_mean': 0.8188, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.854, 'precision_cv_std': 0.0051, 'recall_cv_mean': 0.7692, 'recall_cv_std': 0.0041, 'f1_cv_mean': 0.8094, 'f1_cv_std': 0.0032, 'accuracy_test': 0.8414, 'precision_test': 0.6398, 'recall_test': 0.7674, 'f1_score_test': 0.6979}, 'XGBoost': {'accuracy_cv_mean': 0.8801, 'accuracy_cv_std': 0.0033, 'precision_cv_mean': 0.9046, 'precision_cv_std': 0.0049, 'recall_cv_mean': 0.8498, 'recall_cv_std': 0.0043, 'f1_cv_mean': 0.8763, 'f1_cv_std': 0.0034, 'accuracy_test': 0.8942, 'precision_test': 0.7436, 'recall_test': 0.8498, 'f1_score_test': 0.7932}, 'Naive Bayes': {'accuracy_cv_mean': 0.8455, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8693, 'precision_cv_std': 0.0057, 'recall_cv_mean': 0.8133, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8404, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8618, 'precision_test': 0.6753, 'recall_test': 0.8107, 'f1_score_test': 0.7368}}}
+
+##################################################
+Running experiment with LYRICS_BERT embeddings
+Loading Lb vectors from:  ../../data/spotify_dataset_sin_duplicados_4.csv
+Label distribution: {0: 82336, 1: 25802}
+X shape: (108138, 300)
+y shape: (108138,)
+Se eliminarán los siguientes indices [9681, 13382, 27808, 38450, 46753, 53015, 53018, 53102, 53137, 57281, 70666, 75102, 98849]
+El valor de y[0] es 108138
+Shape original X: (108138, 300), y: (108138,)
+Shape filtrado  X: (108125, 300), y: (108125,)
+
+Splitting data...
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65861, 1: 20639}
+Label distribution en TEST: {0: 16465, 1: 5160}
+
+
+==================================================
+Data antes del undersampling ...
+X: (86500, 320)
+y: (86500,)
+Apliying UNDERSAMPLE
+20639
+Label distribution: {0: 20639, 1: 20639}
+X shape: (41278, 320)
+y shape: (41278,)
+Comenzando trainning de MLP...
+
+========================================
+Entrenando red 1 con capas [320, 32, 1]
+
+--- Fold 1/5 ---
+Epoch [0/30] Train Loss: 0.4433, Test Loss: 0.4041, F1: 0.8297, AUC: 0.9032
+Epoch [10/30] Train Loss: 0.3250, Test Loss: 0.3329, F1: 0.8489, AUC: 0.9323
+Epoch [20/30] Train Loss: 0.2955, Test Loss: 0.3287, F1: 0.8575, AUC: 0.9383
+Mejores resultados en la época:  28
+f1-score 0.8665213178294574
+AUC según el mejor F1-score 0.9411877103238987
+
+--- Fold 2/5 ---
+Epoch [0/30] Train Loss: 0.4389, Test Loss: 0.4191, F1: 0.7894, AUC: 0.9034
+Epoch [10/30] Train Loss: 0.3253, Test Loss: 0.3362, F1: 0.8569, AUC: 0.9300
+Epoch [20/30] Train Loss: 0.2964, Test Loss: 0.3241, F1: 0.8601, AUC: 0.9352
+Mejores resultados en la época:  26
+f1-score 0.8678874277989431
+AUC según el mejor F1-score 0.9395968130765128
+
+--- Fold 3/5 ---
+Epoch [0/30] Train Loss: 0.4501, Test Loss: 0.3904, F1: 0.8297, AUC: 0.9063
+Epoch [10/30] Train Loss: 0.3244, Test Loss: 0.3368, F1: 0.8434, AUC: 0.9332
+Epoch [20/30] Train Loss: 0.2996, Test Loss: 0.3113, F1: 0.8643, AUC: 0.9400
+Mejores resultados en la época:  28
+f1-score 0.8684887853903664
+AUC según el mejor F1-score 0.9425175512476716
+
+--- Fold 4/5 ---
+Epoch [0/30] Train Loss: 0.4517, Test Loss: 0.3968, F1: 0.8112, AUC: 0.9091
+Epoch [10/30] Train Loss: 0.3187, Test Loss: 0.3167, F1: 0.8609, AUC: 0.9385
+Epoch [20/30] Train Loss: 0.2942, Test Loss: 0.3049, F1: 0.8658, AUC: 0.9439
+Mejores resultados en la época:  29
+f1-score 0.8705938017506506
+AUC según el mejor F1-score 0.9449955142726196
+
+--- Fold 5/5 ---
+Epoch [0/30] Train Loss: 0.4413, Test Loss: 0.4007, F1: 0.8266, AUC: 0.9020
+Epoch [10/30] Train Loss: 0.3267, Test Loss: 0.3904, F1: 0.8068, AUC: 0.9307
+Epoch [20/30] Train Loss: 0.3017, Test Loss: 0.3276, F1: 0.8524, AUC: 0.9385
+Mejores resultados en la época:  29
+f1-score 0.8701189474948937
+AUC según el mejor F1-score 0.9422674207290617
+Epoch [0/30] Train Loss: 0.4464, Test Loss: 0.4221, F1: 0.6988, AUC: 0.9022
+Epoch [10/30] Train Loss: 0.3252, Test Loss: 0.3262, F1: 0.7543, AUC: 0.9333
+Epoch [20/30] Train Loss: 0.2973, Test Loss: 0.2999, F1: 0.7715, AUC: 0.9411
+Mejores resultados en la época:  24
+f1-score 0.7817785051827605
+AUC según el mejor F1-score 0.9412208301847705
+Confusion matrix Test saved: outputs_without_artist/7/lyrics_bert/cm_mlp_1.png
+
+========================================
+Entrenando red 6 con capas [320, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Fold 1/5 ---
+Epoch [0/30] Train Loss: 0.4455, Test Loss: 0.3820, F1: 0.8302, AUC: 0.9087
+Epoch [10/30] Train Loss: 0.2894, Test Loss: 0.3410, F1: 0.8558, AUC: 0.9366
+Epoch [20/30] Train Loss: 0.2363, Test Loss: 0.3125, F1: 0.8597, AUC: 0.9399
+Mejores resultados en la época:  27
+f1-score 0.8746524839840445
+AUC según el mejor F1-score 0.9465809279884771
+
+--- Fold 2/5 ---
+Epoch [0/30] Train Loss: 0.4377, Test Loss: 0.3842, F1: 0.8164, AUC: 0.9095
+Epoch [10/30] Train Loss: 0.2949, Test Loss: 0.3181, F1: 0.8567, AUC: 0.9385
+Epoch [20/30] Train Loss: 0.2420, Test Loss: 0.2971, F1: 0.8655, AUC: 0.9471
+Mejores resultados en la época:  26
+f1-score 0.8765736855097507
+AUC según el mejor F1-score 0.9475879475485999
+
+--- Fold 3/5 ---
+Epoch [0/30] Train Loss: 0.4434, Test Loss: 0.3850, F1: 0.8332, AUC: 0.9115
+Epoch [10/30] Train Loss: 0.2928, Test Loss: 0.3031, F1: 0.8642, AUC: 0.9449
+Epoch [20/30] Train Loss: 0.2415, Test Loss: 0.2988, F1: 0.8647, AUC: 0.9474
+Mejores resultados en la época:  21
+f1-score 0.8810850084766287
+AUC según el mejor F1-score 0.9511256612527041
+
+--- Fold 4/5 ---
+Epoch [0/30] Train Loss: 0.4395, Test Loss: 0.3803, F1: 0.8181, AUC: 0.9158
+Epoch [10/30] Train Loss: 0.2924, Test Loss: 0.3087, F1: 0.8605, AUC: 0.9428
+Epoch [20/30] Train Loss: 0.2396, Test Loss: 0.3096, F1: 0.8701, AUC: 0.9485
+Mejores resultados en la época:  28
+f1-score 0.876808950504682
+AUC según el mejor F1-score 0.9502667428805953
+
+--- Fold 5/5 ---
+Epoch [0/30] Train Loss: 0.4390, Test Loss: 0.4002, F1: 0.8294, AUC: 0.9087
+Epoch [10/30] Train Loss: 0.2942, Test Loss: 0.3146, F1: 0.8550, AUC: 0.9412
+Epoch [20/30] Train Loss: 0.2387, Test Loss: 0.2969, F1: 0.8752, AUC: 0.9470
+Mejores resultados en la época:  27
+f1-score 0.8804101585787528
+AUC según el mejor F1-score 0.9495593984969467
+Epoch [0/30] Train Loss: 0.4314, Test Loss: 0.4746, F1: 0.6833, AUC: 0.9116
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+Epoch [10/30] Train Loss: 0.2874, Test Loss: 0.3829, F1: 0.7459, AUC: 0.9445
+Epoch [20/30] Train Loss: 0.2330, Test Loss: 0.2650, F1: 0.7893, AUC: 0.9501
+Mejores resultados en la época:  27
+f1-score 0.8122786304604487
+AUC según el mejor F1-score 0.9527023613631923
+Confusion matrix Test saved: outputs_without_artist/7/lyrics_bert/cm_mlp_6.png
+
+
+resultados_globales con DL {'tfidf': {'MLP_160705': {'accuracy_cv_mean': 0.8895, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8864, 'precision_cv_std': 0.0101, 'recall_cv_mean': 0.8938, 'recall_cv_std': 0.0042, 'f1_cv_mean': 0.89, 'f1_cv_std': 0.0033, 'params': 160705, 'accuracy_test': 0.9134, 'precision_test': 0.8187, 'recall_test': 0.8182, 'f1_score_test': 0.8185}, 'MLP_5840897': {'accuracy_cv_mean': 0.8996, 'accuracy_cv_std': 0.0041, 'precision_cv_mean': 0.897, 'precision_cv_std': 0.007, 'recall_cv_mean': 0.903, 'recall_cv_std': 0.0071, 'f1_cv_mean': 0.8999, 'f1_cv_std': 0.004, 'params': 5840897, 'accuracy_test': 0.9207, 'precision_test': 0.8341, 'recall_test': 0.8333, 'f1_score_test': 0.8337}, 'Logistic Regression': {'accuracy_cv_mean': 0.8802, 'accuracy_cv_std': 0.0043, 'precision_cv_mean': 0.8936, 'precision_cv_std': 0.0058, 'recall_cv_mean': 0.8633, 'recall_cv_std': 0.0034, 'f1_cv_mean': 0.8782, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8875, 'precision_test': 0.7191, 'recall_test': 0.8676, 'f1_score_test': 0.7864}, 'SVM': {'accuracy_cv_mean': 0.7357, 'accuracy_cv_std': 0.0125, 'precision_cv_mean': 0.7014, 'precision_cv_std': 0.0215, 'recall_cv_mean': 0.8249, 'recall_cv_std': 0.0346, 'f1_cv_mean': 0.7573, 'f1_cv_std': 0.0097, 'accuracy_test': 0.7409, 'precision_test': 0.4754, 'recall_test': 0.8295, 'f1_score_test': 0.6044}, 'Decision Tree': {'accuracy_cv_mean': 0.8263, 'accuracy_cv_std': 0.0063, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0108, 'recall_cv_mean': 0.7481, 'recall_cv_std': 0.0138, 'f1_cv_mean': 0.8115, 'f1_cv_std': 0.0078, 'accuracy_test': 0.87, 'precision_test': 0.7235, 'recall_test': 0.7368, 'f1_score_test': 0.7301}, 'Random Forest': {'accuracy_cv_mean': 0.8188, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.854, 'precision_cv_std': 0.0051, 'recall_cv_mean': 0.7692, 'recall_cv_std': 0.0041, 'f1_cv_mean': 0.8094, 'f1_cv_std': 0.0032, 'accuracy_test': 0.8414, 'precision_test': 0.6398, 'recall_test': 0.7674, 'f1_score_test': 0.6979}, 'XGBoost': {'accuracy_cv_mean': 0.8801, 'accuracy_cv_std': 0.0033, 'precision_cv_mean': 0.9046, 'precision_cv_std': 0.0049, 'recall_cv_mean': 0.8498, 'recall_cv_std': 0.0043, 'f1_cv_mean': 0.8763, 'f1_cv_std': 0.0034, 'accuracy_test': 0.8942, 'precision_test': 0.7436, 'recall_test': 0.8498, 'f1_score_test': 0.7932}, 'Naive Bayes': {'accuracy_cv_mean': 0.8455, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8693, 'precision_cv_std': 0.0057, 'recall_cv_mean': 0.8133, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8404, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8618, 'precision_test': 0.6753, 'recall_test': 0.8107, 'f1_score_test': 0.7368}}, 'lyrics_bert': {'MLP_10305': {'accuracy_cv_mean': 0.8686, 'accuracy_cv_std': 0.0014, 'precision_cv_mean': 0.868, 'precision_cv_std': 0.0111, 'recall_cv_mean': 0.8698, 'recall_cv_std': 0.0133, 'f1_cv_mean': 0.8687, 'f1_cv_std': 0.0015, 'params': 10305, 'accuracy_test': 0.889, 'precision_test': 0.7364, 'recall_test': 0.8331, 'f1_score_test': 0.7818}, 'MLP_1028097': {'accuracy_cv_mean': 0.878, 'accuracy_cv_std': 0.0022, 'precision_cv_mean': 0.8789, 'precision_cv_std': 0.009, 'recall_cv_mean': 0.8772, 'recall_cv_std': 0.0111, 'f1_cv_mean': 0.8779, 'f1_cv_std': 0.0024, 'params': 1028097, 'accuracy_test': 0.9118, 'precision_test': 0.8249, 'recall_test': 0.8, 'f1_score_test': 0.8123}}}
+Saved on: outputs_without_artist/7/lyrics_bert
+
+==============================
+Model: Logistic Regression
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8493, 'accuracy_cv_std': 0.0046, 'precision_cv_mean': 0.8644, 'precision_cv_std': 0.0035, 'recall_cv_mean': 0.8286, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.8461, 'f1_cv_std': 0.0051}
+Hiperparámetros: {'C': 1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 49, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.94      0.86      0.90     16465
+           1       0.66      0.83      0.73      5160
+
+    accuracy                           0.86     21625
+   macro avg       0.80      0.85      0.82     21625
+weighted avg       0.87      0.86      0.86     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/lyrics_bert/conf_matrix_test_logistic_regression.png
+Modelo guardado como: outputs_without_artist/7/lyrics_bert/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.6466, 'accuracy_cv_std': 0.0216, 'precision_cv_mean': 0.6241, 'precision_cv_std': 0.0234, 'recall_cv_mean': 0.7443, 'recall_cv_std': 0.0495, 'f1_cv_mean': 0.6776, 'f1_cv_std': 0.021}
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 49, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.88      0.59      0.71     16465
+           1       0.36      0.74      0.49      5160
+
+    accuracy                           0.63     21625
+   macro avg       0.62      0.67      0.60     21625
+weighted avg       0.76      0.63      0.65     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/lyrics_bert/conf_matrix_test_svm.png
+Modelo guardado como: outputs_without_artist/7/lyrics_bert/svm_model.pkl
+
+==============================
+Model: Decision Tree
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.7877, 'accuracy_cv_std': 0.0038, 'precision_cv_mean': 0.8177, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.7405, 'recall_cv_std': 0.0131, 'f1_cv_mean': 0.7771, 'f1_cv_std': 0.0061}
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 49, 'splitter': 'best'}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.91      0.84      0.87     16465
+           1       0.59      0.75      0.66      5160
+
+    accuracy                           0.81     21625
+   macro avg       0.75      0.79      0.77     21625
+weighted avg       0.84      0.81      0.82     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/lyrics_bert/conf_matrix_test_decision_tree.png
+Modelo guardado como: outputs_without_artist/7/lyrics_bert/decision_tree_model.pkl
+
+==============================
+Model: Random Forest
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8505, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8853, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.8052, 'recall_cv_std': 0.0031, 'f1_cv_mean': 0.8434, 'f1_cv_std': 0.0028}
+Hiperparámetros: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 15, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': -1, 'oob_score': False, 'random_state': 49, 'verbose': 0, 'warm_start': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.94      0.89      0.92     16465
+           1       0.70      0.81      0.76      5160
+
+    accuracy                           0.87     21625
+   macro avg       0.82      0.85      0.84     21625
+weighted avg       0.88      0.87      0.88     21625
+
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [12:21:09] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [12:21:40] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [12:22:11] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [12:22:42] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [12:23:13] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [12:23:45] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+Confusion matrix Test saved as: outputs_without_artist/7/lyrics_bert/conf_matrix_test_random_forest.png
+Modelo guardado como: outputs_without_artist/7/lyrics_bert/random_forest_model.pkl
+
+==============================
+Model: XGBoost
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8756, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.8946, 'precision_cv_std': 0.0043, 'recall_cv_mean': 0.8516, 'recall_cv_std': 0.0024, 'f1_cv_mean': 0.8725, 'f1_cv_std': 0.0031}
+Hiperparámetros: {'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': 0.8, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 8, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 200, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 49, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': 0.8, 'tree_method': None, 'validate_parameters': None, 'verbosity': None, 'use_label_encoder': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.95      0.90      0.92     16465
+           1       0.72      0.86      0.79      5160
+
+    accuracy                           0.89     21625
+   macro avg       0.84      0.88      0.85     21625
+weighted avg       0.90      0.89      0.89     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/lyrics_bert/conf_matrix_test_xgboost.png
+Modelo guardado como: outputs_without_artist/7/lyrics_bert/xgboost_model.pkl
+
+==============================
+Model: Naive Bayes
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.7768, 'accuracy_cv_std': 0.0024, 'precision_cv_mean': 0.7612, 'precision_cv_std': 0.0029, 'recall_cv_mean': 0.8068, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.7833, 'f1_cv_std': 0.003}
+Hiperparámetros: {'priors': None, 'var_smoothing': 1e-09}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.93      0.74      0.83     16465
+           1       0.50      0.81      0.62      5160
+
+    accuracy                           0.76     21625
+   macro avg       0.71      0.78      0.72     21625
+weighted avg       0.83      0.76      0.78     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/lyrics_bert/conf_matrix_test_naive_bayes.png
+Modelo guardado como: outputs_without_artist/7/lyrics_bert/naive_bayes_model.pkl
+
+
+Resumen Final:
+XGBoost: {'accuracy_cv_mean': 0.8756, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.8946, 'precision_cv_std': 0.0043, 'recall_cv_mean': 0.8516, 'recall_cv_std': 0.0024, 'f1_cv_mean': 0.8725, 'f1_cv_std': 0.0031, 'accuracy_test': 0.888, 'precision_test': 0.7236, 'recall_test': 0.8589, 'f1_score_test': 0.7855}
+Random Forest: {'accuracy_cv_mean': 0.8505, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8853, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.8052, 'recall_cv_std': 0.0031, 'f1_cv_mean': 0.8434, 'f1_cv_std': 0.0028, 'accuracy_test': 0.8739, 'precision_test': 0.7039, 'recall_test': 0.8143, 'f1_score_test': 0.7551}
+Logistic Regression: {'accuracy_cv_mean': 0.8493, 'accuracy_cv_std': 0.0046, 'precision_cv_mean': 0.8644, 'precision_cv_std': 0.0035, 'recall_cv_mean': 0.8286, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.8461, 'f1_cv_std': 0.0051, 'accuracy_test': 0.8564, 'precision_test': 0.6571, 'recall_test': 0.8324, 'f1_score_test': 0.7344}
+Decision Tree: {'accuracy_cv_mean': 0.7877, 'accuracy_cv_std': 0.0038, 'precision_cv_mean': 0.8177, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.7405, 'recall_cv_std': 0.0131, 'f1_cv_mean': 0.7771, 'f1_cv_std': 0.0061, 'accuracy_test': 0.8147, 'precision_test': 0.5879, 'recall_test': 0.7473, 'f1_score_test': 0.6581}
+Naive Bayes: {'accuracy_cv_mean': 0.7768, 'accuracy_cv_std': 0.0024, 'precision_cv_mean': 0.7612, 'precision_cv_std': 0.0029, 'recall_cv_mean': 0.8068, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.7833, 'f1_cv_std': 0.003, 'accuracy_test': 0.7611, 'precision_test': 0.4996, 'recall_test': 0.8134, 'f1_score_test': 0.619}
+SVM: {'accuracy_cv_mean': 0.6466, 'accuracy_cv_std': 0.0216, 'precision_cv_mean': 0.6241, 'precision_cv_std': 0.0234, 'recall_cv_mean': 0.7443, 'recall_cv_std': 0.0495, 'f1_cv_mean': 0.6776, 'f1_cv_std': 0.021, 'accuracy_test': 0.6262, 'precision_test': 0.3617, 'recall_test': 0.7407, 'f1_score_test': 0.486}
+resultados_globales con ML {'tfidf': {'MLP_160705': {'accuracy_cv_mean': 0.8895, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8864, 'precision_cv_std': 0.0101, 'recall_cv_mean': 0.8938, 'recall_cv_std': 0.0042, 'f1_cv_mean': 0.89, 'f1_cv_std': 0.0033, 'params': 160705, 'accuracy_test': 0.9134, 'precision_test': 0.8187, 'recall_test': 0.8182, 'f1_score_test': 0.8185}, 'MLP_5840897': {'accuracy_cv_mean': 0.8996, 'accuracy_cv_std': 0.0041, 'precision_cv_mean': 0.897, 'precision_cv_std': 0.007, 'recall_cv_mean': 0.903, 'recall_cv_std': 0.0071, 'f1_cv_mean': 0.8999, 'f1_cv_std': 0.004, 'params': 5840897, 'accuracy_test': 0.9207, 'precision_test': 0.8341, 'recall_test': 0.8333, 'f1_score_test': 0.8337}, 'Logistic Regression': {'accuracy_cv_mean': 0.8802, 'accuracy_cv_std': 0.0043, 'precision_cv_mean': 0.8936, 'precision_cv_std': 0.0058, 'recall_cv_mean': 0.8633, 'recall_cv_std': 0.0034, 'f1_cv_mean': 0.8782, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8875, 'precision_test': 0.7191, 'recall_test': 0.8676, 'f1_score_test': 0.7864}, 'SVM': {'accuracy_cv_mean': 0.7357, 'accuracy_cv_std': 0.0125, 'precision_cv_mean': 0.7014, 'precision_cv_std': 0.0215, 'recall_cv_mean': 0.8249, 'recall_cv_std': 0.0346, 'f1_cv_mean': 0.7573, 'f1_cv_std': 0.0097, 'accuracy_test': 0.7409, 'precision_test': 0.4754, 'recall_test': 0.8295, 'f1_score_test': 0.6044}, 'Decision Tree': {'accuracy_cv_mean': 0.8263, 'accuracy_cv_std': 0.0063, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0108, 'recall_cv_mean': 0.7481, 'recall_cv_std': 0.0138, 'f1_cv_mean': 0.8115, 'f1_cv_std': 0.0078, 'accuracy_test': 0.87, 'precision_test': 0.7235, 'recall_test': 0.7368, 'f1_score_test': 0.7301}, 'Random Forest': {'accuracy_cv_mean': 0.8188, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.854, 'precision_cv_std': 0.0051, 'recall_cv_mean': 0.7692, 'recall_cv_std': 0.0041, 'f1_cv_mean': 0.8094, 'f1_cv_std': 0.0032, 'accuracy_test': 0.8414, 'precision_test': 0.6398, 'recall_test': 0.7674, 'f1_score_test': 0.6979}, 'XGBoost': {'accuracy_cv_mean': 0.8801, 'accuracy_cv_std': 0.0033, 'precision_cv_mean': 0.9046, 'precision_cv_std': 0.0049, 'recall_cv_mean': 0.8498, 'recall_cv_std': 0.0043, 'f1_cv_mean': 0.8763, 'f1_cv_std': 0.0034, 'accuracy_test': 0.8942, 'precision_test': 0.7436, 'recall_test': 0.8498, 'f1_score_test': 0.7932}, 'Naive Bayes': {'accuracy_cv_mean': 0.8455, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8693, 'precision_cv_std': 0.0057, 'recall_cv_mean': 0.8133, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8404, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8618, 'precision_test': 0.6753, 'recall_test': 0.8107, 'f1_score_test': 0.7368}}, 'lyrics_bert': {'MLP_10305': {'accuracy_cv_mean': 0.8686, 'accuracy_cv_std': 0.0014, 'precision_cv_mean': 0.868, 'precision_cv_std': 0.0111, 'recall_cv_mean': 0.8698, 'recall_cv_std': 0.0133, 'f1_cv_mean': 0.8687, 'f1_cv_std': 0.0015, 'params': 10305, 'accuracy_test': 0.889, 'precision_test': 0.7364, 'recall_test': 0.8331, 'f1_score_test': 0.7818}, 'MLP_1028097': {'accuracy_cv_mean': 0.878, 'accuracy_cv_std': 0.0022, 'precision_cv_mean': 0.8789, 'precision_cv_std': 0.009, 'recall_cv_mean': 0.8772, 'recall_cv_std': 0.0111, 'f1_cv_mean': 0.8779, 'f1_cv_std': 0.0024, 'params': 1028097, 'accuracy_test': 0.9118, 'precision_test': 0.8249, 'recall_test': 0.8, 'f1_score_test': 0.8123}, 'Logistic Regression': {'accuracy_cv_mean': 0.8493, 'accuracy_cv_std': 0.0046, 'precision_cv_mean': 0.8644, 'precision_cv_std': 0.0035, 'recall_cv_mean': 0.8286, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.8461, 'f1_cv_std': 0.0051, 'accuracy_test': 0.8564, 'precision_test': 0.6571, 'recall_test': 0.8324, 'f1_score_test': 0.7344}, 'SVM': {'accuracy_cv_mean': 0.6466, 'accuracy_cv_std': 0.0216, 'precision_cv_mean': 0.6241, 'precision_cv_std': 0.0234, 'recall_cv_mean': 0.7443, 'recall_cv_std': 0.0495, 'f1_cv_mean': 0.6776, 'f1_cv_std': 0.021, 'accuracy_test': 0.6262, 'precision_test': 0.3617, 'recall_test': 0.7407, 'f1_score_test': 0.486}, 'Decision Tree': {'accuracy_cv_mean': 0.7877, 'accuracy_cv_std': 0.0038, 'precision_cv_mean': 0.8177, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.7405, 'recall_cv_std': 0.0131, 'f1_cv_mean': 0.7771, 'f1_cv_std': 0.0061, 'accuracy_test': 0.8147, 'precision_test': 0.5879, 'recall_test': 0.7473, 'f1_score_test': 0.6581}, 'Random Forest': {'accuracy_cv_mean': 0.8505, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8853, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.8052, 'recall_cv_std': 0.0031, 'f1_cv_mean': 0.8434, 'f1_cv_std': 0.0028, 'accuracy_test': 0.8739, 'precision_test': 0.7039, 'recall_test': 0.8143, 'f1_score_test': 0.7551}, 'XGBoost': {'accuracy_cv_mean': 0.8756, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.8946, 'precision_cv_std': 0.0043, 'recall_cv_mean': 0.8516, 'recall_cv_std': 0.0024, 'f1_cv_mean': 0.8725, 'f1_cv_std': 0.0031, 'accuracy_test': 0.888, 'precision_test': 0.7236, 'recall_test': 0.8589, 'f1_score_test': 0.7855}, 'Naive Bayes': {'accuracy_cv_mean': 0.7768, 'accuracy_cv_std': 0.0024, 'precision_cv_mean': 0.7612, 'precision_cv_std': 0.0029, 'recall_cv_mean': 0.8068, 'recall_cv_std': 0.007, 'f1_cv_m/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/No_text/main_complete_without_artist_7.py:288: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+ean': 0.7833, 'f1_cv_std': 0.003, 'accuracy_test': 0.7611, 'precision_test': 0.4996, 'recall_test': 0.8134, 'f1_score_test': 0.619}}}
+
+##################################################
+Running experiment with GPT embeddings
+Loading Lb vectors from:  ../../data/spotify_dataset_sin_duplicados_4.csv
+E eliminarán los siguientes indices [9681, 13382, 27808, 38450, 46753, 53015, 53018, 53102, 53137, 57281, 70666, 75102, 98849]
+El último valor de eliminar es:  98849
+Shape original y: (108138,)
+Shape filtrado  y: (108125,)
+Label distribution: {0: 82336, 1: 25802}
+X shape: (108125, 1536)
+y shape: (108125,)
+
+Splitting data...
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65861, 1: 20639}
+Label distribution en TEST: {0: 16465, 1: 5160}
+
+
+==================================================
+Data antes del undersampling ...
+X: (86500, 1556)
+y: (86500,)
+Apliying UNDERSAMPLE
+20639
+Label distribution: {0: 20639, 1: 20639}
+X shape: (41278, 1556)
+y shape: (41278,)
+Comenzando trainning de MLP...
+
+========================================
+Entrenando red 1 con capas [1556, 32, 1]
+
+--- Fold 1/5 ---
+Epoch [0/30] Train Loss: 0.4355, Test Loss: 0.3926, F1: 0.8282, AUC: 0.9083
+Epoch [10/30] Train Loss: 0.3324, Test Loss: 0.3343, F1: 0.8519, AUC: 0.9321
+Epoch [20/30] Train Loss: 0.3132, Test Loss: 0.3934, F1: 0.8132, AUC: 0.9358
+Mejores resultados en la época:  27
+f1-score 0.8698588831262815
+AUC según el mejor F1-score 0.9380276289548405
+
+--- Fold 2/5 ---
+Epoch [0/30] Train Loss: 0.4367, Test Loss: 0.3819, F1: 0.8363, AUC: 0.9137
+Epoch [10/30] Train Loss: 0.3393, Test Loss: 0.3367, F1: 0.8499, AUC: 0.9310
+Epoch [20/30] Train Loss: 0.3165, Test Loss: 0.3283, F1: 0.8537, AUC: 0.9360
+Mejores resultados en la época:  27
+f1-score 0.8643555985022345
+AUC según el mejor F1-score 0.9384299673059011
+
+--- Fold 3/5 ---
+Epoch [0/30] Train Loss: 0.4167, Test Loss: 0.3701, F1: 0.8218, AUC: 0.9174
+Epoch [10/30] Train Loss: 0.3258, Test Loss: 0.3235, F1: 0.8612, AUC: 0.9357
+Epoch [20/30] Train Loss: 0.3060, Test Loss: 0.3293, F1: 0.8645, AUC: 0.9410
+Mejores resultados en la época:  26
+f1-score 0.8714839961202716
+AUC según el mejor F1-score 0.9422336374579351
+
+--- Fold 4/5 ---
+Epoch [0/30] Train Loss: 0.4204, Test Loss: 0.3724, F1: 0.8338, AUC: 0.9153
+Epoch [10/30] Train Loss: 0.3278, Test Loss: 0.3793, F1: 0.8203, AUC: 0.9341
+Epoch [20/30] Train Loss: 0.3094, Test Loss: 0.3193, F1: 0.8631, AUC: 0.9373
+Mejores resultados en la época:  28
+f1-score 0.8684273138234594
+AUC según el mejor F1-score 0.9385152171932613
+
+--- Fold 5/5 ---
+Epoch [0/30] Train Loss: 0.4129, Test Loss: 0.3811, F1: 0.8392, AUC: 0.9144
+Epoch [10/30] Train Loss: 0.3249, Test Loss: 0.3374, F1: 0.8628, AUC: 0.9322
+Epoch [20/30] Train Loss: 0.3069, Test Loss: 0.3244, F1: 0.8649, AUC: 0.9363
+Mejores resultados en la época:  28
+f1-score 0.8694708930938894
+AUC según el mejor F1-score 0.9366604669476674
+Epoch [0/30] Train Loss: 0.4207, Test Loss: 0.4168, F1: 0.6977, AUC: 0.9107
+Epoch [10/30] Train Loss: 0.3280, Test Loss: 0.3824, F1: 0.7241, AUC: 0.9315
+Epoch [20/30] Train Loss: 0.3082, Test Loss: 0.3000, F1: 0.7653, AUC: 0.9383
+Mejores resultados en la época:  29
+f1-score 0.7676319062000355
+AUC según el mejor F1-score 0.9392604232139117
+Confusion matrix Test saved: outputs_without_artist/7/gpt/cm_mlp_1.png
+
+========================================
+Entrenando red 6 con capas [1556, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Fold 1/5 ---
+Epoch [0/30] Train Loss: 0.4180, Test Loss: 0.3689, F1: 0.8402, AUC: 0.9172
+Epoch [10/30] Train Loss: 0.3131, Test Loss: 0.3325, F1: 0.8632, AUC: 0.9369
+Epoch [20/30] Train Loss: 0.2795, Test Loss: 0.3106, F1: 0.8711, AUC: 0.9425
+Mejores resultados en la época:  29
+f1-score 0.8765417022835511
+AUC según el mejor F1-score 0.9442888141487891
+
+--- Fold 2/5 ---
+Epoch [0/30] Train Loss: 0.4185, Test Loss: 0.3620, F1: 0.8354, AUC: 0.9198
+Epoch [10/30] Train Loss: 0.3165, Test Loss: 0.3340, F1: 0.8461, AUC: 0.9398
+Epoch [20/30] Train Loss: 0.2808, Test Loss: 0.3624, F1: 0.8493, AUC: 0.9373
+Mejores resultados en la época:  29
+f1-score 0.8765372558476007
+AUC según el mejor F1-score 0.9452246498670454
+
+--- Fold 3/5 ---
+Epoch [0/30] Train Loss: 0.4322, Test Loss: 0.4129, F1: 0.7825, AUC: 0.9165
+Epoch [10/30] Train Loss: 0.3187, Test Loss: 0.3210, F1: 0.8491, AUC: 0.9400
+Epoch [20/30] Train Loss: 0.2849, Test Loss: 0.3084, F1: 0.8718, AUC: 0.9469
+Mejores resultados en la época:  26
+f1-score 0.8759371221281741
+AUC según el mejor F1-score 0.9477365944335527
+
+--- Fold 4/5 ---
+Epoch [0/30] Train Loss: 0.4263, Test Loss: 0.3691, F1: 0.8286, AUC: 0.9164
+Epoch [10/30] Train Loss: 0.3132, Test Loss: 0.3213, F1: 0.8587, AUC: 0.9368
+Epoch [20/30] Train Loss: 0.2796, Test Loss: 0.3128, F1: 0.8722, AUC: 0.9434
+Mejores resultados en la época:  28
+f1-score 0.8753199268738574
+AUC según el mejor F1-score 0.9440964611003733
+
+--- Fold 5/5 ---
+Epoch [0/30] Train Loss: 0.4331, Test Loss: 0.3926, F1: 0.8054, AUC: 0.9142
+Epoch [10/30] Train Loss: 0.3168, Test Loss: 0.3440, F1: 0.8528, AUC: 0.9381
+Epoch [20/30] Train Loss: 0.2817, Test Loss: 0.3076, F1: 0.8731, AUC: 0.9437
+Mejores resultados en la época:  29
+f1-score 0.8784064524013198
+AUC según el mejor F1-score 0.9468197120306245
+Epoch [0/30] Train Loss: 0.4158, Test Loss: 0.3772, F1: 0.7124, AUC: 0.9166
+Epoch [10/30] Train Loss: 0.3122, Test Loss: 0.3394, F1: 0.7444, AUC: 0.9369
+Epoch [20/30] Train Loss: 0.2779, Test Loss: 0.4384, F1: 0.6983, AUC: 0.9444
+Mejores resultados en la época:  22
+f1-score 0.7934595524956971
+AUC según el mejor F1-score 0.9454592428854254
+Confusion matrix Test saved: outputs_without_artist/7/gpt/cm_mlp_6.png
+
+
+resultados_globales con DL {'tfidf': {'MLP_160705': {'accuracy_cv_mean': 0.8895, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8864, 'precision_cv_std': 0.0101, 'recall_cv_mean': 0.8938, 'recall_cv_std': 0.0042, 'f1_cv_mean': 0.89, 'f1_cv_std': 0.0033, 'params': 160705, 'accuracy_test': 0.9134, 'precision_test': 0.8187, 'recall_test': 0.8182, 'f1_score_test': 0.8185}, 'MLP_5840897': {'accuracy_cv_mean': 0.8996, 'accuracy_cv_std': 0.0041, 'precision_cv_mean': 0.897, 'precision_cv_std': 0.007, 'recall_cv_mean': 0.903, 'recall_cv_std': 0.0071, 'f1_cv_mean': 0.8999, 'f1_cv_std': 0.004, 'params': 5840897, 'accuracy_test': 0.9207, 'precision_test': 0.8341, 'recall_test': 0.8333, 'f1_score_test': 0.8337}, 'Logistic Regression': {'accuracy_cv_mean': 0.8802, 'accuracy_cv_std': 0.0043, 'precision_cv_mean': 0.8936, 'precision_cv_std': 0.0058, 'recall_cv_mean': 0.8633, 'recall_cv_std': 0.0034, 'f1_cv_mean': 0.8782, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8875, 'precision_test': 0.7191, 'recall_test': 0.8676, 'f1_score_test': 0.7864}, 'SVM': {'accuracy_cv_mean': 0.7357, 'accuracy_cv_std': 0.0125, 'precision_cv_mean': 0.7014, 'precision_cv_std': 0.0215, 'recall_cv_mean': 0.8249, 'recall_cv_std': 0.0346, 'f1_cv_mean': 0.7573, 'f1_cv_std': 0.0097, 'accuracy_test': 0.7409, 'precision_test': 0.4754, 'recall_test': 0.8295, 'f1_score_test': 0.6044}, 'Decision Tree': {'accuracy_cv_mean': 0.8263, 'accuracy_cv_std': 0.0063, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0108, 'recall_cv_mean': 0.7481, 'recall_cv_std': 0.0138, 'f1_cv_mean': 0.8115, 'f1_cv_std': 0.0078, 'accuracy_test': 0.87, 'precision_test': 0.7235, 'recall_test': 0.7368, 'f1_score_test': 0.7301}, 'Random Forest': {'accuracy_cv_mean': 0.8188, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.854, 'precision_cv_std': 0.0051, 'recall_cv_mean': 0.7692, 'recall_cv_std': 0.0041, 'f1_cv_mean': 0.8094, 'f1_cv_std': 0.0032, 'accuracy_test': 0.8414, 'precision_test': 0.6398, 'recall_test': 0.7674, 'f1_score_test': 0.6979}, 'XGBoost': {'accuracy_cv_mean': 0.8801, 'accuracy_cv_std': 0.0033, 'precision_cv_mean': 0.9046, 'precision_cv_std': 0.0049, 'recall_cv_mean': 0.8498, 'recall_cv_std': 0.0043, 'f1_cv_mean': 0.8763, 'f1_cv_std': 0.0034, 'accuracy_test': 0.8942, 'precision_test': 0.7436, 'recall_test': 0.8498, 'f1_score_test': 0.7932}, 'Naive Bayes': {'accuracy_cv_mean': 0.8455, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8693, 'precision_cv_std': 0.0057, 'recall_cv_mean': 0.8133, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8404, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8618, 'precision_test': 0.6753, 'recall_test': 0.8107, 'f1_score_test': 0.7368}}, 'lyrics_bert': {'MLP_10305': {'accuracy_cv_mean': 0.8686, 'accuracy_cv_std': 0.0014, 'precision_cv_mean': 0.868, 'precision_cv_std': 0.0111, 'recall_cv_mean': 0.8698, 'recall_cv_std': 0.0133, 'f1_cv_mean': 0.8687, 'f1_cv_std': 0.0015, 'params': 10305, 'accuracy_test': 0.889, 'precision_test': 0.7364, 'recall_test': 0.8331, 'f1_score_test': 0.7818}, 'MLP_1028097': {'accuracy_cv_mean': 0.878, 'accuracy_cv_std': 0.0022, 'precision_cv_mean': 0.8789, 'precision_cv_std': 0.009, 'recall_cv_mean': 0.8772, 'recall_cv_std': 0.0111, 'f1_cv_mean': 0.8779, 'f1_cv_std': 0.0024, 'params': 1028097, 'accuracy_test': 0.9118, 'precision_test': 0.8249, 'recall_test': 0.8, 'f1_score_test': 0.8123}, 'Logistic Regression': {'accuracy_cv_mean': 0.8493, 'accuracy_cv_std': 0.0046, 'precision_cv_mean': 0.8644, 'precision_cv_std': 0.0035, 'recall_cv_mean': 0.8286, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.8461, 'f1_cv_std': 0.0051, 'accuracy_test': 0.8564, 'precision_test': 0.6571, 'recall_test': 0.8324, 'f1_score_test': 0.7344}, 'SVM': {'accuracy_cv_mean': 0.6466, 'accuracy_cv_std': 0.0216, 'precision_cv_mean': 0.6241, 'precision_cv_std': 0.0234, 'recall_cv_mean': 0.7443, 'recall_cv_std': 0.0495, 'f1_cv_mean': 0.6776, 'f1_cv_std': 0.021, 'accuracy_test': 0.6262, 'precision_test': 0.3617, 'recall_test': 0.7407, 'f1_score_test': 0.486}, 'Decision Tree': {'accuracy_cv_mean': 0.7877, 'accuracy_cv_std': 0.0038, 'precision_cv_mean': 0.8177, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.7405, 'recall_cv_std': 0.0131, 'f1_cv_mean': 0.7771, 'f1_cv_std': 0.0061, 'accuracy_test': 0.8147, 'precision_test': 0.5879, 'recall_test': 0.7473, 'f1_score_test': 0.6581}, 'Random Forest': {'accuracy_cv_mean': 0.8505, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8853, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.8052, 'recall_cv_std': 0.0031, 'f1_cv_mean': 0.8434, 'f1_cv_std': 0.0028, 'accuracy_test': 0.8739, 'precision_test': 0.7039, 'recall_test': 0.8143, 'f1_score_test': 0.7551}, 'XGBoost': {'accuracy_cv_mean': 0.8756, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.8946, 'precision_cv_std': 0.0043, 'recall_cv_mean': 0.8516, 'recall_cv_std': 0.0024, 'f1_cv_mean': 0.8725, 'f1_cv_std': 0.0031, 'accuracy_test': 0.888, 'precision_test': 0.7236, 'recall_test': 0.8589, 'f1_score_test': 0.7855}, 'Naive Bayes': {'accuracy_cv_mean': 0.7768, 'accuracy_cv_std': 0.0024, 'precision_cv_mean': 0.7612, 'precision_cv_std': 0.0029, 'recall_cv_mean': 0.8068, 'recall_cv_std': 0.007, 'f1_cv_m/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [13:15:25] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [13:18:08] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [13:20:51] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [13:23:35] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [13:26:20] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [13:29:09] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+ean': 0.7833, 'f1_cv_std': 0.003, 'accuracy_test': 0.7611, 'precision_test': 0.4996, 'recall_test': 0.8134, 'f1_score_test': 0.619}}, 'gpt': {'MLP_49857': {'accuracy_cv_mean': 0.8679, 'accuracy_cv_std': 0.0027, 'precision_cv_mean': 0.8637, 'precision_cv_std': 0.0063, 'recall_cv_mean': 0.8738, 'recall_cv_std': 0.0059, 'f1_cv_mean': 0.8687, 'f1_cv_std': 0.0024, 'params': 49857, 'accuracy_test': 0.879, 'precision_test': 0.7086, 'recall_test': 0.8374, 'f1_score_test': 0.7676}, 'MLP_2293761': {'accuracy_cv_mean': 0.877, 'accuracy_cv_std': 0.0014, 'precision_cv_mean': 0.8795, 'precision_cv_std': 0.0053, 'recall_cv_mean': 0.8736, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8765, 'f1_cv_std': 0.001, 'params': 2293761, 'accuracy_test': 0.9001, 'precision_test': 0.7831, 'recall_test': 0.8041, 'f1_score_test': 0.7935}}}
+Saved on: outputs_without_artist/7/gpt
+
+==============================
+Model: Logistic Regression
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8513, 'accuracy_cv_std': 0.0031, 'precision_cv_mean': 0.8575, 'precision_cv_std': 0.0066, 'recall_cv_mean': 0.8427, 'recall_cv_std': 0.0033, 'f1_cv_mean': 0.85, 'f1_cv_std': 0.0025}
+Hiperparámetros: {'C': 1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 49, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.95      0.85      0.90     16465
+           1       0.65      0.85      0.73      5160
+
+    accuracy                           0.85     21625
+   macro avg       0.80      0.85      0.82     21625
+weighted avg       0.88      0.85      0.86     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/gpt/conf_matrix_test_logistic_regression.png
+Modelo guardado como: outputs_without_artist/7/gpt/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.7181, 'accuracy_cv_std': 0.0275, 'precision_cv_mean': 0.6974, 'precision_cv_std': 0.0307, 'recall_cv_mean': 0.7755, 'recall_cv_std': 0.0466, 'f1_cv_mean': 0.7332, 'f1_cv_std': 0.0257}
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 49, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.91      0.73      0.81     16465
+           1       0.47      0.77      0.58      5160
+
+    accuracy                           0.74     21625
+   macro avg       0.69      0.75      0.70     21625
+weighted avg       0.81      0.74      0.75     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/gpt/conf_matrix_test_svm.png
+Modelo guardado como: outputs_without_artist/7/gpt/svm_model.pkl
+
+==============================
+Model: Decision Tree
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.7803, 'accuracy_cv_std': 0.0034, 'precision_cv_mean': 0.788, 'precision_cv_std': 0.0067, 'recall_cv_mean': 0.7672, 'recall_cv_std': 0.0092, 'f1_cv_mean': 0.7774, 'f1_cv_std': 0.0038}
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 49, 'splitter': 'best'}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.92      0.80      0.86     16465
+           1       0.55      0.77      0.65      5160
+
+    accuracy                           0.80     21625
+   macro avg       0.74      0.79      0.75     21625
+weighted avg       0.83      0.80      0.81     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/gpt/conf_matrix_test_decision_tree.png
+Modelo guardado como: outputs_without_artist/7/gpt/decision_tree_model.pkl
+
+==============================
+Model: Random Forest
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8192, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8569, 'precision_cv_std': 0.0075, 'recall_cv_mean': 0.7666, 'recall_cv_std': 0.0054, 'f1_cv_mean': 0.8092, 'f1_cv_std': 0.0022}
+Hiperparámetros: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 15, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': -1, 'oob_score': False, 'random_state': 49, 'verbose': 0, 'warm_start': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.92      0.87      0.90     16465
+           1       0.65      0.77      0.71      5160
+
+    accuracy                           0.85     21625
+   macro avg       0.79      0.82      0.80     21625
+weighted avg       0.86      0.85      0.85     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/gpt/conf_matrix_test_random_forest.png
+Modelo guardado como: outputs_without_artist/7/gpt/random_forest_model.pkl
+
+==============================
+Model: XGBoost
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.8674, 'accuracy_cv_std': 0.0011, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0047, 'recall_cv_mean': 0.8422, 'recall_cv_std': 0.0035, 'f1_cv_mean': 0.864, 'f1_cv_std': 0.0007}
+Hiperparámetros: {'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': 0.8, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 8, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 200, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 49, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': 0.8, 'tree_method': None, 'validate_parameters': None, 'verbosity': None, 'use_label_encoder': False}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.95      0.89      0.92     16465
+           1       0.71      0.85      0.77      5160
+
+    accuracy                           0.88     21625
+   macro avg       0.83      0.87      0.84     21625
+weighted avg       0.89      0.88      0.88     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/gpt/conf_matrix_test_xgboost.png
+Modelo guardado como: outputs_without_artist/7/gpt/xgboost_model.pkl
+
+==============================
+Model: Naive Bayes
+
+Promedio CV (validación interna):
+{'accuracy_cv_mean': 0.7995, 'accuracy_cv_std': 0.002, 'precision_cv_mean': 0.857, 'precision_cv_std': 0.0064, 'recall_cv_mean': 0.7189, 'recall_cv_std': 0.0037, 'f1_cv_mean': 0.7819, 'f1_cv_std': 0.0014}
+Hiperparámetros: {'priors': None, 'var_smoothing': 1e-09}
+
+Evaluación en TEST:
+              precision    recall  f1-score   support
+
+           0       0.91      0.88      0.90     16465
+           1       0.65      0.72      0.69      5160
+
+    accuracy                           0.84     21625
+   macro avg       0.78      0.80      0.79     21625
+weighted avg       0.85      0.84      0.85     21625
+
+Confusion matrix Test saved as: outputs_without_artist/7/gpt/conf_matrix_test_naive_bayes.png
+Modelo guardado como: outputs_without_artist/7/gpt/naive_bayes_model.pkl
+
+
+Resumen Final:
+XGBoost: {'accuracy_cv_mean': 0.8674, 'accuracy_cv_std': 0.0011, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0047, 'recall_cv_mean': 0.8422, 'recall_cv_std': 0.0035, 'f1_cv_mean': 0.864, 'f1_cv_std': 0.0007, 'accuracy_test': 0.8791, 'precision_test': 0.7052, 'recall_test': 0.8479, 'f1_score_test': 0.77}
+Logistic Regression: {'accuracy_cv_mean': 0.8513, 'accuracy_cv_std': 0.0031, 'precision_cv_mean': 0.8575, 'precision_cv_std': 0.0066, 'recall_cv_mean': 0.8427, 'recall_cv_std': 0.0033, 'f1_cv_mean': 0.85, 'f1_cv_std': 0.0025, 'accuracy_test': 0.8535, 'precision_test': 0.647, 'recall_test': 0.8494, 'f1_score_test': 0.7345}
+Random Forest: {'accuracy_cv_mean': 0.8192, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8569, 'precision_cv_std': 0.0075, 'recall_cv_mean': 0.7666, 'recall_cv_std': 0.0054, 'f1_cv_mean': 0.8092, 'f1_cv_std': 0.0022, 'accuracy_test': 0.8473, 'precision_test': 0.652, 'recall_test': 0.7721, 'f1_score_test': 0.707}
+Naive Bayes: {'accuracy_cv_mean': 0.7995, 'accuracy_cv_std': 0.002, 'precision_cv_mean': 0.857, 'precision_cv_std': 0.0064, 'recall_cv_mean': 0.7189, 'recall_cv_std': 0.0037, 'f1_cv_mean': 0.7819, 'f1_cv_std': 0.0014, 'accuracy_test': 0.8427, 'precision_test': 0.655, 'recall_test': 0.7203, 'f1_score_test': 0.6861}
+Decision Tree: {'accuracy_cv_mean': 0.7803, 'accuracy_cv_std': 0.0034, 'precision_cv_mean': 0.788, 'precision_cv_std': 0.0067, 'recall_cv_mean': 0.7672, 'recall_cv_std': 0.0092, 'f1_cv_mean': 0.7774, 'f1_cv_std': 0.0038, 'accuracy_test': 0.797, 'precision_test': 0.5535, 'recall_test': 0.7733, 'f1_score_test': 0.6452}
+SVM: {'accuracy_cv_mean': 0.7181, 'accuracy_cv_std': 0.0275, 'precision_cv_mean': 0.6974, 'precision_cv_std': 0.0307, 'recall_cv_mean': 0.7755, 'recall_cv_std': 0.0466, 'f1_cv_mean': 0.7332, 'f1_cv_std': 0.0257, 'accuracy_test': 0.7375, 'precision_test': 0.4696, 'recall_test': 0.7725, 'f1_score_test': 0.5841}
+resultados_globales con ML {'tfidf': {'MLP_160705': {'accuracy_cv_mean': 0.8895, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8864, 'precision_cv_std': 0.0101, 'recall_cv_mean': 0.8938, 'recall_cv_std': 0.0042, 'f1_cv_mean': 0.89, 'f1_cv_std': 0.0033, 'params': 160705, 'accuracy_test': 0.9134, 'precision_test': 0.8187, 'recall_test': 0.8182, 'f1_score_test': 0.8185}, 'MLP_5840897': {'accuracy_cv_mean': 0.8996, 'accuracy_cv_std': 0.0041, 'precision_cv_mean': 0.897, 'precision_cv_std': 0.007, 'recall_cv_mean': 0.903, 'recall_cv_std': 0.0071, 'f1_cv_mean': 0.8999, 'f1_cv_std': 0.004, 'params': 5840897, 'accuracy_test': 0.9207, 'precision_test': 0.8341, 'recall_test': 0.8333, 'f1_score_test': 0.8337}, 'Logistic Regression': {'accuracy_cv_mean': 0.8802, 'accuracy_cv_std': 0.0043, 'precision_cv_mean': 0.8936, 'precision_cv_std': 0.0058, 'recall_cv_mean': 0.8633, 'recall_cv_std': 0.0034, 'f1_cv_mean': 0.8782, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8875, 'precision_test': 0.7191, 'recall_test': 0.8676, 'f1_score_test': 0.7864}, 'SVM': {'accuracy_cv_mean': 0.7357, 'accuracy_cv_std': 0.0125, 'precision_cv_mean': 0.7014, 'precision_cv_std': 0.0215, 'recall_cv_mean': 0.8249, 'recall_cv_std': 0.0346, 'f1_cv_mean': 0.7573, 'f1_cv_std': 0.0097, 'accuracy_test': 0.7409, 'precision_test': 0.4754, 'recall_test': 0.8295, 'f1_score_test': 0.6044}, 'Decision Tree': {'accuracy_cv_mean': 0.8263, 'accuracy_cv_std': 0.0063, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0108, 'recall_cv_mean': 0.7481, 'recall_cv_std': 0.0138, 'f1_cv_mean': 0.8115, 'f1_cv_std': 0.0078, 'accuracy_test': 0.87, 'precision_test': 0.7235, 'recall_test': 0.7368, 'f1_score_test': 0.7301}, 'Random Forest': {'accuracy_cv_mean': 0.8188, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.854, 'precision_cv_std': 0.0051, 'recall_cv_mean': 0.7692, 'recall_cv_std': 0.0041, 'f1_cv_mean': 0.8094, 'f1_cv_std': 0.0032, 'accuracy_test': 0.8414, 'precision_test': 0.6398, 'recall_test': 0.7674, 'f1_score_test': 0.6979}, 'XGBoost': {'accuracy_cv_mean': 0.8801, 'accuracy_cv_std': 0.0033, 'precision_cv_mean': 0.9046, 'precision_cv_std': 0.0049, 'recall_cv_mean': 0.8498, 'recall_cv_std': 0.0043, 'f1_cv_mean': 0.8763, 'f1_cv_std': 0.0034, 'accuracy_test': 0.8942, 'precision_test': 0.7436, 'recall_test': 0.8498, 'f1_score_test': 0.7932}, 'Naive Bayes': {'accuracy_cv_mean': 0.8455, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8693, 'precision_cv_std': 0.0057, 'recall_cv_mean': 0.8133, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8404, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8618, 'precision_test': 0.6753, 'recall_test': 0.8107, 'f1_score_test': 0.7368}}, 'lyrics_bert': {'MLP_10305': {'accuracy_cv_mean': 0.8686, 'accuracy_cv_std': 0.0014, 'precision_cv_mean': 0.868, 'precision_cv_std': 0.0111, 'recall_cv_mean': 0.8698, 'recall_cv_std': 0.0133, 'f1_cv_mean': 0.8687, 'f1_cv_std': 0.0015, 'params': 10305, 'accuracy_test': 0.889, 'precision_test': 0.7364, 'recall_test': 0.8331, 'f1_score_test': 0.7818}, 'MLP_1028097': {'accuracy_cv_mean': 0.878, 'accuracy_cv_std': 0.0022, 'precision_cv_mean': 0.8789, 'precision_cv_std': 0.009, 'recall_cv_mean': 0.8772, 'recall_cv_std': 0.0111, 'f1_cv_mean': 0.8779, 'f1_cv_std': 0.0024, 'params': 1028097, 'accuracy_test': 0.9118, 'precision_test': 0.8249, 'recall_test': 0.8, 'f1_score_test': 0.8123}, 'Logistic Regression': {'accuracy_cv_mean': 0.8493, 'accuracy_cv_std': 0.0046, 'precision_cv_mean': 0.8644, 'precision_cv_std': 0.0035, 'recall_cv_mean': 0.8286, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.8461, 'f1_cv_std': 0.0051, 'accuracy_test': 0.8564, 'precision_test': 0.6571, 'recall_test': 0.8324, 'f1_score_test': 0.7344}, 'SVM': {'accuracy_cv_mean': 0.6466, 'accuracy_cv_std': 0.0216, 'precision_cv_mean': 0.6241, 'precision_cv_std': 0.0234, 'recall_cv_mean': 0.7443, 'recall_cv_std': 0.0495, 'f1_cv_mean': 0.6776, 'f1_cv_std': 0.021, 'accuracy_test': 0.6262, 'precision_test': 0.3617, 'recall_test': 0.7407, 'f1_score_test': 0.486}, 'Decision Tree': {'accuracy_cv_mean': 0.7877, 'accuracy_cv_std': 0.0038, 'precision_cv_mean': 0.8177, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.7405, 'recall_cv_std': 0.0131, 'f1_cv_mean': 0.7771, 'f1_cv_std': 0.0061, 'accuracy_test': 0.8147, 'precision_test': 0.5879, 'recall_test': 0.7473, 'f1_score_test': 0.6581}, 'Random Forest': {'accuracy_cv_mean': 0.8505, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8853, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.8052, 'recall_cv_std': 0.0031, 'f1_cv_mean': 0.8434, 'f1_cv_std': 0.0028, 'accuracy_test': 0.8739, 'precision_test': 0.7039, 'recall_test': 0.8143, 'f1_score_test': 0.7551}, 'XGBoost': {'accuracy_cv_mean': 0.8756, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.8946, 'precision_cv_std': 0.0043, 'recall_cv_mean': 0.8516, 'recall_cv_std': 0.0024, 'f1_cv_mean': 0.8725, 'f1_cv_std': 0.0031, 'accuracy_test': 0.888, 'precision_test': 0.7236, 'recall_test': 0.8589, 'f1_score_test': 0.7855}, 'Naive Bayes': {'accuracy_cv_mean': 0.7768, 'accuracy_cv_std': 0.0024, 'precision_cv_mean': 0.7612, 'precision_cv_std': 0.0029, 'recall_cv_mean': 0.8068, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.7833, 'f1_cv_std': 0.003, 'accuracy_test': 0.7611, 'precision_test': 0.4996, 'recall_test': 0.8134, 'f1_score_test': 0.619}}, 'gpt': {'MLP_49857': {'accuracy_cv_mean': 0.8679, 'accuracy_cv_std': 0.0027, 'precision_cv_mean': 0.8637, 'precision_cv_std': 0.0063, 'recall_cv_mean': 0.8738, 'recall_cv_std': 0.0059, 'f1_cv_mean': 0.8687, 'f1_cv_std': 0.0024, 'params': 49857, 'accuracy_test': 0.879, 'precision_test': 0.7086, 'recall_test': 0.8374, 'f1_score_test': 0.7676}, 'MLP_2293761': {'accuracy_cv_mean': 0.877, 'accuracy_cv_std': 0.0014, 'precision_cv_mean': 0.8795, 'precision_cv_std': 0.0053, 'recall_cv_mean': 0.8736, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8765, 'f1_cv_std': 0.001, 'params': 2293761, 'accuracy_test': 0.9001, 'precision_test': 0.7831, 'recall_test': 0.8041, 'f1_score_test': 0.7935}, 'Logistic Regression': {'accuracy_cv_mean': 0.8513, 'accuracy_cv_std': 0.0031, 'precision_cv_mean': 0.8575, 'precision_cv_std': 0.0066, 'recall_cv_mean': 0.8427, 'recall_cv_std': 0.0033, 'f1_cv_mean': 0.85, 'f1_cv_std': 0.0025, 'accuracy_test': 0.8535, 'precision_test': 0.647, 'recall_test': 0.8494, 'f1_score_test': 0.7345}, 'SVM': {'accuracy_cv_mean': 0.7181, 'accuracy_cv_std': 0.0275, 'precision_cv_mean': 0.6974, 'precision_cv_std': 0.0307, 'recall_cv_mean': 0.7755, 'recall_cv_std': 0.0466, 'f1_cv_mean': 0.7332, 'f1_cv_std': 0.0257, 'accuracy_test': 0.7375, 'precision_test': 0.4696, 'recall_test': 0.7725, 'f1_score_test': 0.5841}, 'Decision Tree': {'accuracy_cv_mean': 0.7803, 'accuracy_cv_std': 0.0034, 'precision_cv_mean': 0.788, 'precision_cv_std': 0.0067, 'recall_cv_mean': 0.7672, 'recall_cv_std': 0.0092, 'f1_cv_mean': 0.7774, 'f1_cv_std': 0.0038, 'accuracy_test': 0.797, 'precision_test': 0.5535, 'recall_test': 0.7733, 'f1_score_test': 0.6452}, 'Random Forest': {'accuracy_cv_mean': 0.8192, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8569, 'precision_cv_std': 0.0075, 'recall_cv_mean': 0.7666, 'recall_cv_std': 0.0054, 'f1_cv_mean': 0.8092, 'f1_cv_std': 0.0022, 'accuracy_test': 0.8473, 'precision_test': 0.652, 'recall_test': 0.7721, 'f1_score_test': 0.707}, 'XGBoost': {'accuracy_cv_mean': 0.8674, 'accuracy_cv_std': 0.0011, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0047, 'recall_cv_mean': 0.8422, 'recall_cv_std': 0.0035, 'f1_cv_mean': 0.864, 'f1_cv_std': 0.0007, 'accuracy_test': 0.8791, 'precision_test': 0.7052, 'recall_test': 0.8479, 'f1_score_test': 0.77}, 'Naive Bayes': {'accuracy_cv_mean': 0.7995, 'accuracy_cv_std': 0.002, 'precision_cv_mean': 0.857, 'precision_cv_std': 0.0064, 'recall_cv_mean': 0.7189, 'recall_cv_std': 0.0037, 'f1_cv_mean': 0.7819, 'f1_cv_std': 0.0014, 'accuracy_test': 0.8427, 'precision_test': 0.655, 'recall_test': 0.7203, 'f1_score_test': 0.6861}}}
+
+
+Resumen GLOBAL de métricas:
+
+
+EMBEDDINGS TYPE: TFIDF
+MLP_5840897: {'accuracy_cv_mean': 0.8996, 'accuracy_cv_std': 0.0041, 'precision_cv_mean': 0.897, 'precision_cv_std': 0.007, 'recall_cv_mean': 0.903, 'recall_cv_std': 0.0071, 'f1_cv_mean': 0.8999, 'f1_cv_std': 0.004, 'params': 5840897, 'accuracy_test': 0.9207, 'precision_test': 0.8341, 'recall_test': 0.8333, 'f1_score_test': 0.8337}
+MLP_160705: {'accuracy_cv_mean': 0.8895, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8864, 'precision_cv_std': 0.0101, 'recall_cv_mean': 0.8938, 'recall_cv_std': 0.0042, 'f1_cv_mean': 0.89, 'f1_cv_std': 0.0033, 'params': 160705, 'accuracy_test': 0.9134, 'precision_test': 0.8187, 'recall_test': 0.8182, 'f1_score_test': 0.8185}
+XGBoost: {'accuracy_cv_mean': 0.8801, 'accuracy_cv_std': 0.0033, 'precision_cv_mean': 0.9046, 'precision_cv_std': 0.0049, 'recall_cv_mean': 0.8498, 'recall_cv_std': 0.0043, 'f1_cv_mean': 0.8763, 'f1_cv_std': 0.0034, 'accuracy_test': 0.8942, 'precision_test': 0.7436, 'recall_test': 0.8498, 'f1_score_test': 0.7932}
+Logistic Regression: {'accuracy_cv_mean': 0.8802, 'accuracy_cv_std': 0.0043, 'precision_cv_mean': 0.8936, 'precision_cv_std': 0.0058, 'recall_cv_mean': 0.8633, 'recall_cv_std': 0.0034, 'f1_cv_mean': 0.8782, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8875, 'precision_test': 0.7191, 'recall_test': 0.8676, 'f1_score_test': 0.7864}
+Naive Bayes: {'accuracy_cv_mean': 0.8455, 'accuracy_cv_std': 0.0042, 'precision_cv_mean': 0.8693, 'precision_cv_std': 0.0057, 'recall_cv_mean': 0.8133, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8404, 'f1_cv_std': 0.0042, 'accuracy_test': 0.8618, 'precision_test': 0.6753, 'recall_test': 0.8107, 'f1_score_test': 0.7368}
+Decision Tree: {'accuracy_cv_mean': 0.8263, 'accuracy_cv_std': 0.0063, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0108, 'recall_cv_mean': 0.7481, 'recall_cv_std': 0.0138, 'f1_cv_mean': 0.8115, 'f1_cv_std': 0.0078, 'accuracy_test': 0.87, 'precision_test': 0.7235, 'recall_test': 0.7368, 'f1_score_test': 0.7301}
+Random Forest: {'accuracy_cv_mean': 0.8188, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.854, 'precision_cv_std': 0.0051, 'recall_cv_mean': 0.7692, 'recall_cv_std': 0.0041, 'f1_cv_mean': 0.8094, 'f1_cv_std': 0.0032, 'accuracy_test': 0.8414, 'precision_test': 0.6398, 'recall_test': 0.7674, 'f1_score_test': 0.6979}
+SVM: {'accuracy_cv_mean': 0.7357, 'accuracy_cv_std': 0.0125, 'precision_cv_mean': 0.7014, 'precision_cv_std': 0.0215, 'recall_cv_mean': 0.8249, 'recall_cv_std': 0.0346, 'f1_cv_mean': 0.7573, 'f1_cv_std': 0.0097, 'accuracy_test': 0.7409, 'precision_test': 0.4754, 'recall_test': 0.8295, 'f1_score_test': 0.6044}
+
+
+EMBEDDINGS TYPE: LYRICS_BERT
+MLP_1028097: {'accuracy_cv_mean': 0.878, 'accuracy_cv_std': 0.0022, 'precision_cv_mean': 0.8789, 'precision_cv_std': 0.009, 'recall_cv_mean': 0.8772, 'recall_cv_std': 0.0111, 'f1_cv_mean': 0.8779, 'f1_cv_std': 0.0024, 'params': 1028097, 'accuracy_test': 0.9118, 'precision_test': 0.8249, 'recall_test': 0.8, 'f1_score_test': 0.8123}
+XGBoost: {'accuracy_cv_mean': 0.8756, 'accuracy_cv_std': 0.0032, 'precision_cv_mean': 0.8946, 'precision_cv_std': 0.0043, 'recall_cv_mean': 0.8516, 'recall_cv_std': 0.0024, 'f1_cv_mean': 0.8725, 'f1_cv_std': 0.0031, 'accuracy_test': 0.888, 'precision_test': 0.7236, 'recall_test': 0.8589, 'f1_score_test': 0.7855}
+MLP_10305: {'accuracy_cv_mean': 0.8686, 'accuracy_cv_std': 0.0014, 'precision_cv_mean': 0.868, 'precision_cv_std': 0.0111, 'recall_cv_mean': 0.8698, 'recall_cv_std': 0.0133, 'f1_cv_mean': 0.8687, 'f1_cv_std': 0.0015, 'params': 10305, 'accuracy_test': 0.889, 'precision_test': 0.7364, 'recall_test': 0.8331, 'f1_score_test': 0.7818}
+Random Forest: {'accuracy_cv_mean': 0.8505, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8853, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.8052, 'recall_cv_std': 0.0031, 'f1_cv_mean': 0.8434, 'f1_cv_std': 0.0028, 'accuracy_test': 0.8739, 'precision_test': 0.7039, 'recall_test': 0.8143, 'f1_score_test': 0.7551}
+Logistic Regression: {'accuracy_cv_mean': 0.8493, 'accuracy_cv_std': 0.0046, 'precision_cv_mean': 0.8644, 'precision_cv_std': 0.0035, 'recall_cv_mean': 0.8286, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.8461, 'f1_cv_std': 0.0051, 'accuracy_test': 0.8564, 'precision_test': 0.6571, 'recall_test': 0.8324, 'f1_score_test': 0.7344}
+Decision Tree: {'accuracy_cv_mean': 0.7877, 'accuracy_cv_std': 0.0038, 'precision_cv_mean': 0.8177, 'precision_cv_std': 0.0028, 'recall_cv_mean': 0.7405, 'recall_cv_std': 0.0131, 'f1_cv_mean': 0.7771, 'f1_cv_std': 0.0061, 'accuracy_test': 0.8147, 'precision_test': 0.5879, 'recall_test': 0.7473, 'f1_score_test': 0.6581}
+Naive Bayes: {'accuracy_cv_mean': 0.7768, 'accuracy_cv_std': 0.0024, 'precision_cv_mean': 0.7612, 'precision_cv_std': 0.0029, 'recall_cv_mean': 0.8068, 'recall_cv_std': 0.007, 'f1_cv_mean': 0.7833, 'f1_cv_std': 0.003, 'accuracy_test': 0.7611, 'precision_test': 0.4996, 'recall_test': 0.8134, 'f1_score_test': 0.619}
+SVM: {'accuracy_cv_mean': 0.6466, 'accuracy_cv_std': 0.0216, 'precision_cv_mean': 0.6241, 'precision_cv_std': 0.0234, 'recall_cv_mean': 0.7443, 'recall_cv_std': 0.0495, 'f1_cv_mean': 0.6776, 'f1_cv_std': 0.021, 'accuracy_test': 0.6262, 'precision_test': 0.3617, 'recall_test': 0.7407, 'f1_score_test': 0.486}
+
+
+EMBEDDINGS TYPE: GPT
+MLP_2293761: {'accuracy_cv_mean': 0.877, 'accuracy_cv_std': 0.0014, 'precision_cv_mean': 0.8795, 'precision_cv_std': 0.0053, 'recall_cv_mean': 0.8736, 'recall_cv_std': 0.0045, 'f1_cv_mean': 0.8765, 'f1_cv_std': 0.001, 'params': 2293761, 'accuracy_test': 0.9001, 'precision_test': 0.7831, 'recall_test': 0.8041, 'f1_score_test': 0.7935}
+XGBoost: {'accuracy_cv_mean': 0.8674, 'accuracy_cv_std': 0.0011, 'precision_cv_mean': 0.887, 'precision_cv_std': 0.0047, 'recall_cv_mean': 0.8422, 'recall_cv_std': 0.0035, 'f1_cv_mean': 0.864, 'f1_cv_std': 0.0007, 'accuracy_test': 0.8791, 'precision_test': 0.7052, 'recall_test': 0.8479, 'f1_score_test': 0.77}
+MLP_49857: {'accuracy_cv_mean': 0.8679, 'accuracy_cv_std': 0.0027, 'precision_cv_mean': 0.8637, 'precision_cv_std': 0.0063, 'recall_cv_mean': 0.8738, 'recall_cv_std': 0.0059, 'f1_cv_mean': 0.8687, 'f1_cv_std': 0.0024, 'params': 49857, 'accuracy_test': 0.879, 'precision_test': 0.7086, 'recall_test': 0.8374, 'f1_score_test': 0.7676}
+Logistic Regression: {'accuracy_cv_mean': 0.8513, 'accuracy_cv_std': 0.0031, 'precision_cv_mean': 0.8575, 'precision_cv_std': 0.0066, 'recall_cv_mean': 0.8427, 'recall_cv_std': 0.0033, 'f1_cv_mean': 0.85, 'f1_cv_std': 0.0025, 'accuracy_test': 0.8535, 'precision_test': 0.647, 'recall_test': 0.8494, 'f1_score_test': 0.7345}
+Random Forest: {'accuracy_cv_mean': 0.8192, 'accuracy_cv_std': 0.0026, 'precision_cv_mean': 0.8569, 'precision_cv_std': 0.0075, 'recall_cv_mean': 0.7666, 'recall_cv_std': 0.0054, 'f1_cv_mean': 0.8092, 'f1_cv_std': 0.0022, 'accuracy_test': 0.8473, 'precision_test': 0.652, 'recall_test': 0.7721, 'f1_score_test': 0.707}
+Naive Bayes: {'accuracy_cv_mean': 0.7995, 'accuracy_cv_std': 0.002, 'precision_cv_mean': 0.857, 'precision_cv_std': 0.0064, 'recall_cv_mean': 0.7189, 'recall_cv_std': 0.0037, 'f1_cv_mean': 0.7819, 'f1_cv_std': 0.0014, 'accuracy_test': 0.8427, 'precision_test': 0.655, 'recall_test': 0.7203, 'f1_score_test': 0.6861}
+Decision Tree: {'accuracy_cv_mean': 0.7803, 'accuracy_cv_std': 0.0034, 'precision_cv_mean': 0.788, 'precision_cv_std': 0.0067, 'recall_cv_mean': 0.7672, 'recall_cv_std': 0.0092, 'f1_cv_mean': 0.7774, 'f1_cv_std': 0.0038, 'accuracy_test': 0.797, 'precision_test': 0.5535, 'recall_test': 0.7733, 'f1_score_test': 0.6452}
+SVM: {'accuracy_cv_mean': 0.7181, 'accuracy_cv_std': 0.0275, 'precision_cv_mean': 0.6974, 'precision_cv_std': 0.0307, 'recall_cv_mean': 0.7755, 'recall_cv_std': 0.0466, 'f1_cv_mean': 0.7332, 'f1_cv_std': 0.0257, 'accuracy_test': 0.7375, 'precision_test': 0.4696, 'recall_test': 0.7725, 'f1_score_test': 0.5841}
+Diccionario global guardado en: outputs_without_artist/7/gpt/global_metrics.json
+
+========== CONFIGURATIONS ==========
+TESTING: False
+UNDERSAMPLING: True
+USE_SMOTE: False
+SCALED: True
+STEAMING: True
+REMOVE_STOPWORDS: True
+NUMERIC_COLS: True
+MAX_FEATURES_TFIDF: 5000
+TF-IDF Columns: ['emotion', 'Time signature', 'song', 'Genre', 'Album', 'Release Date', 'Key', 'Similar Song 1', 'Similar Song 2', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+Numeric Columns: ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+====================================
+

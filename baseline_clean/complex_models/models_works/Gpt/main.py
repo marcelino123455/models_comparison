@@ -262,6 +262,8 @@ def load_TFIDF_embbedings(csv_path, sample_size=None, columns_tf_idfizable = ['t
     print(f"y shape: {y.shape}")
     return X, y
 
+
+
 def undersample(X, y, random_state= RANDOM_STATE):
     print("="*50)
     print("Data antes del undersampling ...")

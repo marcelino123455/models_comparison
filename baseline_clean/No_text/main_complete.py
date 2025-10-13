@@ -780,9 +780,12 @@ def main():
         
     if COL_TF_IDF == B or COL_TF_IDF == D:
         # npy_path = "../../data/embbedings_khipu/lb_khipu_B.npy" 
-        npy_path = f"{path_DATA}/embbedings_khipu/LB_fuss/lb_khipu_B.npy" 
 
-        cols_type = "B"
+        # npy_path = f"{path_DATA}/embbedings_khipu/LB_fuss/lb_khipu_B.npy" 
+        npy_path = f"{path_DATA}/new_embbedings_khipu/LB_fuss/lb_khipu_D.npy" 
+
+
+        cols_type = "D"
     elif COL_TF_IDF == A:
         cols_type = "A"
         # npy_path = "../../data/embbedings_khipu/lb_khipu_A.npy" 
@@ -804,6 +807,7 @@ def main():
 
     # A) Embeddings types
     embb_types = ['tfidf', 'lyrics_bert', 'gpt']
+    embb_types = ['tfidf', 'lyrics_bert'] # GPT no, since with this only we have the text feature extraction
     # embb_types = ['tfidf']
 
     # Only with tf_idf we have the best f1-score
@@ -818,7 +822,8 @@ def main():
             X, y = elimnate_index(X, y)
 
         elif embedding_type == 'gpt':
-            npy_path_gpt = f"{path_DATA}//gpt_embd/gpt_fussioned/embeddings_fused.npy"
+            
+            npy_path_gpt = f"{path_DATA}/gpt_embd/gpt_fussioned/embeddings_fused.npy"
             print(f"\n{'#' * 50}")
             print(f"Running experiment with {embedding_type.upper()} embeddings")
             X, y = load_gpt_embbedings(csv_path, npy_path_gpt, sample_size=_SAMPLE_SIZE)
@@ -874,7 +879,7 @@ def main():
 
         
         # output_dir = f"outputs{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_useSmote_{USE_SMOTE}_MLP_{MLP_}_+_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
-        output_dir = f"outputs_d/0/{embedding_type}"
+        output_dir = f"outputs_d/6/{embedding_type}"
         
 
         if MLP_: 

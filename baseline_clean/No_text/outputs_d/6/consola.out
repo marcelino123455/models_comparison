@@ -1,0 +1,1215 @@
+2025-09-23 15:26:06.289186: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/No_text/main_complete.py:277: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+For TF-IDF embbedings you are selecteing this columns:
+--> ['emotion', 'Time signature', 'Artist(s)', 'song', 'Genre', 'Album', 'Release Date', 'Key', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+For both embbedings your are adding this columns: 
+--> ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+You are executing with [ALL] dataset
+--> PaTH:  ../../data/new_embbedings_khipu/LB_fuss/lb_khipu_D.npy
+
+##################################################
+Running experiment with TFIDF embeddings
+Preprocessing text...
+Label distribution: {0: 82336, 1: 25802}
+X shape: (108138, 5000)
+y shape: (108138,)
+Se eliminarán los siguientes indices [9681, 13382, 27808, 38450, 46753, 53015, 53018, 53102, 53137, 57281, 70666, 75102, 98849]
+Shape original X: (108138, 5000), y: (108138,)
+Shape filtrado  X: (108125, 5000), y: (108125,)
+
+Splitting data...
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65861, 1: 20639}
+Label distribution en TEST: {0: 16465, 1: 5160}
+
+
+==================================================
+Data antes del undersampling ...
+X: (86500, 5020)
+y: (86500,)
+Apliying UNDERSAMPLE
+20639
+Label distribution: {0: 20639, 1: 20639}
+X shape: (41278, 5020)
+y shape: (41278,)
+Resultados con MLP
+
+Entrenando red 1 con capas [5020, 32, 1]
+
+--- Iteración 1 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.4266, Test Loss: 0.3314, F1: 0.7700, AUC: 0.9418
+Epoch [10/30] Train Loss: 0.1338, Test Loss: 0.1929, F1: 0.8542, AUC: 0.9843
+Epoch [20/30] Train Loss: 0.1122, Test Loss: 0.1401, F1: 0.8858, AUC: 0.9846
+Mejores resultados en la época:  26
+f1-score 0.8958731371799771
+AUC según el mejor F1-score 0.986104568770495
+Confusion Matrix:
+ [[15846   619]
+ [  471  4689]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_160705.png
+Accuracy:   0.9496
+Precision:  0.8834
+Recall:     0.9087
+F1-score:   0.8959
+
+--- Iteración 2 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.4321, Test Loss: 0.2828, F1: 0.7797, AUC: 0.9369
+Epoch [10/30] Train Loss: 0.1288, Test Loss: 0.2420, F1: 0.8253, AUC: 0.9847
+Epoch [20/30] Train Loss: 0.1099, Test Loss: 0.1526, F1: 0.8833, AUC: 0.9857
+Mejores resultados en la época:  26
+f1-score 0.8965450121654501
+AUC según el mejor F1-score 0.985934999540957
+Confusion Matrix:
+ [[15956   509]
+ [  554  4606]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_160705.png
+Accuracy:   0.9508
+Precision:  0.9005
+Recall:     0.8926
+F1-score:   0.8965
+
+--- Iteración 3 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.4463, Test Loss: 0.4746, F1: 0.6929, AUC: 0.9235
+Epoch [10/30] Train Loss: 0.1310, Test Loss: 0.1703, F1: 0.8707, AUC: 0.9849
+Epoch [20/30] Train Loss: 0.1097, Test Loss: 0.1933, F1: 0.8599, AUC: 0.9855
+Mejores resultados en la época:  26
+f1-score 0.8935180699544618
+AUC según el mejor F1-score 0.9852602537211891
+Confusion Matrix:
+ [[15915   550]
+ [  549  4611]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_160705.png
+Accuracy:   0.9492
+Precision:  0.8934
+Recall:     0.8936
+F1-score:   0.8935
+
+--- Iteración 4 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.4319, Test Loss: 0.2859, F1: 0.7598, AUC: 0.9311
+Epoch [10/30] Train Loss: 0.1337, Test Loss: 0.1408, F1: 0.8888, AUC: 0.9848
+Epoch [20/30] Train Loss: 0.1035, Test Loss: 0.2205, F1: 0.8381, AUC: 0.9851
+Mejores resultados en la época:  22
+f1-score 0.8953771289537713
+AUC según el mejor F1-score 0.985437744381434
+Confusion Matrix:
+ [[15950   515]
+ [  560  4600]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_160705.png
+Accuracy:   0.9503
+Precision:  0.8993
+Recall:     0.8915
+F1-score:   0.8954
+real_trainable_params:  160705
+Tiempo total para red 1: 385.92 segundos
+
+Entrenando red 2 con capas [5020, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.4138, Test Loss: 0.2542, F1: 0.8101, AUC: 0.9562
+Epoch [10/30] Train Loss: 0.1233, Test Loss: 0.1397, F1: 0.8832, AUC: 0.9851
+Epoch [20/30] Train Loss: 0.0859, Test Loss: 0.1303, F1: 0.8989, AUC: 0.9871
+Mejores resultados en la época:  21
+f1-score 0.8999621785173979
+AUC según el mejor F1-score 0.9874491462981141
+Confusion Matrix:
+ [[15808   657]
+ [  401  4759]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_323457.png
+Accuracy:   0.9511
+Precision:  0.8787
+Recall:     0.9223
+F1-score:   0.9000
+
+--- Iteración 2 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.3999, Test Loss: 0.2009, F1: 0.8261, AUC: 0.9654
+Epoch [10/30] Train Loss: 0.1196, Test Loss: 0.1510, F1: 0.8829, AUC: 0.9849
+Epoch [20/30] Train Loss: 0.0904, Test Loss: 0.2157, F1: 0.8525, AUC: 0.9876
+Mejores resultados en la época:  28
+f1-score 0.9070509720475868
+AUC según el mejor F1-score 0.9879926411909689
+Confusion Matrix:
+ [[15975   490]
+ [  471  4689]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_323457.png
+Accuracy:   0.9556
+Precision:  0.9054
+Recall:     0.9087
+F1-score:   0.9071
+
+--- Iteración 3 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.4301, Test Loss: 0.2497, F1: 0.7910, AUC: 0.9476
+Epoch [10/30] Train Loss: 0.1250, Test Loss: 0.1426, F1: 0.8870, AUC: 0.9857
+Epoch [20/30] Train Loss: 0.0803, Test Loss: 0.1442, F1: 0.8908, AUC: 0.9871
+Mejores resultados en la época:  29
+f1-score 0.9074003067484663
+AUC según el mejor F1-score 0.9882913485735538
+Confusion Matrix:
+ [[15926   539]
+ [  427  4733]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_323457.png
+Accuracy:   0.9553
+Precision:  0.8978
+Recall:     0.9172
+F1-score:   0.9074
+
+--- Iteración 4 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.3999, Test Loss: 0.2920, F1: 0.7958, AUC: 0.9616
+Epoch [10/30] Train Loss: 0.1220, Test Loss: 0.1434, F1: 0.8870, AUC: 0.9856
+Epoch [20/30] Train Loss: 0.0866, Test Loss: 0.1710, F1: 0.8792, AUC: 0.9867
+Mejores resultados en la época:  27
+f1-score 0.9068888673578142
+AUC según el mejor F1-score 0.9875768072750042
+Confusion Matrix:
+ [[15984   481]
+ [  480  4680]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_323457.png
+Accuracy:   0.9556
+Precision:  0.9068
+Recall:     0.9070
+F1-score:   0.9069
+real_trainable_params:  323457
+Tiempo total para red 2: 398.91 segundos
+
+Entrenando red 3 con capas [5020, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.3922, Test Loss: 0.1899, F1: 0.8419, AUC: 0.9698
+Epoch [10/30] Train Loss: 0.1221, Test Loss: 0.1404, F1: 0.8927, AUC: 0.9862
+Epoch [20/30] Train Loss: 0.0831, Test Loss: 0.1760, F1: 0.8781, AUC: 0.9865
+Mejores resultados en la época:  24
+f1-score 0.9110340843443097
+AUC según el mejor F1-score 0.989002594180279
+Confusion Matrix:
+ [[15970   495]
+ [  429  4731]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_653057.png
+Accuracy:   0.9573
+Precision:  0.9053
+Recall:     0.9169
+F1-score:   0.9110
+
+--- Iteración 2 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.3917, Test Loss: 0.9938, F1: 0.4933, AUC: 0.9659
+Epoch [10/30] Train Loss: 0.1312, Test Loss: 0.1570, F1: 0.8842, AUC: 0.9856
+Epoch [20/30] Train Loss: 0.0728, Test Loss: 0.1367, F1: 0.9043, AUC: 0.9884
+Mejores resultados en la época:  24
+f1-score 0.9135802469135802
+AUC según el mejor F1-score 0.989384411848483
+Confusion Matrix:
+ [[16125   340]
+ [  535  4625]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_653057.png
+Accuracy:   0.9595
+Precision:  0.9315
+Recall:     0.8963
+F1-score:   0.9136
+
+--- Iteración 3 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.4130, Test Loss: 0.3052, F1: 0.7883, AUC: 0.9549
+Epoch [10/30] Train Loss: 0.1218, Test Loss: 0.1444, F1: 0.8898, AUC: 0.9858
+Epoch [20/30] Train Loss: 0.0741, Test Loss: 0.1861, F1: 0.8821, AUC: 0.9885
+Mejores resultados en la época:  29
+f1-score 0.9057985355234515
+AUC según el mejor F1-score 0.98847026344348
+Confusion Matrix:
+ [[16096   369]
+ [  583  4577]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_653057.png
+Accuracy:   0.9560
+Precision:  0.9254
+Recall:     0.8870
+F1-score:   0.9058
+
+--- Iteración 4 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.3923, Test Loss: 0.1973, F1: 0.8486, AUC: 0.9710
+Epoch [10/30] Train Loss: 0.1214, Test Loss: 0.1833, F1: 0.8533, AUC: 0.9842
+Epoch [20/30] Train Loss: 0.0805, Test Loss: 0.1592, F1: 0.8811, AUC: 0.9877
+Mejores resultados en la época:  25
+f1-score 0.9108141408397308
+AUC según el mejor F1-score 0.9887994795160984
+Confusion Matrix:
+ [[15879   586]
+ [  355  4805]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_653057.png
+Accuracy:   0.9565
+Precision:  0.8913
+Recall:     0.9312
+F1-score:   0.9108
+real_trainable_params:  653057
+Tiempo total para red 3: 413.56 segundos
+
+Entrenando red 4 con capas [5020, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.3826, Test Loss: 0.1798, F1: 0.8561, AUC: 0.9728
+Epoch [10/30] Train Loss: 0.1201, Test Loss: 0.1498, F1: 0.8896, AUC: 0.9864
+Epoch [20/30] Train Loss: 0.0736, Test Loss: 0.1559, F1: 0.8928, AUC: 0.9886
+Mejores resultados en la época:  28
+f1-score 0.9090909090909091
+AUC según el mejor F1-score 0.9894352420097128
+Confusion Matrix:
+ [[15871   594]
+ [  365  4795]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_1328641.png
+Accuracy:   0.9557
+Precision:  0.8898
+Recall:     0.9293
+F1-score:   0.9091
+
+--- Iteración 2 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.4082, Test Loss: 0.4421, F1: 0.7077, AUC: 0.9638
+Epoch [10/30] Train Loss: 0.1183, Test Loss: 0.2079, F1: 0.8484, AUC: 0.9867
+Epoch [20/30] Train Loss: 0.0806, Test Loss: 0.1665, F1: 0.8874, AUC: 0.9883
+Mejores resultados en la época:  27
+f1-score 0.9108419380460683
+AUC según el mejor F1-score 0.9894834415026471
+Confusion Matrix:
+ [[16140   325]
+ [  573  4587]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_1328641.png
+Accuracy:   0.9585
+Precision:  0.9338
+Recall:     0.8890
+F1-score:   0.9108
+
+--- Iteración 3 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.3910, Test Loss: 0.2993, F1: 0.7933, AUC: 0.9738
+Epoch [10/30] Train Loss: 0.1167, Test Loss: 0.1609, F1: 0.8803, AUC: 0.9849
+Epoch [20/30] Train Loss: 0.0689, Test Loss: 0.1665, F1: 0.8858, AUC: 0.9847
+Mejores resultados en la época:  19
+f1-score 0.9097048041674706
+AUC según el mejor F1-score 0.9883675437915049
+Confusion Matrix:
+ [[15974   491]
+ [  445  4715]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_1328641.png
+Accuracy:   0.9567
+Precision:  0.9057
+Recall:     0.9138
+F1-score:   0.9097
+
+--- Iteración 4 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.4046, Test Loss: 0.2821, F1: 0.8025, AUC: 0.9693
+Epoch [10/30] Train Loss: 0.1237, Test Loss: 0.1311, F1: 0.8976, AUC: 0.9865
+Epoch [20/30] Train Loss: 0.0782, Test Loss: 0.1179, F1: 0.9099, AUC: 0.9885
+Mejores resultados en la época:  20
+f1-score 0.9098939929328622
+AUC según el mejor F1-score 0.9885432689025582
+Confusion Matrix:
+ [[16072   393]
+ [  525  4635]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_1328641.png
+Accuracy:   0.9575
+Precision:  0.9218
+Recall:     0.8983
+F1-score:   0.9099
+real_trainable_params:  1328641
+Tiempo total para red 4: 434.38 segundos
+
+Entrenando red 5 con capas [5020, 512, 256, 128, 64, 1]
+
+--- Iteración 1 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.3884, Test Loss: 0.2045, F1: 0.8466, AUC: 0.9713
+Epoch [10/30] Train Loss: 0.1139, Test Loss: 0.2917, F1: 0.8081, AUC: 0.9857
+Epoch [20/30] Train Loss: 0.0643, Test Loss: 0.2404, F1: 0.8441, AUC: 0.9866
+Mejores resultados en la época:  25
+f1-score 0.9132304084424467
+AUC según el mejor F1-score 0.9885336878556109
+Confusion Matrix:
+ [[16064   401]
+ [  487  4673]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_2743297.png
+Accuracy:   0.9589
+Precision:  0.9210
+Recall:     0.9056
+F1-score:   0.9132
+
+--- Iteración 2 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.4003, Test Loss: 0.2581, F1: 0.7435, AUC: 0.9563
+Epoch [10/30] Train Loss: 0.1140, Test Loss: 0.2484, F1: 0.8257, AUC: 0.9857
+Epoch [20/30] Train Loss: 0.0736, Test Loss: 0.1609, F1: 0.8894, AUC: 0.9887
+Mejores resultados en la época:  29
+f1-score 0.9056498228603393
+AUC según el mejor F1-score 0.9894803929877094
+Confusion Matrix:
+ [[15756   709]
+ [  303  4857]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_2743297.png
+Accuracy:   0.9532
+Precision:  0.8726
+Recall:     0.9413
+F1-score:   0.9056
+
+--- Iteración 3 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.3948, Test Loss: 0.2022, F1: 0.8269, AUC: 0.9636
+Epoch [10/30] Train Loss: 0.1232, Test Loss: 0.1274, F1: 0.8941, AUC: 0.9860
+Epoch [20/30] Train Loss: 0.0771, Test Loss: 0.1214, F1: 0.9107, AUC: 0.9894
+Mejores resultados en la época:  27
+f1-score 0.9157201488975852
+AUC según el mejor F1-score 0.9899559613179942
+Confusion Matrix:
+ [[15945   520]
+ [  363  4797]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_2743297.png
+Accuracy:   0.9592
+Precision:  0.9022
+Recall:     0.9297
+F1-score:   0.9157
+
+--- Iteración 4 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.3921, Test Loss: 0.6279, F1: 0.6130, AUC: 0.9681
+Epoch [10/30] Train Loss: 0.1191, Test Loss: 0.1291, F1: 0.8965, AUC: 0.9867
+Epoch [20/30] Train Loss: 0.0735, Test Loss: 0.1489, F1: 0.8917, AUC: 0.9873
+Mejores resultados en la época:  29
+f1-score 0.9085841694537347
+AUC según el mejor F1-score 0.9897365329792819
+Confusion Matrix:
+ [[15751   714]
+ [  270  4890]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_2743297.png
+Accuracy:   0.9545
+Precision:  0.8726
+Recall:     0.9477
+F1-score:   0.9086
+real_trainable_params:  2743297
+Tiempo total para red 5: 440.75 segundos
+
+Entrenando red 6 con capas [5020, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.4095, Test Loss: 0.3642, F1: 0.7384, AUC: 0.9632
+Epoch [10/30] Train Loss: 0.1179, Test Loss: 0.2110, F1: 0.8680, AUC: 0.9872
+Epoch [20/30] Train Loss: 0.0775, Test Loss: 0.1755, F1: 0.8614, AUC: 0.9875
+Mejores resultados en la época:  27
+f1-score 0.9120825625547658
+AUC según el mejor F1-score 0.9883489760991722
+Confusion Matrix:
+ [[16038   427]
+ [  476  4684]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_5840897.png
+Accuracy:   0.9582
+Precision:  0.9165
+Recall:     0.9078
+F1-score:   0.9121
+
+--- Iteración 2 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.3992, Test Loss: 0.1977, F1: 0.8427, AUC: 0.9695
+Epoch [10/30] Train Loss: 0.1275, Test Loss: 0.1318, F1: 0.8823, AUC: 0.9861
+Epoch [20/30] Train Loss: 0.0754, Test Loss: 0.1968, F1: 0.8924, AUC: 0.9889
+Mejores resultados en la época:  23
+f1-score 0.901072033101373
+AUC según el mejor F1-score 0.9880145575416023
+Confusion Matrix:
+ [[15782   683]
+ [  369  4791]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_5840897.png
+Accuracy:   0.9514
+Precision:  0.8752
+Recall:     0.9285
+F1-score:   0.9011
+
+--- Iteración 3 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.4102, Test Loss: 0.3430, F1: 0.8137, AUC: 0.9676
+Epoch [10/30] Train Loss: 0.1208, Test Loss: 0.1582, F1: 0.8806, AUC: 0.9859
+Epoch [20/30] Train Loss: 0.0741, Test Loss: 0.3086, F1: 0.8209, AUC: 0.9878
+Mejores resultados en la época:  26
+f1-score 0.9135532591414944
+AUC según el mejor F1-score 0.9894154678587654
+Confusion Matrix:
+ [[16158   307]
+ [  563  4597]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_5840897.png
+Accuracy:   0.9598
+Precision:  0.9374
+Recall:     0.8909
+F1-score:   0.9136
+
+--- Iteración 4 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.3854, Test Loss: 0.1889, F1: 0.8434, AUC: 0.9673
+Epoch [10/30] Train Loss: 0.1223, Test Loss: 0.1276, F1: 0.8955, AUC: 0.9864
+Epoch [20/30] Train Loss: 0.0718, Test Loss: 0.1801, F1: 0.8928, AUC: 0.9887
+Mejores resultados en la época:  17
+f1-score 0.9094199447566435
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [16:16:24] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+/home/marcelino.maita/musica_ia_workshop/models_comparison/baseline_clean/No_text/main_complete.py:277: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+AUC según el mejor F1-score 0.9886600482112633
+Confusion Matrix:
+ [[15900   565]
+ [  386  4774]]
+Matriz de confusión guardada en: outputs_d/6/tfidf/confusion_matrix_param_5840897.png
+Accuracy:   0.9560
+Precision:  0.8942
+Recall:     0.9252
+F1-score:   0.9094
+real_trainable_params:  5840897
+Tiempo total para red 6: 480.81 segundos
+Saved on: outputs_d/6/tfidf
+
+==============================
+Model: Logistic Regression
+Accuracy:  0.9354
+Precision: 0.8280
+Recall:    0.9205
+F1-score:  0.8718
+              precision    recall  f1-score   support
+
+           0       0.97      0.94      0.96     16465
+           1       0.83      0.92      0.87      5160
+
+    accuracy                           0.94     21625
+   macro avg       0.90      0.93      0.91     21625
+weighted avg       0.94      0.94      0.94     21625
+
+[[15478   987]
+ [  410  4750]]
+Hiperparámetros: {'C': 1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 42, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs_d/6/tfidf/conf_matrix_logistic_regression.png
+Modelo guardado como: outputs_d/6/tfidf/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+Accuracy:  0.7281
+Precision: 0.4653
+Recall:    0.9341
+F1-score:  0.6211
+              precision    recall  f1-score   support
+
+           0       0.97      0.66      0.79     16465
+           1       0.47      0.93      0.62      5160
+
+    accuracy                           0.73     21625
+   macro avg       0.72      0.80      0.70     21625
+weighted avg       0.85      0.73      0.75     21625
+
+[[10925  5540]
+ [  340  4820]]
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 42, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+Confusion matrix saved as: outputs_d/6/tfidf/conf_matrix_svm.png
+Modelo guardado como: outputs_d/6/tfidf/svm_model.pkl
+
+==============================
+Model: Decision Tree
+Accuracy:  0.8728
+Precision: 0.7205
+Recall:    0.7632
+F1-score:  0.7412
+              precision    recall  f1-score   support
+
+           0       0.92      0.91      0.92     16465
+           1       0.72      0.76      0.74      5160
+
+    accuracy                           0.87     21625
+   macro avg       0.82      0.84      0.83     21625
+weighted avg       0.88      0.87      0.87     21625
+
+[[14937  1528]
+ [ 1222  3938]]
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 42, 'splitter': 'best'}
+Confusion matrix saved as: outputs_d/6/tfidf/conf_matrix_decision_tree.png
+Modelo guardado como: outputs_d/6/tfidf/decision_tree_model.pkl
+
+==============================
+Model: Random Forest
+Accuracy:  0.8554
+Precision: 0.6679
+Recall:    0.7839
+F1-score:  0.7213
+              precision    recall  f1-score   support
+
+           0       0.93      0.88      0.90     16465
+           1       0.67      0.78      0.72      5160
+
+    accuracy                           0.86     21625
+   macro avg       0.80      0.83      0.81     21625
+weighted avg       0.87      0.86      0.86     21625
+
+[[14454  2011]
+ [ 1115  4045]]
+Hiperparámetros: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 15, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': -1, 'oob_score': False, 'random_state': 42, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs_d/6/tfidf/conf_matrix_random_forest.png
+Modelo guardado como: outputs_d/6/tfidf/random_forest_model.pkl
+
+==============================
+Model: XGBoost
+Accuracy:  0.9199
+Precision: 0.8007
+Recall:    0.8845
+F1-score:  0.8405
+              precision    recall  f1-score   support
+
+           0       0.96      0.93      0.95     16465
+           1       0.80      0.88      0.84      5160
+
+    accuracy                           0.92     21625
+   macro avg       0.88      0.91      0.89     21625
+weighted avg       0.92      0.92      0.92     21625
+
+[[15329  1136]
+ [  596  4564]]
+Hiperparámetros: {'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': 0.8, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 8, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 200, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 42, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': 0.8, 'tree_method': None, 'validate_parameters': None, 'verbosity': None, 'use_label_encoder': False}
+Confusion matrix saved as: outputs_d/6/tfidf/conf_matrix_xgboost.png
+Modelo guardado como: outputs_d/6/tfidf/xgboost_model.pkl
+
+==============================
+Model: Naive Bayes
+Accuracy:  0.9196
+Precision: 0.8071
+Recall:    0.8711
+F1-score:  0.8379
+              precision    recall  f1-score   support
+
+           0       0.96      0.93      0.95     16465
+           1       0.81      0.87      0.84      5160
+
+    accuracy                           0.92     21625
+   macro avg       0.88      0.90      0.89     21625
+weighted avg       0.92      0.92      0.92     21625
+
+[[15391  1074]
+ [  665  4495]]
+Hiperparámetros: {'alpha': 1.0, 'class_prior': None, 'fit_prior': True, 'force_alpha': True}
+Confusion matrix saved as: outputs_d/6/tfidf/conf_matrix_naive_bayes.png
+Modelo guardado como: outputs_d/6/tfidf/naive_bayes_model.pkl
+
+
+Resumen de métricas:
+Logistic Regression: {'accuracy': 0.9354, 'precision': 0.828, 'recall': 0.9205, 'f1_score': 0.8718}
+XGBoost: {'accuracy': 0.9199, 'precision': 0.8007, 'recall': 0.8845, 'f1_score': 0.8405}
+Naive Bayes: {'accuracy': 0.9196, 'precision': 0.8071, 'recall': 0.8711, 'f1_score': 0.8379}
+Decision Tree: {'accuracy': 0.8728, 'precision': 0.7205, 'recall': 0.7632, 'f1_score': 0.7412}
+Random Forest: {'accuracy': 0.8554, 'precision': 0.6679, 'recall': 0.7839, 'f1_score': 0.7213}
+SVM: {'accuracy': 0.7281, 'precision': 0.4653, 'recall': 0.9341, 'f1_score': 0.6211}
+
+##################################################
+Running experiment with LYRICS_BERT embeddings
+Loading Lb vectors from:  ../../data/spotify_dataset_sin_duplicados_4.csv
+Label distribution: {0: 82336, 1: 25802}
+X shape: (108138, 300)
+y shape: (108138,)
+Se eliminarán los siguientes indices [9681, 13382, 27808, 38450, 46753, 53015, 53018, 53102, 53137, 57281, 70666, 75102, 98849]
+Shape original X: (108138, 300), y: (108138,)
+Shape filtrado  X: (108125, 300), y: (108125,)
+
+Splitting data...
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65861, 1: 20639}
+Label distribution en TEST: {0: 16465, 1: 5160}
+
+
+==================================================
+Data antes del undersampling ...
+X: (86500, 320)
+y: (86500,)
+Apliying UNDERSAMPLE
+20639
+Label distribution: {0: 20639, 1: 20639}
+X shape: (41278, 320)
+y shape: (41278,)
+Resultados con MLP
+
+Entrenando red 1 con capas [320, 32, 1]
+
+--- Iteración 1 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.4347, Test Loss: 0.3901, F1: 0.7184, AUC: 0.9080
+Epoch [10/30] Train Loss: 0.3198, Test Loss: 0.2920, F1: 0.7676, AUC: 0.9336
+Epoch [20/30] Train Loss: 0.2914, Test Loss: 0.3158, F1: 0.7586, AUC: 0.9414
+Mejores resultados en la época:  29
+f1-score 0.7878442545109212
+AUC según el mejor F1-score 0.9449264001393608
+Confusion Matrix:
+ [[15243  1222]
+ [ 1012  4148]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_10305.png
+Accuracy:   0.8967
+Precision:  0.7724
+Recall:     0.8039
+F1-score:   0.7878
+
+--- Iteración 2 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.4542, Test Loss: 0.3902, F1: 0.7149, AUC: 0.9090
+Epoch [10/30] Train Loss: 0.3230, Test Loss: 0.2816, F1: 0.7714, AUC: 0.9363
+Epoch [20/30] Train Loss: 0.2951, Test Loss: 0.3368, F1: 0.7447, AUC: 0.9396
+Mejores resultados en la época:  29
+f1-score 0.7830602560658967
+AUC según el mejor F1-score 0.9464389579022451
+Confusion Matrix:
+ [[14829  1636]
+ [  787  4373]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_10305.png
+Accuracy:   0.8880
+Precision:  0.7277
+Recall:     0.8475
+F1-score:   0.7831
+
+--- Iteración 3 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.4309, Test Loss: 0.3734, F1: 0.7239, AUC: 0.9088
+Epoch [10/30] Train Loss: 0.3240, Test Loss: 0.3123, F1: 0.7542, AUC: 0.9338
+Epoch [20/30] Train Loss: 0.2982, Test Loss: 0.3055, F1: 0.7591, AUC: 0.9417
+Mejores resultados en la época:  28
+f1-score 0.7934999524850328
+AUC según el mejor F1-score 0.9445844191460863
+Confusion Matrix:
+ [[15277  1188]
+ [  985  4175]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_10305.png
+Accuracy:   0.8995
+Precision:  0.7785
+Recall:     0.8091
+F1-score:   0.7935
+
+--- Iteración 4 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.4419, Test Loss: 0.4172, F1: 0.6967, AUC: 0.9087
+Epoch [10/30] Train Loss: 0.3240, Test Loss: 0.3193, F1: 0.7551, AUC: 0.9353
+Epoch [20/30] Train Loss: 0.3026, Test Loss: 0.3254, F1: 0.7505, AUC: 0.9417
+Mejores resultados en la época:  26
+f1-score 0.7909037212049616
+AUC según el mejor F1-score 0.9439027641438147
+Confusion Matrix:
+ [[15484   981]
+ [ 1143  4017]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_10305.png
+Accuracy:   0.9018
+Precision:  0.8037
+Recall:     0.7785
+F1-score:   0.7909
+real_trainable_params:  10305
+Tiempo total para red 1: 161.39 segundos
+
+Entrenando red 2 con capas [320, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.4262, Test Loss: 0.3450, F1: 0.7338, AUC: 0.9122
+Epoch [10/30] Train Loss: 0.3029, Test Loss: 0.2777, F1: 0.7722, AUC: 0.9373
+Epoch [20/30] Train Loss: 0.2642, Test Loss: 0.3279, F1: 0.7548, AUC: 0.9436
+Mejores resultados en la época:  24
+f1-score 0.7920612532742293
+AUC según el mejor F1-score 0.9427025026071275
+Confusion Matrix:
+ [[15630   835]
+ [ 1229  3931]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_22657.png
+Accuracy:   0.9046
+Precision:  0.8248
+Recall:     0.7618
+F1-score:   0.7921
+
+--- Iteración 2 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.4314, Test Loss: 0.3177, F1: 0.7393, AUC: 0.9086
+Epoch [10/30] Train Loss: 0.3077, Test Loss: 0.3065, F1: 0.7651, AUC: 0.9391
+Epoch [20/30] Train Loss: 0.2723, Test Loss: 0.2928, F1: 0.7748, AUC: 0.9479
+Mejores resultados en la época:  25
+f1-score 0.7998871013265594
+AUC según el mejor F1-score 0.9494422218141843
+Confusion Matrix:
+ [[15247  1218]
+ [  909  4251]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_22657.png
+Accuracy:   0.9016
+Precision:  0.7773
+Recall:     0.8238
+F1-score:   0.7999
+
+--- Iteración 3 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.4258, Test Loss: 0.3695, F1: 0.7164, AUC: 0.9107
+Epoch [10/30] Train Loss: 0.3035, Test Loss: 0.2869, F1: 0.7698, AUC: 0.9365
+Epoch [20/30] Train Loss: 0.2676, Test Loss: 0.3164, F1: 0.7642, AUC: 0.9472
+Mejores resultados en la época:  16
+f1-score 0.7885344429033749
+AUC según el mejor F1-score 0.9453166394772091
+Confusion Matrix:
+ [[15074  1391]
+ [  896  4264]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_22657.png
+Accuracy:   0.8942
+Precision:  0.7540
+Recall:     0.8264
+F1-score:   0.7885
+
+--- Iteración 4 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.4294, Test Loss: 0.4078, F1: 0.6994, AUC: 0.9098
+Epoch [10/30] Train Loss: 0.3017, Test Loss: 0.2897, F1: 0.7760, AUC: 0.9402
+Epoch [20/30] Train Loss: 0.2665, Test Loss: 0.2797, F1: 0.7819, AUC: 0.9479
+Mejores resultados en la época:  22
+f1-score 0.79014135556361
+AUC según el mejor F1-score 0.9475707102451288
+Confusion Matrix:
+ [[14949  1516]
+ [  800  4360]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_22657.png
+Accuracy:   0.8929
+Precision:  0.7420
+Recall:     0.8450
+F1-score:   0.7901
+real_trainable_params:  22657
+Tiempo total para red 2: 175.21 segundos
+
+Entrenando red 3 con capas [320, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.4221, Test Loss: 0.4008, F1: 0.7072, AUC: 0.9149
+Epoch [10/30] Train Loss: 0.2987, Test Loss: 0.3488, F1: 0.7397, AUC: 0.9392
+Epoch [20/30] Train Loss: 0.2614, Test Loss: 0.2676, F1: 0.7896, AUC: 0.9467
+Mejores resultados en la época:  27
+f1-score 0.7984812529663028
+AUC según el mejor F1-score 0.9478467303206002
+Confusion Matrix:
+ [[15296  1169]
+ [  954  4206]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_51457.png
+Accuracy:   0.9018
+Precision:  0.7825
+Recall:     0.8151
+F1-score:   0.7985
+
+--- Iteración 2 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.4288, Test Loss: 0.4936, F1: 0.6551, AUC: 0.9083
+Epoch [10/30] Train Loss: 0.2971, Test Loss: 0.3481, F1: 0.7472, AUC: 0.9395
+Epoch [20/30] Train Loss: 0.2561, Test Loss: 0.2562, F1: 0.7968, AUC: 0.9509
+Mejores resultados en la época:  19
+f1-score 0.7975644028103045
+AUC según el mejor F1-score 0.9493879252913745
+Confusion Matrix:
+ [[15207  1258]
+ [  903  4257]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_51457.png
+Accuracy:   0.9001
+Precision:  0.7719
+Recall:     0.8250
+F1-score:   0.7976
+
+--- Iteración 3 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.4276, Test Loss: 0.3770, F1: 0.7232, AUC: 0.9127
+Epoch [10/30] Train Loss: 0.2985, Test Loss: 0.3457, F1: 0.7409, AUC: 0.9404
+Epoch [20/30] Train Loss: 0.2583, Test Loss: 0.2957, F1: 0.7739, AUC: 0.9504
+Mejores resultados en la época:  29
+f1-score 0.8014250890680668
+AUC según el mejor F1-score 0.9512126144958652
+Confusion Matrix:
+ [[15233  1232]
+ [  886  4274]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_51457.png
+Accuracy:   0.9021
+Precision:  0.7762
+Recall:     0.8283
+F1-score:   0.8014
+
+--- Iteración 4 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.4244, Test Loss: 0.3693, F1: 0.7218, AUC: 0.9122
+Epoch [10/30] Train Loss: 0.2940, Test Loss: 0.2909, F1: 0.7763, AUC: 0.9431
+Epoch [20/30] Train Loss: 0.2540, Test Loss: 0.4105, F1: 0.7255, AUC: 0.9509
+Mejores resultados en la época:  23
+f1-score 0.7922774401144083
+AUC según el mejor F1-score 0.9517579337895512
+Confusion Matrix:
+ [[14869  1596]
+ [  728  4432]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_51457.png
+Accuracy:   0.8925
+Precision:  0.7352
+Recall:     0.8589
+F1-score:   0.7923
+real_trainable_params:  51457
+Tiempo total para red 3: 192.45 segundos
+
+Entrenando red 4 con capas [320, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.4326, Test Loss: 0.3718, F1: 0.7129, AUC: 0.9102
+Epoch [10/30] Train Loss: 0.2911, Test Loss: 0.2963, F1: 0.7733, AUC: 0.9432
+Epoch [20/30] Train Loss: 0.2437, Test Loss: 0.3026, F1: 0.7683, AUC: 0.9501
+Mejores resultados en la época:  26
+f1-score 0.7995832544042433
+AUC según el mejor F1-score 0.949155290644708
+Confusion Matrix:
+ [[15288  1177]
+ [  939  4221]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_125441.png
+Accuracy:   0.9022
+Precision:  0.7820
+Recall:     0.8180
+F1-score:   0.7996
+
+--- Iteración 2 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.4280, Test Loss: 0.3979, F1: 0.7046, AUC: 0.9112
+Epoch [10/30] Train Loss: 0.2918, Test Loss: 0.2659, F1: 0.7836, AUC: 0.9444
+Epoch [20/30] Train Loss: 0.2435, Test Loss: 0.2810, F1: 0.7771, AUC: 0.9468
+Mejores resultados en la época:  23
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+f1-score 0.800599700149925
+AUC según el mejor F1-score 0.9465862694416391
+Confusion Matrix:
+ [[15625   840]
+ [ 1155  4005]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_125441.png
+Accuracy:   0.9077
+Precision:  0.8266
+Recall:     0.7762
+F1-score:   0.8006
+
+--- Iteración 3 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.4246, Test Loss: 0.3588, F1: 0.7333, AUC: 0.9119
+Epoch [10/30] Train Loss: 0.2929, Test Loss: 0.2997, F1: 0.7606, AUC: 0.9351
+Epoch [20/30] Train Loss: 0.2449, Test Loss: 0.2784, F1: 0.7884, AUC: 0.9476
+Mejores resultados en la época:  25
+f1-score 0.7988625592417061
+AUC según el mejor F1-score 0.947379130502334
+Confusion Matrix:
+ [[15289  1176]
+ [  946  4214]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_125441.png
+Accuracy:   0.9019
+Precision:  0.7818
+Recall:     0.8167
+F1-score:   0.7989
+
+--- Iteración 4 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.4271, Test Loss: 0.3475, F1: 0.7369, AUC: 0.9118
+Epoch [10/30] Train Loss: 0.2941, Test Loss: 0.2542, F1: 0.7868, AUC: 0.9444
+Epoch [20/30] Train Loss: 0.2476, Test Loss: 0.2827, F1: 0.7756, AUC: 0.9503
+Mejores resultados en la época:  25
+f1-score 0.7967176426706453
+AUC según el mejor F1-score 0.9507211150267068
+Confusion Matrix:
+ [[15173  1292]
+ [  888  4272]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_125441.png
+Accuracy:   0.8992
+Precision:  0.7678
+Recall:     0.8279
+F1-score:   0.7967
+real_trainable_params:  125441
+Tiempo total para red 4: 210.30 segundos
+
+Entrenando red 5 con capas [320, 512, 256, 128, 64, 1]
+
+--- Iteración 1 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.4282, Test Loss: 0.3131, F1: 0.7332, AUC: 0.9108
+Epoch [10/30] Train Loss: 0.2873, Test Loss: 0.3106, F1: 0.7657, AUC: 0.9449
+Epoch [20/30] Train Loss: 0.2393, Test Loss: 0.3551, F1: 0.7536, AUC: 0.9500
+Mejores resultados en la época:  28
+f1-score 0.8017892088342187
+AUC según el mejor F1-score 0.9517741650717871
+Confusion Matrix:
+ [[15196  1269]
+ [  858  4302]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_336897.png
+Accuracy:   0.9016
+Precision:  0.7722
+Recall:     0.8337
+F1-score:   0.8018
+
+--- Iteración 2 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.4303, Test Loss: 0.3412, F1: 0.7391, AUC: 0.9101
+Epoch [10/30] Train Loss: 0.2871, Test Loss: 0.2540, F1: 0.7951, AUC: 0.9436
+Epoch [20/30] Train Loss: 0.2386, Test Loss: 0.2774, F1: 0.7878, AUC: 0.9510
+Mejores resultados en la época:  28
+f1-score 0.8136925879758367
+AUC según el mejor F1-score 0.9531708380708904
+Confusion Matrix:
+ [[15439  1026]
+ [  917  4243]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_336897.png
+Accuracy:   0.9102
+Precision:  0.8053
+Recall:     0.8223
+F1-score:   0.8137
+
+--- Iteración 3 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.4302, Test Loss: 0.4154, F1: 0.7049, AUC: 0.9101
+Epoch [10/30] Train Loss: 0.2879, Test Loss: 0.3590, F1: 0.7382, AUC: 0.9441
+Epoch [20/30] Train Loss: 0.2417, Test Loss: 0.3072, F1: 0.7734, AUC: 0.9514
+Mejores resultados en la época:  29
+f1-score 0.8083974541654793
+AUC según el mejor F1-score 0.9535727241482402
+Confusion Matrix:
+ [[15353  1112]
+ [  905  4255]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_336897.png
+Accuracy:   0.9067
+Precision:  0.7928
+Recall:     0.8246
+F1-score:   0.8084
+
+--- Iteración 4 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.4273, Test Loss: 0.3070, F1: 0.7354, AUC: 0.9127
+Epoch [10/30] Train Loss: 0.2849, Test Loss: 0.3735, F1: 0.7315, AUC: 0.9448
+Epoch [20/30] Train Loss: 0.2405, Test Loss: 0.2461, F1: 0.8029, AUC: 0.9521
+Mejores resultados en la época:  20
+f1-score 0.8029445073612684
+AUC según el mejor F1-score 0.9521021217193152
+Confusion Matrix:
+ [[15283  1182]
+ [  906  4254]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_336897.png
+Accuracy:   0.9034
+Precision:  0.7826
+Recall:     0.8244
+F1-score:   0.8029
+real_trainable_params:  336897
+Tiempo total para red 5: 219.62 segundos
+
+Entrenando red 6 con capas [320, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.4311, Test Loss: 0.3380, F1: 0.7429, AUC: 0.9118
+Epoch [10/30] Train Loss: 0.2871, Test Loss: 0.3718, F1: 0.7150, AUC: 0.9434
+Epoch [20/30] Train Loss: 0.2337, Test Loss: 0.3162, F1: 0.7575, AUC: 0.9474
+Mejores resultados en la época:  21
+f1-score 0.8057742782152231
+AUC según el mejor F1-score 0.9521431825083512
+Confusion Matrix:
+ [[15255  1210]
+ [  862  4298]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_1028097.png
+Accuracy:   0.9042
+Precision:  0.7803
+Recall:     0.8329
+F1-score:   0.8058
+
+--- Iteración 2 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.4334, Test Loss: 0.3646, F1: 0.7379, AUC: 0.9134
+Epoch [10/30] Train Loss: 0.2879, Test Loss: 0.3088, F1: 0.7718, AUC: 0.9479
+Epoch [20/30] Train Loss: 0.2362, Test Loss: 0.3334, F1: 0.7748, AUC: 0.9521
+Mejores resultados en la época:  27
+f1-score 0.8057086614173228
+AUC según el mejor F1-score 0.9517085042973467
+Confusion Matrix:
+ [[15558   907]
+ [ 1067  4093]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_1028097.png
+Accuracy:   0.9087
+Precision:  0.8186
+Recall:     0.7932
+F1-score:   0.8057
+
+--- Iteración 3 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.4301, Test Loss: 0.3860, F1: 0.7113, AUC: 0.9136
+Epoch [10/30] Train Loss: 0.2850, Test Loss: 0.3634, F1: 0.7437, AUC: 0.9451
+Epoch [20/30] Train Loss: 0.2366, Test Loss: 0.2927, F1: 0.7773, AUC: 0.9495
+Mejores resultados en la época:  19
+f1-score 0.8019879165854609
+AUC según el mejor F1-score 0.9496580190067255
+Confusion Matrix:
+ [[15478   987]
+ [ 1045  4115]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_1028097.png
+Accuracy:   0.9060
+Precision:  0.8065
+Recall:     0.7975
+F1-score:   0.8020
+
+--- Iteración 4 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.4343, Test Loss: 0.4268, F1: 0.6922, AUC: 0.9116
+Epoch [10/30] Train Loss: 0.2881, Test Loss: 0.3255, F1: 0.7546, AUC: 0.9452
+Epoch [20/30] Train Loss: 0.2333, Test Loss: 0.2861, F1: 0.7929, AUC: 0.9455
+Mejores resultados en la época:  25
+f1-score 0.8072633968222639
+AUC según el mejor F1-score 0.9499926317747066
+Confusion Matrix:
+ [[15582   883]
+ [ 1070  4090]]
+Matriz de confusión guardada en: outputs_d/6/lyrics_bert/confusion_matrix_param_1028097.png
+Accuracy:   0.9097
+Precision:  0.8224
+Recall:     0.7926
+F1-score:   0.8073
+real_trainable_params:  1028097
+Tiempo total para red 6: 248.34 segundos
+Saved on: outputs_d/6/lyrics_bert
+
+==============================
+Model: Logistic Regression
+Accuracy:  0.8562
+Precision: 0.6565
+Recall:    0.8331
+F1-score:  0.7344
+              precision    recall  f1-score   support
+
+           0       0.94      0.86      0.90     16465
+           1       0.66      0.83      0.73      5160
+
+    accuracy                           0.86     21625
+   macro avg       0.80      0.85      0.82     21625
+weighted avg       0.87      0.86      0.86     21625
+
+[[14216  2249]
+ [  861  4299]]
+Hiperparámetros: {'C': 1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 42, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs_d/6/lyrics_bert/conf_matrix_logistic_regression.png
+Modelo guardado como: outputs_d/6/lyrics_bert/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+Accuracy:  0.6654
+Precision: 0.3936
+Recall:    0.7438
+F1-score:  0.5148
+              precision    recall  f1-score   support
+
+           0       0.89      0.64      0.74     16465
+           1       0.39      0.74      0.51      5160
+
+    accuracy                           0.67     21625
+   macro avg       0.64      0.69      0.63     21625
+weighted avg       0.77      0.67      0.69     21625
+
+[[10552  5913]
+ [ 1322  3838]]
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [16:44:51] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 42, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+Confusion matrix saved as: outputs_d/6/lyrics_bert/conf_matrix_svm.png
+Modelo guardado como: outputs_d/6/lyrics_bert/svm_model.pkl
+
+==============================
+Model: Decision Tree
+Accuracy:  0.8154
+Precision: 0.5869
+Recall:    0.7651
+F1-score:  0.6643
+              precision    recall  f1-score   support
+
+           0       0.92      0.83      0.87     16465
+           1       0.59      0.77      0.66      5160
+
+    accuracy                           0.82     21625
+   macro avg       0.75      0.80      0.77     21625
+weighted avg       0.84      0.82      0.82     21625
+
+[[13686  2779]
+ [ 1212  3948]]
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 42, 'splitter': 'best'}
+Confusion matrix saved as: outputs_d/6/lyrics_bert/conf_matrix_decision_tree.png
+Modelo guardado como: outputs_d/6/lyrics_bert/decision_tree_model.pkl
+
+==============================
+Model: Random Forest
+Accuracy:  0.8783
+Precision: 0.7191
+Recall:    0.8039
+F1-score:  0.7592
+              precision    recall  f1-score   support
+
+           0       0.94      0.90      0.92     16465
+           1       0.72      0.80      0.76      5160
+
+    accuracy                           0.88     21625
+   macro avg       0.83      0.85      0.84     21625
+weighted avg       0.88      0.88      0.88     21625
+
+[[14845  1620]
+ [ 1012  4148]]
+Hiperparámetros: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 15, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': -1, 'oob_score': False, 'random_state': 42, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs_d/6/lyrics_bert/conf_matrix_random_forest.png
+Modelo guardado como: outputs_d/6/lyrics_bert/random_forest_model.pkl
+
+==============================
+Model: XGBoost
+Accuracy:  0.8896
+Precision: 0.7316
+Recall:    0.8488
+F1-score:  0.7859
+              precision    recall  f1-score   support
+
+           0       0.95      0.90      0.93     16465
+           1       0.73      0.85      0.79      5160
+
+    accuracy                           0.89     21625
+   macro avg       0.84      0.88      0.86     21625
+weighted avg       0.90      0.89      0.89     21625
+
+[[14858  1607]
+ [  780  4380]]
+Hiperparámetros: {'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': 0.8, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 8, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 200, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 42, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': 0.8, 'tree_method': None, 'validate_parameters': None, 'verbosity': None, 'use_label_encoder': False}
+Confusion matrix saved as: outputs_d/6/lyrics_bert/conf_matrix_xgboost.png
+Modelo guardado como: outputs_d/6/lyrics_bert/xgboost_model.pkl
+
+==============================
+Model: Naive Bayes
+Accuracy:  0.7532
+Precision: 0.4896
+Recall:    0.8095
+F1-score:  0.6102
+              precision    recall  f1-score   support
+
+           0       0.92      0.74      0.82     16465
+           1       0.49      0.81      0.61      5160
+
+    accuracy                           0.75     21625
+   macro avg       0.71      0.77      0.71     21625
+weighted avg       0.82      0.75      0.77     21625
+
+[[12111  4354]
+ [  983  4177]]
+Hiperparámetros: {'priors': None, 'var_smoothing': 1e-09}
+Confusion matrix saved as: outputs_d/6/lyrics_bert/conf_matrix_naive_bayes.png
+Modelo guardado como: outputs_d/6/lyrics_bert/naive_bayes_model.pkl
+
+
+Resumen de métricas:
+XGBoost: {'accuracy': 0.8896, 'precision': 0.7316, 'recall': 0.8488, 'f1_score': 0.7859}
+Random Forest: {'accuracy': 0.8783, 'precision': 0.7191, 'recall': 0.8039, 'f1_score': 0.7592}
+Logistic Regression: {'accuracy': 0.8562, 'precision': 0.6565, 'recall': 0.8331, 'f1_score': 0.7344}
+Decision Tree: {'accuracy': 0.8154, 'precision': 0.5869, 'recall': 0.7651, 'f1_score': 0.6643}
+Naive Bayes: {'accuracy': 0.7532, 'precision': 0.4896, 'recall': 0.8095, 'f1_score': 0.6102}
+SVM: {'accuracy': 0.6654, 'precision': 0.3936, 'recall': 0.7438, 'f1_score': 0.5148}
+
+
+Resumen GLOBAL de métricas:
+
+
+EMBEDDINGS TYPE: TFIDF
+MLP_653057: {'accuracy': 0.956485549132948, 'precision': 0.8913003153403821, 'recall': 0.9312015503875969, 'f1_score': 0.9108141408397308}
+MLP_1328641: {'accuracy': 0.9575491329479768, 'precision': 0.9218377088305489, 'recall': 0.8982558139534884, 'f1_score': 0.9098939929328622}
+MLP_5840897: {'accuracy': 0.9560231213872833, 'precision': 0.8941749391271774, 'recall': 0.9251937984496124, 'f1_score': 0.9094199447566435}
+MLP_2743297: {'accuracy': 0.9544971098265896, 'precision': 0.8725910064239829, 'recall': 0.9476744186046512, 'f1_score': 0.9085841694537347}
+MLP_323457: {'accuracy': 0.9555606936416186, 'precision': 0.906801007556675, 'recall': 0.9069767441860465, 'f1_score': 0.9068888673578142}
+MLP_160705: {'accuracy': 0.9502890173410404, 'precision': 0.8993157380254154, 'recall': 0.8914728682170543, 'f1_score': 0.8953771289537713}
+Logistic Regression: {'accuracy': 0.9354, 'precision': 0.828, 'recall': 0.9205, 'f1_score': 0.8718}
+XGBoost: {'accuracy': 0.9199, 'precision': 0.8007, 'recall': 0.8845, 'f1_score': 0.8405}
+Naive Bayes: {'accuracy': 0.9196, 'precision': 0.8071, 'recall': 0.8711, 'f1_score': 0.8379}
+Decision Tree: {'accuracy': 0.8728, 'precision': 0.7205, 'recall': 0.7632, 'f1_score': 0.7412}
+Random Forest: {'accuracy': 0.8554, 'precision': 0.6679, 'recall': 0.7839, 'f1_score': 0.7213}
+SVM: {'accuracy': 0.7281, 'precision': 0.4653, 'recall': 0.9341, 'f1_score': 0.6211}
+
+
+EMBEDDINGS TYPE: LYRICS_BERT
+MLP_1028097: {'accuracy': 0.9096878612716763, 'precision': 0.8224411823848783, 'recall': 0.7926356589147286, 'f1_score': 0.8072633968222639}
+MLP_336897: {'accuracy': 0.9034450867052023, 'precision': 0.782560706401766, 'recall': 0.8244186046511628, 'f1_score': 0.8029445073612684}
+MLP_125441: {'accuracy': 0.8991907514450868, 'precision': 0.7677929547088426, 'recall': 0.827906976744186, 'f1_score': 0.7967176426706453}
+MLP_51457: {'accuracy': 0.8925317919075144, 'precision': 0.7352355673523556, 'recall': 0.8589147286821706, 'f1_score': 0.7922774401144083}
+MLP_10305: {'accuracy': 0.9017803468208092, 'precision': 0.8037214885954381, 'recall': 0.7784883720930232, 'f1_score': 0.7909037212049616}
+MLP_22657: {'accuracy': 0.8929017341040463, 'precision': 0.742001361470388, 'recall': 0.8449612403100775, 'f1_score': 0.79014135556361}
+XGBoost: {'accuracy': 0.8896, 'precision': 0.7316, 'recall': 0.8488, 'f1_score': 0.7859}
+Random Forest: {'accuracy': 0.8783, 'precision': 0.7191, 'recall': 0.8039, 'f1_score': 0.7592}
+Logistic Regression: {'accuracy': 0.8562, 'precision': 0.6565, 'recall': 0.8331, 'f1_score': 0.7344}
+Decision Tree: {'accuracy': 0.8154, 'precision': 0.5869, 'recall': 0.7651, 'f1_score': 0.6643}
+Naive Bayes: {'accuracy': 0.7532, 'precision': 0.4896, 'recall': 0.8095, 'f1_score': 0.6102}
+SVM: {'accuracy': 0.6654, 'precision': 0.3936, 'recall': 0.7438, 'f1_score': 0.5148}
+
+========== CONFIGURATIONS ==========
+TESTING: False
+UNDERSAMPLING: True
+USE_SMOTE: False
+SCALED: True
+STEAMING: True
+REMOVE_STOPWORDS: True
+NUMERIC_COLS: True
+MAX_FEATURES_TFIDF: 5000
+TF-IDF Columns: ['emotion', 'Time signature', 'Artist(s)', 'song', 'Genre', 'Album', 'Release Date', 'Key', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+Numeric Columns: ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+====================================
+

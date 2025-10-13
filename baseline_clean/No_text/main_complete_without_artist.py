@@ -44,7 +44,17 @@ from xgboost import XGBClassifier
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# Fijando semilla y experimentación estadística
 RANDOM_STATE = 42
+
+
+random.seed(RANDOM_STATE)
+np.random.seed(RANDOM_STATE)
+torch.manual_seed(RANDOM_STATE)
+if torch.cuda.is_available():
+    torch.cuda.manual_seed_all(RANDOM_STATE)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
 
 # Cleaning TEXT
@@ -1144,7 +1154,7 @@ def main():
 
         
         # output_dir = f"outputs{out}/undersample_{UNDERSAMPLING}_scaled_{SCALED}_steaming_{STEAMING}_removestw_{REMOVESTW}_numeric_{NUMERICCOlS}_useSmote_{USE_SMOTE}_MLP_{MLP_}_+_{MAX_FEATURES}_tfidf_{cols_type}/{embedding_type}"
-        output_dir = f"outputs_without_artist/0/{embedding_type}"
+        output_dir = f"outputs_without_artist/1/{embedding_type}"
         
 
         if MLP_: 
