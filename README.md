@@ -7,6 +7,6 @@
 - **Beta versions and development codes:**  
 Earlier or experimental versions of the scripts are located in the remaining directories.
 
-- **DATA directory:**  
+- **data directory:**  
 The `DATA` directory will appear once the results are available.
                 
