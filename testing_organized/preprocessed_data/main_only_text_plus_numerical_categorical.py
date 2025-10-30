@@ -763,8 +763,12 @@ def main():
     print("-->", COL_TF_IDF)
 
     # CONFIGURATIOS for categorical Columns
+    # CAT_LOW = ['emotion', 'Key', 'Time signature'] # TOl = 50, 100, 200
+    # CAT_HIGH = ['Artist(s)', 'song', 'Length', 'Genre', 'Album', 'Loudness (db)', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+    # CAT_ALL = CAT_LOW + CAT_HIGH
+
     CAT_LOW = ['emotion', 'Key', 'Time signature'] # TOl = 50, 100, 200
-    CAT_HIGH = ['Artist(s)', 'song', 'Length', 'Genre', 'Album', 'Loudness (db)', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+    CAT_HIGH = ['Artist(s)', 'song', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
     CAT_ALL = CAT_LOW + CAT_HIGH
     print("For both embbedings your are adding this categorical columns: ")
     print("--> CAT_ALL", len(CAT_ALL), CAT_ALL)
@@ -776,6 +780,7 @@ def main():
     N_B = ['Tempo', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
     
     N_C = ['Release Date', 'Tempo','Length',  'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+    
     # Atenttion on realease date 
     N_cols = N_C
     if NUMERICCOlS:

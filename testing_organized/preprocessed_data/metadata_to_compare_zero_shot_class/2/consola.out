@@ -1,0 +1,272 @@
+2025-10-26 22:43:55.687367: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-26 22:43:55.689576: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/metadata_tfidf_vs_zero_shot.py:280: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/metadata_tfidf_vs_zero_shot.py:280: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+For TF-IDF embbedings you are selecteing this columns:
+--> ['text']
+For both embbedings your are adding this categorical columns: 
+--> CAT_ALL 15 ['emotion', 'Key', 'Time signature', 'Artist(s)', 'song', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+
+CAT_LOW 3 ['emotion', 'Key', 'Time signature']
+CAT_HIGH 12 ['Artist(s)', 'song', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+For both embbedings your are adding this columns: 
+--> ['Release Date', 'Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+You are executing with [ALL] dataset
+--> PaTH:  ../../data/new_embbedings_khipu/LB_fuss/lb_khipu_T.npy
+Contaning the categorical cols
+Preprocessing text...
+Label distribution: {0: 82326, 1: 25799}
+Tamanio:  (108125, 43)
+Total de columnas:  43
+Columnas numericas usadas:  ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine', 'Release_Year', 'Release_Month', 'Release_Day']
+Columnas del df:  ['Artist(s)', 'song', 'text', 'Length', 'emotion', 'Genre', 'Album', 'Key', 'Tempo', 'Loudness (db)', 'Time signature', 'Explicit', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine', 'Similar Artist 1', 'Similar Song 1', 'Similarity Score 1', 'Similar Artist 2', 'Similar Song 2', 'Similarity Score 2', 'Similar Artist 3', 'Similar Song 3', 'Similarity Score 3', 'song_normalized', 'artist_normalized', 'Release_Year', 'Release_Month', 'Release_Day']
+
+Splitting data (index-based split to avoid leakage)...
+X_train_Numeric:  (86500, 23)
+X_train_Numeric:  (86500, 23)
+Concatenating TF-IDF and numeric features...
+Shape of X_train after concatenation:  (86500, 5023)
+Shape of X_test after concatenation:  (21625, 5023)
+Shape of y_train:  (86500,)
+Shape of y_test:  (21625,)
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65861, 1: 20639}
+Label distribution en TEST: {0: 16465, 1: 5160}
+
+
+==================================================
+Data antes del undersampling ...
+X: (86500, 5023)
+y: (86500,)
+Apliying UNDERSAMPLE
+20639
+Label distribution: {0: 20639, 1: 20639}
+X shape: (41278, 5023)
+y shape: (41278,)
+Resultados con MLP
+
+Entrenando red 6 con capas [5023, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.2225, Test Loss: 0.1750, F1: 0.8672, AUC: 0.9839
+Epoch [10/30] Train Loss: 0.0044, Test Loss: 0.2566, F1: 0.9082, AUC: 0.9880
+Epoch [20/30] Train Loss: 0.0031, Test Loss: 0.5474, F1: 0.8942, AUC: 0.9877
+Mejores resultados en la época:  23
+f1-score 0.9143020377071034
+AUC según el mejor F1-score 0.9886933346986913
+Confusion Matrix:
+ [[15924   541]
+ [  359  4801]]
+Matriz de confusión guardada en: ../../data/zero_outputs/tfidf/confusion_matrix_param_5843969.png
+Accuracy:   0.9584
+Precision:  0.8987
+Recall:     0.9304
+F1-score:   0.9143
+
+--- Iteración 2 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.2214, Test Loss: 0.1408, F1: 0.8843, AUC: 0.9831
+Epoch [10/30] Train Loss: 0.0057, Test Loss: 0.4699, F1: 0.8863, AUC: 0.9871
+Epoch [20/30] Train Loss: 0.0011, Test Loss: 0.4945, F1: 0.8994, AUC: 0.9868
+Mejores resultados en la época:  14
+f1-score 0.9112325669053901
+AUC según el mejor F1-score 0.9858701921152927
+Confusion Matrix:
+ [[15848   617]
+ [  325  4835]]
+Matriz de confusión guardada en: ../../data/zero_outputs/tfidf/confusion_matrix_param_5843969.png
+Accuracy:   0.9564
+Precision:  0.8868
+Recall:     0.9370
+F1-score:   0.9112
+
+--- Iteración 3 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.2236, Test Loss: 0.1800, F1: 0.8578, AUC: 0.9829
+Epoch [10/30] Train Loss: 0.0038, Test Loss: 0.4488, F1: 0.8859, AUC: 0.9872
+Epoch [20/30] Train Loss: 0.0000, Test Loss: 0.8006, F1: 0.9115, AUC: 0.9804
+Mejores resultados en la época:  27
+f1-score 0.9139673245821135
+AUC según el mejor F1-score 0.9817067564036469
+Confusion Matrix:
+ [[15875   590]
+ [  321  4839]]
+Matriz de confusión guardada en: ../../data/zero_outputs/tfidf/confusion_matrix_param_5843969.png
+Accuracy:   0.9579
+Precision:  0.8913
+Recall:     0.9378
+F1-score:   0.9140
+
+--- Iteración 4 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.2255, Test Loss: 0.1773, F1: 0.8605, AUC: 0.9824
+Epoch [10/30] Train Loss: 0.0041, Test Loss: 0.4035, F1: 0.9000, AUC: 0.9867
+Epoch [20/30] Train Loss: 0.0011, Test Loss: 0.6059, F1: 0.9006, AUC: 0.9844
+Mejores resultados en la época:  21
+f1-score 0.9063225327267663
+AUC según el mejor F1-score 0.9872344378609076
+Confusion Matrix:
+ [[15735   730]
+ [  279  4881]]
+Matriz de confusión guardada en: ../../data/zero_outputs/tfidf/confusion_matrix_param_5843969.png
+Accuracy:   0.9533
+Precision:  0.8699
+Recall:     0.9459
+F1-score:   0.9063
+Tiempo total para red 6: 995.04 segundos
+Saved on: ../../data/zero_outputs/tfidf/test_predictions.csv
+
+
+Resumen GLOBAL de métricas:
+
+
+EMBEDDINGS TYPE: TFIDF
+MLP_5843969: {'accuracy': 0.9533410404624277, 'precision': 0.8698984138299768, 'recall': 0.9459302325581396, 'f1_score': 0.9143020377071034, 'f1_score_avg': 0.9114561154803433}
+
+========== CONFIGURATIONS ==========
+TESTING: False
+UNDERSAMPLING: True
+USE_SMOTE: False
+SCALED: True
+STEAMING: True
+REMOVE_STOPWORDS: True
+NUMERIC_COLS: True
+MAX_FEATURES_TFIDF: 5000
+TF-IDF Columns: ['text']
+Numeric Columns: ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine', 'Release_Year', 'Release_Month', 'Release_Day']
+====================================
+
+For TF-IDF embbedings you are selecteing this columns:
+--> ['text']
+For both embbedings your are adding this categorical columns: 
+--> CAT_ALL 15 ['emotion', 'Key', 'Time signature', 'Artist(s)', 'song', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+
+CAT_LOW 3 ['emotion', 'Key', 'Time signature']
+CAT_HIGH 12 ['Artist(s)', 'song', 'Genre', 'Album', 'Similar Artist 1', 'Similar Song 1', 'Similar Artist 2', 'Similar Song 2', 'Similar Artist 3', 'Similar Song 3', 'song_normalized', 'artist_normalized']
+For both embbedings your are adding this columns: 
+--> ['Release Date', 'Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine']
+You are executing with [ALL] dataset
+--> PaTH:  ../../data/new_embbedings_khipu/LB_fuss/lb_khipu_T.npy
+Contaning the categorical cols
+Preprocessing text...
+Label distribution: {0: 82326, 1: 25799}
+Tamanio:  (108125, 43)
+Total de columnas:  43
+Columnas numericas usadas:  ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine', 'Release_Year', 'Release_Month', 'Release_Day']
+Columnas del df:  ['Artist(s)', 'song', 'text', 'Length', 'emotion', 'Genre', 'Album', 'Key', 'Tempo', 'Loudness (db)', 'Time signature', 'Explicit', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine', 'Similar Artist 1', 'Similar Song 1', 'Similarity Score 1', 'Similar Artist 2', 'Similar Song 2', 'Similarity Score 2', 'Similar Artist 3', 'Similar Song 3', 'Similarity Score 3', 'song_normalized', 'artist_normalized', 'Release_Year', 'Release_Month', 'Release_Day']
+
+Splitting data (index-based split to avoid leakage)...
+X_train_Numeric:  (86500, 23)
+X_train_Numeric:  (86500, 23)
+Concatenating TF-IDF and numeric features...
+Shape of X_train after concatenation:  (86500, 5023)
+Shape of X_test after concatenation:  (21625, 5023)
+Shape of y_train:  (86500,)
+Shape of y_test:  (21625,)
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 65861, 1: 20639}
+Label distribution en TEST: {0: 16465, 1: 5160}
+
+
+==================================================
+Data antes del undersampling ...
+X: (86500, 5023)
+y: (86500,)
+Apliying UNDERSAMPLE
+20639
+Label distribution: {0: 20639, 1: 20639}
+X shape: (41278, 5023)
+y shape: (41278,)
+Resultados con MLP
+
+Entrenando red 6 con capas [5023, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.2261, Test Loss: 0.1952, F1: 0.8494, AUC: 0.9835
+Epoch [10/30] Train Loss: 0.0035, Test Loss: 0.3955, F1: 0.8845, AUC: 0.9872
+Epoch [20/30] Train Loss: 0.0044, Test Loss: 0.5023, F1: 0.8841, AUC: 0.9876
+Mejores resultados en la época:  21
+f1-score 0.9136453526697429
+AUC según el mejor F1-score 0.9882039185775794
+Confusion Matrix:
+ [[15857   608]
+ [  309  4851]]
+Matriz de confusión guardada en: ../../data/zero_outputs/tfidf/confusion_matrix_param_5843969.png
+Accuracy:   0.9576
+Precision:  0.8886
+Recall:     0.9401
+F1-score:   0.9136
+
+--- Iteración 2 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.2243, Test Loss: 0.2258, F1: 0.8581, AUC: 0.9833
+Epoch [10/30] Train Loss: 0.0062, Test Loss: 0.3219, F1: 0.9025, AUC: 0.9881
+Epoch [20/30] Train Loss: 0.0000, Test Loss: 0.8469, F1: 0.9012, AUC: 0.9804
+Mejores resultados en la época:  13
+f1-score 0.9029295619432455
+AUC según el mejor F1-score 0.9882082088621152
+Confusion Matrix:
+ [[15652   813]
+ [  244  4916]]
+Matriz de confusión guardada en: ../../data/zero_outputs/tfidf/confusion_matrix_param_5843969.png
+Accuracy:   0.9511
+Precision:  0.8581
+Recall:     0.9527
+F1-score:   0.9029
+
+--- Iteración 3 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.2259, Test Loss: 0.1867, F1: 0.8632, AUC: 0.9836
+Epoch [10/30] Train Loss: 0.0034, Test Loss: 0.3572, F1: 0.9119, AUC: 0.9869
+Epoch [20/30] Train Loss: 0.0006, Test Loss: 0.6009, F1: 0.9025, AUC: 0.9854
+Mejores resultados en la época:  19
+f1-score 0.915903890160183
+AUC según el mejor F1-score 0.9882118458934501
+Confusion Matrix:
+ [[15940   525]
+ [  357  4803]]
+Matriz de confusión guardada en: ../../data/zero_outputs/tfidf/confusion_matrix_param_5843969.png
+Accuracy:   0.9592
+Precision:  0.9015
+Recall:     0.9308
+F1-score:   0.9159
+
+--- Iteración 4 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.2236, Test Loss: 0.1792, F1: 0.8670, AUC: 0.9830
+Epoch [10/30] Train Loss: 0.0037, Test Loss: 0.2626, F1: 0.8886, AUC: 0.9870
+Epoch [20/30] Train Loss: 0.0028, Test Loss: 0.3689, F1: 0.8911, AUC: 0.9882
+Mejores resultados en la época:  12
+f1-score 0.9058812598717829
+AUC según el mejor F1-score 0.9882566614171002
+Confusion Matrix:
+ [[15737   728]
+ [  285  4875]]
+Matriz de confusión guardada en: ../../data/zero_outputs/tfidf/confusion_matrix_param_5843969.png
+Accuracy:   0.9532
+Precision:  0.8701
+Recall:     0.9448
+F1-score:   0.9059
+Tiempo total para red 6: 1034.06 segundos
+Saved on: ../../data/zero_outputs/tfidf/test_predictions.csv
+
+
+Resumen GLOBAL de métricas:
+
+
+EMBEDDINGS TYPE: TFIDF
+MLP_5843969: {'accuracy': 0.9531560693641619, 'precision': 0.8700696055684455, 'recall': 0.9447674418604651, 'f1_score': 0.915903890160183, 'f1_score_avg': 0.9095900161612385}
+
+========== CONFIGURATIONS ==========
+TESTING: False
+UNDERSAMPLING: True
+USE_SMOTE: False
+SCALED: True
+STEAMING: True
+REMOVE_STOPWORDS: True
+NUMERIC_COLS: True
+MAX_FEATURES_TFIDF: 5000
+TF-IDF Columns: ['text']
+Numeric Columns: ['Tempo', 'Length', 'Loudness (db)', 'Popularity', 'Energy', 'Danceability', 'Positiveness', 'Speechiness', 'Liveness', 'Acousticness', 'Instrumentalness', 'Good for Party', 'Good for Work/Study', 'Good for Relaxation/Meditation', 'Good for Exercise', 'Good for Running', 'Good for Yoga/Stretching', 'Good for Driving', 'Good for Social Gatherings', 'Good for Morning Routine', 'Release_Year', 'Release_Month', 'Release_Day']
+====================================
+

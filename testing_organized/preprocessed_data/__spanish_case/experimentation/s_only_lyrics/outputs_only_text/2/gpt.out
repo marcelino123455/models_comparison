@@ -1,0 +1,805 @@
+2025-10-30 01:45:54.348130: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-30 01:45:54.348130: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_lyrics/main_only_text_gpt.py:273: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_lyrics/main_only_text_gpt.py:273: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+For TF-IDF embbedings you are selecteing this columns:
+--> ['lyrics']
+Your are not adding cols numercis
+You are executing with [ALL] dataset
+--> PaTH:  ../../../../../data/spanish/LB_T/LB_fuss/lb_khipu_T.npy
+
+##################################################
+Running experiment with GPT embeddings
+Loading Lb vectors from:  ../../../../../data/spanish/dataset/oficialDatasetEAIM2026.csv
+Label distribution: {False: 6765, True: 554}
+X shape: (7319, 1536)
+y shape: (7319,)
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 5412, 1: 443}
+Label distribution en TEST: {0: 1353, 1: 111}
+
+
+==================================================
+Data antes del undersampling ...
+X: (5855, 1536)
+y: (5855,)
+Apliying UNDERSAMPLE
+443
+Label distribution: {0: 443, 1: 443}
+X shape: (886, 1536)
+y shape: (886,)
+Resultados con MLP
+
+Entrenando red 1 con capas [1536, 32, 1]
+
+--- Iteración 1 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6922, Test Loss: 0.7803, F1: 0.1410, AUC: 0.8346
+Epoch [10/30] Train Loss: 0.4371, Test Loss: 0.5626, F1: 0.3140, AUC: 0.8619
+Epoch [20/30] Train Loss: 0.3623, Test Loss: 0.5168, F1: 0.3467, AUC: 0.8779
+Mejores resultados en la época:  25
+f1-score 0.4389027431421446
+AUC según el mejor F1-score 0.8834288834288834
+Confusion Matrix:
+ [[1151  202]
+ [  23   88]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8463
+Precision:  0.3034
+Recall:     0.7928
+F1-score:   0.4389
+
+--- Iteración 2 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6506, Test Loss: 0.4881, F1: 0.3714, AUC: 0.8497
+Epoch [10/30] Train Loss: 0.3574, Test Loss: 0.4688, F1: 0.3681, AUC: 0.8797
+Epoch [20/30] Train Loss: 0.3311, Test Loss: 0.4008, F1: 0.4093, AUC: 0.8907
+Mejores resultados en la época:  14
+f1-score 0.47863247863247865
+AUC según el mejor F1-score 0.8862321301345691
+Confusion Matrix:
+ [[1197  156]
+ [  27   84]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8750
+Precision:  0.3500
+Recall:     0.7568
+F1-score:   0.4786
+
+--- Iteración 3 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6857, Test Loss: 0.5473, F1: 0.0000, AUC: 0.8529
+Epoch [10/30] Train Loss: 0.4174, Test Loss: 0.4763, F1: 0.3659, AUC: 0.8664
+Epoch [20/30] Train Loss: 0.3522, Test Loss: 0.4108, F1: 0.4101, AUC: 0.8816
+Mejores resultados en la época:  27
+f1-score 0.4788732394366197
+AUC según el mejor F1-score 0.8880965222428637
+Confusion Matrix:
+ [[1194  159]
+ [  26   85]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8736
+Precision:  0.3484
+Recall:     0.7658
+F1-score:   0.4789
+
+--- Iteración 4 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.7003, Test Loss: 0.6828, F1: 0.0000, AUC: 0.5000
+Epoch [10/30] Train Loss: 0.6932, Test Loss: 0.6877, F1: 0.0000, AUC: 0.5000
+Epoch [20/30] Train Loss: 0.6932, Test Loss: 0.6905, F1: 0.0000, AUC: 0.5000
+Mejores resultados en la época:  None
+f1-score 0.0
+AUC según el mejor F1-score 0.0
+Traceback (most recent call last):
+  File "/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_lyrics/main_only_text_gpt.py", line 1035, in <module>
+    main()
+    ~~~~^^
+  File "/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_lyrics/main_only_text_gpt.py", line 976, in main
+    resumencito = evaluar_modelo(best_labels, best_pred, trainable_params, labels=('Not Explicit', 'Explicit'), save_dir=output_dir)
+  File "/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_lyrics/main_only_text_gpt.py", line 442, in evaluar_modelo
+    cm = confusion_matrix(y_true, y_pred)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/utils/_param_validation.py", line 208, in wrapper
+    validate_parameter_constraints(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        parameter_constraints, params, caller_name=func.__qualname__
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/utils/_param_validation.py", line 98, in validate_parameter_constraints
+    raise InvalidParameterError(
+    ...<2 lines>...
+    )
+sklearn.utils._param_validation.InvalidParameterError: The 'y_true' parameter of confusion_matrix must be an array-like. Got None instead.
+srun: error: g001: task 0: Exited with exit code 1
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+For TF-IDF embbedings you are selecteing this columns:
+--> ['lyrics']
+Your are not adding cols numercis
+You are executing with [ALL] dataset
+--> PaTH:  ../../../../../data/spanish/LB_T/LB_fuss/lb_khipu_T.npy
+
+##################################################
+Running experiment with GPT embeddings
+Loading Lb vectors from:  ../../../../../data/spanish/dataset/oficialDatasetEAIM2026.csv
+Label distribution: {False: 6765, True: 554}
+X shape: (7319, 1536)
+y shape: (7319,)
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 5412, 1: 443}
+Label distribution en TEST: {0: 1353, 1: 111}
+
+
+==================================================
+Data antes del undersampling ...
+X: (5855, 1536)
+y: (5855,)
+Apliying UNDERSAMPLE
+443
+Label distribution: {0: 443, 1: 443}
+X shape: (886, 1536)
+y shape: (886,)
+Resultados con MLP
+
+Entrenando red 1 con capas [1536, 32, 1]
+
+--- Iteración 1 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6967, Test Loss: 0.6344, F1: 0.0000, AUC: 0.8467
+Epoch [10/30] Train Loss: 0.5311, Test Loss: 0.3618, F1: 0.4299, AUC: 0.8628
+Epoch [20/30] Train Loss: 0.4627, Test Loss: 0.3709, F1: 0.3991, AUC: 0.8686
+Mejores resultados en la época:  28
+f1-score 0.48255813953488375
+AUC según el mejor F1-score 0.8862654228507887
+Confusion Matrix:
+ [[1203  150]
+ [  28   83]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8784
+Precision:  0.3562
+Recall:     0.7477
+F1-score:   0.4826
+
+--- Iteración 2 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.7120, Test Loss: 0.7110, F1: 0.1414, AUC: 0.7686
+Epoch [10/30] Train Loss: 0.6057, Test Loss: 0.4893, F1: 0.4098, AUC: 0.8557
+Epoch [20/30] Train Loss: 0.5198, Test Loss: 0.3879, F1: 0.4258, AUC: 0.8611
+Mejores resultados en la época:  29
+f1-score 0.45325779036827196
+AUC según el mejor F1-score 0.8706777731167975
+Confusion Matrix:
+ [[1191  162]
+ [  31   80]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8682
+Precision:  0.3306
+Recall:     0.7207
+F1-score:   0.4533
+
+--- Iteración 3 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6630, Test Loss: 0.5681, F1: 0.3849, AUC: 0.8425
+Epoch [10/30] Train Loss: 0.3824, Test Loss: 0.3108, F1: 0.4553, AUC: 0.8749
+Epoch [20/30] Train Loss: 0.3182, Test Loss: 0.4261, F1: 0.3964, AUC: 0.8889
+Mejores resultados en la época:  22
+f1-score 0.4924924924924925
+AUC según el mejor F1-score 0.8905468661566223
+Confusion Matrix:
+ [[1213  140]
+ [  29   82]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8846
+Precision:  0.3694
+Recall:     0.7387
+F1-score:   0.4925
+
+--- Iteración 4 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6781, Test Loss: 0.8857, F1: 0.1410, AUC: 0.8418
+Epoch [10/30] Train Loss: 0.3800, Test Loss: 0.3194, F1: 0.4513, AUC: 0.8781
+Epoch [20/30] Train Loss: 0.3258, Test Loss: 0.6074, F1: 0.3243, AUC: 0.8898
+Mejores resultados en la época:  19
+f1-score 0.4839650145772595
+AUC según el mejor F1-score 0.8892018404213526
+Confusion Matrix:
+ [[1204  149]
+ [  28   83]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8791
+Precision:  0.3578
+Recall:     0.7477
+F1-score:   0.4840
+Tiempo total para red 1: 19.92 segundos
+
+Entrenando red 2 con capas [1536, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6862, Test Loss: 0.6873, F1: 0.2589, AUC: 0.8425
+Epoch [10/30] Train Loss: 0.3691, Test Loss: 0.3198, F1: 0.4500, AUC: 0.8777
+Epoch [20/30] Train Loss: 0.3159, Test Loss: 0.3955, F1: 0.4200, AUC: 0.8920
+Mejores resultados en la época:  29
+f1-score 0.4899135446685879
+AUC según el mejor F1-score 0.8952810904030417
+Confusion Matrix:
+ [[1202  151]
+ [  26   85]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8791
+Precision:  0.3602
+Recall:     0.7658
+F1-score:   0.4899
+
+--- Iteración 2 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6874, Test Loss: 0.5788, F1: 0.0000, AUC: 0.8429
+Epoch [10/30] Train Loss: 0.3594, Test Loss: 0.3733, F1: 0.4372, AUC: 0.8788
+Epoch [20/30] Train Loss: 0.3051, Test Loss: 0.2652, F1: 0.5145, AUC: 0.8919
+Mejores resultados en la época:  20
+f1-score 0.5144694533762058
+AUC según el mejor F1-score 0.8918719162621601
+Confusion Matrix:
+ [[1233  120]
+ [  31   80]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8969
+Precision:  0.4000
+Recall:     0.7207
+F1-score:   0.5145
+
+--- Iteración 3 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6955, Test Loss: 0.7039, F1: 0.1447, AUC: 0.8414
+Epoch [10/30] Train Loss: 0.3824, Test Loss: 0.4650, F1: 0.3704, AUC: 0.8705
+Epoch [20/30] Train Loss: 0.3144, Test Loss: 0.4265, F1: 0.3982, AUC: 0.8882
+Mejores resultados en la época:  24
+f1-score 0.4843304843304843
+AUC según el mejor F1-score 0.8917853551999894
+Confusion Matrix:
+ [[1198  155]
+ [  26   85]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8764
+Precision:  0.3542
+Recall:     0.7658
+F1-score:   0.4843
+
+--- Iteración 4 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6804, Test Loss: 0.6544, F1: 0.3497, AUC: 0.8526
+Epoch [10/30] Train Loss: 0.3690, Test Loss: 0.3810, F1: 0.4226, AUC: 0.8784
+Epoch [20/30] Train Loss: 0.2989, Test Loss: 0.4123, F1: 0.3991, AUC: 0.8925
+Mejores resultados en la época:  27
+f1-score 0.4942528735632184
+AUC según el mejor F1-score 0.896426359840994
+Confusion Matrix:
+ [[1202  151]
+ [  25   86]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8798
+Precision:  0.3629
+Recall:     0.7748
+F1-score:   0.4943
+Tiempo total para red 2: 13.00 segundos
+
+Entrenando red 3 con capas [1536, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6817, Test Loss: 0.6713, F1: 0.3002, AUC: 0.8457
+Epoch [10/30] Train Loss: 0.3381, Test Loss: 0.4337, F1: 0.3991, AUC: 0.8831
+Epoch [20/30] Train Loss: 0.2777, Test Loss: 0.4635, F1: 0.3843, AUC: 0.8955
+Mejores resultados en la época:  24
+f1-score 0.5031055900621118
+AUC según el mejor F1-score 0.8966261161383113
+Confusion Matrix:
+ [[1223  130]
+ [  30   81]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8907
+Precision:  0.3839
+Recall:     0.7297
+F1-score:   0.5031
+
+--- Iteración 2 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6951, Test Loss: 0.6381, F1: 0.0000, AUC: 0.8411
+Epoch [10/30] Train Loss: 0.3898, Test Loss: 0.4826, F1: 0.3689, AUC: 0.8758
+Epoch [20/30] Train Loss: 0.2994, Test Loss: 0.4098, F1: 0.4153, AUC: 0.8930
+Mejores resultados en la época:  24
+f1-score 0.49846153846153846
+AUC según el mejor F1-score 0.895407602724676
+Confusion Matrix:
+ [[1220  133]
+ [  30   81]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8887
+Precision:  0.3785
+Recall:     0.7297
+F1-score:   0.4985
+
+--- Iteración 3 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6942, Test Loss: 0.7032, F1: 0.1410, AUC: 0.8503
+Epoch [10/30] Train Loss: 0.3651, Test Loss: 0.7465, F1: 0.2869, AUC: 0.8806
+Epoch [20/30] Train Loss: 0.3116, Test Loss: 0.5222, F1: 0.3588, AUC: 0.8929
+Mejores resultados en la época:  21
+f1-score 0.45012787723785164
+AUC según el mejor F1-score 0.8936830400245034
+Confusion Matrix:
+ [[1161  192]
+ [  23   88]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8531
+Precision:  0.3143
+Recall:     0.7928
+F1-score:   0.4501
+
+--- Iteración 4 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6945, Test Loss: 0.6451, F1: 0.0000, AUC: 0.8581
+Epoch [10/30] Train Loss: 0.3628, Test Loss: 0.4725, F1: 0.3708, AUC: 0.8805
+Epoch [20/30] Train Loss: 0.3267, Test Loss: 0.3881, F1: 0.4367, AUC: 0.8929
+Mejores resultados en la época:  18
+f1-score 0.48739495798319327
+AUC según el mejor F1-score 0.8923713070054533
+Confusion Matrix:
+ [[1194  159]
+ [  24   87]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8750
+Precision:  0.3537
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+Recall:     0.7838
+F1-score:   0.4874
+Tiempo total para red 3: 13.40 segundos
+
+Entrenando red 4 con capas [1536, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6913, Test Loss: 0.6746, F1: 0.3876, AUC: 0.8461
+Epoch [10/30] Train Loss: 0.3451, Test Loss: 0.3471, F1: 0.4508, AUC: 0.8836
+Epoch [20/30] Train Loss: 0.2669, Test Loss: 0.2975, F1: 0.5000, AUC: 0.8956
+Mejores resultados en la época:  23
+f1-score 0.5231788079470199
+AUC según el mejor F1-score 0.8966261161383113
+Confusion Matrix:
+ [[1241  112]
+ [  32   79]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_436737.png
+Accuracy:   0.9016
+Precision:  0.4136
+Recall:     0.7117
+F1-score:   0.5232
+
+--- Iteración 2 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6844, Test Loss: 0.7177, F1: 0.1752, AUC: 0.8556
+Epoch [10/30] Train Loss: 0.3556, Test Loss: 0.6629, F1: 0.3150, AUC: 0.8860
+Epoch [20/30] Train Loss: 0.3001, Test Loss: 0.3853, F1: 0.4346, AUC: 0.8931
+Mejores resultados en la época:  9
+f1-score 0.480225988700565
+AUC según el mejor F1-score 0.8856262026993734
+Confusion Matrix:
+ [[1195  158]
+ [  26   85]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_436737.png
+Accuracy:   0.8743
+Precision:  0.3498
+Recall:     0.7658
+F1-score:   0.4802
+
+--- Iteración 3 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6941, Test Loss: 0.7143, F1: 0.1410, AUC: 0.8469
+Epoch [10/30] Train Loss: 0.3383, Test Loss: 0.3769, F1: 0.4303, AUC: 0.8886
+Epoch [20/30] Train Loss: 0.2452, Test Loss: 0.6799, F1: 0.3230, AUC: 0.8961
+Mejores resultados en la época:  22
+f1-score 0.5333333333333333
+AUC según el mejor F1-score 0.8949947730435536
+Confusion Matrix:
+ [[1255   98]
+ [  35   76]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_436737.png
+Accuracy:   0.9092
+Precision:  0.4368
+Recall:     0.6847
+F1-score:   0.5333
+
+--- Iteración 4 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6929, Test Loss: 0.6508, F1: 0.0000, AUC: 0.8499
+Epoch [10/30] Train Loss: 0.3463, Test Loss: 0.4694, F1: 0.3758, AUC: 0.8822
+Epoch [20/30] Train Loss: 0.2638, Test Loss: 0.5772, F1: 0.3508, AUC: 0.8954
+Mejores resultados en la época:  21
+f1-score 0.5089820359281437
+AUC según el mejor F1-score 0.8957138957138958
+Confusion Matrix:
+ [[1215  138]
+ [  26   85]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_436737.png
+Accuracy:   0.8880
+Precision:  0.3812
+Recall:     0.7658
+F1-score:   0.5090
+Tiempo total para red 4: 15.63 segundos
+
+Entrenando red 5 con capas [1536, 512, 256, 128, 64, 1]
+
+--- Iteración 1 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6949, Test Loss: 0.6912, F1: 0.2603, AUC: 0.8432
+Epoch [10/30] Train Loss: 0.3444, Test Loss: 0.5313, F1: 0.3494, AUC: 0.8885
+Epoch [20/30] Train Loss: 0.2544, Test Loss: 0.6182, F1: 0.3434, AUC: 0.8948
+Mejores resultados en la época:  17
+f1-score 0.5284280936454849
+AUC según el mejor F1-score 0.893709674197479
+Confusion Matrix:
+ [[1244  109]
+ [  32   79]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_959489.png
+Accuracy:   0.9037
+Precision:  0.4202
+Recall:     0.7117
+F1-score:   0.5284
+
+--- Iteración 2 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6942, Test Loss: 0.7887, F1: 0.1410, AUC: 0.8247
+Epoch [10/30] Train Loss: 0.3898, Test Loss: 0.5365, F1: 0.3316, AUC: 0.8880
+Epoch [20/30] Train Loss: 0.2811, Test Loss: 0.6747, F1: 0.3278, AUC: 0.8957
+Mejores resultados en la época:  25
+f1-score 0.4821917808219178
+AUC según el mejor F1-score 0.8968125553491406
+Confusion Matrix:
+ [[1187  166]
+ [  23   88]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_959489.png
+Accuracy:   0.8709
+Precision:  0.3465
+Recall:     0.7928
+F1-score:   0.4822
+
+--- Iteración 3 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6934, Test Loss: 0.6042, F1: 0.0000, AUC: 0.8624
+Epoch [10/30] Train Loss: 0.3399, Test Loss: 0.4857, F1: 0.3579, AUC: 0.8835
+Epoch [20/30] Train Loss: 0.3335, Test Loss: 0.2878, F1: 0.5000, AUC: 0.8950
+Mejores resultados en la época:  19
+f1-score 0.5234899328859061
+AUC según el mejor F1-score 0.8950214072165292
+Confusion Matrix:
+ [[1244  109]
+ [  33   78]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_959489.png
+Accuracy:   0.9030
+Precision:  0.4171
+Recall:     0.7027
+F1-score:   0.5235
+
+--- Iteración 4 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6913, Test Loss: 0.7085, F1: 0.1660, AUC: 0.8478
+Epoch [10/30] Train Loss: 0.3235, Test Loss: 0.3685, F1: 0.4356, AUC: 0.8892
+Epoch [20/30] Train Loss: 0.2585, Test Loss: 0.5811, F1: 0.3508, AUC: 0.8947
+Mejores resultados en la época:  16
+f1-score 0.531986531986532
+AUC según el mejor F1-score 0.8943289187191626
+Confusion Matrix:
+ [[1246  107]
+ [  32   79]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_959489.png
+Accuracy:   0.9051
+Precision:  0.4247
+Recall:     0.7117
+F1-score:   0.5320
+Tiempo total para red 5: 16.00 segundos
+
+Entrenando red 6 con capas [1536, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6933, Test Loss: 0.6210, F1: 0.0000, AUC: 0.8556
+Epoch [10/30] Train Loss: 0.3836, Test Loss: 1.0735, F1: 0.2610, AUC: 0.8862
+Epoch [20/30] Train Loss: 0.2801, Test Loss: 0.5967, F1: 0.3294, AUC: 0.8961
+Mejores resultados en la época:  9
+f1-score 0.5051903114186851
+AUC según el mejor F1-score 0.8860523494669835
+Confusion Matrix:
+ [[1248  105]
+ [  38   73]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_2273281.png
+Accuracy:   0.9023
+Precision:  0.4101
+Recall:     0.6577
+F1-score:   0.5052
+
+--- Iteración 2 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6945, Test Loss: 0.7184, F1: 0.1410, AUC: 0.8333
+Epoch [10/30] Train Loss: 0.3486, Test Loss: 0.3977, F1: 0.4083, AUC: 0.8873
+Epoch [20/30] Train Loss: 0.2766, Test Loss: 0.6782, F1: 0.3204, AUC: 0.8967
+Mejores resultados en la época:  16
+f1-score 0.5328467153284672
+AUC según el mejor F1-score 0.8963730914950427
+Confusion Matrix:
+ [[1263   90]
+ [  38   73]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_2273281.png
+Accuracy:   0.9126
+Precision:  0.4479
+Recall:     0.6577
+F1-score:   0.5328
+
+--- Iteración 3 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6929, Test Loss: 0.6846, F1: 0.0513, AUC: 0.8497
+Epoch [10/30] Train Loss: 0.3867, Test Loss: 0.4455, F1: 0.3956, AUC: 0.8827
+Epoch [20/30] Train Loss: 0.2793, Test Loss: 0.6080, F1: 0.3178, AUC: 0.8939
+Mejores resultados en la época:  27
+f1-score 0.49162011173184356
+AUC según el mejor F1-score 0.8936430887650398
+Confusion Matrix:
+ [[1194  159]
+ [  23   88]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_2273281.png
+Accuracy:   0.8757
+Precision:  0.3563
+Recall:     0.7928
+F1-score:   0.4916
+
+--- Iteración 4 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6939, Test Loss: 0.6542, F1: 0.0000, AUC: 0.8582
+Epoch [10/30] Train Loss: 0.3318, Test Loss: 0.4130, F1: 0.4036, AUC: 0.8898
+Epoch [20/30] Train Loss: 0.2356, Test Loss: 0.5850, F1: 0.3316, AUC: 0.8977
+Mejores resultados en la época:  21
+f1-score 0.5045045045045045
+AUC según el mejor F1-score 0.8972520192032388
+Confusion Matrix:
+ [[1215  138]
+ [  27   84]]
+Matriz de confusión guardada en: outputs_only_text/2/gpt/confusion_matrix_param_2273281.png
+Accuracy:   0.8873
+Precision:  0.3784
+Recall:     0.7568
+F1-score:   0.5045
+Tiempo total para red 6: 14.09 segundos
+Saved on: outputs_only_text/2/gpt
+
+==============================
+Model: Logistic Regression
+Accuracy:  0.8005
+Precision: 0.2493
+Recall:    0.8108
+F1-score:  0.3814
+              precision    recall  f1-score   support
+
+           0       0.98      0.80      0.88      1353
+           1       0.25      0.81      0.38       111
+
+    accuracy                           0.80      1464
+   macro avg       0.62      0.81      0.63      1464
+weighted avg       0.93      0.80      0.84      1464
+
+[[1082  271]
+ [  21   90]]
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [01:47:46] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+Hiperparámetros: {'C': 1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 42, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs_only_text/2/gpt/conf_matrix_logistic_regression.png
+Modelo guardado como: outputs_only_text/2/gpt/logistic_regression_model.pkl
+
+==============================
+Model: SVM
+Accuracy:  0.8258
+Precision: 0.2805
+Recall:    0.8288
+F1-score:  0.4191
+              precision    recall  f1-score   support
+
+           0       0.98      0.83      0.90      1353
+           1       0.28      0.83      0.42       111
+
+    accuracy                           0.83      1464
+   macro avg       0.63      0.83      0.66      1464
+weighted avg       0.93      0.83      0.86      1464
+
+[[1117  236]
+ [  19   92]]
+Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 42, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+Confusion matrix saved as: outputs_only_text/2/gpt/conf_matrix_svm.png
+Modelo guardado como: outputs_only_text/2/gpt/svm_model.pkl
+
+==============================
+Model: Decision Tree
+Accuracy:  0.6667
+Precision: 0.1503
+Recall:    0.7297
+F1-score:  0.2492
+              precision    recall  f1-score   support
+
+           0       0.97      0.66      0.79      1353
+           1       0.15      0.73      0.25       111
+
+    accuracy                           0.67      1464
+   macro avg       0.56      0.70      0.52      1464
+weighted avg       0.91      0.67      0.75      1464
+
+[[895 458]
+ [ 30  81]]
+Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 42, 'splitter': 'best'}
+Confusion matrix saved as: outputs_only_text/2/gpt/conf_matrix_decision_tree.png
+Modelo guardado como: outputs_only_text/2/gpt/decision_tree_model.pkl
+
+==============================
+Model: Random Forest
+Accuracy:  0.7828
+Precision: 0.2255
+Recall:    0.7658
+F1-score:  0.3484
+              precision    recall  f1-score   support
+
+           0       0.98      0.78      0.87      1353
+           1       0.23      0.77      0.35       111
+
+    accuracy                           0.78      1464
+   macro avg       0.60      0.77      0.61      1464
+weighted avg       0.92      0.78      0.83      1464
+
+[[1061  292]
+ [  26   85]]
+Hiperparámetros: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 15, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': -1, 'oob_score': False, 'random_state': 42, 'verbose': 0, 'warm_start': False}
+Confusion matrix saved as: outputs_only_text/2/gpt/conf_matrix_random_forest.png
+Modelo guardado como: outputs_only_text/2/gpt/random_forest_model.pkl
+
+==============================
+Model: XGBoost
+Accuracy:  0.8026
+Precision: 0.2528
+Recall:    0.8198
+F1-score:  0.3864
+              precision    recall  f1-score   support
+
+           0       0.98      0.80      0.88      1353
+           1       0.25      0.82      0.39       111
+
+    accuracy                           0.80      1464
+   macro avg       0.62      0.81      0.63      1464
+weighted avg       0.93      0.80      0.84      1464
+
+[[1084  269]
+ [  20   91]]
+Hiperparámetros: {'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': 0.8, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 8, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 200, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 42, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': 0.8, 'tree_method': None, 'validate_parameters': None, 'verbosity': None, 'use_label_encoder': False}
+Confusion matrix saved as: outputs_only_text/2/gpt/conf_matrix_xgboost.png
+Modelo guardado como: outputs_only_text/2/gpt/xgboost_model.pkl
+
+==============================
+Model: Naive Bayes
+Accuracy:  0.7944
+Precision: 0.2376
+Recall:    0.7748
+F1-score:  0.3636
+              precision    recall  f1-score   support
+
+           0       0.98      0.80      0.88      1353
+           1       0.24      0.77      0.36       111
+
+    accuracy                           0.79      1464
+   macro avg       0.61      0.79      0.62      1464
+weighted avg       0.92      0.79      0.84      1464
+
+[[1077  276]
+ [  25   86]]
+Hiperparámetros: {'priors': None, 'var_smoothing': 1e-09}
+Confusion matrix saved as: outputs_only_text/2/gpt/conf_matrix_naive_bayes.png
+Modelo guardado como: outputs_only_text/2/gpt/naive_bayes_model.pkl
+
+
+Resumen de métricas:
+SVM: {'accuracy': 0.8258, 'precision': 0.2805, 'recall': 0.8288, 'f1_score': 0.4191}
+XGBoost: {'accuracy': 0.8026, 'precision': 0.2528, 'recall': 0.8198, 'f1_score': 0.3864}
+Logistic Regression: {'accuracy': 0.8005, 'precision': 0.2493, 'recall': 0.8108, 'f1_score': 0.3814}
+Naive Bayes: {'accuracy': 0.7944, 'precision': 0.2376, 'recall': 0.7748, 'f1_score': 0.3636}
+Random Forest: {'accuracy': 0.7828, 'precision': 0.2255, 'recall': 0.7658, 'f1_score': 0.3484}
+Decision Tree: {'accuracy': 0.6667, 'precision': 0.1503, 'recall': 0.7297, 'f1_score': 0.2492}
+
+
+Resumen GLOBAL de métricas:
+
+
+EMBEDDINGS TYPE: GPT
+MLP_436737: {'accuracy': 0.8879781420765027, 'precision': 0.3811659192825112, 'recall': 0.7657657657657657, 'f1_score': 0.5333333333333333, 'f1_score_avg': 0.5114300414772655}
+MLP_959489: {'accuracy': 0.9050546448087432, 'precision': 0.42473118279569894, 'recall': 0.7117117117117117, 'f1_score': 0.5333333333333333, 'f1_score_avg': 0.5165240848349602}
+MLP_2273281: {'accuracy': 0.8872950819672131, 'precision': 0.3783783783783784, 'recall': 0.7567567567567568, 'f1_score': 0.5333333333333333, 'f1_score_avg': 0.5085404107458751}
+MLP_100481: {'accuracy': 0.8797814207650273, 'precision': 0.3628691983122363, 'recall': 0.7747747747747747, 'f1_score': 0.5144694533762058, 'f1_score_avg': 0.49574158898462406}
+MLP_207105: {'accuracy': 0.875, 'precision': 0.35365853658536583, 'recall': 0.7837837837837838, 'f1_score': 0.5144694533762058, 'f1_score_avg': 0.4847724909361738}
+MLP_49217: {'accuracy': 0.8790983606557377, 'precision': 0.3577586206896552, 'recall': 0.7477477477477478, 'f1_score': 0.4924924924924925, 'f1_score_avg': 0.4780683592432269}
+SVM: {'accuracy': 0.8258, 'precision': 0.2805, 'recall': 0.8288, 'f1_score': 0.4191}
+XGBoost: {'accuracy': 0.8026, 'precision': 0.2528, 'recall': 0.8198, 'f1_score': 0.3864}
+Logistic Regression: {'accuracy': 0.8005, 'precision': 0.2493, 'recall': 0.8108, 'f1_score': 0.3814}
+Naive Bayes: {'accuracy': 0.7944, 'precision': 0.2376, 'recall': 0.7748, 'f1_score': 0.3636}
+Random Forest: {'accuracy': 0.7828, 'precision': 0.2255, 'recall': 0.7658, 'f1_score': 0.3484}
+Decision Tree: {'accuracy': 0.6667, 'precision': 0.1503, 'recall': 0.7297, 'f1_score': 0.2492}
+
+========== CONFIGURATIONS ==========
+TESTING: False
+UNDERSAMPLING: True
+USE_SMOTE: False
+SCALED: True
+STEAMING: True
+REMOVE_STOPWORDS: True
+NUMERIC_COLS: False
+MAX_FEATURES_TFIDF: 5000
+TF-IDF Columns: ['lyrics']
+Numeric Columns: Not used
+====================================
+
