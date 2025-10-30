@@ -167,8 +167,8 @@ def load_LB_embbedings(csv_path, npy_path, sample_size=None):
     
     else:
         X = X_vec
-    y = df['explicit_content'].astype(int)
-    print(f"Label distribution: {df['explicit_content'].value_counts().to_dict()}")
+    y = df['pseudo_label_explicit'].astype(int)
+    print(f"Label distribution: {df['pseudo_label_explicit'].value_counts().to_dict()}")
     print(f"X shape: {X.shape}")
     print(f"y shape: {y.shape}")
     return X, y
@@ -203,10 +203,10 @@ def load_gpt_embbedings(csv_path, npy_path, sample_size=None):
     
     else:
         X = X_vec
-    y = df['explicit_content'].astype(int)
+    y = df['pseudo_label_explicit'].astype(int)
     # Porque ta completita la data
     # y = elimnate_y_index(y)
-    print(f"Label distribution: {df['explicit_content'].value_counts().to_dict()}")
+    print(f"Label distribution: {df['pseudo_label_explicit'].value_counts().to_dict()}")
     print(f"X shape: {X.shape}")
     print(f"y shape: {y.shape}")
     return X, y
@@ -236,7 +236,7 @@ def load_TFIDF_embbedings(csv_path, sample_size=None, columns_tf_idfizable = ['t
 
     # df['pseudo_label_explicit'] = (df['Explicit'].str.lower() == 'yes').astype(int)
     
-    y = df['explicit_content'].astype(int)
+    y = df['pseudo_label_explicit'].astype(int)
 
 
     # Aplying TF-IDF
@@ -247,7 +247,7 @@ def load_TFIDF_embbedings(csv_path, sample_size=None, columns_tf_idfizable = ['t
         ngram_range=(1, 2)
     )
 
-    print(f"Label distribution: {df['explicit_content'].value_counts().to_dict()}")
+    print(f"Label distribution: {df['pseudo_label_explicit'].value_counts().to_dict()}")
     
     return df['processed_text'], y, vectorizer
 
@@ -812,12 +812,13 @@ def main():
 
     print("--> PaTH: ",npy_path )
         
-    csv_path = f"{path_DATA}/dataset/oficialDatasetEAIM2026.csv"
+    # csv_path = f"{path_DATA}/dataset/oficialDatasetEAIM2026.csv"
+    csv_path = f"{path_DATA}/dataset/oficialDatasetEAIM2026_pseudolabeling.csv"
 
 
     # A) Embeddings types
     # embb_types = ['tfidf', 'lyrics_bert', 'gpt']
-    embb_types = ['lyrics_bert']
+    embb_types = ['gpt']
     # embb_types = [ 'lyrics_bert', 'gpt']
 
     y = None

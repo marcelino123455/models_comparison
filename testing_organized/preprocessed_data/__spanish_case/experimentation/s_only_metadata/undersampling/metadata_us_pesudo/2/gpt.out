@@ -1,0 +1,716 @@
+2025-10-30 04:48:51.918515: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-30 04:48:51.918515: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_metadata/undersampling/metadata_GPT.py:267: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_metadata/undersampling/metadata_GPT.py:267: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+For TF-IDF embbedings you are selecteing this columns:
+--> ['artist', 'genre', 'title_songs_new']
+For both embbedings your are adding this categorical columns: 
+--> CAT_ALL 3 ['title_songs_new', 'artist', 'genre']
+
+CAT_LOW 1 ['title_songs_new']
+CAT_HIGH 2 ['artist', 'genre']
+For both embbedings your are adding this columns: 
+--> ['lyrics_word_count', 'popularity', 'duration_ms']
+You are executing with [ALL] dataset
+--> PaTH:  ../../../../../../data/spanish/LB_M/LB_fuss/lb_khipu_M.npy
+Loading Lb vectors from:  ../../../../../../data/spanish/dataset/oficialDatasetEAIM2026_pseudolabeling.csv
+Label distribution: {0: 6077, 1: 1242}
+X shape: (7319, 1536)
+y shape: (7319,)
+
+Splitting data (index-based split to avoid leakage)...
+X_train_Numeric:  (5855, 3)
+X_train_Numeric:  (5855, 3)
+Concatenating TF-IDF and numeric features...
+Shape of X_train after concatenation:  (5855, 1539)
+Shape of X_test after concatenation:  (1464, 1539)
+Shape of y_train:  (5855,)
+Shape of y_test:  (1464,)
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 4861, 1: 994}
+Label distribution en TEST: {0: 1216, 1: 248}
+
+
+==================================================
+Data antes del undersampling ...
+X: (5855, 1539)
+y: (5855,)
+Apliying UNDERSAMPLE
+994
+Label distribution: {0: 994, 1: 994}
+X shape: (1988, 1539)
+y shape: (1988,)
+Resultados con MLP
+
+Entrenando red 1 con capas [1539, 32, 1]
+
+--- Iteración 1 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6938, Test Loss: 0.6144, F1: 0.0000, AUC: 0.7361
+Epoch [10/30] Train Loss: 0.5781, Test Loss: 0.5551, F1: 0.4792, AUC: 0.7802
+Epoch [20/30] Train Loss: 0.5458, Test Loss: 0.4502, F1: 0.4963, AUC: 0.7921
+Mejores resultados en la época:  23
+f1-score 0.5084745762711864
+AUC según el mejor F1-score 0.7936717423599322
+Confusion Matrix:
+ [[1112  104]
+ [ 128  120]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_49313.png
+Accuracy:   0.8415
+Precision:  0.5357
+Recall:     0.4839
+F1-score:   0.5085
+
+--- Iteración 2 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.7006, Test Loss: 0.6537, F1: 0.0000, AUC: 0.5004
+Epoch [10/30] Train Loss: 0.6928, Test Loss: 0.6767, F1: 0.0000, AUC: 0.5004
+Epoch [20/30] Train Loss: 0.6931, Test Loss: 0.6899, F1: 0.0000, AUC: 0.5004
+Mejores resultados en la época:  None
+f1-score 0.0
+AUC según el mejor F1-score 0.0
+Traceback (most recent call last):
+  File "/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_metadata/undersampling/metadata_GPT.py", line 1088, in <module>
+    main()
+    ~~~~^^
+  File "/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_metadata/undersampling/metadata_GPT.py", line 1029, in main
+    resumencito = evaluar_modelo(best_labels, best_pred, trainable_params, labels=('Not Explicit', 'Explicit'), save_dir=output_dir)
+  File "/home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_metadata/undersampling/metadata_GPT.py", line 436, in evaluar_modelo
+    cm = confusion_matrix(y_true, y_pred)
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/utils/_param_validation.py", line 208, in wrapper
+    validate_parameter_constraints(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        parameter_constraints, params, caller_name=func.__qualname__
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/utils/_param_validation.py", line 98, in validate_parameter_constraints
+    raise InvalidParameterError(
+    ...<2 lines>...
+    )
+sklearn.utils._param_validation.InvalidParameterError: The 'y_true' parameter of confusion_matrix must be an array-like. Got None instead.
+srun: error: g001: task 1: Exited with exit code 1
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+For TF-IDF embbedings you are selecteing this columns:
+--> ['artist', 'genre', 'title_songs_new']
+For both embbedings your are adding this categorical columns: 
+--> CAT_ALL 3 ['title_songs_new', 'artist', 'genre']
+
+CAT_LOW 1 ['title_songs_new']
+CAT_HIGH 2 ['artist', 'genre']
+For both embbedings your are adding this columns: 
+--> ['lyrics_word_count', 'popularity', 'duration_ms']
+You are executing with [ALL] dataset
+--> PaTH:  ../../../../../../data/spanish/LB_M/LB_fuss/lb_khipu_M.npy
+Loading Lb vectors from:  ../../../../../../data/spanish/dataset/oficialDatasetEAIM2026_pseudolabeling.csv
+Label distribution: {0: 6077, 1: 1242}
+X shape: (7319, 1536)
+y shape: (7319,)
+
+Splitting data (index-based split to avoid leakage)...
+X_train_Numeric:  (5855, 3)
+X_train_Numeric:  (5855, 3)
+Concatenating TF-IDF and numeric features...
+Shape of X_train after concatenation:  (5855, 1539)
+Shape of X_test after concatenation:  (1464, 1539)
+Shape of y_train:  (5855,)
+Shape of y_test:  (1464,)
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 4861, 1: 994}
+Label distribution en TEST: {0: 1216, 1: 248}
+
+
+==================================================
+Data antes del undersampling ...
+X: (5855, 1539)
+y: (5855,)
+Apliying UNDERSAMPLE
+994
+Label distribution: {0: 994, 1: 994}
+X shape: (1988, 1539)
+y shape: (1988,)
+Resultados con MLP
+
+Entrenando red 1 con capas [1539, 32, 1]
+
+--- Iteración 1 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6914, Test Loss: 0.5920, F1: 0.0000, AUC: 0.7538
+Epoch [10/30] Train Loss: 0.5918, Test Loss: 0.6069, F1: 0.4472, AUC: 0.7795
+Epoch [20/30] Train Loss: 0.5637, Test Loss: 0.5366, F1: 0.4622, AUC: 0.7926
+Mejores resultados en la época:  21
+f1-score 0.5127020785219399
+AUC según el mejor F1-score 0.7941757746179966
+Confusion Matrix:
+ [[1142   74]
+ [ 137  111]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_49313.png
+Accuracy:   0.8559
+Precision:  0.6000
+Recall:     0.4476
+F1-score:   0.5127
+
+--- Iteración 2 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.7011, Test Loss: 0.7527, F1: 0.2897, AUC: 0.7482
+Epoch [10/30] Train Loss: 0.6553, Test Loss: 0.6499, F1: 0.4828, AUC: 0.7411
+Epoch [20/30] Train Loss: 0.5968, Test Loss: 0.6290, F1: 0.4800, AUC: 0.7778
+Mejores resultados en la época:  23
+f1-score 0.5194805194805194
+AUC según el mejor F1-score 0.7553089187181664
+Confusion Matrix:
+ [[1122   94]
+ [ 128  120]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_49313.png
+Accuracy:   0.8484
+Precision:  0.5607
+Recall:     0.4839
+F1-score:   0.5195
+
+--- Iteración 3 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.7203, Test Loss: 0.7242, F1: 0.2897, AUC: 0.5056
+Epoch [10/30] Train Loss: 0.6931, Test Loss: 0.7050, F1: 0.2897, AUC: 0.5000
+Epoch [20/30] Train Loss: 0.6932, Test Loss: 0.6956, F1: 0.2897, AUC: 0.5000
+Mejores resultados en la época:  0
+f1-score 0.2897196261682243
+AUC según el mejor F1-score 0.505635544885399
+Confusion Matrix:
+ [[   0 1216]
+ [   0  248]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_49313.png
+Accuracy:   0.1694
+Precision:  0.1694
+Recall:     1.0000
+F1-score:   0.2897
+
+--- Iteración 4 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.7007, Test Loss: 0.6645, F1: 0.0000, AUC: 0.5000
+Epoch [10/30] Train Loss: 0.6933, Test Loss: 0.6834, F1: 0.0000, AUC: 0.5000
+Epoch [20/30] Train Loss: 0.6932, Test Loss: 0.6921, F1: 0.0000, AUC: 0.5000
+Mejores resultados en la época:  26
+f1-score 0.2897196261682243
+AUC según el mejor F1-score 0.5
+Confusion Matrix:
+ [[   0 1216]
+ [   0  248]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_49313.png
+Accuracy:   0.1694
+Precision:  0.1694
+Recall:     1.0000
+F1-score:   0.2897
+Tiempo total para red 1: 23.65 segundos
+
+Entrenando red 2 con capas [1539, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6949, Test Loss: 0.6388, F1: 0.0000, AUC: 0.7437
+Epoch [10/30] Train Loss: 0.5832, Test Loss: 0.6686, F1: 0.4025, AUC: 0.7822
+Epoch [20/30] Train Loss: 0.5701, Test Loss: 0.7074, F1: 0.3996, AUC: 0.7943
+Mejores resultados en la época:  27
+f1-score 0.4974271012006861
+AUC según el mejor F1-score 0.7977371604414262
+Confusion Matrix:
+ [[1026  190]
+ [ 103  145]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_100673.png
+Accuracy:   0.7999
+Precision:  0.4328
+Recall:     0.5847
+F1-score:   0.4974
+
+--- Iteración 2 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6980, Test Loss: 0.6255, F1: 0.0000, AUC: 0.7347
+Epoch [10/30] Train Loss: 0.5792, Test Loss: 0.4844, F1: 0.4875, AUC: 0.7823
+Epoch [20/30] Train Loss: 0.5535, Test Loss: 0.6646, F1: 0.4253, AUC: 0.7964
+Mejores resultados en la época:  27
+f1-score 0.5276073619631901
+AUC según el mejor F1-score 0.7994382693123938
+Confusion Matrix:
+ [[1104  112]
+ [ 119  129]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_100673.png
+Accuracy:   0.8422
+Precision:  0.5353
+Recall:     0.5202
+F1-score:   0.5276
+
+--- Iteración 3 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6950, Test Loss: 0.6732, F1: 0.0238, AUC: 0.7422
+Epoch [10/30] Train Loss: 0.5703, Test Loss: 0.6242, F1: 0.4324, AUC: 0.7823
+Epoch [20/30] Train Loss: 0.5273, Test Loss: 0.5602, F1: 0.4563, AUC: 0.7952
+Mejores resultados en la época:  17
+f1-score 0.5110663983903421
+AUC según el mejor F1-score 0.7917418293718167
+Confusion Matrix:
+ [[1094  122]
+ [ 121  127]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_100673.png
+Accuracy:   0.8340
+Precision:  0.5100
+Recall:     0.5121
+F1-score:   0.5111
+
+--- Iteración 4 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6904, Test Loss: 0.7855, F1: 0.2897, AUC: 0.7618
+Epoch [10/30] Train Loss: 0.5947, Test Loss: 0.5078, F1: 0.4948, AUC: 0.7850
+Epoch [20/30] Train Loss: 0.5256, Test Loss: 0.6153, F1: 0.4442, AUC: 0.7944
+Mejores resultados en la época:  22
+f1-score 0.512720156555773
+AUC según el mejor F1-score 0.7974121922750425
+Confusion Matrix:
+ [[1084  132]
+ [ 117  131]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_100673.png
+Accuracy:   0.8299
+Precision:  0.4981
+Recall:     0.5282
+F1-score:   0.5127
+Tiempo total para red 2: 15.26 segundos
+
+Entrenando red 3 con capas [1539, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6946, Test Loss: 0.6641, F1: 0.0000, AUC: 0.7588
+Epoch [10/30] Train Loss: 0.5697, Test Loss: 0.4664, F1: 0.4862, AUC: 0.7879
+Epoch [20/30] Train Loss: 0.5404, Test Loss: 0.3762, F1: 0.4521, AUC: 0.7987
+Mejores resultados en la época:  26
+f1-score 0.5163934426229508
+AUC según el mejor F1-score 0.7988082289898132
+Confusion Matrix:
+ [[1102  114]
+ [ 122  126]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_207489.png
+Accuracy:   0.8388
+Precision:  0.5250
+Recall:     0.5081
+F1-score:   0.5164
+
+--- Iteración 2 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6914, Test Loss: 0.6517, F1: 0.2069, AUC: 0.7619
+Epoch [10/30] Train Loss: 0.5674, Test Loss: 0.7005, F1: 0.4070, AUC: 0.7885
+Epoch [20/30] Train Loss: 0.5662, Test Loss: 0.5678, F1: 0.4605, AUC: 0.7968
+Mejores resultados en la época:  27
+f1-score 0.5121951219512195
+AUC según el mejor F1-score 0.7976741564091681
+Confusion Matrix:
+ [[1098  118]
+ [ 122  126]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_207489.png
+Accuracy:   0.8361
+Precision:  0.5164
+Recall:     0.5081
+F1-score:   0.5122
+
+--- Iteración 3 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6923, Test Loss: 0.7475, F1: 0.2897, AUC: 0.7557
+Epoch [10/30] Train Loss: 0.5582, Test Loss: 1.0701, F1: 0.3324, AUC: 0.7880
+Epoch [20/30] Train Loss: 0.5313, Test Loss: 0.5484, F1: 0.4549, AUC: 0.7950
+Mejores resultados en la época:  22
+f1-score 0.5119047619047619
+AUC según el mejor F1-score 0.796201851655348
+Confusion Matrix:
+ [[1089  127]
+ [ 119  129]]
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_207489.png
+Accuracy:   0.8320
+Precision:  0.5039
+Recall:     0.5202
+F1-score:   0.5119
+
+--- Iteración 4 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6935, Test Loss: 0.6525, F1: 0.0000, AUC: 0.7373
+Epoch [10/30] Train Loss: 0.5630, Test Loss: 0.3954, F1: 0.5059, AUC: 0.7874
+Epoch [20/30] Train Loss: 0.5248, Test Loss: 0.4406, F1: 0.5098, AUC: 0.7990
+Mejores resultados en la época:  26
+f1-score 0.5161290322580645
+AUC según el mejor F1-score 0.7989806610780983
+Confusion Matrix:
+ [[1096  120]
+ [ 120  128]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_207489.png
+Accuracy:   0.8361
+Precision:  0.5161
+Recall:     0.5161
+F1-score:   0.5161
+Tiempo total para red 3: 16.22 segundos
+
+Entrenando red 4 con capas [1539, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6951, Test Loss: 0.6962, F1: 0.2897, AUC: 0.7529
+Epoch [10/30] Train Loss: 0.6214, Test Loss: 0.5318, F1: 0.4694, AUC: 0.7802
+Epoch [20/30] Train Loss: 0.5431, Test Loss: 0.7724, F1: 0.3892, AUC: 0.7952
+Mejores resultados en la época:  26
+f1-score 0.5054545454545455
+AUC según el mejor F1-score 0.7977172644312395
+Confusion Matrix:
+ [[1053  163]
+ [ 109  139]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_437505.png
+Accuracy:   0.8142
+Precision:  0.4603
+Recall:     0.5605
+F1-score:   0.5055
+
+--- Iteración 2 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6923, Test Loss: 0.6431, F1: 0.0000, AUC: 0.7397
+Epoch [10/30] Train Loss: 0.5881, Test Loss: 0.5161, F1: 0.4849, AUC: 0.7891
+Epoch [20/30] Train Loss: 0.5738, Test Loss: 0.8141, F1: 0.3714, AUC: 0.7971
+Mejores resultados en la época:  29
+f1-score 0.519916142557652
+AUC según el mejor F1-score 0.7977968484719865
+Confusion Matrix:
+ [[1111  105]
+ [ 124  124]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_437505.png
+Accuracy:   0.8436
+Precision:  0.5415
+Recall:     0.5000
+F1-score:   0.5199
+
+--- Iteración 3 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6942, Test Loss: 0.6616, F1: 0.0000, AUC: 0.7445
+Epoch [10/30] Train Loss: 0.5903, Test Loss: 0.4937, F1: 0.4944, AUC: 0.7887
+Epoch [20/30] Train Loss: 0.6078, Test Loss: 0.4595, F1: 0.4932, AUC: 0.7987
+Mejores resultados en la época:  28
+f1-score 0.5155038759689923
+AUC según el mejor F1-score 0.7988181769949068
+Confusion Matrix:
+ [[1081  135]
+ [ 115  133]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_437505.png
+Accuracy:   0.8292
+Precision:  0.4963
+Recall:     0.5363
+F1-score:   0.5155
+
+--- Iteración 4 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6949, Test Loss: 0.6901, F1: 0.3549, AUC: 0.7478
+Epoch [10/30] Train Loss: 0.5838, Test Loss: 0.5285, F1: 0.4913, AUC: 0.7922
+Epoch [20/30] Train Loss: 0.5147, Test Loss: 0.8085, F1: 0.3967, AUC: 0.7984
+Mejores resultados en la época:  15
+f1-score 0.5263157894736842
+AUC según el mejor F1-score 0.7984501008064516
+Confusion Matrix:
+ [[1142   74]
+ [ 133  115]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_437505.png
+Accuracy:   0.8586
+Precision:  0.6085
+Recall:     0.4637
+F1-score:   0.5263
+Tiempo total para red 4: 17.15 segundos
+
+Entrenando red 5 con capas [1539, 512, 256, 128, 64, 1]
+
+--- Iteración 1 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6931, Test Loss: 0.7522, F1: 0.2897, AUC: 0.7593
+Epoch [10/30] Train Loss: 0.5680, Test Loss: 0.5636, F1: 0.4609, AUC: 0.7882
+Epoch [20/30] Train Loss: 0.5769, Test Loss: 0.7818, F1: 0.3778, AUC: 0.7969
+Mejores resultados en la época:  27
+f1-score 0.5176470588235295
+AUC según el mejor F1-score 0.7979659645585738
+Confusion Matrix:
+ [[1086  130]
+ [ 116  132]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_961025.png
+Accuracy:   0.8320
+Precision:  0.5038
+Recall:     0.5323
+F1-score:   0.5176
+
+--- Iteración 2 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6914, Test Loss: 0.6045, F1: 0.0000, AUC: 0.7324
+Epoch [10/30] Train Loss: 0.5738, Test Loss: 0.4754, F1: 0.4912, AUC: 0.7897
+Epoch [20/30] Train Loss: 0.5221, Test Loss: 0.5801, F1: 0.4619, AUC: 0.7984
+Mejores resultados en la época:  21
+f1-score 0.518664047151277
+AUC según el mejor F1-score 0.7984169407894738
+Confusion Matrix:
+ [[1087  129]
+ [ 116  132]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_961025.png
+Accuracy:   0.8327
+Precision:  0.5057
+Recall:     0.5323
+F1-score:   0.5187
+
+--- Iteración 3 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6958, Test Loss: 0.6752, F1: 0.0000, AUC: 0.7528
+Epoch [10/30] Train Loss: 0.6367, Test Loss: 0.7929, F1: 0.3600, AUC: 0.7661
+Epoch [20/30] Train Loss: 0.6557, Test Loss: 0.5377, F1: 0.5089, AUC: 0.7920
+Mejores resultados en la época:  26
+f1-score 0.5094339622641509
+AUC según el mejor F1-score 0.7962582236842105
+Confusion Matrix:
+ [[1069  147]
+ [ 113  135]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_961025.png
+Accuracy:   0.8224
+Precision:  0.4787
+Recall:     0.5444
+F1-score:   0.5094
+
+--- Iteración 4 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6962, Test Loss: 0.6824, F1: 0.0000, AUC: 0.7516
+Epoch [10/30] Train Loss: 0.5605, Test Loss: 0.4962, F1: 0.4909, AUC: 0.7906
+Epoch [20/30] Train Loss: 0.5237, Test Loss: 0.9980, F1: 0.3651, AUC: 0.7981
+Mejores resultados en la época:  23
+f1-score 0.5180467091295117
+AUC según el mejor F1-score 0.7997997134974534
+Confusion Matrix:
+ [[1115  101]
+ [ 126  122]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_961025.png
+Accuracy:   0.8449
+Precision:  0.5471
+Recall:     0.4919
+F1-score:   0.5180
+Tiempo total para red 5: 17.89 segundos
+
+Entrenando red 6 con capas [1539, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6937, Test Loss: 0.6921, F1: 0.0000, AUC: 0.7590
+Epoch [10/30] Train Loss: 0.5809, Test Loss: 0.5200, F1: 0.4900, AUC: 0.7889
+Epoch [20/30] Train Loss: 0.5391, Test Loss: 0.4717, F1: 0.4872, AUC: 0.7957
+Mejores resultados en la época:  23
+f1-score 0.5128205128205128
+AUC según el mejor F1-score 0.798940869057725
+Confusion Matrix:
+ [[1116  100]
+ [ 128  120]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_2276353.png
+Accuracy:   0.8443
+Precision:  0.5455
+Recall:     0.4839
+F1-score:   0.5128
+
+--- Iteración 2 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6940, Test Loss: 0.6905, F1: 0.4169, AUC: 0.7535
+Epoch [10/30] Train Loss: 0.5747, Test Loss: 0.5874, F1: 0.4674, AUC: 0.7867
+Epoch [20/30] Train Loss: 0.5675, Test Loss: 1.1896, F1: 0.3641, AUC: 0.7978
+Mejores resultados en la época:  23
+f1-score 0.5142857142857142
+AUC según el mejor F1-score 0.7990735091256367
+Confusion Matrix:
+ [[1074  142]
+ [ 113  135]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_2276353.png
+Accuracy:   0.8258
+Precision:  0.4874
+Recall:     0.5444
+F1-score:   0.5143
+
+--- Iteración 3 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6940, Test Loss: 0.7068, F1: 0.2897, AUC: 0.7134
+Epoch [10/30] Train Loss: 0.6122, Test Loss: 0.6446, F1: 0.4671, AUC: 0.7807
+Epoch [20/30] Train Loss: 0.5359, Test Loss: 0.5694, F1: 0.4569, AUC: 0.7935
+Mejores resultados en la época:  13
+f1-score 0.5018181818181818
+AUC según el mejor F1-score 0.7855740662139219
+Confusion Matrix:
+ [[1052  164]
+ [ 110  138]]
+Matriz de confusión guardada en: outputs_numerical_categorical_metadata/2/gpt/confusion_matrix_param_2276353.png
+Accuracy:   0.8128
+Precision:  0.4570
+Recall:     0.5565
+F1-score:   0.5018
+
+--- Iteración 4 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6945, Test Loss: 0.6898, F1: 0.0000, AUC: 0.7513
+Epoch [10/30] Train Loss: 0.5778, Test Loss: 0.4088, F1: 0.5000, AUC: 0.7931
+Epoch [20/30] Train Loss: 0.5350, Test Loss: 0.4458, F1: 0.5083, AUC: 0.7944
+Mejores resultados en la época:  29
+f1-score 0.5306122448979592
+AUC según el mejor F1-score 0.79761115237691
+Confusion Matrix:
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [04:51:19] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-g001: error: *** STEP 17540.0 ON g001 CANCELLED AT 2025-10-30T04:51:26 ***
+slurmstepd-g001: error: *** JOB 17540 ON g001 CANCELLED AT 2025-10-30T04:51:26 ***

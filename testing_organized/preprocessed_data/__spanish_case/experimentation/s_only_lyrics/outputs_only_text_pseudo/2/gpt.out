@@ -1,6 +1,6 @@
-2025-10-30 04:07:30.574699: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2025-10-30 04:40:19.757660: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2025-10-30 04:07:30.574699: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2025-10-30 04:40:19.757660: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 /home/marcelino.maita/musica_ia_workshop/models_comparison/testing_organized/preprocessed_data/__spanish_case/experimentation/s_only_lyrics/main_only_text_gpt.py:273: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
   .apply(lambda grp: grp.sample(n=n_min, random_state=RANDOM_STATE))
@@ -23,13 +23,15 @@ You are executing with [ALL] dataset
 ##################################################
 Running experiment with GPT embeddings
 Loading Lb vectors from:  ../../../../../data/spanish/dataset/oficialDatasetEAIM2026_pseudolabeling.csv
-Label distribution: {False: 6765, True: 554}
+Label distribution: {0: 6077, 1: 1242}
 X shape: (7319, 1536)
 y shape: (7319,)
 
+Splitting data...
+
 Data con el spliting...
-Label distribution en TRAIN: {0: 5412, 1: 443}
-Label distribution en TEST: {0: 1353, 1: 111}
+Label distribution en TRAIN: {0: 4861, 1: 994}
+Label distribution en TEST: {0: 1216, 1: 248}
 
 
 ==================================================
@@ -37,1045 +39,1052 @@ Data antes del undersampling ...
 X: (5855, 1536)
 y: (5855,)
 Apliying UNDERSAMPLE
-443
-Label distribution: {0: 443, 1: 443}
-X shape: (886, 1536)
-y shape: (886,)
+994
+Label distribution: {0: 994, 1: 994}
+X shape: (1988, 1536)
+y shape: (1988,)
 Resultados con MLP
 
 Entrenando red 1 con capas [1536, 32, 1]
 
 --- Iteración 1 de 4 para la red 1 ---
-Epoch [0/30] Train Loss: 0.6496, Test Loss: 0.7169, F1: 0.2272, AUC: 0.8498
-Epoch [10/30] Train Loss: 0.3669, Test Loss: 0.4838, F1: 0.3644, AUC: 0.8783
-Epoch [20/30] Train Loss: 0.3126, Test Loss: 0.4734, F1: 0.3860, AUC: 0.8911
-Mejores resultados en la época:  28
-f1-score 0.4489795918367347
-AUC según el mejor F1-score 0.895034724303017
+Epoch [0/30] Train Loss: 0.6825, Test Loss: 0.6858, F1: 0.3974, AUC: 0.8058
+Epoch [10/30] Train Loss: 0.5380, Test Loss: 0.4220, F1: 0.5472, AUC: 0.8277
+Epoch [20/30] Train Loss: 0.4921, Test Loss: 0.4445, F1: 0.5533, AUC: 0.8458
+Mejores resultados en la época:  16
+f1-score 0.5756457564575646
+AUC según el mejor F1-score 0.8410242466044142
 Confusion Matrix:
- [[1160  193]
- [  23   88]]
+ [[1078  138]
+ [  92  156]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8429
+Precision:  0.5306
+Recall:     0.6290
+F1-score:   0.5756
+
+--- Iteración 2 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6883, Test Loss: 0.7328, F1: 0.3210, AUC: 0.7979
+Epoch [10/30] Train Loss: 0.5080, Test Loss: 0.4101, F1: 0.5760, AUC: 0.8416
+Epoch [20/30] Train Loss: 0.4659, Test Loss: 0.7298, F1: 0.4412, AUC: 0.8511
+Mejores resultados en la época:  10
+f1-score 0.5760286225402504
+AUC según el mejor F1-score 0.8415829928904923
+Confusion Matrix:
+ [[1066  150]
+ [  87  161]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8381
+Precision:  0.5177
+Recall:     0.6492
+F1-score:   0.5760
+
+--- Iteración 3 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6692, Test Loss: 0.7043, F1: 0.3656, AUC: 0.7971
+Epoch [10/30] Train Loss: 0.4974, Test Loss: 0.6061, F1: 0.4682, AUC: 0.8430
+Epoch [20/30] Train Loss: 0.4676, Test Loss: 0.4163, F1: 0.5585, AUC: 0.8499
+Mejores resultados en la época:  14
+f1-score 0.5735294117647058
+AUC según el mejor F1-score 0.8465354414261461
+Confusion Matrix:
+ [[1076  140]
+ [  92  156]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8415
+Precision:  0.5270
+Recall:     0.6290
+F1-score:   0.5735
+
+--- Iteración 4 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6946, Test Loss: 0.7284, F1: 0.2897, AUC: 0.7871
+Epoch [10/30] Train Loss: 0.6130, Test Loss: 0.6683, F1: 0.4657, AUC: 0.8119
+Epoch [20/30] Train Loss: 0.5572, Test Loss: 0.6041, F1: 0.5170, AUC: 0.8202
+Mejores resultados en la época:  27
+f1-score 0.5678119349005425
+AUC según el mejor F1-score 0.8141364468378607
+Confusion Matrix:
+ [[1068  148]
+ [  91  157]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8367
+Precision:  0.5148
+Recall:     0.6331
+F1-score:   0.5678
+Tiempo total para red 1: 26.19 segundos
+
+Entrenando red 2 con capas [1536, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6850, Test Loss: 0.5814, F1: 0.1212, AUC: 0.8004
+Epoch [10/30] Train Loss: 0.5618, Test Loss: 0.4792, F1: 0.5417, AUC: 0.8421
+Epoch [20/30] Train Loss: 0.4503, Test Loss: 0.3269, F1: 0.5568, AUC: 0.8514
+Mejores resultados en la época:  16
+f1-score 0.575
+AUC según el mejor F1-score 0.849065550721562
+Confusion Matrix:
+ [[1065  151]
+ [  87  161]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8374
+Precision:  0.5160
+Recall:     0.6492
+F1-score:   0.5750
+
+--- Iteración 2 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6830, Test Loss: 0.6548, F1: 0.5015, AUC: 0.7978
+Epoch [10/30] Train Loss: 0.5062, Test Loss: 0.3536, F1: 0.5536, AUC: 0.8431
+Epoch [20/30] Train Loss: 0.4426, Test Loss: 0.4270, F1: 0.5559, AUC: 0.8516
+Mejores resultados en la época:  23
+f1-score 0.5676691729323309
+AUC según el mejor F1-score 0.8519504721986418
+Confusion Matrix:
+ [[1083  133]
+ [  97  151]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8429
+Precision:  0.5317
+Recall:     0.6089
+F1-score:   0.5677
+
+--- Iteración 3 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6821, Test Loss: 0.7841, F1: 0.2902, AUC: 0.8004
+Epoch [10/30] Train Loss: 0.5046, Test Loss: 0.6789, F1: 0.4393, AUC: 0.8411
+Epoch [20/30] Train Loss: 0.4932, Test Loss: 0.5309, F1: 0.4925, AUC: 0.8504
+Mejores resultados en la época:  9
+f1-score 0.5693950177935944
+AUC según el mejor F1-score 0.8389583775466893
+Confusion Matrix:
+ [[1062  154]
+ [  88  160]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8347
+Precision:  0.5096
+Recall:     0.6452
+F1-score:   0.5694
+
+--- Iteración 4 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6823, Test Loss: 0.6403, F1: 0.5259, AUC: 0.8021
+Epoch [10/30] Train Loss: 0.4934, Test Loss: 0.3579, F1: 0.5649, AUC: 0.8470
+Epoch [20/30] Train Loss: 0.4772, Test Loss: 0.3275, F1: 0.5571, AUC: 0.8516
+Mejores resultados en la época:  11
+f1-score 0.5758620689655173
+AUC según el mejor F1-score 0.8483227663412565
+Confusion Matrix:
+ [[1051  165]
+ [  81  167]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8320
+Precision:  0.5030
+Recall:     0.6734
+F1-score:   0.5759
+Tiempo total para red 2: 25.91 segundos
+
+Entrenando red 3 con capas [1536, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6910, Test Loss: 0.6498, F1: 0.0000, AUC: 0.7991
+Epoch [10/30] Train Loss: 0.5776, Test Loss: 0.5006, F1: 0.5118, AUC: 0.8490
+Epoch [20/30] Train Loss: 0.4417, Test Loss: 0.3362, F1: 0.5751, AUC: 0.8529
+Mejores resultados en la época:  15
+f1-score 0.5776173285198556
+AUC según el mejor F1-score 0.851048519736842
+Confusion Matrix:
+ [[1070  146]
+ [  88  160]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8402
+Precision:  0.5229
+Recall:     0.6452
+F1-score:   0.5776
+
+--- Iteración 2 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6948, Test Loss: 0.6792, F1: 0.0239, AUC: 0.7966
+Epoch [10/30] Train Loss: 0.4917, Test Loss: 0.4162, F1: 0.5613, AUC: 0.8432
+Epoch [20/30] Train Loss: 0.4830, Test Loss: 0.3292, F1: 0.5591, AUC: 0.8520
+Mejores resultados en la época:  12
+f1-score 0.5725338491295938
+AUC según el mejor F1-score 0.8483393463497454
+Confusion Matrix:
+ [[1095  121]
+ [ 100  148]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8490
+Precision:  0.5502
+Recall:     0.5968
+F1-score:   0.5725
+
+--- Iteración 3 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6866, Test Loss: 0.6991, F1: 0.3683, AUC: 0.7990
+Epoch [10/30] Train Loss: 0.5208, Test Loss: 0.6246, F1: 0.4662, AUC: 0.8483
+Epoch [20/30] Train Loss: 0.4533, Test Loss: 0.5042, F1: 0.5091, AUC: 0.8513
+Mejores resultados en la época:  14
+f1-score 0.5709156193895871
+AUC según el mejor F1-score 0.8498945511460101
+Confusion Matrix:
+ [[1066  150]
+ [  89  159]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8367
+Precision:  0.5146
+Recall:     0.6411
+F1-score:   0.5709
+
+--- Iteración 4 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6901, Test Loss: 0.6894, F1: 0.3926, AUC: 0.7971
+Epoch [10/30] Train Loss: 0.4907, Test Loss: 0.3501, F1: 0.5584, AUC: 0.8477
+Epoch [20/30] Train Loss: 0.4344, Test Loss: 0.5283, F1: 0.5166, AUC: 0.8511
+Mejores resultados en la época:  17
+f1-score 0.5665236051502146
+AUC según el mejor F1-score 0.8499509231748728
+Confusion Matrix:
+ [[1130   86]
+ [ 116  132]]
+For TF-IDF embbedings you are selecteing this columns:
+--> ['lyrics']
+Your are not adding cols numercis
+You are executing with [ALL] dataset
+--> PaTH:  ../../../../../data/spanish/LB_T/LB_fuss/lb_khipu_T.npy
+
+##################################################
+Running experiment with GPT embeddings
+Loading Lb vectors from:  ../../../../../data/spanish/dataset/oficialDatasetEAIM2026_pseudolabeling.csv
+Label distribution: {0: 6077, 1: 1242}
+X shape: (7319, 1536)
+y shape: (7319,)
+
+Splitting data...
+
+Data con el spliting...
+Label distribution en TRAIN: {0: 4861, 1: 994}
+Label distribution en TEST: {0: 1216, 1: 248}
+
+
+==================================================
+Data antes del undersampling ...
+X: (5855, 1536)
+y: (5855,)
+Apliying UNDERSAMPLE
+994
+Label distribution: {0: 994, 1: 994}
+X shape: (1988, 1536)
+y shape: (1988,)
+Resultados con MLP
+
+Entrenando red 1 con capas [1536, 32, 1]
+
+--- Iteración 1 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6924, Test Loss: 0.5238, F1: 0.0000, AUC: 0.8031
+Epoch [10/30] Train Loss: 0.5228, Test Loss: 0.4241, F1: 0.5600, AUC: 0.8403
+Epoch [20/30] Train Loss: 0.4831, Test Loss: 0.6235, F1: 0.4562, AUC: 0.8516
+Mejores resultados en la época:  15
+f1-score 0.5784114052953157
+AUC según el mejor F1-score 0.849048970713073
+Confusion Matrix:
+ [[1115  101]
+ [ 106  142]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8586
+Precision:  0.5844
+Recall:     0.5726
+F1-score:   0.5784
+
+--- Iteración 2 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6874, Test Loss: 0.7452, F1: 0.2928, AUC: 0.8050
+Epoch [10/30] Train Loss: 0.5259, Test Loss: 0.3834, F1: 0.5657, AUC: 0.8408
+Epoch [20/30] Train Loss: 0.4729, Test Loss: 0.4918, F1: 0.5192, AUC: 0.8514
+Mejores resultados en la época:  23
+f1-score 0.5787545787545788
+AUC según el mejor F1-score 0.852232332342954
+Confusion Matrix:
+ [[1076  140]
+ [  90  158]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8429
+Precision:  0.5302
+Recall:     0.6371
+F1-score:   0.5788
+
+--- Iteración 3 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.6794, Test Loss: 0.6742, F1: 0.4203, AUC: 0.8029
+Epoch [10/30] Train Loss: 0.5044, Test Loss: 0.6403, F1: 0.4578, AUC: 0.8434
+Epoch [20/30] Train Loss: 0.4741, Test Loss: 0.4067, F1: 0.5593, AUC: 0.8514
+Mejores resultados en la época:  19
+f1-score 0.5734513274336284
+AUC según el mejor F1-score 0.8514630199490664
+Confusion Matrix:
+ [[1061  155]
+ [  86  162]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
+Accuracy:   0.8354
+Precision:  0.5110
+Recall:     0.6532
+F1-score:   0.5735
+
+--- Iteración 4 de 4 para la red 1 ---
+Epoch [0/30] Train Loss: 0.7069, Test Loss: 0.6383, F1: 0.4954, AUC: 0.7932
+Epoch [10/30] Train Loss: 0.5300, Test Loss: 0.4973, F1: 0.5279, AUC: 0.8361
+Epoch [20/30] Train Loss: 0.4648, Test Loss: 0.3805, F1: 0.5634, AUC: 0.8477
+Mejores resultados en la época:  17
+f1-score 0.5764705882352941
+AUC según el mejor F1-score 0.8462900573005093
+Confusion Matrix:
+ [[1101  115]
+ [ 101  147]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
 Accuracy:   0.8525
-Precision:  0.3132
-Recall:     0.7928
-F1-score:   0.4490
-
---- Iteración 2 de 4 para la red 1 ---
-Epoch [0/30] Train Loss: 0.6999, Test Loss: 0.6743, F1: 0.2184, AUC: 0.8157
-Epoch [10/30] Train Loss: 0.5765, Test Loss: 0.7366, F1: 0.2552, AUC: 0.8609
-Epoch [20/30] Train Loss: 0.5116, Test Loss: 0.7216, F1: 0.2933, AUC: 0.8694
-Mejores resultados en la época:  24
-f1-score 0.371900826446281
-AUC según el mejor F1-score 0.8596945060359694
-Confusion Matrix:
- [[1070  283]
- [  21   90]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
-Accuracy:   0.7923
-Precision:  0.2413
-Recall:     0.8108
-F1-score:   0.3719
-
---- Iteración 3 de 4 para la red 1 ---
-Epoch [0/30] Train Loss: 0.6964, Test Loss: 0.7045, F1: 0.1681, AUC: 0.8127
-Epoch [10/30] Train Loss: 0.4503, Test Loss: 0.5450, F1: 0.3262, AUC: 0.8603
-Epoch [20/30] Train Loss: 0.3826, Test Loss: 0.5765, F1: 0.3218, AUC: 0.8745
-Mejores resultados en la época:  16
-f1-score 0.4253164556962025
-AUC según el mejor F1-score 0.8692661619490888
-Confusion Matrix:
- [[1153  200]
- [  27   84]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
-Accuracy:   0.8449
-Precision:  0.2958
-Recall:     0.7568
-F1-score:   0.4253
-
---- Iteración 4 de 4 para la red 1 ---
-Epoch [0/30] Train Loss: 0.6776, Test Loss: 0.5629, F1: 0.1944, AUC: 0.8456
-Epoch [10/30] Train Loss: 0.4076, Test Loss: 0.4966, F1: 0.3543, AUC: 0.8685
-Epoch [20/30] Train Loss: 0.3415, Test Loss: 0.4929, F1: 0.3593, AUC: 0.8838
-Mejores resultados en la época:  21
-f1-score 0.47752808988764045
-AUC según el mejor F1-score 0.8851068363263485
-Confusion Matrix:
- [[1193  160]
- [  26   85]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
-Accuracy:   0.8730
-Precision:  0.3469
-Recall:     0.7658
-F1-score:   0.4775
-Tiempo total para red 1: 16.39 segundos
+Precision:  0.5611
+Recall:     0.5927
+F1-score:   0.5765
+Tiempo total para red 1: 26.18 segundos
 
 Entrenando red 2 con capas [1536, 64, 32, 1]
 
 --- Iteración 1 de 4 para la red 2 ---
-Epoch [0/30] Train Loss: 0.6816, Test Loss: 0.5285, F1: 0.0000, AUC: 0.8561
-Epoch [10/30] Train Loss: 0.3796, Test Loss: 0.3923, F1: 0.4163, AUC: 0.8743
-Epoch [20/30] Train Loss: 0.3094, Test Loss: 0.5287, F1: 0.3561, AUC: 0.8910
-Mejores resultados en la época:  17
-f1-score 0.4732394366197183
-AUC según el mejor F1-score 0.8878368390563514
-Confusion Matrix:
- [[1193  160]
- [  27   84]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
-Accuracy:   0.8723
-Precision:  0.3443
-Recall:     0.7568
-F1-score:   0.4732
-
---- Iteración 2 de 4 para la red 2 ---
-Epoch [0/30] Train Loss: 0.6951, Test Loss: 0.5873, F1: 0.0000, AUC: 0.8407
-Epoch [10/30] Train Loss: 0.3586, Test Loss: 0.3867, F1: 0.4203, AUC: 0.8819
-Epoch [20/30] Train Loss: 0.3052, Test Loss: 0.5435, F1: 0.3499, AUC: 0.8928
-Mejores resultados en la época:  26
-f1-score 0.5044510385756676
-AUC según el mejor F1-score 0.8961799937409695
-Confusion Matrix:
- [[1212  141]
- [  26   85]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
-Accuracy:   0.8859
-Precision:  0.3761
-Recall:     0.7658
-F1-score:   0.5045
-
---- Iteración 3 de 4 para la red 2 ---
-Epoch [0/30] Train Loss: 0.6927, Test Loss: 0.7869, F1: 0.1410, AUC: 0.8497
-Epoch [10/30] Train Loss: 0.4104, Test Loss: 0.9791, F1: 0.2339, AUC: 0.8753
-Epoch [20/30] Train Loss: 0.3165, Test Loss: 0.6537, F1: 0.3188, AUC: 0.8889
-Mejores resultados en la época:  18
-f1-score 0.47293447293447294
-AUC según el mejor F1-score 0.8863186911967401
-Confusion Matrix:
- [[1196  157]
- [  28   83]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
-Accuracy:   0.8736
-Precision:  0.3458
-Recall:     0.7477
-F1-score:   0.4729
-
---- Iteración 4 de 4 para la red 2 ---
-Epoch [0/30] Train Loss: 0.6779, Test Loss: 0.6265, F1: 0.3893, AUC: 0.8515
-Epoch [10/30] Train Loss: 0.4007, Test Loss: 0.5471, F1: 0.3327, AUC: 0.8809
-Epoch [20/30] Train Loss: 0.2923, Test Loss: 0.5106, F1: 0.3672, AUC: 0.8933
-Mejores resultados en la época:  24
-f1-score 0.5044510385756676
-AUC según el mejor F1-score 0.8953010660327734
-Confusion Matrix:
- [[1212  141]
- [  26   85]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
-Accuracy:   0.8859
-Precision:  0.3761
-Recall:     0.7658
-F1-score:   0.5045
-Tiempo total para red 2: 14.17 segundos
-
-Entrenando red 3 con capas [1536, 128, 64, 32, 1]
-
---- Iteración 1 de 4 para la red 3 ---
-Epoch [0/30] Train Loss: 0.6915, Test Loss: 0.6712, F1: 0.4028, AUC: 0.8572
-Epoch [10/30] Train Loss: 0.3550, Test Loss: 0.4285, F1: 0.4018, AUC: 0.8830
-Epoch [20/30] Train Loss: 0.2956, Test Loss: 0.3400, F1: 0.4718, AUC: 0.8952
-Mejores resultados en la época:  21
-f1-score 0.4887640449438202
-AUC según el mejor F1-score 0.8956473102814566
-Confusion Matrix:
- [[1195  158]
- [  24   87]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
-Accuracy:   0.8757
-Precision:  0.3551
-Recall:     0.7838
-F1-score:   0.4888
-
---- Iteración 2 de 4 para la red 3 ---
-Epoch [0/30] Train Loss: 0.6923, Test Loss: 0.7645, F1: 0.1410, AUC: 0.8480
-Epoch [10/30] Train Loss: 0.3563, Test Loss: 0.6446, F1: 0.3102, AUC: 0.8813
-Epoch [20/30] Train Loss: 0.2760, Test Loss: 0.5150, F1: 0.3665, AUC: 0.8951
-Mejores resultados en la época:  23
-f1-score 0.5151515151515151
-AUC según el mejor F1-score 0.8963264816923354
-Confusion Matrix:
- [[1219  134]
- [  26   85]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
-Accuracy:   0.8907
-Precision:  0.3881
-Recall:     0.7658
-F1-score:   0.5152
-
---- Iteración 3 de 4 para la red 3 ---
-Epoch [0/30] Train Loss: 0.6958, Test Loss: 0.7924, F1: 0.1410, AUC: 0.8499
-Epoch [10/30] Train Loss: 0.3629, Test Loss: 0.4682, F1: 0.3689, AUC: 0.8805
-Epoch [20/30] Train Loss: 0.2745, Test Loss: 0.4864, F1: 0.3752, AUC: 0.8940
-Mejores resultados en la época:  13
-f1-score 0.46900269541778977
-AUC según el mejor F1-score 0.8868646917427406
-Confusion Matrix:
- [[1180  173]
- [  24   87]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
-Accuracy:   0.8654
-Precision:  0.3346
-Recall:     0.7838
-F1-score:   0.4690
-
---- Iteración 4 de 4 para la red 3 ---
-Epoch [0/30] Train Loss: 0.6900, Test Loss: 0.6482, F1: 0.1463, AUC: 0.8503
-Epoch [10/30] Train Loss: 0.3656, Test Loss: 0.3579, F1: 0.4485, AUC: 0.8828
-Epoch [20/30] Train Loss: 0.3065, Test Loss: 0.5781, F1: 0.3458, AUC: 0.8942
-Mejores resultados en la época:  28
-f1-score 0.4727272727272727
-AUC según el mejor F1-score 0.8961733351977254
-Confusion Matrix:
- [[1170  183]
- [  20   91]]
-For TF-IDF embbedings you are selecteing this columns:
---> ['lyrics']
-Your are not adding cols numercis
-You are executing with [ALL] dataset
---> PaTH:  ../../../../../data/spanish/LB_T/LB_fuss/lb_khipu_T.npy
-
-##################################################
-Running experiment with GPT embeddings
-Loading Lb vectors from:  ../../../../../data/spanish/dataset/oficialDatasetEAIM2026_pseudolabeling.csv
-Label distribution: {False: 6765, True: 554}
-X shape: (7319, 1536)
-y shape: (7319,)
-
-Data con el spliting...
-Label distribution en TRAIN: {0: 5412, 1: 443}
-Label distribution en TEST: {0: 1353, 1: 111}
-
-
-==================================================
-Data antes del undersampling ...
-X: (5855, 1536)
-y: (5855,)
-Apliying UNDERSAMPLE
-443
-Label distribution: {0: 443, 1: 443}
-X shape: (886, 1536)
-y shape: (886,)
-Resultados con MLP
-
-Entrenando red 1 con capas [1536, 32, 1]
-
---- Iteración 1 de 4 para la red 1 ---
-Epoch [0/30] Train Loss: 0.6304, Test Loss: 0.6468, F1: 0.2819, AUC: 0.8475
-Epoch [10/30] Train Loss: 0.3674, Test Loss: 0.7368, F1: 0.2849, AUC: 0.8788
-Epoch [20/30] Train Loss: 0.3092, Test Loss: 0.2955, F1: 0.4956, AUC: 0.8914
-Mejores resultados en la época:  29
-f1-score 0.5209003215434084
-AUC según el mejor F1-score 0.894814992375968
-Confusion Matrix:
- [[1234  119]
- [  30   81]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
-Accuracy:   0.8982
-Precision:  0.4050
-Recall:     0.7297
-F1-score:   0.5209
-
---- Iteración 2 de 4 para la red 1 ---
-Epoch [0/30] Train Loss: 0.6774, Test Loss: 0.7409, F1: 0.1716, AUC: 0.8514
-Epoch [10/30] Train Loss: 0.4077, Test Loss: 0.6456, F1: 0.2915, AUC: 0.8724
-Epoch [20/30] Train Loss: 0.3421, Test Loss: 0.2793, F1: 0.4969, AUC: 0.8881
-Mejores resultados en la época:  29
-f1-score 0.49851632047477745
-AUC según el mejor F1-score 0.8937229912839669
-Confusion Matrix:
- [[1211  142]
- [  27   84]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
-Accuracy:   0.8846
-Precision:  0.3717
-Recall:     0.7568
-F1-score:   0.4985
-
---- Iteración 3 de 4 para la red 1 ---
-Epoch [0/30] Train Loss: 0.6351, Test Loss: 0.6139, F1: 0.3156, AUC: 0.8535
-Epoch [10/30] Train Loss: 0.3744, Test Loss: 0.4964, F1: 0.3569, AUC: 0.8809
-Epoch [20/30] Train Loss: 0.3132, Test Loss: 0.4705, F1: 0.3891, AUC: 0.8919
-Mejores resultados en la época:  15
-f1-score 0.5082508250825083
-AUC según el mejor F1-score 0.8882829614536932
-Confusion Matrix:
- [[1238  115]
- [  34   77]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
-Accuracy:   0.8982
-Precision:  0.4010
-Recall:     0.6937
-F1-score:   0.5083
-
---- Iteración 4 de 4 para la red 1 ---
-Epoch [0/30] Train Loss: 0.6526, Test Loss: 0.5289, F1: 0.4054, AUC: 0.8437
-Epoch [10/30] Train Loss: 0.4210, Test Loss: 0.3058, F1: 0.4615, AUC: 0.8751
-Epoch [20/30] Train Loss: 0.3235, Test Loss: 0.5173, F1: 0.3654, AUC: 0.8887
-Mejores resultados en la época:  28
-f1-score 0.5015673981191222
-AUC según el mejor F1-score 0.8933634299487958
-Confusion Matrix:
- [[1225  128]
- [  31   80]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_49217.png
-Accuracy:   0.8914
-Precision:  0.3846
-Recall:     0.7207
-F1-score:   0.5016
-Tiempo total para red 1: 16.40 segundos
-
-Entrenando red 2 con capas [1536, 64, 32, 1]
-
---- Iteración 1 de 4 para la red 2 ---
-Epoch [0/30] Train Loss: 0.6947, Test Loss: 0.6922, F1: 0.2332, AUC: 0.8338
-Epoch [10/30] Train Loss: 0.3651, Test Loss: 0.3425, F1: 0.4427, AUC: 0.8764
-Epoch [20/30] Train Loss: 0.3123, Test Loss: 0.3567, F1: 0.4548, AUC: 0.8913
-Mejores resultados en la época:  29
-f1-score 0.5245901639344263
-AUC según el mejor F1-score 0.8956606273679444
-Confusion Matrix:
- [[1239  114]
- [  31   80]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
-Accuracy:   0.9010
-Precision:  0.4124
-Recall:     0.7207
-F1-score:   0.5246
-
---- Iteración 2 de 4 para la red 2 ---
-Epoch [0/30] Train Loss: 0.6963, Test Loss: 0.6590, F1: 0.0000, AUC: 0.8276
-Epoch [10/30] Train Loss: 0.3958, Test Loss: 0.4576, F1: 0.3750, AUC: 0.8675
-Epoch [20/30] Train Loss: 0.3271, Test Loss: 0.5252, F1: 0.3602, AUC: 0.8863
-Mejores resultados en la época:  24
-f1-score 0.45478036175710596
-AUC según el mejor F1-score 0.8903670854890366
-Confusion Matrix:
- [[1165  188]
- [  23   88]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
-Accuracy:   0.8559
-Precision:  0.3188
-Recall:     0.7928
-F1-score:   0.4548
-
---- Iteración 3 de 4 para la red 2 ---
-Epoch [0/30] Train Loss: 0.6901, Test Loss: 0.6979, F1: 0.2211, AUC: 0.8455
-Epoch [10/30] Train Loss: 0.3621, Test Loss: 0.3887, F1: 0.4289, AUC: 0.8794
-Epoch [20/30] Train Loss: 0.3099, Test Loss: 0.3551, F1: 0.4595, AUC: 0.8925
-Mejores resultados en la época:  22
-f1-score 0.4835164835164835
-AUC según el mejor F1-score 0.8931570151082346
-Confusion Matrix:
- [[1188  165]
- [  23   88]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
-Accuracy:   0.8716
-Precision:  0.3478
-Recall:     0.7928
-F1-score:   0.4835
-
---- Iteración 4 de 4 para la red 2 ---
-Epoch [0/30] Train Loss: 0.6863, Test Loss: 0.6947, F1: 0.2296, AUC: 0.8496
-Epoch [10/30] Train Loss: 0.3453, Test Loss: 0.6292, F1: 0.3122, AUC: 0.8812
-Epoch [20/30] Train Loss: 0.2841, Test Loss: 0.4552, F1: 0.3917, AUC: 0.8929
-Mejores resultados en la época:  24
-f1-score 0.48863636363636365
-AUC según el mejor F1-score 0.8948149923759681
-Confusion Matrix:
- [[1198  155]
- [  25   86]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
-Accuracy:   0.8770
-Precision:  0.3568
-Recall:     0.7748
-F1-score:   0.4886
-Tiempo total para red 2: 14.15 segundos
-
-Entrenando red 3 con capas [1536, 128, 64, 32, 1]
-
---- Iteración 1 de 4 para la red 3 ---
-Epoch [0/30] Train Loss: 0.6849, Test Loss: 0.6816, F1: 0.2745, AUC: 0.8473
-Epoch [10/30] Train Loss: 0.3458, Test Loss: 0.3771, F1: 0.4279, AUC: 0.8844
-Epoch [20/30] Train Loss: 0.2916, Test Loss: 0.6433, F1: 0.3328, AUC: 0.8930
-Mejores resultados en la época:  8
-f1-score 0.4797297297297297
-AUC según el mejor F1-score 0.8803726120799291
-Confusion Matrix:
- [[1239  114]
- [  40   71]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
-Accuracy:   0.8948
-Precision:  0.3838
-Recall:     0.6396
-F1-score:   0.4797
-
---- Iteración 2 de 4 para la red 3 ---
-Epoch [0/30] Train Loss: 0.6814, Test Loss: 0.6817, F1: 0.2683, AUC: 0.8436
-Epoch [10/30] Train Loss: 0.3449, Test Loss: 0.4487, F1: 0.3828, AUC: 0.8839
-Epoch [20/30] Train Loss: 0.2828, Test Loss: 0.4201, F1: 0.4199, AUC: 0.8949
-Mejores resultados en la época:  25
-f1-score 0.509090909090909
-AUC según el mejor F1-score 0.8960667985058229
-Confusion Matrix:
- [[1218  135]
- [  27   84]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
-Accuracy:   0.8893
-Precision:  0.3836
-Recall:     0.7568
-F1-score:   0.5091
-
---- Iteración 3 de 4 para la red 3 ---
-Epoch [0/30] Train Loss: 0.6807, Test Loss: 0.6913, F1: 0.2420, AUC: 0.8498
-Epoch [10/30] Train Loss: 0.3817, Test Loss: 0.6319, F1: 0.3144, AUC: 0.8876
-Epoch [20/30] Train Loss: 0.2539, Test Loss: 0.4089, F1: 0.4326, AUC: 0.8959
-Mejores resultados en la época:  22
-f1-score 0.5222929936305732
-AUC según el mejor F1-score 0.8963264816923353
-Confusion Matrix:
- [[1232  121]
- [  29   82]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
-Accuracy:   0.8975
-Precision:  0.4039
-Recall:     0.7387
-F1-score:   0.5223
-
---- Iteración 4 de 4 para la red 3 ---
-Epoch [0/30] Train Loss: 0.6909, Test Loss: 0.7422, F1: 0.1410, AUC: 0.8513
-Epoch [10/30] Train Loss: 0.4314, Test Loss: 0.2605, F1: 0.5035, AUC: 0.8850
-Epoch [20/30] Train Loss: 0.3005, Test Loss: 0.5999, F1: 0.3475, AUC: 0.8945
-Mejores resultados en la época:  17
-f1-score 0.50920245398773
-AUC según el mejor F1-score 0.8933634299487958
-Confusion Matrix:
- [[1221  132]
- [  28   83]]
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
-Accuracy:   0.8907
-Precision:  0.3860
-Recall:     0.7477
-F1-score:   0.5092
-Tiempo total para red 3: 14.86 segundos
-
-Entrenando red 4 con capas [1536, 256, 128, 64, 32, 1]
-
---- Iteración 1 de 4 para la red 4 ---
-Epoch [0/30] Train Loss: 0.6916, Test Loss: 0.7055, F1: 0.1612, AUC: 0.8585
-Epoch [10/30] Train Loss: 0.3455, Test Loss: 0.4934, F1: 0.3694, AUC: 0.8880
-Epoch [20/30] Train Loss: 0.3405, Test Loss: 0.4486, F1: 0.3835, AUC: 0.8954
-Mejores resultados en la época:  26
-f1-score 0.5043988269794721
-AUC según el mejor F1-score 0.8962399206301646
-Confusion Matrix:
- [[1209  144]
- [  25   86]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
-Accuracy:   0.8846
-Precision:  0.3739
-Recall:     0.7748
-F1-score:   0.5044
-
---- Iteración 2 de 4 para la red 4 ---
-Epoch [0/30] Train Loss: 0.6940, Test Loss: 0.7233, F1: 0.1410, AUC: 0.8472
-Epoch [10/30] Train Loss: 0.3795, Test Loss: 0.3625, F1: 0.4478, AUC: 0.8867
-Epoch [20/30] Train Loss: 0.2655, Test Loss: 0.6249, F1: 0.3445, AUC: 0.8973
-Mejores resultados en la época:  9
-f1-score 0.5103448275862069
-AUC según el mejor F1-score 0.8857860077372272
-Confusion Matrix:
- [[1248  105]
- [  37   74]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
-Accuracy:   0.9030
-Precision:  0.4134
-Recall:     0.6667
-F1-score:   0.5103
-
---- Iteración 3 de 4 para la red 4 ---
-Epoch [0/30] Train Loss: 0.6916, Test Loss: 0.6441, F1: 0.0000, AUC: 0.8498
-Epoch [10/30] Train Loss: 0.3394, Test Loss: 0.6292, F1: 0.3293, AUC: 0.8830
-Epoch [20/30] Train Loss: 0.2801, Test Loss: 0.6831, F1: 0.3311, AUC: 0.8922
-Mejores resultados en la época:  16
-f1-score 0.5030674846625767
-AUC según el mejor F1-score 0.8929838929838929
-Confusion Matrix:
- [[1220  133]
- [  29   82]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
-Accuracy:   0.8893
-Precision:  0.3814
-Recall:     0.7387
-F1-score:   0.5031
-
---- Iteración 4 de 4 para la red 4 ---
-Epoch [0/30] Train Loss: 0.6968, Test Loss: 0.7406, F1: 0.1410, AUC: 0.8386
-Epoch [10/30] Train Loss: 0.3775, Test Loss: 0.6599, F1: 0.3027, AUC: 0.8811
-Epoch [20/30] Train Loss: 0.3397, Test Loss: 0.6063, F1: 0.3333, AUC: 0.8913
-Mejores resultados en la época:  22
-f1-score 0.4941860465116279
-AUC según el mejor F1-score 0.8930837711325517
-Confusion Matrix:
- [[1205  148]
- [  26   85]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
-Accuracy:   0.8811
-Precision:  0.3648
-Recall:     0.7658
-F1-score:   0.4942
-Tiempo total para red 4: 15.49 segundos
-
-Entrenando red 5 con capas [1536, 512, 256, 128, 64, 1]
-
---- Iteración 1 de 4 para la red 5 ---
-Epoch [0/30] Train Loss: 0.6943, Test Loss: 0.6507, F1: 0.0000, AUC: 0.8495
-Epoch [10/30] Train Loss: 0.3483, Test Loss: 0.7342, F1: 0.3008, AUC: 0.8894
-Epoch [20/30] Train Loss: 0.2510, Test Loss: 0.4302, F1: 0.4097, AUC: 0.8951
-Mejores resultados en la época:  14
-f1-score 0.5292096219931272
-AUC según el mejor F1-score 0.8928706977487466
-Confusion Matrix:
- [[1250  103]
- [  34   77]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
-Accuracy:   0.9064
-Precision:  0.4278
-Recall:     0.6937
-F1-score:   0.5292
-
---- Iteración 2 de 4 para la red 5 ---
-Epoch [0/30] Train Loss: 0.6920, Test Loss: 0.6821, F1: 0.3730, AUC: 0.8526
-Epoch [10/30] Train Loss: 0.3418, Test Loss: 0.5061, F1: 0.3562, AUC: 0.8854
-Epoch [20/30] Train Loss: 0.2483, Test Loss: 0.3726, F1: 0.4639, AUC: 0.8963
-Mejores resultados en la época:  16
-f1-score 0.535593220338983
-AUC según el mejor F1-score 0.8942090649407722
-Confusion Matrix:
- [[1248  105]
- [  32   79]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
-Accuracy:   0.9064
-Precision:  0.4293
-Recall:     0.7117
-F1-score:   0.5356
-
---- Iteración 3 de 4 para la red 5 ---
-Epoch [0/30] Train Loss: 0.6815, Test Loss: 0.7043, F1: 0.2204, AUC: 0.8506
-Epoch [10/30] Train Loss: 0.3507, Test Loss: 0.9053, F1: 0.2533, AUC: 0.8879
-Epoch [20/30] Train Loss: 0.2547, Test Loss: 0.4305, F1: 0.4124, AUC: 0.8960
-Mejores resultados en la época:  26
-f1-score 0.5418326693227091
-AUC según el mejor F1-score 0.8944154797813335
-Confusion Matrix:
- [[1281   72]
- [  43   68]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
-Accuracy:   0.9214
-Precision:  0.4857
-Recall:     0.6126
-F1-score:   0.5418
-
---- Iteración 4 de 4 para la red 5 ---
-Epoch [0/30] Train Loss: 0.6890, Test Loss: 0.5768, F1: 0.0000, AUC: 0.8533
-Epoch [10/30] Train Loss: 0.2970, Test Loss: 0.4025, F1: 0.4198, AUC: 0.8926
-Epoch [20/30] Train Loss: 0.2413, Test Loss: 0.5736, F1: 0.3586, AUC: 0.8951
-Mejores resultados en la época:  23
-f1-score 0.49299719887955185
-AUC según el mejor F1-score 0.8951079682787
-Confusion Matrix:
- [[1195  158]
- [  23   88]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
-Accuracy:   0.8764
-Precision:  0.3577
-Recall:     0.7928
-F1-score:   0.4930
-Tiempo total para red 5: 16.11 segundos
-
-Entrenando red 6 con capas [1536, 1024, 512, 256, 128, 64, 32, 1]
-
---- Iteración 1 de 4 para la red 6 ---
-Epoch [0/30] Train Loss: 0.6936, Test Loss: 0.6657, F1: 0.0000, AUC: 0.8580
-Epoch [10/30] Train Loss: 0.3214, Test Loss: 0.6795, F1: 0.3239, AUC: 0.8887
-Epoch [20/30] Train Loss: 0.2603, Test Loss: 0.4472, F1: 0.3901, AUC: 0.8967
-Mejores resultados en la época:  12
-f1-score 0.5126582278481012
-AUC según el mejor F1-score 0.8921848677946239
-Confusion Matrix:
- [[1229  124]
- [  30   81]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
-Accuracy:   0.8948
-Precision:  0.3951
-Recall:     0.7297
-F1-score:   0.5127
-
---- Iteración 2 de 4 para la red 6 ---
-Epoch [0/30] Train Loss: 0.6940, Test Loss: 0.6943, F1: 0.1410, AUC: 0.8317
-Epoch [10/30] Train Loss: 0.3577, Test Loss: 0.4077, F1: 0.3904, AUC: 0.8825
-Epoch [20/30] Train Loss: 0.2744, Test Loss: 0.3450, F1: 0.4697, AUC: 0.8957
-Mejores resultados en la época:  13
-f1-score 0.5121107266435986
-AUC según el mejor F1-score 0.8898144263997922
-Confusion Matrix:
- [[1249  104]
- [  37   74]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
-Accuracy:   0.9037
-Precision:  0.4157
-Recall:     0.6667
-F1-score:   0.5121
-
---- Iteración 3 de 4 para la red 6 ---
-Epoch [0/30] Train Loss: 0.6933, Test Loss: 0.7028, F1: 0.1410, AUC: 0.8521
-Epoch [10/30] Train Loss: 0.4413, Test Loss: 0.3765, F1: 0.4462, AUC: 0.8839
-Epoch [20/30] Train Loss: 0.2701, Test Loss: 0.2453, F1: 0.5306, AUC: 0.8961
+Epoch [0/30] Train Loss: 0.6847, Test Loss: 0.6084, F1: 0.0849, AUC: 0.8012
+Epoch [10/30] Train Loss: 0.4867, Test Loss: 0.3792, F1: 0.5677, AUC: 0.8469
+Epoch [20/30] Train Loss: 0.4688, Test Loss: 0.3698, F1: 0.5731, AUC: 0.8524
 Mejores resultados en la época:  20
-f1-score 0.5306122448979592
-AUC según el mejor F1-score 0.8961400424815059
+f1-score 0.573055028462998
+AUC según el mejor F1-score 0.852394816426146
 Confusion Matrix:
- [[1248  105]
- [  33   78]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
-Accuracy:   0.9057
-Precision:  0.4262
-Recall:     0.7027
-F1-score:   0.5306
+ [[1088  128]
+ [  97  151]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8463
+Precision:  0.5412
+Recall:     0.6089
+F1-score:   0.5731
 
---- Iteración 4 de 4 para la red 6 ---
-Epoch [0/30] Train Loss: 0.6925, Test Loss: 0.7370, F1: 0.1410, AUC: 0.8462
-Epoch [10/30] Train Loss: 0.3824, Test Loss: 0.3604, F1: 0.4251, AUC: 0.8894
-Epoch [20/30] Train Loss: 0.3065, Test Loss: 0.2479, F1: 0.5165, AUC: 0.8966
+--- Iteración 2 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6958, Test Loss: 0.7233, F1: 0.2897, AUC: 0.8044
+Epoch [10/30] Train Loss: 0.5003, Test Loss: 0.3752, F1: 0.5720, AUC: 0.8451
+Epoch [20/30] Train Loss: 0.4756, Test Loss: 0.4341, F1: 0.5529, AUC: 0.8520
+Mejores resultados en la época:  15
+f1-score 0.5751633986928104
+AUC según el mejor F1-score 0.8502626273344653
+Confusion Matrix:
+ [[1137   79]
+ [ 116  132]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8668
+Precision:  0.6256
+Recall:     0.5323
+F1-score:   0.5752
+
+--- Iteración 3 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6872, Test Loss: 0.7310, F1: 0.2902, AUC: 0.7843
+Epoch [10/30] Train Loss: 0.4875, Test Loss: 0.4020, F1: 0.5704, AUC: 0.8453
+Epoch [20/30] Train Loss: 0.4507, Test Loss: 0.7392, F1: 0.4383, AUC: 0.8523
+Mejores resultados en la época:  17
+f1-score 0.5763358778625954
+AUC según el mejor F1-score 0.8519173121816639
+Confusion Matrix:
+ [[1091  125]
+ [  97  151]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8484
+Precision:  0.5471
+Recall:     0.6089
+F1-score:   0.5763
+
+--- Iteración 4 de 4 para la red 2 ---
+Epoch [0/30] Train Loss: 0.6818, Test Loss: 0.5648, F1: 0.0080, AUC: 0.8018
+Epoch [10/30] Train Loss: 0.5012, Test Loss: 0.5503, F1: 0.4835, AUC: 0.8469
+Epoch [20/30] Train Loss: 0.4563, Test Loss: 0.5064, F1: 0.5092, AUC: 0.8516
 Mejores resultados en la época:  27
-f1-score 0.5376344086021505
-AUC según el mejor F1-score 0.8950014315867975
+f1-score 0.5692599620493358
+AUC según el mejor F1-score 0.8505975435059423
 Confusion Matrix:
- [[1260   93]
- [  36   75]]
-Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
-Accuracy:   0.9119
-Precision:  0.4464
-Recall:     0.6757
-F1-score:   0.5376
-Tiempo total para red 6: 19.47 segundos
-Saved on: outputs_only_text_pseudo/2/gpt
+ [[1087  129]
+ [  98  150]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_100481.png
+Accuracy:   0.8449
+Precision:  0.5376
+Recall:     0.6048
+F1-score:   0.5693
+Tiempo total para red 2: 25.91 segundos
 
-==============================
-Model: Logistic Regression
-Accuracy:  0.8005
-Precision: 0.2493
-Recall:    0.8108
-F1-score:  0.3814
-              precision    recall  f1-score   support
+Entrenando red 3 con capas [1536, 128, 64, 32, 1]
 
-           0       0.98      0.80      0.88      1353
-           1       0.25      0.81      0.38       111
-
-    accuracy                           0.80      1464
-   macro avg       0.62      0.81      0.63      1464
-weighted avg       0.93      0.80      0.84      1464
-
-[[1082  271]
+--- Iteración 1 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6932, Test Loss: 0.6492, F1: 0.0000, AUC: 0.7957
+Epoch [10/30] Train Loss: 0.4875, Test Loss: 0.3486, F1: 0.5652, AUC: 0.8516
+Epoch [20/30] Train Loss: 0.4373, Test Loss: 0.3635, F1: 0.5605, AUC: 0.8520
+Mejores resultados en la época:  21
+f1-score 0.574468085106383
+AUC según el mejor F1-score 0.8515790800084891
+Confusion Matrix:
+ [[1129   87]
+ [ 113  135]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
-Accuracy:   0.8613
-Precision:  0.3321
-Recall:     0.8198
-F1-score:   0.4727
-Tiempo total para red 3: 14.85 segundos
+Accuracy:   0.8634
+Precision:  0.6081
+Recall:     0.5444
+F1-score:   0.5745
+
+--- Iteración 2 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6846, Test Loss: 0.7367, F1: 0.2944, AUC: 0.7986
+Epoch [10/30] Train Loss: 0.4992, Test Loss: 0.4216, F1: 0.5539, AUC: 0.8472
+Epoch [20/30] Train Loss: 0.4871, Test Loss: 0.4126, F1: 0.5623, AUC: 0.8502
+Mejores resultados en la época:  7
+f1-score 0.5746268656716418
+AUC según el mejor F1-score 0.8392535016977929
+Confusion Matrix:
+ [[1082  134]
+ [  94  154]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8443
+Precision:  0.5347
+Recall:     0.6210
+F1-score:   0.5746
+
+--- Iteración 3 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6897, Test Loss: 0.6257, F1: 0.1269, AUC: 0.8042
+Epoch [10/30] Train Loss: 0.5227, Test Loss: 0.3780, F1: 0.5725, AUC: 0.8472
+Epoch [20/30] Train Loss: 0.4700, Test Loss: 0.5021, F1: 0.5126, AUC: 0.8507
+Mejores resultados en la época:  16
+f1-score 0.5731225296442688
+AUC según el mejor F1-score 0.8501797272920204
+Confusion Matrix:
+ [[1103  113]
+ [ 103  145]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8525
+Precision:  0.5620
+Recall:     0.5847
+F1-score:   0.5731
+
+--- Iteración 4 de 4 para la red 3 ---
+Epoch [0/30] Train Loss: 0.6927, Test Loss: 0.6642, F1: 0.0000, AUC: 0.8003
+Epoch [10/30] Train Loss: 0.5048, Test Loss: 0.4257, F1: 0.5611, AUC: 0.8463
+Epoch [20/30] Train Loss: 0.4433, Test Loss: 0.4229, F1: 0.5466, AUC: 0.8516
+Mejores resultados en la época:  11
+f1-score 0.5703275529865125
+AUC según el mejor F1-score 0.8473080698217317
+Confusion Matrix:
+ [[1093  123]
+ [ 100  148]]
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8477
+Precision:  0.5461
+Recall:     0.5968
+F1-score:   0.5703
+Tiempo total para red 3: 28.63 segundos
 
 Entrenando red 4 con capas [1536, 256, 128, 64, 32, 1]
 
 --- Iteración 1 de 4 para la red 4 ---
-Epoch [0/30] Train Loss: 0.6859, Test Loss: 0.6182, F1: 0.2192, AUC: 0.8495
-Epoch [10/30] Train Loss: 0.3794, Test Loss: 0.5296, F1: 0.3456, AUC: 0.8869
-Epoch [20/30] Train Loss: 0.2789, Test Loss: 0.3371, F1: 0.4656, AUC: 0.8944
-Mejores resultados en la época:  11
-f1-score 0.5015479876160991
-AUC según el mejor F1-score 0.8883961566888395
+Epoch [0/30] Train Loss: 0.6937, Test Loss: 0.6986, F1: 0.3082, AUC: 0.8030
+Epoch [10/30] Train Loss: 0.5166, Test Loss: 0.5813, F1: 0.4669, AUC: 0.8478
+Epoch [20/30] Train Loss: 0.4770, Test Loss: 0.3623, F1: 0.5636, AUC: 0.8528
+Mejores resultados en la época:  8
+f1-score 0.5807692307692308
+AUC según el mejor F1-score 0.8452853087860781
 Confusion Matrix:
- [[1222  131]
- [  30   81]]
+ [[1095  121]
+ [  97  151]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
-Accuracy:   0.8900
-Precision:  0.3821
-Recall:     0.7297
-F1-score:   0.5015
+Accuracy:   0.8511
+Precision:  0.5551
+Recall:     0.6089
+F1-score:   0.5808
 
 --- Iteración 2 de 4 para la red 4 ---
-Epoch [0/30] Train Loss: 0.6940, Test Loss: 0.6973, F1: 0.1479, AUC: 0.8445
-Epoch [10/30] Train Loss: 0.3700, Test Loss: 0.3207, F1: 0.4560, AUC: 0.8857
-Epoch [20/30] Train Loss: 0.3007, Test Loss: 0.5024, F1: 0.3609, AUC: 0.8950
-Mejores resultados en la época:  26
-f1-score 0.5214521452145214
-AUC según el mejor F1-score 0.895394285638188
+Epoch [0/30] Train Loss: 0.6928, Test Loss: 0.7068, F1: 0.2899, AUC: 0.8039
+Epoch [10/30] Train Loss: 0.5162, Test Loss: 0.4031, F1: 0.5658, AUC: 0.8436
+Epoch [20/30] Train Loss: 0.4592, Test Loss: 0.4121, F1: 0.5657, AUC: 0.8530
+Mejores resultados en la época:  13
+f1-score 0.5775193798449613
+AUC según el mejor F1-score 0.8503919514006792
 Confusion Matrix:
- [[1240  113]
- [  32   79]]
+ [[1097  119]
+ [  99  149]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
-Accuracy:   0.9010
-Precision:  0.4115
-Recall:     0.7117
-F1-score:   0.5215
+Accuracy:   0.8511
+Precision:  0.5560
+Recall:     0.6008
+F1-score:   0.5775
 
 --- Iteración 3 de 4 para la red 4 ---
-Epoch [0/30] Train Loss: 0.6884, Test Loss: 0.6827, F1: 0.2893, AUC: 0.8498
-Epoch [10/30] Train Loss: 0.3697, Test Loss: 0.4433, F1: 0.3905, AUC: 0.8872
-Epoch [20/30] Train Loss: 0.2943, Test Loss: 0.4714, F1: 0.3796, AUC: 0.8933
-Mejores resultados en la época:  18
-f1-score 0.48179271708683474
-AUC según el mejor F1-score 0.8951079682787001
+Epoch [0/30] Train Loss: 0.6916, Test Loss: 0.7105, F1: 0.2967, AUC: 0.8027
+Epoch [10/30] Train Loss: 0.5032, Test Loss: 0.5141, F1: 0.5074, AUC: 0.8474
+Epoch [20/30] Train Loss: 0.4513, Test Loss: 0.4882, F1: 0.5250, AUC: 0.8527
+Mejores resultados en la época:  14
+f1-score 0.5744234800838575
+AUC según el mejor F1-score 0.851642084040747
 Confusion Matrix:
- [[1193  160]
- [  25   86]]
+ [[1124   92]
+ [ 111  137]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
-Accuracy:   0.8736
-Precision:  0.3496
-Recall:     0.7748
-F1-score:   0.4818
+Accuracy:   0.8613
+Precision:  0.5983
+Recall:     0.5524
+F1-score:   0.5744
 
 --- Iteración 4 de 4 para la red 4 ---
-Epoch [0/30] Train Loss: 0.6916, Test Loss: 0.6640, F1: 0.1550, AUC: 0.8485
-Epoch [10/30] Train Loss: 0.3508, Test Loss: 0.4607, F1: 0.3900, AUC: 0.8892
-Epoch [20/30] Train Loss: 0.2457, Test Loss: 0.4988, F1: 0.3825, AUC: 0.8951
-Mejores resultados en la época:  19
-f1-score 0.5014409221902018
-AUC según el mejor F1-score 0.8949947730435535
+Epoch [0/30] Train Loss: 0.6917, Test Loss: 0.7574, F1: 0.2897, AUC: 0.7996
+Epoch [10/30] Train Loss: 0.4948, Test Loss: 0.3533, F1: 0.5577, AUC: 0.8482
+Epoch [20/30] Train Loss: 0.4807, Test Loss: 0.3808, F1: 0.5521, AUC: 0.8511
+Mejores resultados en la época:  12
+f1-score 0.5735294117647058
+AUC según el mejor F1-score 0.851048519736842
 Confusion Matrix:
- [[1204  149]
- [  24   87]]
+ [[1076  140]
+ [  92  156]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
-Accuracy:   0.8818
-Precision:  0.3686
-Recall:     0.7838
-F1-score:   0.5014
-Tiempo total para red 4: 15.50 segundos
+Accuracy:   0.8415
+Precision:  0.5270
+Recall:     0.6290
+F1-score:   0.5735
+Tiempo total para red 4: 30.47 segundos
 
 Entrenando red 5 con capas [1536, 512, 256, 128, 64, 1]
 
 --- Iteración 1 de 4 para la red 5 ---
-Epoch [0/30] Train Loss: 0.6942, Test Loss: 0.6936, F1: 0.2363, AUC: 0.8443
-Epoch [10/30] Train Loss: 0.3621, Test Loss: 0.7175, F1: 0.2814, AUC: 0.8888
-Epoch [20/30] Train Loss: 0.2869, Test Loss: 0.3818, F1: 0.4259, AUC: 0.8948
-Mejores resultados en la época:  16
-f1-score 0.4985507246376812
-AUC según el mejor F1-score 0.8945553091894556
+Epoch [0/30] Train Loss: 0.6927, Test Loss: 0.6966, F1: 0.3551, AUC: 0.8005
+Epoch [10/30] Train Loss: 0.4850, Test Loss: 0.6520, F1: 0.4593, AUC: 0.8517
+Epoch [20/30] Train Loss: 0.4324, Test Loss: 0.4744, F1: 0.5329, AUC: 0.8485
+Mejores resultados en la época:  13
+f1-score 0.5676691729323309
+AUC según el mejor F1-score 0.8508860356536504
 Confusion Matrix:
- [[1205  148]
- [  25   86]]
+ [[1083  133]
+ [  97  151]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
-Accuracy:   0.8818
-Precision:  0.3675
-Recall:     0.7748
-F1-score:   0.4986
+Accuracy:   0.8429
+Precision:  0.5317
+Recall:     0.6089
+F1-score:   0.5677
 
 --- Iteración 2 de 4 para la red 5 ---
-Epoch [0/30] Train Loss: 0.6872, Test Loss: 0.7011, F1: 0.2170, AUC: 0.8510
-Epoch [10/30] Train Loss: 0.3668, Test Loss: 0.3550, F1: 0.4491, AUC: 0.8835
-Epoch [20/30] Train Loss: 0.2667, Test Loss: 0.5927, F1: 0.3506, AUC: 0.8975
-Mejores resultados en la época:  18
-f1-score 0.49025069637883006
-AUC según el mejor F1-score 0.895480846700359
+Epoch [0/30] Train Loss: 0.6927, Test Loss: 0.6679, F1: 0.0000, AUC: 0.7992
+Epoch [10/30] Train Loss: 0.4900, Test Loss: 0.4041, F1: 0.5743, AUC: 0.8507
+Epoch [20/30] Train Loss: 0.4363, Test Loss: 0.3266, F1: 0.5425, AUC: 0.8517
+Mejores resultados en la época:  10
+f1-score 0.5743243243243243
+AUC según el mejor F1-score 0.8506539155348048
 Confusion Matrix:
- [[1193  160]
- [  23   88]]
+ [[1042  174]
+ [  78  170]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
-Accuracy:   0.8750
-Precision:  0.3548
-Recall:     0.7928
-F1-score:   0.4903
+Accuracy:   0.8279
+Precision:  0.4942
+Recall:     0.6855
+F1-score:   0.5743
 
 --- Iteración 3 de 4 para la red 5 ---
-Epoch [0/30] Train Loss: 0.6949, Test Loss: 0.6839, F1: 0.1679, AUC: 0.8407
-Epoch [10/30] Train Loss: 0.3154, Test Loss: 0.3859, F1: 0.4303, AUC: 0.8903
-Epoch [20/30] Train Loss: 0.3018, Test Loss: 0.5934, F1: 0.3380, AUC: 0.8953
-Mejores resultados en la época:  17
-f1-score 0.4956772334293948
-AUC según el mejor F1-score 0.895760505516603
+Epoch [0/30] Train Loss: 0.6899, Test Loss: 0.5994, F1: 0.0000, AUC: 0.8031
+Epoch [10/30] Train Loss: 0.5760, Test Loss: 0.5265, F1: 0.5087, AUC: 0.8461
+Epoch [20/30] Train Loss: 0.4298, Test Loss: 0.5839, F1: 0.4881, AUC: 0.8513
+Mejores resultados en la época:  14
+f1-score 0.5743801652892562
+AUC según el mejor F1-score 0.8500437712224109
 Confusion Matrix:
- [[1203  150]
- [  25   86]]
+ [[1119   97]
+ [ 109  139]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
-Accuracy:   0.8805
-Precision:  0.3644
-Recall:     0.7748
-F1-score:   0.4957
+Accuracy:   0.8593
+Precision:  0.5890
+Recall:     0.5605
+F1-score:   0.5744
 
 --- Iteración 4 de 4 para la red 5 ---
-Epoch [0/30] Train Loss: 0.6962, Test Loss: 0.6651, F1: 0.0000, AUC: 0.8533
-Epoch [10/30] Train Loss: 0.3792, Test Loss: 0.3593, F1: 0.4324, AUC: 0.8870
-Epoch [20/30] Train Loss: 0.3554, Test Loss: 0.5426, F1: 0.3443, AUC: 0.8914
-Mejores resultados en la época:  17
-f1-score 0.5310344827586206
-AUC según el mejor F1-score 0.8922248190540873
+Epoch [0/30] Train Loss: 0.6941, Test Loss: 0.7064, F1: 0.2930, AUC: 0.7994
+Epoch [10/30] Train Loss: 0.5219, Test Loss: 0.4956, F1: 0.5165, AUC: 0.8481
+Epoch [20/30] Train Loss: 0.4717, Test Loss: 0.5176, F1: 0.5070, AUC: 0.8514
+Mejores resultados en la época:  12
+f1-score 0.5724508050089445
+AUC según el mejor F1-score 0.8502924713497454
 Confusion Matrix:
- [[1251  102]
- [  34   77]]
+ [[1065  151]
+ [  88  160]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
-Accuracy:   0.9071
-Precision:  0.4302
-Recall:     0.6937
-F1-score:   0.5310
-Tiempo total para red 5: 16.12 segundos
+Accuracy:   0.8367
+Precision:  0.5145
+Recall:     0.6452
+F1-score:   0.5725
+Tiempo total para red 5: 31.72 segundos
 
 Entrenando red 6 con capas [1536, 1024, 512, 256, 128, 64, 32, 1]
 
 --- Iteración 1 de 4 para la red 6 ---
-Epoch [0/30] Train Loss: 0.6917, Test Loss: 0.5880, F1: 0.0000, AUC: 0.8525
-Epoch [10/30] Train Loss: 0.3287, Test Loss: 0.3986, F1: 0.4262, AUC: 0.8912
-Epoch [20/30] Train Loss: 0.2535, Test Loss: 0.4721, F1: 0.3909, AUC: 0.8955
-Mejores resultados en la época:  14
-f1-score 0.5073746312684366
-AUC según el mejor F1-score 0.8941225038786016
+Epoch [0/30] Train Loss: 0.6947, Test Loss: 0.6684, F1: 0.0000, AUC: 0.7999
+Epoch [10/30] Train Loss: 0.6136, Test Loss: 0.6858, F1: 0.4579, AUC: 0.8456
+Epoch [20/30] Train Loss: 0.4748, Test Loss: 0.7119, F1: 0.4472, AUC: 0.8523
+Mejores resultados en la época:  13
+f1-score 0.5772811918063314
+AUC según el mejor F1-score 0.8497022230475383
 Confusion Matrix:
- [[1211  142]
- [  25   86]]
+ [[1082  134]
+ [  93  155]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
-Accuracy:   0.8859
-Precision:  0.3772
-Recall:     0.7748
-F1-score:   0.5074
+Accuracy:   0.8449
+Precision:  0.5363
+Recall:     0.6250
+F1-score:   0.5773
 
 --- Iteración 2 de 4 para la red 6 ---
-Epoch [0/30] Train Loss: 0.6941, Test Loss: 0.6873, F1: 0.0000, AUC: 0.8602
-Epoch [10/30] Train Loss: 0.3763, Test Loss: 0.4085, F1: 0.4149, AUC: 0.8882
-Epoch [20/30] Train Loss: 0.2866, Test Loss: 0.3675, F1: 0.4527, AUC: 0.8955
-Mejores resultados en la época:  21
-f1-score 0.5088757396449705
-AUC según el mejor F1-score 0.8965262379896525
+Epoch [0/30] Train Loss: 0.6946, Test Loss: 0.6827, F1: 0.0000, AUC: 0.7973
+Epoch [10/30] Train Loss: 0.5091, Test Loss: 0.4570, F1: 0.5545, AUC: 0.8467
+Epoch [20/30] Train Loss: 0.4463, Test Loss: 0.5114, F1: 0.5051, AUC: 0.8523
+Mejores resultados en la época:  19
+f1-score 0.5648535564853556
+AUC según el mejor F1-score 0.8523119163837012
 Confusion Matrix:
- [[1212  141]
- [  25   86]]
+ [[1121   95]
+ [ 113  135]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
-Accuracy:   0.8866
-Precision:  0.3789
-Recall:     0.7748
-F1-score:   0.5089
+Accuracy:   0.8579
+Precision:  0.5870
+Recall:     0.5444
+F1-score:   0.5649
 
 --- Iteración 3 de 4 para la red 6 ---
-Epoch [0/30] Train Loss: 0.6944, Test Loss: 0.6361, F1: 0.0000, AUC: 0.5834
-Epoch [10/30] Train Loss: 0.3642, Test Loss: 0.4784, F1: 0.3693, AUC: 0.8780
-Epoch [20/30] Train Loss: 0.2978, Test Loss: 0.5152, F1: 0.3658, AUC: 0.8939
-Mejores resultados en la época:  29
-f1-score 0.4943181818181818
-AUC según el mejor F1-score 0.8961000912220425
+Epoch [0/30] Train Loss: 0.6933, Test Loss: 0.7223, F1: 0.2897, AUC: 0.2037
+Epoch [10/30] Train Loss: 0.4713, Test Loss: 0.3426, F1: 0.5651, AUC: 0.8499
+Epoch [20/30] Train Loss: 0.5107, Test Loss: 0.5902, F1: 0.4982, AUC: 0.8510
+Mejores resultados en la época:  10
+f1-score 0.565121412803532
+AUC según el mejor F1-score 0.8498945511460102
 Confusion Matrix:
- [[1199  154]
- [  24   87]]
+ [[1139   77]
+ [ 120  128]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
-Accuracy:   0.8784
-Precision:  0.3610
-Recall:     0.7838
-F1-score:   0.4943
+Accuracy:   0.8654
+Precision:  0.6244
+Recall:     0.5161
+F1-score:   0.5651
 
 --- Iteración 4 de 4 para la red 6 ---
-Epoch [0/30] Train Loss: 0.6941, Test Loss: 0.6826, F1: 0.0000, AUC: 0.8553
-Epoch [10/30] Train Loss: 0.3636, Test Loss: 0.6823, F1: 0.2918, AUC: 0.8889
-Epoch [20/30] Train Loss: 0.2483, Test Loss: 0.4545, F1: 0.3884, AUC: 0.8971
-Mejores resultados en la época:  11
-f1-score 0.49846153846153846
-AUC según el mejor F1-score 0.8886758155050838
+Epoch [0/30] Train Loss: 0.6856, Test Loss: 0.5178, F1: 0.0000, AUC: 0.8032
+Epoch [10/30] Train Loss: 0.6224, Test Loss: 0.5315, F1: 0.5407, AUC: 0.8485
+Epoch [20/30] Train Loss: 0.5282, Test Loss: 0.3701, F1: 0.5753, AUC: 0.8516
+Mejores resultados en la época:  20
+f1-score 0.5753424657534246
+AUC según el mejor F1-score 0.8515558679966044
 Confusion Matrix:
- [[1220  133]
- [  30   81]]
+ [[1100  116]
+ [ 101  147]]
 Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
-Accuracy:   0.8887
-Precision:  0.3785
-Recall:     0.7297
-F1-score:   0.4985
-Tiempo total para red 6: 19.47 segundos
+Accuracy:   0.8518
+Precision:  0.5589
+Recall:     0.5927
+F1-score:   0.5753
+Tiempo total para red 6: 34.90 segundos
 Saved on: outputs_only_text_pseudo/2/gpt
 
 ==============================
 Model: Logistic Regression
-Accuracy:  0.8005
-Precision: 0.2493
-Recall:    0.8108
-F1-score:  0.3814
+Accuracy:  0.7432
+Precision: 0.3638
+Recall:    0.6895
+F1-score:  0.4763
               precision    recall  f1-score   support
 
-           0       0.98      0.80      0.88      1353
-           1       0.25      0.81      0.38       111
+           0       0.92      0.75      0.83      1216
+           1       0.36      0.69      0.48       248
 
-    accuracy                           0.80      1464
-   macro avg       0.62      0.81      0.63      1464
-weighted avg       0.93      0.80      0.84      1464
+    accuracy                           0.74      1464
+   macro avg       0.64      0.72      0.65      1464
+weighted avg       0.83      0.74      0.77      1464
 
-[[1082  271]
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [04:09:34] WARNING: /workspace/src/learner.cc:738: 
+[[917 299]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_207105.png
+Accuracy:   0.8620
+Precision:  0.6055
+Recall:     0.5323
+F1-score:   0.5665
+Tiempo total para red 3: 28.63 segundos
+
+Entrenando red 4 con capas [1536, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6947, Test Loss: 0.6933, F1: 0.3699, AUC: 0.8027
+Epoch [10/30] Train Loss: 0.5136, Test Loss: 0.3799, F1: 0.5753, AUC: 0.8463
+Epoch [20/30] Train Loss: 0.4514, Test Loss: 0.3352, F1: 0.5672, AUC: 0.8532
+Mejores resultados en la época:  11
+f1-score 0.5757575757575758
+AUC según el mejor F1-score 0.8474937659168083
+Confusion Matrix:
+ [[1088  128]
+ [  96  152]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
+Accuracy:   0.8470
+Precision:  0.5429
+Recall:     0.6129
+F1-score:   0.5758
+
+--- Iteración 2 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6804, Test Loss: 0.5545, F1: 0.0625, AUC: 0.8002
+Epoch [10/30] Train Loss: 0.4955, Test Loss: 0.4690, F1: 0.5330, AUC: 0.8498
+Epoch [20/30] Train Loss: 0.4547, Test Loss: 0.3460, F1: 0.3161, AUC: 0.8487
+Mejores resultados en la época:  7
+f1-score 0.5679012345679012
+AUC según el mejor F1-score 0.8452189887521222
+Confusion Matrix:
+ [[1058  158]
+ [  87  161]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
+Accuracy:   0.8327
+Precision:  0.5047
+Recall:     0.6492
+F1-score:   0.5679
+
+--- Iteración 3 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6895, Test Loss: 0.6152, F1: 0.0472, AUC: 0.8036
+Epoch [10/30] Train Loss: 0.5119, Test Loss: 0.5595, F1: 0.4822, AUC: 0.8470
+Epoch [20/30] Train Loss: 0.4686, Test Loss: 0.3358, F1: 0.5677, AUC: 0.8509
+Mejores resultados en la época:  15
+f1-score 0.5758157389635317
+AUC según el mejor F1-score 0.850763343590832
+Confusion Matrix:
+ [[1093  123]
+ [  98  150]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
+Accuracy:   0.8490
+Precision:  0.5495
+Recall:     0.6048
+F1-score:   0.5758
+
+--- Iteración 4 de 4 para la red 4 ---
+Epoch [0/30] Train Loss: 0.6901, Test Loss: 0.6447, F1: 0.2525, AUC: 0.8046
+Epoch [10/30] Train Loss: 0.4963, Test Loss: 0.5920, F1: 0.4673, AUC: 0.8494
+Epoch [20/30] Train Loss: 0.4543, Test Loss: 0.5234, F1: 0.5117, AUC: 0.8511
+Mejores resultados en la época:  23
+f1-score 0.5815899581589958
+AUC según el mejor F1-score 0.8509656196943973
+Confusion Matrix:
+ [[1125   91]
+ [ 109  139]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_436737.png
+Accuracy:   0.8634
+Precision:  0.6043
+Recall:     0.5605
+F1-score:   0.5816
+Tiempo total para red 4: 30.47 segundos
+
+Entrenando red 5 con capas [1536, 512, 256, 128, 64, 1]
+
+--- Iteración 1 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6892, Test Loss: 0.6318, F1: 0.4044, AUC: 0.8054
+Epoch [10/30] Train Loss: 0.4831, Test Loss: 0.7381, F1: 0.4395, AUC: 0.8538
+Epoch [20/30] Train Loss: 0.4487, Test Loss: 0.3618, F1: 0.5637, AUC: 0.8523
+Mejores resultados en la época:  9
+f1-score 0.5831842576028623
+AUC según el mejor F1-score 0.8523417603989815
+Confusion Matrix:
+ [[1068  148]
+ [  85  163]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
+Accuracy:   0.8408
+Precision:  0.5241
+Recall:     0.6573
+F1-score:   0.5832
+
+--- Iteración 2 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6956, Test Loss: 0.6662, F1: 0.0000, AUC: 0.8038
+Epoch [10/30] Train Loss: 0.5168, Test Loss: 0.6123, F1: 0.4677, AUC: 0.8439
+Epoch [20/30] Train Loss: 0.4801, Test Loss: 0.4770, F1: 0.5239, AUC: 0.8509
+Mejores resultados en la época:  11
+f1-score 0.5734265734265734
+AUC según el mejor F1-score 0.845878873089983
+Confusion Matrix:
+ [[1056  160]
+ [  84  164]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
+Accuracy:   0.8333
+Precision:  0.5062
+Recall:     0.6613
+F1-score:   0.5734
+
+--- Iteración 3 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6948, Test Loss: 0.6715, F1: 0.0472, AUC: 0.8016
+Epoch [10/30] Train Loss: 0.5466, Test Loss: 0.4498, F1: 0.5561, AUC: 0.8486
+Epoch [20/30] Train Loss: 0.5467, Test Loss: 0.3723, F1: 0.5615, AUC: 0.8501
+Mejores resultados en la época:  6
+f1-score 0.5663716814159292
+AUC según el mejor F1-score 0.8441048121816639
+Confusion Matrix:
+ [[1140   76]
+ [ 120  128]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
+Accuracy:   0.8661
+Precision:  0.6275
+Recall:     0.5161
+F1-score:   0.5664
+
+--- Iteración 4 de 4 para la red 5 ---
+Epoch [0/30] Train Loss: 0.6934, Test Loss: 0.6938, F1: 0.3696, AUC: 0.7961
+Epoch [10/30] Train Loss: 0.5097, Test Loss: 0.5574, F1: 0.4721, AUC: 0.8497
+Epoch [20/30] Train Loss: 0.4481, Test Loss: 0.5285, F1: 0.5031, AUC: 0.8505
+Mejores resultados en la época:  17
+f1-score 0.5719237435008665
+AUC según el mejor F1-score 0.8507235515704583
+Confusion Matrix:
+ [[1052  164]
+ [  83  165]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_959489.png
+Accuracy:   0.8313
+Precision:  0.5015
+Recall:     0.6653
+F1-score:   0.5719
+Tiempo total para red 5: 31.71 segundos
+
+Entrenando red 6 con capas [1536, 1024, 512, 256, 128, 64, 32, 1]
+
+--- Iteración 1 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6944, Test Loss: 0.6907, F1: 0.0000, AUC: 0.6810
+Epoch [10/30] Train Loss: 0.4862, Test Loss: 0.3970, F1: 0.5641, AUC: 0.8468
+Epoch [20/30] Train Loss: 0.4743, Test Loss: 0.4520, F1: 0.5386, AUC: 0.8523
+Mejores resultados en la época:  16
+f1-score 0.5780141843971631
+AUC según el mejor F1-score 0.8530149087436334
+Confusion Matrix:
+ [[1063  153]
+ [  85  163]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
+Accuracy:   0.8374
+Precision:  0.5158
+Recall:     0.6573
+F1-score:   0.5780
+
+--- Iteración 2 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6858, Test Loss: 0.6486, F1: 0.4186, AUC: 0.8006
+Epoch [10/30] Train Loss: 0.5073, Test Loss: 0.3453, F1: 0.5800, AUC: 0.8479
+Epoch [20/30] Train Loss: 0.4652, Test Loss: 0.3867, F1: 0.5699, AUC: 0.8517
+Mejores resultados en la época:  10
+f1-score 0.58
+AUC según el mejor F1-score 0.8479480581494058
+Confusion Matrix:
+ [[1109  107]
+ [ 103  145]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
+Accuracy:   0.8566
+Precision:  0.5754
+Recall:     0.5847
+F1-score:   0.5800
+
+--- Iteración 3 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6937, Test Loss: 0.7170, F1: 0.2897, AUC: 0.8015
+Epoch [10/30] Train Loss: 0.5676, Test Loss: 0.5137, F1: 0.5211, AUC: 0.8473
+Epoch [20/30] Train Loss: 0.4538, Test Loss: 0.4932, F1: 0.5409, AUC: 0.8527
+Mejores resultados en la época:  18
+f1-score 0.5744234800838575
+AUC según el mejor F1-score 0.8517216680814941
+Confusion Matrix:
+ [[1124   92]
+ [ 111  137]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
+Accuracy:   0.8613
+Precision:  0.5983
+Recall:     0.5524
+F1-score:   0.5744
+
+--- Iteración 4 de 4 para la red 6 ---
+Epoch [0/30] Train Loss: 0.6950, Test Loss: 0.6860, F1: 0.0000, AUC: 0.8046
+Epoch [10/30] Train Loss: 0.5284, Test Loss: 0.4801, F1: 0.5473, AUC: 0.8374
+Epoch [20/30] Train Loss: 0.4786, Test Loss: 0.4603, F1: 0.5367, AUC: 0.8504
+Mejores resultados en la época:  14
+f1-score 0.5786407766990291
+AUC según el mejor F1-score 0.8471256897283531
+Confusion Matrix:
+ [[1098  118]
+ [  99  149]]
+Matriz de confusión guardada en: outputs_only_text_pseudo/2/gpt/confusion_matrix_param_2273281.png
+Accuracy:   0.8518
+Precision:  0.5581
+Recall:     0.6008
+F1-score:   0.5786
+Tiempo total para red 6: 34.91 segundos
+Saved on: outputs_only_text_pseudo/2/gpt
+
+==============================
+Model: Logistic Regression
+Accuracy:  0.7432
+Precision: 0.3638
+Recall:    0.6895
+F1-score:  0.4763
+              precision    recall  f1-score   support
+
+           0       0.92      0.75      0.83      1216
+           1       0.36      0.69      0.48       248
+
+    accuracy                           0.74      1464
+   macro avg       0.64      0.72      0.65      1464
+weighted avg       0.83      0.74      0.77      1464
+
+[[917 299]
+ [ 77 171]]
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/sklearn/svm/_base.py:305: ConvergenceWarning: Solver terminated early (max_iter=1000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [04:44:06] WARNING: /workspace/src/learner.cc:738: 
 Parameters: { "use_label_encoder" } are not used.
 
   bst.update(dtrain, iteration=i, fobj=obj)
-/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [04:09:34] WARNING: /workspace/src/learner.cc:738: 
+/home/marcelino.maita/.venv/lib/python3.13/site-packages/xgboost/training.py:183: UserWarning: [04:44:06] WARNING: /workspace/src/learner.cc:738: 
 Parameters: { "use_label_encoder" } are not used.
 
   bst.update(dtrain, iteration=i, fobj=obj)
- [  21   90]]
+ [ 77 171]]
 Hiperparámetros: {'C': 1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 42, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_logistic_regression.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/logistic_regression_model.pkl
 
 ==============================
 Model: SVM
-Accuracy:  0.8258
-Precision: 0.2805
-Recall:    0.8288
-F1-score:  0.4191
+Accuracy:  0.7903
+Precision: 0.4322
+Recall:    0.7581
+F1-score:  0.5505
               precision    recall  f1-score   support
 
-           0       0.98      0.83      0.90      1353
-           1       0.28      0.83      0.42       111
+           0       0.94      0.80      0.86      1216
+           1       0.43      0.76      0.55       248
 
-    accuracy                           0.83      1464
-   macro avg       0.63      0.83      0.66      1464
-weighted avg       0.93      0.83      0.86      1464
+    accuracy                           0.79      1464
+   macro avg       0.69      0.78      0.71      1464
+weighted avg       0.86      0.79      0.81      1464
 
-[[1117  236]
- [  19   92]]
+[[969 247]
+ [ 60 188]]
 Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 42, 'shrinking': True, 'tol': 0.001, 'verbose': False}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_svm.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/svm_model.pkl
 
 ==============================
 Model: Decision Tree
-Accuracy:  0.6667
-Precision: 0.1503
-Recall:    0.7297
-F1-score:  0.2492
+Accuracy:  0.6086
+Precision: 0.2400
+Recall:    0.6048
+F1-score:  0.3436
               precision    recall  f1-score   support
 
-           0       0.97      0.66      0.79      1353
-           1       0.15      0.73      0.25       111
+           0       0.88      0.61      0.72      1216
+           1       0.24      0.60      0.34       248
 
-    accuracy                           0.67      1464
-   macro avg       0.56      0.70      0.52      1464
-weighted avg       0.91      0.67      0.75      1464
+    accuracy                           0.61      1464
+   macro avg       0.56      0.61      0.53      1464
+weighted avg       0.77      0.61      0.66      1464
 
-[[895 458]
- [ 30  81]]
+[[741 475]
+ [ 98 150]]
 Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 42, 'splitter': 'best'}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_decision_tree.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/decision_tree_model.pkl
 
 ==============================
 Model: Random Forest
-Accuracy:  0.7828
-Precision: 0.2255
-Recall:    0.7658
-F1-score:  0.3484
+Accuracy:  0.7794
+Precision: 0.4146
+Recall:    0.7339
+F1-score:  0.5298
               precision    recall  f1-score   support
 
-           0       0.98      0.78      0.87      1353
-           1       0.23      0.77      0.35       111
+           0       0.94      0.79      0.86      1216
+           1       0.41      0.73      0.53       248
 
     accuracy                           0.78      1464
-   macro avg       0.60      0.77      0.61      1464
-weighted avg       0.92      0.78      0.83      1464
+   macro avg       0.68      0.76      0.69      1464
+weighted avg       0.85      0.78      0.80      1464
 
-[[1061  292]
- [  26   85]]
+[[959 257]
+ [ 66 182]]
 Hiperparámetros: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 15, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': -1, 'oob_score': False, 'random_state': 42, 'verbose': 0, 'warm_start': False}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_random_forest.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/random_forest_model.pkl
 
 ==============================
 Model: XGBoost
-Accuracy:  0.8026
-Precision: 0.2528
-Recall:    0.8198
-F1-score:  0.3864
+Accuracy:  0.7650
+Precision: 0.3943
+Recall:    0.7218
+F1-score:  0.5100
               precision    recall  f1-score   support
 
-           0       0.98      0.80      0.88      1353
-           1       0.25      0.82      0.39       111
+           0       0.93      0.77      0.85      1216
+           1       0.39      0.72      0.51       248
 
-    accuracy                           0.80      1464
-   macro avg       0.62      0.81      0.63      1464
-weighted avg       0.93      0.80      0.84      1464
+    accuracy                           0.77      1464
+   macro avg       0.66      0.75      0.68      1464
+weighted avg       0.84      0.77      0.79      1464
 
-[[1084  269]
- [  20   91]]
+[[941 275]
+ [ 69 179]]
 Hiperparámetros: {'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': 0.8, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 8, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 200, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 42, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': 0.8, 'tree_method': None, 'validate_parameters': None, 'verbosity': None, 'use_label_encoder': False}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_xgboost.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/xgboost_model.pkl
 
 ==============================
 Model: Naive Bayes
-Accuracy:  0.7944
-Precision: 0.2376
-Recall:    0.7748
-F1-score:  0.3636
+Accuracy:  0.7609
+Precision: 0.3886
+Recall:    0.7177
+F1-score:  0.5042
               precision    recall  f1-score   support
 
-           0       0.98      0.80      0.88      1353
-           1       0.24      0.77      0.36       111
+           0       0.93      0.77      0.84      1216
+           1       0.39      0.72      0.50       248
 
-    accuracy                           0.79      1464
-   macro avg       0.61      0.79      0.62      1464
-weighted avg       0.92      0.79      0.84      1464
+    accuracy                           0.76      1464
+   macro avg       0.66      0.74      0.67      1464
+weighted avg       0.84      0.76      0.79      1464
 
-[[1077  276]
- [  25   86]]
+[[936 280]
+ [ 70 178]]
 Hiperparámetros: {'priors': None, 'var_smoothing': 1e-09}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_naive_bayes.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/naive_bayes_model.pkl
 
 
 Resumen de métricas:
-SVM: {'accuracy': 0.8258, 'precision': 0.2805, 'recall': 0.8288, 'f1_score': 0.4191}
-XGBoost: {'accuracy': 0.8026, 'precision': 0.2528, 'recall': 0.8198, 'f1_score': 0.3864}
-Logistic Regression: {'accuracy': 0.8005, 'precision': 0.2493, 'recall': 0.8108, 'f1_score': 0.3814}
-Naive Bayes: {'accuracy': 0.7944, 'precision': 0.2376, 'recall': 0.7748, 'f1_score': 0.3636}
-Random Forest: {'accuracy': 0.7828, 'precision': 0.2255, 'recall': 0.7658, 'f1_score': 0.3484}
-Decision Tree: {'accuracy': 0.6667, 'precision': 0.1503, 'recall': 0.7297, 'f1_score': 0.2492}
+SVM: {'accuracy': 0.7903, 'precision': 0.4322, 'recall': 0.7581, 'f1_score': 0.5505}
+Random Forest: {'accuracy': 0.7794, 'precision': 0.4146, 'recall': 0.7339, 'f1_score': 0.5298}
+XGBoost: {'accuracy': 0.765, 'precision': 0.3943, 'recall': 0.7218, 'f1_score': 0.51}
+Naive Bayes: {'accuracy': 0.7609, 'precision': 0.3886, 'recall': 0.7177, 'f1_score': 0.5042}
+Logistic Regression: {'accuracy': 0.7432, 'precision': 0.3638, 'recall': 0.6895, 'f1_score': 0.4763}
+Decision Tree: {'accuracy': 0.6086, 'precision': 0.24, 'recall': 0.6048, 'f1_score': 0.3436}
 
 
 Resumen GLOBAL de métricas:
 
 
 EMBEDDINGS TYPE: GPT
-MLP_959489: {'accuracy': 0.8763661202185792, 'precision': 0.35772357723577236, 'recall': 0.7927927927927928, 'f1_score': 0.5418326693227091, 'f1_score_avg': 0.5249081776335928}
-MLP_2273281: {'accuracy': 0.9118852459016393, 'precision': 0.44642857142857145, 'recall': 0.6756756756756757, 'f1_score': 0.5418326693227091, 'f1_score_avg': 0.5232539019979524}
-MLP_100481: {'accuracy': 0.8770491803278688, 'precision': 0.35684647302904565, 'recall': 0.7747747747747747, 'f1_score': 0.5245901639344263, 'f1_score_avg': 0.4878808432110948}
-MLP_207105: {'accuracy': 0.8907103825136612, 'precision': 0.386046511627907, 'recall': 0.7477477477477478, 'f1_score': 0.5245901639344263, 'f1_score_avg': 0.5050790216097355}
-MLP_436737: {'accuracy': 0.8811475409836066, 'precision': 0.3648068669527897, 'recall': 0.7657657657657657, 'f1_score': 0.5245901639344263, 'f1_score_avg': 0.502999296434971}
-MLP_49217: {'accuracy': 0.8913934426229508, 'precision': 0.38461538461538464, 'recall': 0.7207207207207207, 'f1_score': 0.5209003215434084, 'f1_score_avg': 0.5073087163049541}
-SVM: {'accuracy': 0.8258, 'precision': 0.2805, 'recall': 0.8288, 'f1_score': 0.4191}
-XGBoost: {'accuracy': 0.8026, 'precision': 0.2528, 'recall': 0.8198, 'f1_score': 0.3864}
-Logistic Regression: {'accuracy': 0.8005, 'precision': 0.2493, 'recall': 0.8108, 'f1_score': 0.3814}
-Naive Bayes: {'accuracy': 0.7944, 'precision': 0.2376, 'recall': 0.7748, 'f1_score': 0.3636}
-Random Forest: {'accuracy': 0.7828, 'precision': 0.2255, 'recall': 0.7658, 'f1_score': 0.3484}
-Decision Tree: {'accuracy': 0.6667, 'precision': 0.1503, 'recall': 0.7297, 'f1_score': 0.2492}
+MLP_436737: {'accuracy': 0.8415300546448088, 'precision': 0.527027027027027, 'recall': 0.6290322580645161, 'f1_score': 0.5807692307692308, 'f1_score_avg': 0.5765603756156888}
+MLP_959489: {'accuracy': 0.8367486338797814, 'precision': 0.5144694533762058, 'recall': 0.6451612903225806, 'f1_score': 0.5807692307692308, 'f1_score_avg': 0.572206116888714}
+MLP_2273281: {'accuracy': 0.851775956284153, 'precision': 0.55893536121673, 'recall': 0.592741935483871, 'f1_score': 0.5807692307692308, 'f1_score_avg': 0.570649656712161}
+MLP_49217: {'accuracy': 0.8524590163934426, 'precision': 0.5610687022900763, 'recall': 0.592741935483871, 'f1_score': 0.5787545787545788, 'f1_score_avg': 0.5767719749297042}
+MLP_100481: {'accuracy': 0.8449453551912568, 'precision': 0.5376344086021505, 'recall': 0.6048387096774194, 'f1_score': 0.5787545787545788, 'f1_score_avg': 0.5734535667669349}
+MLP_207105: {'accuracy': 0.8476775956284153, 'precision': 0.5461254612546126, 'recall': 0.5967741935483871, 'f1_score': 0.5787545787545788, 'f1_score_avg': 0.5731362583522015}
+SVM: {'accuracy': 0.7903, 'precision': 0.4322, 'recall': 0.7581, 'f1_score': 0.5505}
+Random Forest: {'accuracy': 0.7794, 'precision': 0.4146, 'recall': 0.7339, 'f1_score': 0.5298}
+XGBoost: {'accuracy': 0.765, 'precision': 0.3943, 'recall': 0.7218, 'f1_score': 0.51}
+Naive Bayes: {'accuracy': 0.7609, 'precision': 0.3886, 'recall': 0.7177, 'f1_score': 0.5042}
+Logistic Regression: {'accuracy': 0.7432, 'precision': 0.3638, 'recall': 0.6895, 'f1_score': 0.4763}
+Decision Tree: {'accuracy': 0.6086, 'precision': 0.24, 'recall': 0.6048, 'f1_score': 0.3436}
 
 ========== CONFIGURATIONS ==========
 TESTING: False
@@ -1090,142 +1099,141 @@ TF-IDF Columns: ['lyrics']
 Numeric Columns: Not used
 ====================================
 
- [  21   90]]
 Hiperparámetros: {'C': 1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 1000, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l2', 'random_state': 42, 'solver': 'lbfgs', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_logistic_regression.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/logistic_regression_model.pkl
 
 ==============================
 Model: SVM
-Accuracy:  0.8258
-Precision: 0.2805
-Recall:    0.8288
-F1-score:  0.4191
+Accuracy:  0.7903
+Precision: 0.4322
+Recall:    0.7581
+F1-score:  0.5505
               precision    recall  f1-score   support
 
-           0       0.98      0.83      0.90      1353
-           1       0.28      0.83      0.42       111
+           0       0.94      0.80      0.86      1216
+           1       0.43      0.76      0.55       248
 
-    accuracy                           0.83      1464
-   macro avg       0.63      0.83      0.66      1464
-weighted avg       0.93      0.83      0.86      1464
+    accuracy                           0.79      1464
+   macro avg       0.69      0.78      0.71      1464
+weighted avg       0.86      0.79      0.81      1464
 
-[[1117  236]
- [  19   92]]
+[[969 247]
+ [ 60 188]]
 Hiperparámetros: {'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': 1000, 'probability': False, 'random_state': 42, 'shrinking': True, 'tol': 0.001, 'verbose': False}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_svm.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/svm_model.pkl
 
 ==============================
 Model: Decision Tree
-Accuracy:  0.6667
-Precision: 0.1503
-Recall:    0.7297
-F1-score:  0.2492
+Accuracy:  0.6086
+Precision: 0.2400
+Recall:    0.6048
+F1-score:  0.3436
               precision    recall  f1-score   support
 
-           0       0.97      0.66      0.79      1353
-           1       0.15      0.73      0.25       111
+           0       0.88      0.61      0.72      1216
+           1       0.24      0.60      0.34       248
 
-    accuracy                           0.67      1464
-   macro avg       0.56      0.70      0.52      1464
-weighted avg       0.91      0.67      0.75      1464
+    accuracy                           0.61      1464
+   macro avg       0.56      0.61      0.53      1464
+weighted avg       0.77      0.61      0.66      1464
 
-[[895 458]
- [ 30  81]]
+[[741 475]
+ [ 98 150]]
 Hiperparámetros: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'random_state': 42, 'splitter': 'best'}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_decision_tree.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/decision_tree_model.pkl
 
 ==============================
 Model: Random Forest
-Accuracy:  0.7828
-Precision: 0.2255
-Recall:    0.7658
-F1-score:  0.3484
+Accuracy:  0.7794
+Precision: 0.4146
+Recall:    0.7339
+F1-score:  0.5298
               precision    recall  f1-score   support
 
-           0       0.98      0.78      0.87      1353
-           1       0.23      0.77      0.35       111
+           0       0.94      0.79      0.86      1216
+           1       0.41      0.73      0.53       248
 
     accuracy                           0.78      1464
-   macro avg       0.60      0.77      0.61      1464
-weighted avg       0.92      0.78      0.83      1464
+   macro avg       0.68      0.76      0.69      1464
+weighted avg       0.85      0.78      0.80      1464
 
-[[1061  292]
- [  26   85]]
+[[959 257]
+ [ 66 182]]
 Hiperparámetros: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 15, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'monotonic_cst': None, 'n_estimators': 200, 'n_jobs': -1, 'oob_score': False, 'random_state': 42, 'verbose': 0, 'warm_start': False}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_random_forest.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/random_forest_model.pkl
 
 ==============================
 Model: XGBoost
-Accuracy:  0.8026
-Precision: 0.2528
-Recall:    0.8198
-F1-score:  0.3864
+Accuracy:  0.7650
+Precision: 0.3943
+Recall:    0.7218
+F1-score:  0.5100
               precision    recall  f1-score   support
 
-           0       0.98      0.80      0.88      1353
-           1       0.25      0.82      0.39       111
+           0       0.93      0.77      0.85      1216
+           1       0.39      0.72      0.51       248
 
-    accuracy                           0.80      1464
-   macro avg       0.62      0.81      0.63      1464
-weighted avg       0.93      0.80      0.84      1464
+    accuracy                           0.77      1464
+   macro avg       0.66      0.75      0.68      1464
+weighted avg       0.84      0.77      0.79      1464
 
-[[1084  269]
- [  20   91]]
+[[941 275]
+ [ 69 179]]
 Hiperparámetros: {'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': 0.8, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 8, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 200, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 42, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': 0.8, 'tree_method': None, 'validate_parameters': None, 'verbosity': None, 'use_label_encoder': False}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_xgboost.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/xgboost_model.pkl
 
 ==============================
 Model: Naive Bayes
-Accuracy:  0.7944
-Precision: 0.2376
-Recall:    0.7748
-F1-score:  0.3636
+Accuracy:  0.7609
+Precision: 0.3886
+Recall:    0.7177
+F1-score:  0.5042
               precision    recall  f1-score   support
 
-           0       0.98      0.80      0.88      1353
-           1       0.24      0.77      0.36       111
+           0       0.93      0.77      0.84      1216
+           1       0.39      0.72      0.50       248
 
-    accuracy                           0.79      1464
-   macro avg       0.61      0.79      0.62      1464
-weighted avg       0.92      0.79      0.84      1464
+    accuracy                           0.76      1464
+   macro avg       0.66      0.74      0.67      1464
+weighted avg       0.84      0.76      0.79      1464
 
-[[1077  276]
- [  25   86]]
+[[936 280]
+ [ 70 178]]
 Hiperparámetros: {'priors': None, 'var_smoothing': 1e-09}
 Confusion matrix saved as: outputs_only_text_pseudo/2/gpt/conf_matrix_naive_bayes.png
 Modelo guardado como: outputs_only_text_pseudo/2/gpt/naive_bayes_model.pkl
 
 
 Resumen de métricas:
-SVM: {'accuracy': 0.8258, 'precision': 0.2805, 'recall': 0.8288, 'f1_score': 0.4191}
-XGBoost: {'accuracy': 0.8026, 'precision': 0.2528, 'recall': 0.8198, 'f1_score': 0.3864}
-Logistic Regression: {'accuracy': 0.8005, 'precision': 0.2493, 'recall': 0.8108, 'f1_score': 0.3814}
-Naive Bayes: {'accuracy': 0.7944, 'precision': 0.2376, 'recall': 0.7748, 'f1_score': 0.3636}
-Random Forest: {'accuracy': 0.7828, 'precision': 0.2255, 'recall': 0.7658, 'f1_score': 0.3484}
-Decision Tree: {'accuracy': 0.6667, 'precision': 0.1503, 'recall': 0.7297, 'f1_score': 0.2492}
+SVM: {'accuracy': 0.7903, 'precision': 0.4322, 'recall': 0.7581, 'f1_score': 0.5505}
+Random Forest: {'accuracy': 0.7794, 'precision': 0.4146, 'recall': 0.7339, 'f1_score': 0.5298}
+XGBoost: {'accuracy': 0.765, 'precision': 0.3943, 'recall': 0.7218, 'f1_score': 0.51}
+Naive Bayes: {'accuracy': 0.7609, 'precision': 0.3886, 'recall': 0.7177, 'f1_score': 0.5042}
+Logistic Regression: {'accuracy': 0.7432, 'precision': 0.3638, 'recall': 0.6895, 'f1_score': 0.4763}
+Decision Tree: {'accuracy': 0.6086, 'precision': 0.24, 'recall': 0.6048, 'f1_score': 0.3436}
 
 
 Resumen GLOBAL de métricas:
 
 
 EMBEDDINGS TYPE: GPT
-MLP_959489: {'accuracy': 0.907103825136612, 'precision': 0.4301675977653631, 'recall': 0.6936936936936937, 'f1_score': 0.5310344827586206, 'f1_score_avg': 0.5038782843011317}
-MLP_2273281: {'accuracy': 0.8886612021857924, 'precision': 0.37850467289719625, 'recall': 0.7297297297297297, 'f1_score': 0.5310344827586206, 'f1_score_avg': 0.5022575227982818}
-MLP_436737: {'accuracy': 0.8818306010928961, 'precision': 0.3686440677966102, 'recall': 0.7837837837837838, 'f1_score': 0.5214521452145214, 'f1_score_avg': 0.5015584430269142}
-MLP_207105: {'accuracy': 0.8613387978142076, 'precision': 0.33211678832116787, 'recall': 0.8198198198198198, 'f1_score': 0.5151515151515151, 'f1_score_avg': 0.48641138206009943}
-MLP_100481: {'accuracy': 0.8859289617486339, 'precision': 0.37610619469026546, 'recall': 0.7657657657657657, 'f1_score': 0.5044510385756676, 'f1_score_avg': 0.48876899667638163}
-MLP_49217: {'accuracy': 0.8729508196721312, 'precision': 0.3469387755102041, 'recall': 0.7657657657657657, 'f1_score': 0.47752808988764045, 'f1_score_avg': 0.43093124096671465}
-SVM: {'accuracy': 0.8258, 'precision': 0.2805, 'recall': 0.8288, 'f1_score': 0.4191}
-XGBoost: {'accuracy': 0.8026, 'precision': 0.2528, 'recall': 0.8198, 'f1_score': 0.3864}
-Logistic Regression: {'accuracy': 0.8005, 'precision': 0.2493, 'recall': 0.8108, 'f1_score': 0.3814}
-Naive Bayes: {'accuracy': 0.7944, 'precision': 0.2376, 'recall': 0.7748, 'f1_score': 0.3636}
-Random Forest: {'accuracy': 0.7828, 'precision': 0.2255, 'recall': 0.7658, 'f1_score': 0.3484}
-Decision Tree: {'accuracy': 0.6667, 'precision': 0.1503, 'recall': 0.7297, 'f1_score': 0.2492}
+MLP_959489: {'accuracy': 0.8312841530054644, 'precision': 0.5015197568389058, 'recall': 0.6653225806451613, 'f1_score': 0.5831842576028623, 'f1_score_avg': 0.5737265639865579}
+MLP_2273281: {'accuracy': 0.851775956284153, 'precision': 0.5580524344569289, 'recall': 0.6008064516129032, 'f1_score': 0.5831842576028623, 'f1_score_avg': 0.5777696102950124}
+MLP_436737: {'accuracy': 0.8633879781420765, 'precision': 0.6043478260869565, 'recall': 0.5604838709677419, 'f1_score': 0.5815899581589958, 'f1_score_avg': 0.5752661268620012}
+MLP_207105: {'accuracy': 0.8620218579234973, 'precision': 0.6055045871559633, 'recall': 0.532258064516129, 'f1_score': 0.5776173285198556, 'f1_score_avg': 0.5718976005473128}
+MLP_49217: {'accuracy': 0.8367486338797814, 'precision': 0.5147540983606558, 'recall': 0.6330645161290323, 'f1_score': 0.5760286225402504, 'f1_score_avg': 0.5732539314157659}
+MLP_100481: {'accuracy': 0.8319672131147541, 'precision': 0.5030120481927711, 'recall': 0.6733870967741935, 'f1_score': 0.5760286225402504, 'f1_score_avg': 0.5719815649228606}
+SVM: {'accuracy': 0.7903, 'precision': 0.4322, 'recall': 0.7581, 'f1_score': 0.5505}
+Random Forest: {'accuracy': 0.7794, 'precision': 0.4146, 'recall': 0.7339, 'f1_score': 0.5298}
+XGBoost: {'accuracy': 0.765, 'precision': 0.3943, 'recall': 0.7218, 'f1_score': 0.51}
+Naive Bayes: {'accuracy': 0.7609, 'precision': 0.3886, 'recall': 0.7177, 'f1_score': 0.5042}
+Logistic Regression: {'accuracy': 0.7432, 'precision': 0.3638, 'recall': 0.6895, 'f1_score': 0.4763}
+Decision Tree: {'accuracy': 0.6086, 'precision': 0.24, 'recall': 0.6048, 'f1_score': 0.3436}
 
 ========== CONFIGURATIONS ==========
 TESTING: False

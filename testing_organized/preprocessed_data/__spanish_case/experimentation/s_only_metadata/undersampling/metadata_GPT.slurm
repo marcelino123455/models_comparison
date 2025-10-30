@@ -10,7 +10,7 @@
 # Cantidad de CPUs cores a usar:
 #SBATCH -c 1
 
-#SBATCH --output=./outputs_numerical_categorical_metadata/2/gpt.out
+#SBATCH --output=./metadata_us_pesudo/2/gpt.out
 # Tamaño de memoria del job:
 #SBATCH --mem-per-cpu=2000mb
 #SBATCH --mail-type=END,FAIL

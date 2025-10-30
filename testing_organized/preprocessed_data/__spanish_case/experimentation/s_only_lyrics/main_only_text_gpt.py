@@ -174,8 +174,8 @@ def load_LB_embbedings(csv_path, npy_path, sample_size=None):
     
     else:
         X = X_vec
-    y = df['explicit_content'].astype(int)
-    print(f"Label distribution: {df['explicit_content'].value_counts().to_dict()}")
+    y = df['pseudo_label_explicit'].astype(int)
+    print(f"Label distribution: {df['pseudo_label_explicit'].value_counts().to_dict()}")
     print(f"X shape: {X.shape}")
     print(f"y shape: {y.shape}")
     return X, y
@@ -210,10 +210,10 @@ def load_gpt_embbedings(csv_path, npy_path, sample_size=None):
     
     else:
         X = X_vec
-    y = df['explicit_content'].astype(int)
+    y = df['pseudo_label_explicit'].astype(int)
     # Porque ta completita la data
     # y = elimnate_y_index(y)
-    print(f"Label distribution: {df['explicit_content'].value_counts().to_dict()}")
+    print(f"Label distribution: {df['pseudo_label_explicit'].value_counts().to_dict()}")
     print(f"X shape: {X.shape}")
     print(f"y shape: {y.shape}")
     return X, y
@@ -241,7 +241,7 @@ def load_TFIDF_embbedings(csv_path, sample_size=None, columns_tf_idfizable = ['t
 
     # df['pseudo_label_explicit'] = (df['Explicit'].str.lower() == 'yes').astype(int)
     
-    y = df['explicit_content'].astype(int)
+    y = df['pseudo_label_explicit'].astype(int)
 
 
     # Aplying TF-IDF
@@ -252,7 +252,7 @@ def load_TFIDF_embbedings(csv_path, sample_size=None, columns_tf_idfizable = ['t
         ngram_range=(1, 2)
     )
 
-    print(f"Label distribution: {df['explicit_content'].value_counts().to_dict()}")
+    print(f"Label distribution: {df['pseudo_label_explicit'].value_counts().to_dict()}")
     
     return df['processed_text'], y, vectorizer
 
@@ -846,26 +846,26 @@ def main():
         # I finded a tada laeakage: 
 
 
-        path_train_indices = f"{path_DATA}/train_indices_spanish.csv"
-        path_test_indices = f"{path_DATA}/test_indices_spanish.csv"
+        # path_train_indices = f"{path_DATA}/train_indices_spanish.csv"
+        # path_test_indices = f"{path_DATA}/test_indices_spanish.csv"
 
 
-        df_train_indices = pd.read_csv(path_train_indices)
-        df_test_indices = pd.read_csv(path_test_indices)
+        # df_train_indices = pd.read_csv(path_train_indices)
+        # df_test_indices = pd.read_csv(path_test_indices)
 
-        idx_train = df_train_indices['original_index'].values
-        idx_test = df_test_indices['original_index'].values
+        # idx_train = df_train_indices['original_index'].values
+        # idx_test = df_test_indices['original_index'].values
 
-        X_train = X[idx_train]
-        X_test = X[idx_test]
-        y_train = y[idx_train]
-        y_test = y[idx_test]
+        # X_train = X[idx_train]
+        # X_test = X[idx_test]
+        # y_train = y[idx_train]
+        # y_test = y[idx_test]
 
 
-        # print("\nSplitting data...")
-        # X_train, X_test, y_train, y_test = train_test_split(
-        #     X, y, test_size=0.2, random_state=RANDOM_STATE, stratify=y
-        # )
+        print("\nSplitting data...")
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=RANDOM_STATE, stratify=y
+        )
 
 
         if embedding_type == 'tfidf': # c
